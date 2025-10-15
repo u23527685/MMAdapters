@@ -2,6 +2,7 @@
 #define SALESMANAGER_H
 
 #include "SalesStaff.h"
+#include<vector>
 
 class SalesManager: public SalesStaff{
     private:

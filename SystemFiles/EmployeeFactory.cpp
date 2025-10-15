@@ -2,6 +2,8 @@
 #include "SalesEmployee.h"
 #include "FloorEmployee.h"
 
+#include<string>
+
 EmployeeFactory::EmployeeFactory():StaffFactory(){}
 
 EmployeeFactory::~EmployeeFactory(){}

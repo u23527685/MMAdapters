@@ -3,6 +3,7 @@
 
 #include "FloorStaff.h"
 #include<vector>
+#include<string>
 
 class FloorEmployee: public FloorStaff{
     private:

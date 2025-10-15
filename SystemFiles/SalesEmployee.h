@@ -2,6 +2,7 @@
 #define SALESEMPLOYEE_H
 
 #include "SalesStaff.h"
+#include<vector>
 
 class SalesEmployee: public SalesStaff{
     private:

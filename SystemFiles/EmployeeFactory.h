@@ -2,6 +2,7 @@
 #define EMPLOYEEFACTORY_H
 
 #include "StaffFactory.h"
+#include<string>
 
 class EmployeeFactory:public StaffFactory{
     public:

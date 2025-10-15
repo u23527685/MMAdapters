@@ -2,6 +2,7 @@
 #include <random>
 #include<iostream>
 
+
 FloorEmployee::FloorEmployee(std::string name):FloorStaff(name){
     responsibilities.push_back("STOCK");
     responsibilities.push_back("INCOMMING STOCK");
