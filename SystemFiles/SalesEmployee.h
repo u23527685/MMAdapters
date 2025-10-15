@@ -3,6 +3,15 @@
 
 #include "SalesStaff.h"
 
-class SalesEmployee: public SalesStaff{};
+class SalesEmployee: public SalesStaff{
+    private:
+        std::vector<std::string>responsibilities;
+    
+    public:
+        SalesEmployee(std::string name);
+        virtual ~SalesEmployee();
+        bool staffCanHandle() override;
+        void reply() override;
+};
 
 #endif // !SALESEMPLOYEE_H

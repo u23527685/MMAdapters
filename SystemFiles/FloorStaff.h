@@ -2,6 +2,7 @@
 #define FLOORSTAFF_H
 
 #include "Staff.h"
+#include <string>
 
 /**
  * @class FloorStaff
@@ -12,7 +13,12 @@
  * @version 1.0
  */
 class FloorStaff : public Staff {
-    // Class implementation...
+    public:
+        FloorStaff(std::string name);
+        virtual ~FloorStaff();
+        void handleQuery() override;
+        virtual bool staffCanHandle()=0;
+        virtual void reply()=0;
 };
 
 #endif 

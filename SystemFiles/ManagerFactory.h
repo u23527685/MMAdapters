@@ -7,8 +7,8 @@ class Managerfactory:public StaffFactory{
     public: 
         Managerfactory();
         ~Managerfactory();
-        FloorStaff* createFloorStaff() override;
-        SalesStaff* createSalesStaff() override;
+        FloorStaff* createFloorStaff(std::string name) override;
+        SalesStaff* createSalesStaff(std::string name) override;
 };
 
 #endif // !MANAGERFACTORY_H

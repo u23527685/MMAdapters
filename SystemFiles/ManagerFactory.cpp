@@ -8,10 +8,10 @@ Managerfactory::Managerfactory():StaffFactory(){}
 
 Managerfactory::~Managerfactory(){}
 
-FloorStaff* Managerfactory::createFloorStaff(){
-    return new FloorManager();
+FloorStaff* Managerfactory::createFloorStaff(std::string name){
+    return new FloorManager(name);
 }
 
-SalesStaff* Managerfactory::createSalesStaff(){
-    return new SalesManager();
+SalesStaff* Managerfactory::createSalesStaff(std::string name){
+    return new SalesManager(name);
 }

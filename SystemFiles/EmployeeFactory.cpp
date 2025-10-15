@@ -6,10 +6,10 @@ EmployeeFactory::EmployeeFactory():StaffFactory(){}
 
 EmployeeFactory::~EmployeeFactory(){}
 
-FloorStaff* EmployeeFactory::createFloorStaff(){
-    return new FloorEmployee();
+FloorStaff* EmployeeFactory::createFloorStaff(std::string name){
+    return new FloorEmployee(name);
 }
 
-SalesStaff* EmployeeFactory::createSalesStaff(){
-    return new SalesEmployee();
+SalesStaff* EmployeeFactory::createSalesStaff(std::string name){
+    return new SalesEmployee(name);
 }
