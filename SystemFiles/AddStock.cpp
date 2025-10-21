@@ -1,7 +1,6 @@
 #include "AddStock.h"
-#include <iostream>
 
-addStock::addStock(PlantStock* s, string type, int qty)
+addStock::addStock(PlantStock* s, string type, int quantity)
     : stock(s), plantType(type), quantity(qty) {}
 
 void addStock::execute() {

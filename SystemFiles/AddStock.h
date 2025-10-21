@@ -4,10 +4,11 @@
 #include "StockCommand.h"
 #include "PlantStock.h"
 #include <string>
+#include <iostream>
 
 class addStock : public StockCommand {
     public:
-        addStock(PlantStock* s, std::string type, int qty);
+        addStock(PlantStock* s, std::string type, int quantity);
         void execute() override;
 
     private:

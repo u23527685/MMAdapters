@@ -1,5 +1,4 @@
 #include "PlantInventory.h"
-#include <iostream>
 
 bool PlantInventory::attach(InventoryObserver* observer) {
     observers.push_back(observer);

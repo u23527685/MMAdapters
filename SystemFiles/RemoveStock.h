@@ -4,6 +4,7 @@
 #include "StockCommand.h"
 #include "PlantStock.h"
 #include <string>
+#include <iostream>
 
 class removeStock : public StockCommand {
     public:

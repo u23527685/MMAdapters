@@ -3,12 +3,13 @@
 
 #include "InventoryObserver.h"
 #include <iostream>
+#include <string>
 
 class PlantInventory;
 
 class StaffObserver : public InventoryObserver{
     public:
-        StaffObserver(PlantInventory* inv);
+        StaffObserver(PlantInventory* inventory);
         void update();
     
     private:
@@ -16,3 +17,4 @@ class StaffObserver : public InventoryObserver{
 };
 
 #endif
+

@@ -1,7 +1,5 @@
 #include "SalesFloorObserver.h"
 #include "PlantInventory.h"
-#include <iostream>
-
 
 SalesFloorObserver::SalesFloorObserver(PlantInventory* inv) : inventory(inv) {}
 

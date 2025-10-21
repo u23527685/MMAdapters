@@ -2,6 +2,7 @@
 #define STAFF_H
 
 #include <iostream>
+#include <string>
 
 class State;
 class PlantLifeCycle;
@@ -17,4 +18,6 @@ class Staff {
         Staff* next;
 };
 
-#endif
+#endif 
+
+

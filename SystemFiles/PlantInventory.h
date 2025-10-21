@@ -2,6 +2,8 @@
 #define PLANTINVENTORY_H
 
 #include <vector>
+#include <string>
+#include <iostream>
 #include "InventoryObserver.h"
 
 class PlantInventory {
