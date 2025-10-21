@@ -1,11 +1,14 @@
-#include "StaffFactory.h"
-#include"ManagerFactory.h"
-#include"EmployeeFactory.h"
+#include "PlantInventory.h"
+#include "InventoryObserver.h"
+#include "SalesFloorObserver.h"
 #include "Staff.h"
 #include "FloorStaff.h"
 #include "SalesStaff.h"
+#include "StaffFactory.h"
+#include "ManagerFactory.h"
+#include "EmployeeFactory.h"
 
-#include<iostream>
+#include <iostream>
 
 int main() {
     StaffFactory**factories= new StaffFactory* [2];
@@ -58,6 +61,70 @@ int main() {
 
     std::cout<<"<<<<<<<<<<<<<<<<<<<<<<<<<"<<std::endl;
 
+    std::cout << std::endl;
+
+    PlantInventory* greenhouse = new PlantInventory();
+    std::cout << "Greenhouse inventory created." << std::endl << std::endl;
+
+    std::cout << "Creating staff observers:" << std::endl << std::endl;
+    InventoryObserver* floorManagerObserver = new InventoryObserver(f1);
+    InventoryObserver* floorEmployeeObserver = new InventoryObserver(f2);
+    SalesFloorObserver* salesManagerObserver = new SalesFloorObserver(s1);
+    SalesFloorObserver* salesEmployeeObserver = new SalesFloorObserver(s2);
+
+    greenhouse->attach(floorManagerObserver);
+    greenhouse->attach(floorEmployeeObserver);
+    greenhouse->attach(salesManagerObserver);
+    greenhouse->attach(salesEmployeeObserver);
+
+    greenhouse->displayInventory();
+
+    std::cout << std::endl;
+    std::cout << "Simulating inventory changes in the greenhouse." << std::endl << std::endl;
+    std::cout << "Roses have matured and are ready for sale!" << std::endl;
+    greenhouse->addPlant("Rose", 15);
+    std::cout << "Oak trees have matured!" << std::endl;
+    greenhouse->addPlant("Oak", 8);
+    std::cout << "Another batch of Roses is ready!" << std::endl;
+    greenhouse->addPlant("Rose", 10);
+
+    greenhouse->displayInventory();
+
+    salesManagerObserver->displaySalesFloor();
+
+    std::cout << "Customer purchases 5 Roses" << std::endl;
+    greenhouse->removePlant("Rose", 5);
+    std::cout << std::endl;
+    
+    std::cout << "Customer purchases 3 Oaks" << std::endl;
+    greenhouse->removePlant("Oak", 3);
+    std::cout << std::endl;
+    
+    std::cout << "Large order: 18 Roses" << std::endl;
+    greenhouse->removePlant("Rose", 18);
+    
+    greenhouse->displayInventory();
+
+    std::cout << std::endl;
+
+    std::cout << "Selling more Oaks to trigger low stock warning" << std::endl;
+    greenhouse->removePlant("Oak", 4);
+    
+    std::cout << "Attempting to sell remaining Oak" << std::endl;
+    greenhouse->removePlant("Oak", 1);
+    
+    greenhouse->displayInventory();
+
+    std::cout << std::endl;
+
+    greenhouse->detach(floorEmployeeObserver);
+
+    std::cout << std::endl;
+
+    greenhouse->addPlant("Tulip", 12);
+    
+    greenhouse->displayInventory();
+
     // Delete the Staff objects
     delete f1;
     delete f2;
@@ -70,6 +137,15 @@ int main() {
 
     // Delete the array itself
     delete[] factories;
+
+    // Delete observers
+    delete floorManagerObserver;
+    delete floorEmployeeObserver;
+    delete salesManagerObserver;
+    delete salesEmployeeObserver;
+
+    // Delete inventory
+    delete greenhouse;
 
     return 0;
 }
