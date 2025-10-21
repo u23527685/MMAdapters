@@ -4,30 +4,46 @@
 #include "MatureState.h"
 #include "SeedlingState.h"
 #include "WitheredState.h"
+#include "Plant.h"
+#include "PlantLifeCycle.h"
+#include "PlantCareRoutine.h"
 
-void DistressedState::handleGrowth(Plant* plant) {
-    std::cout << "[DistressedState] " << plant->getName() << " is unhealthy, at risk of withering." << std::endl;
-    changeState();
-}
+void DistressedState::applyCare(PlantLifeCycle* context, Plant* plant, PlantCareRoutine* routine) {
+    if (plant->getCurrentWater() < 20) routine->Watering(plant);
+    if (plant->getCurrentSunlight() < 20) routine->Sunlight(plant);
+    if (plant->getCurrentNutrients() < 20) routine->Fertilizing(plant);
 
-void DistressedState::changeState()
-{
-    if (context->getCurrentWater() >= 20 && context->getCurrentSunlight() >= 20 && context->getCurrentNutrients() >= 20) {
-        if (context->getCurrentState() == "Seedling") {
-            std::cout << "[DistressedState] " << context->getName() << " has recovered, transitioning to SeedlingState." << std::endl;
-            context->setState(new SeedlingState(context));
-        } else {
-            std::cout << "[DistressedState] " << context->getName() << " has recovered, transitioning to MatureState." << std::endl;
-            context->setState(new MatureState(context));
-        }
-    } else if (context->getCurrentWater() < 10 || context->getCurrentSunlight() < 10 || context->getCurrentNutrients() < 10) {
-        std::cout << "[DistressedState] " << context->getName() << " has withered, transitioning to WitheredState." << std::endl;
-        context->setState(new WitheredState(context));
+    if (plant->getCurrentWater() >= 20 &&
+        plant->getCurrentSunlight() >= 20 &&
+        plant->getCurrentNutrients() >= 20) {
+        context->setState(new MatureState());
+    } else if (plant->getCurrentWater() < 10 ||
+               plant->getCurrentSunlight() < 10 ||
+               plant->getCurrentNutrients() < 10) {
+        context->setState(new WitheredState());
     }
 }
 
-std::string DistressedState::getState()
-{
-    return "Disressed";
+bool DistressedState::evaluate(PlantLifeCycle* context, Plant* plant) {
+    if (plant->getCurrentWater() < 10 ||
+        plant->getCurrentSunlight() < 10 ||
+        plant->getCurrentNutrients() < 10) {
+        context->setState(new WitheredState());
+        return false;
+    }
+
+    if (plant->getCurrentWater() >= 20 &&
+        plant->getCurrentSunlight() >= 20 &&
+        plant->getCurrentNutrients() >= 20) {
+        context->setState(new MatureState());
+        return true;
+    }
+
+    return false;
+}
+
+
+std::string DistressedState::getName() const {
+    return "Distressed";
 }
 

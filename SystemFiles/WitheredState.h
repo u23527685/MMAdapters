@@ -5,10 +5,9 @@
 
 class WitheredState : public PlantState {
 public:
-    WitheredState(Plant* ctx) : PlantState(ctx) {}
-    void handleGrowth(Plant* plant) override;
-    void changeState() override;
-    std::string getState() override;
+ void applyCare(PlantLifeCycle* context, Plant* plant, PlantCareRoutine* routine) override;
+   bool evaluate(PlantLifeCycle* context, Plant* plant) override;
+    std::string getName() const override;
 };
 
 #endif

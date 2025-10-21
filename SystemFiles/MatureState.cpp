@@ -3,27 +3,34 @@
 
 #include "DistressedState.h"
 #include "WitheredState.h"
+#include "Plant.h"
+#include "PlantLifeCycle.h"
+#include "PlantCareRoutine.h"
 
-void MatureState::handleGrowth(Plant* plant) {
-    std::cout << "[Mature] " << plant->getName() << " is maintaining maturity, ready for sale." << std::endl;
-    changeState();
-}
+void MatureState::applyCare(PlantLifeCycle* context, Plant* plant, PlantCareRoutine* routine) {
+    routine->Watering(plant);
+    routine->Sunlight(plant);
+    routine->Fertilizing(plant);
 
-void MatureState::changeState()
-{
-    if (context->getCurrentWater() < 20 || context->getCurrentSunlight() < 20 || context->getCurrentNutrients() < 20) {
-        if (context->getCurrentWater() < 10 || context->getCurrentSunlight() < 10 || context->getCurrentNutrients() < 10) {
-            std::cout << "[MatureState] " << context->getName() << " has withered, transitioning to WitheredState." << std::endl;
-            context->setState(new WitheredState(context));
-        } else {
-            std::cout << "[MatureState] " << context->getName() << " is distressed, transitioning to DistressedState." << std::endl;
-            context->setState(new DistressedState(context));
-        }
+    if (plant->getCurrentWater() < 20 ||
+        plant->getCurrentSunlight() < 20 ||
+        plant->getCurrentNutrients() < 20) {
+        context->setState(new DistressedState());
     }
 }
 
-std::string MatureState::getState()
-{
+bool MatureState::evaluate(PlantLifeCycle* context, Plant* plant) {
+    if (plant->getCurrentWater() < 20 ||
+        plant->getCurrentSunlight() < 20 ||
+        plant->getCurrentNutrients() < 20) {
+        context->setState(new DistressedState());
+        return false;
+    }
+    return true;
+}
+
+
+std::string MatureState::getName() const {
     return "Mature";
 }
 

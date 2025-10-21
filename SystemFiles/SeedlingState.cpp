@@ -4,32 +4,33 @@
 #include "DistressedState.h"
 #include "MatureState.h"
 #include "WitheredState.h"
+#include "Plant.h"
+#include "PlantLifeCycle.h"
+#include "PlantCareRoutine.h"
 
-SeedlingState::SeedlingState(Plant* ctx): PlantState(ctx){}
+void SeedlingState::applyCare(PlantLifeCycle* context, Plant* plant, PlantCareRoutine* routine) {
+    routine->Watering(plant);
+    routine->Sunlight(plant);
+    routine->Fertilizing(plant);
 
-void SeedlingState::changeState()
-{
-    if (context->getCurrentWater() < 20 || context->getCurrentSunlight() < 20 || context->getCurrentNutrients() < 20) {
-        if (context->getCurrentWater() < 10 || context->getCurrentSunlight() < 10 || context->getCurrentNutrients() < 10) {
-            std::cout << "[SeedlingState] " << context->getName() << " has withered, transitioning to WitheredState." << std::endl;
-            context->setState(new WitheredState(context));
-        } else {
-            std::cout << "[SeedlingState] " << context->getName() << " is distressed, transitioning to DistressedState." << std::endl;
-            context->setState(new DistressedState(context));
-        }
-    } else if (context->getCurrentWater() >= 60 && context->getCurrentSunlight() >= 60 && context->getCurrentNutrients() >= 60) {
-        std::cout << "[SeedlingState] " << context->getName() << " has matured, transitioning to MatureState." << std::endl;
-        context->setState(new MatureState(context));
+    if (plant->getCurrentWater() >= 60 &&
+        plant->getCurrentSunlight() >= 60 &&
+        plant->getCurrentNutrients() >= 60) {
+        context->setState(new MatureState());
     }
 }
 
-void SeedlingState::handleGrowth(Plant* plant)
-{
-    std::cout << "[Seedling] " << plant->getName() << " is growing toward maturity." << std::endl;
-    changeState();
+bool SeedlingState::evaluate(PlantLifeCycle* context, Plant* plant) {
+    if (plant->getCurrentWater() >= 60 &&
+        plant->getCurrentSunlight() >= 60 &&
+        plant->getCurrentNutrients() >= 60) {
+        context->setState(new MatureState());
+        return true;
+    }
+    return true; // Still healthy, just not ready to transition
 }
 
-std::string SeedlingState::getState()
-{
+
+std::string SeedlingState::getName() const {
     return "Seedling";
 }

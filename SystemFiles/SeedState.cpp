@@ -1,25 +1,36 @@
 #include "SeedState.h"
+#include "SeedlingState.h"
+#include "Plant.h"
+#include "PlantLifeCycle.h"
+#include "PlantCareRoutine.h"
 #include <iostream>
 
 #include "SeedlingState.h"
 
-SeedState::SeedState(Plant* ctx) : PlantState(ctx){
-}
+void SeedState::applyCare(PlantLifeCycle* context, Plant* plant, PlantCareRoutine* routine) {
+    routine->Watering(plant);
+    routine->Sunlight(plant);
+    routine->Fertilizing(plant);
 
-void SeedState::handleGrowth(Plant* plant) {
-    std::cout << "[Seed] "<< plant->getName() << " is in seed phase, awaiting germination." << std::endl;
-    changeState();
-}
-
-void SeedState::changeState(){
-    if (context->getCurrentWater() >= 40 && context->getCurrentSunlight() >= 40 && context->getCurrentNutrients() >= 40) {
-        std::cout << "[SeedState] Germination successful for " << context->getName() << ", transitioning to SeedlingState." << std::endl;
-        context->setState(new SeedlingState(context));
+    if (plant->getCurrentWater() >= 40 &&
+        plant->getCurrentSunlight() >= 40 &&
+        plant->getCurrentNutrients() >= 40) {
+        context->setState(new SeedlingState());
     }
 }
 
-std::string SeedState::getState()
-{
+bool SeedState::evaluate(PlantLifeCycle* context, Plant* plant) {
+    if (plant->getCurrentWater() >= 40 &&
+        plant->getCurrentSunlight() >= 40 &&
+        plant->getCurrentNutrients() >= 40) {
+        context->setState(new SeedlingState());
+        return true;
+    }
+    return false;
+}
+
+
+std::string SeedState::getName() const {
     return "Seed";
 }
 

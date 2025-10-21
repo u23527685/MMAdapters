@@ -5,7 +5,7 @@
 
 Plant::Plant(std::string name) : name(name), currentSunlight(0), currentWater(0), currentNutrients(0),
                                 maxNurtients(100), maxWater(100), maxSunlight(100), currentState(nullptr) {
-    currentState = new SeedState(this);
+    //currentState = new SeedState(this);
 }
 
 Plant::~Plant()
@@ -54,7 +54,7 @@ int Plant::getMaxSunlight(){
 void Plant::setMaxSunlight(int mL){
     this->maxSunlight = mL;
 }
-
+/**
 void Plant::setState(PlantState* state) {
     delete currentState;
     currentState = state;
@@ -68,3 +68,4 @@ std::string Plant::getCurrentState()
 {
     return currentState->getState();
 }
+**/

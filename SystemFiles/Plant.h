@@ -34,9 +34,11 @@ public:
     void setMaxSunlight(int mL);
 
     // State-related methods
+    /**
     void setState(PlantState* state);
     void request();
     std::string getCurrentState();
+    **/
 
 };
 #endif
