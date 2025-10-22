@@ -10,4 +10,4 @@ public:
     double getPrice() const override;
 };
 
-#endif // SPECIAL_ARRANGEMENT_H
+#endif 

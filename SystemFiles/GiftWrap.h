@@ -10,4 +10,4 @@ public:
     double getPrice() const override;
 };
 
-#endif // GIFT_WRAP_H
+#endif
