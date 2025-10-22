@@ -14,7 +14,7 @@ void PlantInventory::attach(StaffObserver* observer) {
         auto it = std::find(observers.begin(), observers.end(), observer);
         if (it == observers.end()) {
             observers.push_back(observer);
-            std::cout << "Observer " << observer->getObserverName() << " attached to inventory." << std::endl;
+            std::cout << "Employee " << observer->getObserverName() << " attached to inventory." << std::endl;
         }
     }
 }
@@ -24,7 +24,7 @@ void PlantInventory::detach(StaffObserver* observer) {
         auto it = std::find(observers.begin(), observers.end(), observer);
         if (it != observers.end()) {
             observers.erase(it);
-            std::cout << "Observer " << observer->getObserverName() << " detached from inventory." << std::endl;
+            std::cout << "Employee " << observer->getObserverName() << " detached from inventory." << std::endl;
         }
     }
 }

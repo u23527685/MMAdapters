@@ -1,1 +1,0 @@
-# Makefile cleared for manual terminal compilation

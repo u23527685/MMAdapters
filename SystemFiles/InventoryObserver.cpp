@@ -2,8 +2,7 @@
 #include "PlantInventory.h"
 #include <iostream>
 
-InventoryObserver::InventoryObserver(Staff* staff) 
-    : associatedStaff(staff) {
+InventoryObserver::InventoryObserver(Staff* staff) : associatedStaff(staff) {
     if (staff != nullptr) {
         observerName = staff->getName();
     } else {
@@ -11,8 +10,7 @@ InventoryObserver::InventoryObserver(Staff* staff)
     }
 }
 
-InventoryObserver::InventoryObserver(const std::string& name) 
-    : associatedStaff(nullptr), observerName(name) {
+InventoryObserver::InventoryObserver(const std::string& name) : associatedStaff(nullptr), observerName(name) {
 }
 
 InventoryObserver::~InventoryObserver() {
