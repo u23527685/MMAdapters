@@ -13,7 +13,7 @@ SalesEmployee::~SalesEmployee(){
     responsibilities.clear();
 }
 
-bool SalesEmployee::staffCanHandle(){
+bool SalesEmployee::staffCanHandle(std::string type){
     std::random_device rd;
 
     std::mt19937 gen(rd());
@@ -25,6 +25,6 @@ bool SalesEmployee::staffCanHandle(){
     return randomNumber%2;
 }
 
-void SalesEmployee::reply(){
+void SalesEmployee::reply(Query* query){
     std::cout<<"Floor Manager "<<getName()<<" answered the query "<<std::endl;
 }
