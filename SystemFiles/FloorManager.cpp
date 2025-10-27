@@ -14,7 +14,7 @@ FloorManager::~FloorManager(){
     responsibilities.clear();
 }
 
-bool FloorManager::staffCanHandle(){
+bool FloorManager::staffCanHandle(std::string type){
     std::random_device rd;
 
     std::mt19937 gen(rd());
@@ -26,6 +26,6 @@ bool FloorManager::staffCanHandle(){
     return randomNumber%2;
 }
 
-void FloorManager::reply(){
+void FloorManager::reply(Query* query){
     std::cout<<"Floor Manager "<<getName()<<" answered the query "<<std::endl;
 }

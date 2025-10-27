@@ -12,8 +12,8 @@ class FloorEmployee: public FloorStaff{
     public:
         FloorEmployee(std::string name);
         virtual ~FloorEmployee();
-        bool staffCanHandle() override;
-        void reply() override;
+        bool staffCanHandle(std::string type) override;
+        void reply(Query* query) override;
 };
 
 #endif // !FLOOREMPLOYEE_H

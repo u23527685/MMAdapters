@@ -13,7 +13,7 @@ FloorEmployee::~FloorEmployee(){
     responsibilities.clear();
 }
 
-bool FloorEmployee::staffCanHandle(){
+bool FloorEmployee::staffCanHandle(std::string type){
     std::random_device rd;
 
     std::mt19937 gen(rd());
@@ -25,6 +25,6 @@ bool FloorEmployee::staffCanHandle(){
     return randomNumber%2;
 }
 
-void FloorEmployee::reply(){
+void FloorEmployee::reply(Query* query){
     std::cout<<"Floor Manager "<<getName()<<" answered the query "<<std::endl;
 }

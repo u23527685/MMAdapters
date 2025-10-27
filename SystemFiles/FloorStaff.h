@@ -9,7 +9,7 @@
  * @brief Represents floor staff members who work on the operational floor.
  * 
  * @see Staff
- * @author Okaile
+ * @author Okaile Gaesale 23527685
  * @version 1.0
  */
 class FloorStaff : public Staff {

@@ -8,8 +8,8 @@ SalesStaff::SalesStaff(std::string name):Staff(name){
 SalesStaff::~SalesStaff(){}
 
 void SalesStaff::handleQuery(Query* query){
-    if(staffCanHandle()){
-        reply();
+    if(staffCanHandle(query->getType())){
+        reply(query);
     }else{
         std::cout<<"Staff memeber "<<getName()<<"can not handle this query"<<std::endl;
         Staff* next= getNext();
