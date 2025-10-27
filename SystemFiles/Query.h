@@ -11,5 +11,8 @@ class Query{
     
     public:
         Query(Builder* builder);
+        std::string getType();
+        std::string getQuestion();
+        Plant* getItem(); 
 };
 #endif // !QUERY_H

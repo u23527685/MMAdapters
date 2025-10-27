@@ -7,7 +7,7 @@ FloorStaff::FloorStaff(std::string name):Staff(name){
 
 FloorStaff::~FloorStaff(){}
 
-void FloorStaff::handleQuery(){
+void FloorStaff::handleQuery(Query* query){
     if(staffCanHandle()){
         reply();
     }else{
@@ -18,6 +18,6 @@ void FloorStaff::handleQuery(){
             return;
         }
         std::cout<<"Staff memeber "<<getName()<<" is passing the task to the next staff memner"<<std::endl;
-        next->handleQuery();
+        next->handleQuery(query);
     }
 }

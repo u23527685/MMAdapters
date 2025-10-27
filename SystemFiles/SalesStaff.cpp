@@ -7,7 +7,7 @@ SalesStaff::SalesStaff(std::string name):Staff(name){
 
 SalesStaff::~SalesStaff(){}
 
-void SalesStaff::handleQuery(){
+void SalesStaff::handleQuery(Query* query){
     if(staffCanHandle()){
         reply();
     }else{
@@ -18,6 +18,6 @@ void SalesStaff::handleQuery(){
             return;
         }
         std::cout<<"Staff memeber "<<getName()<<" is passing the task to the next staff memner"<<std::endl;
-        next->handleQuery();
+        next->handleQuery(query);
     }
 }
