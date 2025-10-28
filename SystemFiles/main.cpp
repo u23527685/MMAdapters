@@ -14,8 +14,19 @@
 #include <iostream>
 #include <thread>
 #include <chrono>
+#include <iomanip>
+
+#include "FullSunStrategy.h"
+#include "HighWaterStrategy.h"
+#include "InorganicFertilizer.h"
+#include "LowWaterStrategy.h"
+#include "OrganicFertilizer.h"
+#include "ShadeStrategy.h"
+
+
 
 int main() {
+
     std::cout << "\n========== INVENTORY + PLANT CARE SYSTEM TEST ==========\n";
     std::cout << "Testing PlantInventory with SalesFloorObserver + Staff Care\n";
     std::cout << "======================================================\n\n";
@@ -242,5 +253,89 @@ int main() {
     delete maple;
 
     std::cout << "Test completed successfully!\n";
+
+    std::cout << "\n";
+    std::cout << "╔════════════════════════════════════════════════════════════╗\n";
+    std::cout << "║         STRATEGY PATTERN TEST - PLANT CARE SYSTEM          ║\n";
+    std::cout << "║    Testing Dynamic Strategy Selection for Plant Care       ║\n";
+    std::cout << "╚════════════════════════════════════════════════════════════╝\n";
+
+    // Create plants
+    Rose* desertRose = new Rose(29.99, "Desert Rose (Drought Tolerant)");
+    Rose* rainforestRose = new Rose(34.99, "Rainforest Rose (Water Loving)");
+
+    // Set initial low water, sunlight, and nutrients for both
+    desertRose->setCurrentWater(10);
+    desertRose->setCurrentSunlight(20);
+    desertRose->setCurrentNutrients(5);
+
+    rainforestRose->setCurrentWater(10);
+    rainforestRose->setCurrentSunlight(20);
+    rainforestRose->setCurrentNutrients(5);
+
+    // Create strategies
+    LowWaterStrategy* lowWater = new LowWaterStrategy();
+    HighWaterStrategy* highWater = new HighWaterStrategy();
+    FullSunStrategy* fullSun = new FullSunStrategy();
+    ShadeStrategy* shade = new ShadeStrategy();
+    OrganicFertilizer* organic = new OrganicFertilizer();
+    InorganicFertilizer* inorganic = new InorganicFertilizer();
+
+    // Apply strategies
+    std::cout << "\n Applying strategies to Desert Rose:\n";
+    std::cout << std::string(60, '-') << "\n";
+    lowWater->applyWater(desertRose);
+    fullSun->applySunlight(desertRose);
+    organic->applyFertilizer(desertRose);
+
+    // Print plant status
+    std::cout << "\n--- Desert Rose Status ---\n";
+    std::cout << "Plant: " << desertRose->getName() << "\n";
+    std::cout << "Water: " << desertRose->getCurrentWater() << "/" << desertRose->getMaxWater()
+              << " ml (" << std::fixed << std::setprecision(1)
+              << (desertRose->getCurrentWater() * 100.0 / desertRose->getMaxWater()) << "%)\n";
+    std::cout << "Sunlight: " << desertRose->getCurrentSunlight() << "/" << desertRose->getMaxSunlight()
+              << " hrs (" << (desertRose->getCurrentSunlight() * 100.0 / desertRose->getMaxSunlight()) << "%)\n";
+    std::cout << "Nutrients: " << desertRose->getCurrentNutrients() << "/" << desertRose->getMaxNutrients()
+              << " ppm (" << (desertRose->getCurrentNutrients() * 100.0 / desertRose->getMaxNutrients()) << "%)\n";
+    std::cout << std::string(40, '-') << "\n";
+
+    std::cout << "\n ================================================ \n";
+
+    std::cout << "\n Applying strategies to Rainforest Rose:\n";
+    std::cout << std::string(60, '-') << "\n";
+    highWater->applyWater(rainforestRose);
+    shade->applySunlight(rainforestRose);
+    inorganic->applyFertilizer(rainforestRose);
+
+    std::cout << "\n--- Rainforest Rose Status ---\n";
+    std::cout << "Plant: " << rainforestRose->getName() << "\n";
+    std::cout << "Water: " << rainforestRose->getCurrentWater() << "/" << rainforestRose->getMaxWater()
+              << " ml (" << std::fixed << std::setprecision(1)
+              << (rainforestRose->getCurrentWater() * 100.0 / rainforestRose->getMaxWater()) << "%)\n";
+    std::cout << "Sunlight: " << rainforestRose->getCurrentSunlight() << "/" << rainforestRose->getMaxSunlight()
+              << " hrs (" << (rainforestRose->getCurrentSunlight() * 100.0 / rainforestRose->getMaxSunlight()) << "%)\n";
+    std::cout << "Nutrients: " << rainforestRose->getCurrentNutrients() << "/" << rainforestRose->getMaxNutrients()
+              << " ppm (" << (rainforestRose->getCurrentNutrients() * 100.0 / rainforestRose->getMaxNutrients()) << "%)\n";
+    std::cout << std::string(40, '-') << "\n";
+
+    // Cleanup
+    delete desertRose;
+    delete rainforestRose;
+    delete lowWater;
+    delete highWater;
+    delete fullSun;
+    delete shade;
+    delete organic;
+    delete inorganic;
+
+    std::cout << "All objects deleted successfully!\n";
+    std::cout << "\n"
+                 "╔════════════════════════════════════════════════════════════╗\n";
+    std::cout << "║ STRATEGY PATTERN TEST COMPLETE                             ║\n";
+    std::cout << "╚════════════════════════════════════════════════════════════╝\n\n";
+
     return 0;
+
 }
+
