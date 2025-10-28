@@ -9,7 +9,7 @@ class FertilizerStrategy;
 class PlantState;
 class LifeCycleObserver;
 
-class Plant: public BasePlant {
+class Plant {
 public:
 protected:
     WateringStrategy* waterStrategy;
@@ -17,6 +17,9 @@ protected:
     FertilizerStrategy* fertilizerStrategy;
     PlantState* state;
     std::vector<LifeCycleObserver*> observerList;
+
+    std::string description;
+    double price;
 
 public:
     Plant(double price, std::string description);
@@ -26,6 +29,8 @@ public:
     void attach(LifeCycleObserver* o);
     void detach(LifeCycleObserver* o);
     void notify();
+    std::string getDescription();
+    double getPrice();
 };
 
 #endif
