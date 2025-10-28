@@ -9,12 +9,19 @@ class PlantState;
 class Plant{
 private:
     std::string name;
+
     int currentSunlight;
     int currentWater;
     int currentNutrients;
+
     int maxNurtients;
     int maxWater;
     int maxSunlight;
+
+    int minWater;
+    int minSunlight;
+    int minNutrients;
+
     PlantState* currentState;  // State context
 public:
     Plant(std::string name);
@@ -33,12 +40,9 @@ public:
     int getMaxSunlight();
     void setMaxSunlight(int mL);
 
-    // State-related methods
-    /**
-    void setState(PlantState* state);
-    void request();
-    std::string getCurrentState();
-    **/
+    int getMinWater() const ;
+    int getMinSunlight() const ;
+    int getMinNutrients() const;
 
 };
 #endif

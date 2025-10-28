@@ -2,6 +2,13 @@
 #define SEEDSTATE_H
 
 #include "PlantState.h"
+
+/**
+ * @class SeedState
+ * @brief Represents the initial state of a plant's life cycle, where it is a seed.
+ * In this state, the seed is dormant and requires specific conditions to germinate and grow into a seedling.
+ */
+
 class SeedlingState;
 class SeedState : public PlantState {
 public:

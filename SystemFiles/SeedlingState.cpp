@@ -13,17 +13,17 @@ void SeedlingState::applyCare(PlantLifeCycle* context, Plant* plant, PlantCareRo
     routine->Sunlight(plant);
     routine->Fertilizing(plant);
 
-    if (plant->getCurrentWater() >= 60 &&
-        plant->getCurrentSunlight() >= 60 &&
-        plant->getCurrentNutrients() >= 60) {
+    if (plant->getCurrentWater() >= 100 &&
+        plant->getCurrentSunlight() >= 100 &&
+        plant->getCurrentNutrients() >= 100) {
         context->setState(new MatureState());
     }
 }
 
 bool SeedlingState::evaluate(PlantLifeCycle* context, Plant* plant) {
-    if (plant->getCurrentWater() >= 60 &&
-        plant->getCurrentSunlight() >= 60 &&
-        plant->getCurrentNutrients() >= 60) {
+    if (plant->getCurrentWater() >= 100 &&
+        plant->getCurrentSunlight() >= 100 &&
+        plant->getCurrentNutrients() >= 100) {
         context->setState(new MatureState());
         return true;
     }

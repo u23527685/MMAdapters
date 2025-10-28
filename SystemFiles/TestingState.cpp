@@ -30,7 +30,7 @@ int main() {
         lifecycle->notify(); // Triggers Staff::update
         lifecycle->isHealthy(); // Re-evaluate after care
     }
-    
+
     delete lifecycle;
     delete myPlant;
     //delete alice;

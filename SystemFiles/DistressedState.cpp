@@ -9,35 +9,35 @@
 #include "PlantCareRoutine.h"
 
 void DistressedState::applyCare(PlantLifeCycle* context, Plant* plant, PlantCareRoutine* routine) {
-    if (plant->getCurrentWater() < 20) routine->Watering(plant);
-    if (plant->getCurrentSunlight() < 20) routine->Sunlight(plant);
-    if (plant->getCurrentNutrients() < 20) routine->Fertilizing(plant);
+    if (plant->getCurrentWater() < plant->getMinWater()) routine->Watering(plant);
+    if (plant->getCurrentSunlight() < plant->getMinSunlight()) routine->Sunlight(plant);
+    if (plant->getCurrentNutrients() < plant->getMinNutrients()) routine->Fertilizing(plant);
 
-    if (plant->getCurrentWater() >= 20 &&
-        plant->getCurrentSunlight() >= 20 &&
-        plant->getCurrentNutrients() >= 20) {
+    if (plant->getCurrentWater() >= plant->getMinWater() &&
+        plant->getCurrentSunlight() >= plant->getMinSunlight() &&
+        plant->getCurrentNutrients() >= plant->getMinNutrients()) {
         context->setState(new MatureState());
-    } else if (plant->getCurrentWater() < 10 ||
-               plant->getCurrentSunlight() < 10 ||
-               plant->getCurrentNutrients() < 10) {
-        context->setState(new WitheredState());
-    }
+        } else if (plant->getCurrentWater() < plant->getMinWater() / 2 ||
+                   plant->getCurrentSunlight() < plant->getMinSunlight() / 2 ||
+                   plant->getCurrentNutrients() < plant->getMinNutrients() / 2) {
+            context->setState(new WitheredState());
+                   }
 }
 
 bool DistressedState::evaluate(PlantLifeCycle* context, Plant* plant) {
-    if (plant->getCurrentWater() < 10 ||
-        plant->getCurrentSunlight() < 10 ||
-        plant->getCurrentNutrients() < 10) {
+    if (plant->getCurrentWater() < plant->getMinWater() / 2 ||
+        plant->getCurrentSunlight() < plant->getMinSunlight() / 2 ||
+        plant->getCurrentNutrients() < plant->getMinNutrients() / 2) {
         context->setState(new WitheredState());
         return false;
-    }
+        }
 
-    if (plant->getCurrentWater() >= 20 &&
-        plant->getCurrentSunlight() >= 20 &&
-        plant->getCurrentNutrients() >= 20) {
+    if (plant->getCurrentWater() >= plant->getMinWater() &&
+        plant->getCurrentSunlight() >= plant->getMinSunlight() &&
+        plant->getCurrentNutrients() >= plant->getMinNutrients()) {
         context->setState(new MatureState());
         return true;
-    }
+        }
 
     return false;
 }

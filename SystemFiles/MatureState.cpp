@@ -12,20 +12,19 @@ void MatureState::applyCare(PlantLifeCycle* context, Plant* plant, PlantCareRout
     routine->Sunlight(plant);
     routine->Fertilizing(plant);
 
-    if (plant->getCurrentWater() < 20 ||
-        plant->getCurrentSunlight() < 20 ||
-        plant->getCurrentNutrients() < 20) {
-        context->setState(new DistressedState());
-    }
+    if (plant->getCurrentWater() < plant->getMinWater() ||
+          plant->getCurrentSunlight() < plant->getMinSunlight() ||
+          plant->getCurrentNutrients() < plant->getMinNutrients()) {
+            context->setState(new DistressedState());}
 }
 
 bool MatureState::evaluate(PlantLifeCycle* context, Plant* plant) {
-    if (plant->getCurrentWater() < 20 ||
-        plant->getCurrentSunlight() < 20 ||
-        plant->getCurrentNutrients() < 20) {
+    if (plant->getCurrentWater() < plant->getMinWater() ||
+        plant->getCurrentSunlight() < plant->getMinSunlight() ||
+        plant->getCurrentNutrients() < plant->getMinNutrients()) {
         context->setState(new DistressedState());
         return false;
-    }
+        }
     return true;
 }
 

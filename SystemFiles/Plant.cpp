@@ -54,6 +54,22 @@ int Plant::getMaxSunlight(){
 void Plant::setMaxSunlight(int mL){
     this->maxSunlight = mL;
 }
+
+int Plant::getMinWater() const
+{
+    return minWater;
+}
+
+int Plant::getMinSunlight() const
+{
+    return minSunlight;
+}
+
+int Plant::getMinNutrients() const
+{
+    return minNutrients;
+}
+
 /**
 void Plant::setState(PlantState* state) {
     delete currentState;
