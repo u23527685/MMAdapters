@@ -1,25 +1,60 @@
+#include "Transaction.h"
+#include "TransactionHistory.h"
+#include "CreditCardPaymentStrategy.h"
+#include "EWalletPaymentStrategy.h"
+#include "EFTPaymentStrategy.h"
 #include <iostream>
-#include <vector>
-
-#include "BasePlant.h"
-#include "GiftWrap.h"
-#include "DecorativePot.h"
-#include "SpecialArrangement.h"
 
 int main() {
-    std::vector<Plant*> plants;
+    std::cout << "=== Transaction System Test ===\n\n";
 
-    plants.push_back(new GiftWrap(new BasePlant()));
-    plants.push_back(new DecorativePot(new GiftWrap(new BasePlant())));
-    plants.push_back(new SpecialArrangement(new DecorativePot(new GiftWrap(new BasePlant()))));
+    Transaction tx("ORD-1001", 25.50, 2);
+    tx.processPayment();
 
-    for (const auto& plant : plants) {
-        std::cout << plant->getDescription() << " | R" << plant->getPrice() << std::endl;
-    }
+    // --- STRATEGY TEST ---
+    std::cout << "\n--- Testing Credit Card Payment ---\n";
+    CreditCardPaymentStrategy creditCard("1234-5678-9012-3456");
+    tx.setPaymentStrategy(&creditCard);
+    tx.processPayment();
 
-    for (auto& plant : plants) {
-        delete plant;
-    }
+    std::cout << "\n--- Testing E-Wallet Payment ---\n";
+    EWalletPaymentStrategy ewallet("wallet123");
+    tx.setPaymentStrategy(&ewallet);
+    tx.processPayment();
+
+    std::cout << "\n--- Testing EFT Payment ---\n";
+    EFTPaymentStrategy eft("9876543210");
+    tx.setPaymentStrategy(&eft);
+    tx.processPayment();
+
+    // --- MEMENTO TEST ---
+    std::cout << "\n=== Testing Transaction Snapshots (Memento Pattern) ===\n";
+    TransactionHistory history;
+    history.addSnapshot(tx.createSnapshot());
+
+    std::cout << "\nUpdating Transaction...\n";
+    tx.setTransaction("ORD-1002", 40.75, 3);
+    tx.processPayment();
+    history.addSnapshot(tx.createSnapshot());
+
+    
+    std::cout << "\nUpdating Transaction again...\n";
+    tx.setTransaction("ORD-1003", 15.99, 5);
+    tx.processPayment();
+    history.addSnapshot(tx.createSnapshot());
+
+
+    std::cout << "\n--- Restoring Previous Snapshot ---\n";
+    tx.restoreSnapshot(history.getSnapshot(1));
+    tx.processPayment();
+
+   
+    std::cout << "\n--- Restoring Original Snapshot ---\n";
+    tx.restoreSnapshot(history.getSnapshot(0));
+    tx.processPayment();
+
+    std::cout << "\nTransaction history count: " << history.getHistorySize() << std::endl;
+  
 
     return 0;
 }

@@ -1,38 +1,37 @@
 # Compiler and flags
 CXX = g++
-CXXFLAGS = -Wall -std=c++17 -g
+CXXFLAGS = -std=c++11 -Wall -Wextra
 
-# Output binary name
-TARGET = plant_app
+# Target executable
+TARGET = main
 
 # Source files
 SRCS = main.cpp \
-       BasePlant.cpp \
-       PlantDecorator.cpp \
-       GiftWrap.cpp \
-       DecorativePot.cpp \
-       SpecialArrangement.cpp
+       Transaction.cpp \
+       TransactionSnapshot.cpp \
+       TransactionHistory.cpp \
+       CreditCardPaymentStrategy.cpp \
+       EWalletPaymentStrategy.cpp \
+       EFTPaymentStrategy.cpp
 
-# Object files (replace .cpp with .o)
+# Object files
 OBJS = $(SRCS:.cpp=.o)
-
-# Header dependencies
-DEPS = Plant.h BasePlant.h PlantDecorator.h GiftWrap.h DecorativePot.h SpecialArrangement.h
 
 # Default target
 all: $(TARGET)
 
+# Link all object files
 $(TARGET): $(OBJS)
-	$(CXX) $(CXXFLAGS) -o $@ $^
+	$(CXX) $(CXXFLAGS) -o $(TARGET) $(OBJS)
 
-# Compile .cpp to .o
-%.o: %.cpp $(DEPS)
+# Compile each .cpp into a .o
+%.o: %.cpp
 	$(CXX) $(CXXFLAGS) -c $< -o $@
 
-# Clean target
+# Clean build artifacts
 clean:
-	rm -f $(TARGET) *.o
+	rm -f $(OBJS) $(TARGET)
 
-# Run target
+# Run program
 run: $(TARGET)
 	./$(TARGET)
