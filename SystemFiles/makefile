@@ -14,13 +14,22 @@ SRCS = main.cpp \
        PlantDecorator.cpp \
        GiftWrap.cpp \
        DecorativePot.cpp \
-       SpecialArrangement.cpp
+       SpecialArrangement.cpp \
+       AddStock.cpp \
+       RemoveStock.cpp \
+       PlantStock.cpp \
+       PlantInventory.cpp \
+       InventoryObserver.cpp \
+       StaffObserver.cpp \
+       SalesFloorObserver.cpp
 
 OBJS = $(SRCS:.cpp=.o)
 
 DEPS = Transaction.h TransactionSnapshot.h TransactionHistory.h \
        CreditCardPaymentStrategy.h EWalletPaymentStrategy.h EFTPaymentStrategy.h \
-       Plant.h BasePlant.h PlantDecorator.h GiftWrap.h DecorativePot.h SpecialArrangement.h
+       Plant.h BasePlant.h PlantDecorator.h GiftWrap.h DecorativePot.h SpecialArrangement.h \
+       AddStock.h RemoveStock.h PlantStock.h PlantInventory.h InventoryObserver.h \
+       StaffObserver.h SalesFloorObserver.h
 
 all: $(TARGET)
 
