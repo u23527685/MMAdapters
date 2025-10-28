@@ -2,10 +2,20 @@
 #include "AddStock.h"
 #include "RemoveStock.h"
 
+// Initialize static member
+PlantInventory* PlantInventory::instance = nullptr;
+
+
 PlantInventory::PlantInventory() {}
 
+PlantInventory* PlantInventory::getInstance() {
+    if (instance == nullptr) {
+        instance = new PlantInventory();
+    }
+    return instance;
+}
+
 PlantInventory::~PlantInventory() {
-    // clean up stored Plant pointers
     for (std::pair<Plant*, int> &item : inventoryItems) {
         delete item.first;
     }
@@ -68,4 +78,12 @@ bool PlantInventory::addStock(Plant* plant, int quantity) {
 bool PlantInventory::removeStock(Plant* plant, int quantity) {
     RemoveStock* removeCommand = new RemoveStock(plant, quantity, this);
     return executeCommand(removeCommand);
+}
+
+std::vector<std::pair<Plant*, int>>& PlantInventory::getInventoryReference() {
+    return inventoryItems;
+}
+
+const std::vector<std::pair<Plant*, int>> PlantInventory::getInventoryView() const {
+    return inventoryItems;
 }
