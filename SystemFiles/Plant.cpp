@@ -1,22 +1,15 @@
 #include "Plant.h"
-
-#include "SeedState.h"
 #include "PlantState.h"
 
-Plant::Plant(std::string name) : name(name), currentSunlight(0), currentWater(0), currentNutrients(0),
-                                maxNurtients(100), maxWater(100), maxSunlight(100), currentState(nullptr) {
-    //currentState = new SeedState(this);
+Plant::Plant(std::string name) {
+    this->name = name;
 }
-
-Plant::~Plant()
-{
+Plant::~Plant(){
     delete currentState;
 }
-
 std::string Plant::getName(){
     return name;
 }
-
 int Plant::getMaxWater(){
     return maxWater;
 }
@@ -27,26 +20,37 @@ int Plant::getCurrentWater(){
     return currentWater;
 }
 void Plant::setCurrentWater(int cW){
-    this->currentWater = cW;
+    if (cW > maxWater) {
+        this->currentWater = maxWater;
+    } else {
+        this->currentWater = cW;
+    }
 }
-
 int Plant::getCurrentNutrients(){
     return currentNutrients;
 }
 void Plant::setCurrentNutrients(int cN){
-    this->currentNutrients = cN;
+    if (cN > maxNutrtients) {
+        this->currentNutrients = maxNutrtients;
+    } else {
+        this->currentNutrients = cN;
+    }
 }
 int Plant::getMaxNutrients(){
-    return maxNurtients;
+    return maxNutrtients;
 }
 void Plant::setMaxNutrients(int mN){
-    this->maxNurtients = mN;
+    this->maxNutrtients = mN;
 }
 int Plant::getCurrentSunlight(){
     return currentSunlight;
 }
 void Plant::setCurrentSunlight(int sL){
-    this->currentSunlight = sL;
+    if (sL > maxSunlight) {
+        this->currentSunlight = maxSunlight;
+    } else {
+        this->currentSunlight = sL;
+    }
 }
 int Plant::getMaxSunlight(){
     return maxSunlight;
@@ -54,34 +58,13 @@ int Plant::getMaxSunlight(){
 void Plant::setMaxSunlight(int mL){
     this->maxSunlight = mL;
 }
-
-int Plant::getMinWater() const
-{
+int Plant::getMinWater() const{
     return minWater;
 }
-
-int Plant::getMinSunlight() const
-{
+int Plant::getMinSunlight() const{
     return minSunlight;
 }
-
-int Plant::getMinNutrients() const
-{
+int Plant::getMinNutrients() const{
     return minNutrients;
 }
 
-/**
-void Plant::setState(PlantState* state) {
-    delete currentState;
-    currentState = state;
-}
-
-void Plant::request(){
-    currentState->handleGrowth(this);
-}
-
-std::string Plant::getCurrentState()
-{
-    return currentState->getState();
-}
-**/

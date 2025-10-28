@@ -2,10 +2,8 @@
 #define PLANT_H
 
 #include <string>
-
 #include "PlantState.h"
 class PlantState;
-
 class Plant{
 private:
     std::string name;
@@ -14,7 +12,7 @@ private:
     int currentWater;
     int currentNutrients;
 
-    int maxNurtients;
+    int maxNutrtients;
     int maxWater;
     int maxSunlight;
 

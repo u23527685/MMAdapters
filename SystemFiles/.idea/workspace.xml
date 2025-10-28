@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="CMakeSettings">
+    <configurations>
+      <configuration PROFILE_NAME="Debug" ENABLED="true" CONFIG_NAME="Debug" />
+    </configurations>
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="769c8feb-e2ca-48e9-9648-caa88488af3d" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/DistressedState.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/DistressedState.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DistressedState.h" beforeDir="false" afterPath="$PROJECT_DIR$/DistressedState.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MatureState.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/MatureState.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MatureState.h" beforeDir="false" afterPath="$PROJECT_DIR$/MatureState.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PLantLifeCycle.h" beforeDir="false" afterPath="$PROJECT_DIR$/PLantLifeCycle.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PlantLifeCycle.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/PlantLifeCycle.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PlantState.h" beforeDir="false" afterPath="$PROJECT_DIR$/PlantState.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SeedState.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/SeedState.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SeedState.h" beforeDir="false" afterPath="$PROJECT_DIR$/SeedState.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SeedlingState.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/SeedlingState.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SeedlingState.h" beforeDir="false" afterPath="$PROJECT_DIR$/SeedlingState.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Staff.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Staff.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Staff.h" beforeDir="false" afterPath="$PROJECT_DIR$/Staff.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WitheredState.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/WitheredState.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WitheredState.h" beforeDir="false" afterPath="$PROJECT_DIR$/WitheredState.h" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ClangdSettings">
+    <option name="formatViaClangd" value="false" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="MakefileLocalSettings">
+    <option name="projectSyncType">
+      <map>
+        <entry key="$PROJECT_DIR$" value="RE_IMPORT" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectApplicationVersion">
+    <option name="ide" value="CLion" />
+    <option name="majorVersion" value="2024" />
+    <option name="minorVersion" value="1.4" />
+    <option name="productBranch" value="Classic" />
+  </component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "associatedIndex": 4
+}]]></component>
+  <component name="ProjectId" id="34NlpMJe9DUhNpnS7oo15Lxabrq" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.RadMigrateCodeStyle": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.cidr.known.project.marker": "true",
+    "RunOnceActivity.readMode.enableVisualFormatting": "true",
+    "cf.first.check.clang-format": "false",
+    "cidr.known.project.marker": "true",
+    "git-widget-placeholder": "Greenhouse-State",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="769c8feb-e2ca-48e9-9648-caa88488af3d" name="Changes" comment="" />
+      <created>1761062094180</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1761062094180</updated>
+      <workItem from="1761062095945" duration="506000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>
