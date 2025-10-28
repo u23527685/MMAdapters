@@ -2,32 +2,28 @@
 #define TRANSACTION_H
 
 #include <string>
-#include "TransactionSnapshot.h"
+#include <iostream>
 #include "PaymentStrategy.h"
+#include "TransactionSnapshot.h"
 
 class Transaction {
 private:
-    std::string customerName;
-    std::string plantName;
-      std::string orderNum;  
+    std::string orderNum;
     double amount;
     int quantity;
-    PaymentStrategy *paymentMethod;
+    PaymentStrategy* paymentMethod; // Strategy reference
 
 public:
-   Transaction(const std::string& orderNum, double amount, int quantity);
- Transaction(const std::string &customerName, const std::string &plantName, double amount, int quantity);
-    void setTransaction(const std::string &customerName, const std::string &plantName, double amount, int quantity);
+    Transaction(const std::string& orderNum, double amount, int quantity);
 
-    std::string getDetails();
-    TransactionSnapshot createSnapshot();
-    void restoreSnapshot(const TransactionSnapshot &snapshot);
-
-    void setPaymentMethod(PaymentStrategy *strategy);
-    void processPayment();
-
-   
+    void setTransaction(const std::string& orderNum, double amount, int quantity);
+    void setPaymentStrategy(PaymentStrategy* method);
+    void processPayment() const;
     void getDetails() const;
+
+    // Memento pattern
+    TransactionSnapshot createSnapshot() const;
+    void restoreSnapshot(const TransactionSnapshot& snapshot);
 };
 
 #endif

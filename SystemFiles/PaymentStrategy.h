@@ -5,8 +5,8 @@
 
 class PaymentStrategy {
 public:
-    virtual void pay(double amount, const std::string& customerName) = 0;
-    virtual ~PaymentStrategy() = default;
+    virtual ~PaymentStrategy() {}
+    virtual void pay(double amount, const std::string& orderNum) const = 0;
 };
 
 #endif

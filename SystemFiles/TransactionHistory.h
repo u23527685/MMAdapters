@@ -1,8 +1,8 @@
-#ifndef TRANSACTION_HISTORY_H
-#define TRANSACTION_HISTORY_H
+#ifndef TRANSACTIONHISTORY_H
+#define TRANSACTIONHISTORY_H
 
-#include <vector>
 #include "TransactionSnapshot.h"
+#include <vector>
 
 class TransactionHistory {
 private:
@@ -10,8 +10,8 @@ private:
 
 public:
     void addSnapshot(const TransactionSnapshot& snapshot);
-    TransactionSnapshot getSnapshot(int index);
-    int getHistorySize();
+    TransactionSnapshot getSnapshot(int index) const;
+    int getHistorySize() const;
 };
 
-#endif 
+#endif

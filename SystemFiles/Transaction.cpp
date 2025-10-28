@@ -1,64 +1,42 @@
 #include "Transaction.h"
 #include <iostream>
 
-Transaction::Transaction(const std::string &customerName, const std::string &plantName, double amount, int quantity)
-    : customerName(customerName), plantName(plantName), amount(amount), quantity(quantity), paymentMethod(NULL) {}
+Transaction::Transaction(const std::string& orderNum, double amount, int quantity)
+    : orderNum(orderNum), amount(amount), quantity(quantity), paymentMethod(nullptr) {}
 
-void Transaction::setTransaction(const std::string &customerName, const std::string &plantName,
-                                 double amount, int quantity) {
-    this->customerName = customerName;
-    this->plantName = plantName;
+void Transaction::setTransaction(const std::string& orderNum, double amount, int quantity) {
+    this->orderNum = orderNum;
     this->amount = amount;
     this->quantity = quantity;
 }
 
-std::string Transaction::getDetails(){
-    return "Customer: " + customerName +
-           " | Plant: " + plantName +
-           " | Amount: " + std::to_string(amount) +
-           " | Quantity: " + std::to_string(quantity);
+void Transaction::setPaymentStrategy(PaymentStrategy* method) {
+    paymentMethod = method;
 }
 
-TransactionSnapshot Transaction::createSnapshot() {
-    return TransactionSnapshot(customerName, plantName, amount, quantity);
-}
-
-void Transaction::restoreSnapshot(const TransactionSnapshot &snapshot) {
-    setTransaction(snapshot.getCustomerName(),
-                   snapshot.getPlantName(),
-                   snapshot.getAmount(),
-                   snapshot.getQuantity());
-}
-
-void Transaction::setPaymentMethod(PaymentStrategy *strategy) {
-    paymentMethod = strategy;
-}
-
-void Transaction::processPayment() {
+void Transaction::processPayment() const {
     if (paymentMethod) {
-        paymentMethod->pay(amount, customerName);
+        paymentMethod->pay(amount * quantity, orderNum);
     } else {
-        std::cout << "No payment method selected for " << customerName << std::endl;
-    }
-}
-Transaction::Transaction(const std::string& orderNum, double amount, int quantity)
-    : orderNum(orderNum), amount(amount), quantity(quantity), strategy(NULL) {}
-
-void Transaction::setPaymentMethod(PaymentStrategy* strategy) {
-    this->strategy = strategy;
-}
-
-void Transaction::processPayment() {
-    if (strategy) {
-        strategy->pay(amount * quantity, orderNum); 
-    } else {
-        std::cout << "No payment strategy set!" << std::endl;
+        std::cout << "No payment strategy set for order " << orderNum << std::endl;
     }
 }
 
 void Transaction::getDetails() const {
-    std::cout << "Transaction Details:\n"
-              << "Order Number: " << orderNum << "\n"
-              << "Amount: R" << amount << "\n"
-              << "Quantity: " << quantity << std::endl;
+    std::cout << "Order Number: " << orderNum
+              << "\nAmount: R" << amount
+              << "\nQuantity: " << quantity
+              << "\nTotal: R" << (amount * quantity)
+              << "\n";
+}
+
+// ===== Memento Pattern Methods =====
+TransactionSnapshot Transaction::createSnapshot() const {
+    return TransactionSnapshot(orderNum, amount, quantity);
+}
+
+void Transaction::restoreSnapshot(const TransactionSnapshot& snapshot) {
+    orderNum = snapshot.getOrderNum();
+    amount = snapshot.getAmount();
+    quantity = snapshot.getQuantity();
 }

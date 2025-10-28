@@ -8,7 +8,7 @@ private:
     std::string walletID;
 public:
     EWalletPaymentStrategy(const std::string& walletID);
-    void pay(double amount, const std::string& customerName) override;
+    void pay(double amount, const std::string& orderNum) const override;
 };
 
 #endif

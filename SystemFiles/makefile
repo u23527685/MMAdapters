@@ -1,41 +1,37 @@
 # Compiler and flags
 CXX = g++
-CXXFLAGS = -std=c++17 -Wall -Wextra
+CXXFLAGS = -std=c++11 -Wall -Wextra
 
 # Target executable
-TARGET = transaction_app
+TARGET = main
 
-# Source and object files
+# Source files
 SRCS = main.cpp \
        Transaction.cpp \
+       TransactionSnapshot.cpp \
+       TransactionHistory.cpp \
        CreditCardPaymentStrategy.cpp \
        EWalletPaymentStrategy.cpp \
        EFTPaymentStrategy.cpp
 
+# Object files
 OBJS = $(SRCS:.cpp=.o)
 
-# Header dependencies
-DEPS = Transaction.h \
-       PaymentStrategy.h \
-       CreditCardPaymentStrategy.h \
-       EWalletPaymentStrategy.h \
-       EFTPaymentStrategy.h
-
-# Default rule
+# Default target
 all: $(TARGET)
 
-# Link all object files into the executable
+# Link all object files
 $(TARGET): $(OBJS)
-	$(CXX) $(CXXFLAGS) -o $@ $^
+	$(CXX) $(CXXFLAGS) -o $(TARGET) $(OBJS)
 
-# Compile each source file to object file
-%.o: %.cpp $(DEPS)
+# Compile each .cpp into a .o
+%.o: %.cpp
 	$(CXX) $(CXXFLAGS) -c $< -o $@
 
-# Run the program (build first if necessary)
+# Clean build artifacts
+clean:
+	rm -f $(OBJS) $(TARGET)
+
+# Run program
 run: $(TARGET)
 	./$(TARGET)
-
-# Clean rule
-clean:
-	rm -f *.o $(TARGET)

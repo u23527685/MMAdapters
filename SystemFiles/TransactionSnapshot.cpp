@@ -1,27 +1,16 @@
 #include "TransactionSnapshot.h"
 
-TransactionSnapshot::TransactionSnapshot(const std::string &customerName, const std::string &plantName, double amount, int quantity)
-    : customerName(customerName), plantName(plantName), amount(amount), quantity(quantity){}
+TransactionSnapshot::TransactionSnapshot(const std::string& orderNum, double amount, int quantity)
+    : orderNum(orderNum), amount(amount), quantity(quantity) {}
 
-std::string TransactionSnapshot::getCustomerName(){ 
-    return customerName; 
+std::string TransactionSnapshot::getOrderNum() const {
+    return orderNum;
 }
 
-std::string TransactionSnapshot::getPlantName(){ 
-    return plantName; 
+double TransactionSnapshot::getAmount() const {
+    return amount;
 }
 
-double TransactionSnapshot::getAmount(){ 
-    return amount; 
-}
-
-int TransactionSnapshot::getQuantity(){ 
-    return quantity; 
-}
-
-void TransactionSnapshot::setSnapshot(const std::string &customerName, const std::string &plantName, double amount, int quantity){
-    this->customerName = customerName;
-    this->plantName = plantName;
-    this->amount = amount;
-    this->quantity = quantity;
+int TransactionSnapshot::getQuantity() const {
+    return quantity;
 }

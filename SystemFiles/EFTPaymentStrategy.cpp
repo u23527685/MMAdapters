@@ -3,8 +3,8 @@
 
 EFTPaymentStrategy::EFTPaymentStrategy(const std::string& accountNumber) : accountNumber(accountNumber) {}
 
-void EFTPaymentStrategy::pay(double amount, const std::string& customerName) {
+void EFTPaymentStrategy::pay(double amount, const std::string& orderNum) const {
     std::cout << "Processing EFT payment of R" << amount 
-              << " for " << customerName << " using account number: " 
+              << " for order " << orderNum << " using account number: " 
               << accountNumber << std::endl;
 }

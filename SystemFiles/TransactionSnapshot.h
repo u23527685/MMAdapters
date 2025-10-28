@@ -1,22 +1,20 @@
-#ifndef TRANSACTION_SNAPSHOT_H
-#define TRANSACTION_SNAPSHOT_H
+#ifndef TRANSACTIONSNAPSHOT_H
+#define TRANSACTIONSNAPSHOT_H
 
 #include <string>
 
 class TransactionSnapshot {
 private:
-    std::string customerName;
-    std::string plantName;
+    std::string orderNum;
     double amount;
     int quantity;
 
 public:
-    TransactionSnapshot(const std::string &customerName, const std::string &plantName, double amount, int quantity);
-    std::string getCustomerName();
-    std::string getPlantName();
-    double getAmount();
-    int getQuantity();
-    void setSnapshot(const std::string &customerName, const std::string &plantName, double amount, int quantity);
+    TransactionSnapshot(const std::string& orderNum, double amount, int quantity);
+
+    std::string getOrderNum() const;
+    double getAmount() const;
+    int getQuantity() const;
 };
 
 #endif
