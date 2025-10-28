@@ -12,15 +12,18 @@ bool RemoveStock::execute() {
     if (idx < 0) {
         return false;
     }
-    if (targetInventory->inventoryItems[idx].second < quantityToRemove) {
+    
+    auto& inventory = targetInventory->getInventoryReference();
+    
+    if (inventory[idx].second < quantityToRemove) {
         return false;
     }
 
-    targetInventory->inventoryItems[idx].second -= quantityToRemove;
+    inventory[idx].second -= quantityToRemove;
 
-    if (targetInventory->inventoryItems[idx].second <= 0) {
-        delete targetInventory->inventoryItems[idx].first;
-        targetInventory->inventoryItems.erase(targetInventory->inventoryItems.begin() + idx);
+    if (inventory[idx].second <= 0) {
+        delete inventory[idx].first;
+        inventory.erase(inventory.begin() + idx);
     }
 
     targetInventory->notify();

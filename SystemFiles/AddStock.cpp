@@ -9,11 +9,12 @@ bool AddStock::execute() {
     }
 
     int idx = targetInventory->findPlantIndex(plant);
+    auto& inventory = targetInventory->getInventoryReference();
 
     if (idx >= 0) {
-        targetInventory->inventoryItems[idx].second += quantityToAdd;
+        inventory[idx].second += quantityToAdd;
     } else {
-        targetInventory->inventoryItems.push_back(std::make_pair(plant, quantityToAdd));
+        inventory.push_back(std::make_pair(plant, quantityToAdd));
     }
 
     targetInventory->notify();
