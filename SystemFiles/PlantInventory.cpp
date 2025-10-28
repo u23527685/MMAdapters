@@ -1,93 +1,87 @@
 #include "PlantInventory.h"
-#include <iostream>
-#include <algorithm>
+#include "AddStock.h"
+#include "RemoveStock.h"
 
-PlantInventory::PlantInventory() {
+PlantInventory* PlantInventory::instance = nullptr;
+
+PlantInventory::PlantInventory() {}
+
+PlantInventory* PlantInventory::getInstance() {
+    if (instance == nullptr) {
+        instance = new PlantInventory();
+    }
+    return instance;
 }
 
 PlantInventory::~PlantInventory() {
-    observers.clear();
-}
-
-void PlantInventory::attach(StaffObserver* observer) {
-    if (observer != nullptr) {
-        auto it = std::find(observers.begin(), observers.end(), observer);
-        if (it == observers.end()) {
-            observers.push_back(observer);
-            std::cout << "Employee " << observer->getObserverName() << " attached to inventory." << std::endl;
-        }
+    for (std::pair<Plant*, int> &item : inventoryItems) {
+        delete item.first;
+    }
+    for (InventoryObserver* observer : inventoryObservers) {
+        delete observer;
     }
 }
 
-void PlantInventory::detach(StaffObserver* observer) {
-    if (observer != nullptr) {
-        auto it = std::find(observers.begin(), observers.end(), observer);
-        if (it != observers.end()) {
-            observers.erase(it);
-            std::cout << "Employee " << observer->getObserverName() << " detached from inventory." << std::endl;
-        }
-    }
-}
-
-void PlantInventory::notify(const std::string& plantType, int quantity) {
-    std::cout << "Plant Type: " << plantType << ", difference: " << quantity << std::endl;
-    
-    for (StaffObserver* observer : observers) {
-        if (observer != nullptr) {
-            observer->update(this, plantType, quantity);
-        }
-    }
-}
-
-void PlantInventory::addPlant(const std::string& plantType, int quantity) {
-    if (quantity <= 0) {
-        std::cout << "Cannot add non-positive quantity." << std::endl;
-        return;
-    }
-    
-    inventory[plantType] += quantity;
-    std::cout << "Added " << quantity << " " << plantType << "(s) to inventory. New total: " << inventory[plantType] << std::endl;
-    
-    notify(plantType, quantity);
-}
-
-bool PlantInventory::removePlant(const std::string& plantType, int quantity) {
-    if (quantity <= 0) {
-        std::cout << "Cannot remove non-positive quantity." << std::endl;
-        return false;
-    }
-    
-    if (inventory.find(plantType) == inventory.end() || inventory[plantType] < quantity) {
-        std::cout << "Insufficient quantity of " << plantType << " in inventory." << std::endl;
-        return false;
-    }
-    
-    inventory[plantType] -= quantity;
-    std::cout << "Removed " << quantity << " " << plantType << "(s) from inventory. Remaining: " << inventory[plantType] << std::endl;
-    notify(plantType, -quantity);
-    
+bool PlantInventory::attach(InventoryObserver* observer) {
+    inventoryObservers.push_back(observer);
     return true;
 }
 
-int PlantInventory::getQuantity(const std::string& plantType) const {
-    auto it = inventory.find(plantType);
-    if (it != inventory.end()) {
-        return it->second;
+bool PlantInventory::detach(InventoryObserver* observer) {
+    auto it = std::find(inventoryObservers.begin(), inventoryObservers.end(), observer);
+    if (it != inventoryObservers.end()) {
+        inventoryObservers.erase(it);
+        return true;
     }
-    return 0;
+    return false;
 }
 
-std::map<std::string, int> PlantInventory::getAllInventory() const {
-    return inventory;
+void PlantInventory::notify() {
+    for (InventoryObserver* observer : inventoryObservers) {
+        observer->update();
+    }
 }
 
-void PlantInventory::displayInventory() const {
-    std::cout << "\nPlant Inventory:" << std::endl;
-    if (inventory.empty()) {
-        std::cout << "Inventory is empty." << std::endl;
-    } else {
-        for (const auto& item : inventory) {
-            std::cout << item.first << ": " << item.second << std::endl;
+void PlantInventory::updateStock() {
+    notify();
+}
+
+int PlantInventory::findPlantIndex(Plant* plant) const {
+    for (size_t i = 0; i < inventoryItems.size(); ++i) {
+        if (inventoryItems[i].first == plant) {
+            return static_cast<int>(i);
         }
     }
+    return -1;
+}
+
+//execute given command and removes it from memory
+bool PlantInventory::executeCommand(StockCommand* command) {
+    if (!command) {
+        return false;
+    }
+
+    bool executionResults = command->execute();
+
+    delete command;
+
+    return executionResults;
+}
+
+bool PlantInventory::addStock(Plant* plant, int quantity) {
+    AddStock* addCommand = new AddStock(plant, quantity, this);
+    return executeCommand(addCommand);
+}
+
+bool PlantInventory::removeStock(Plant* plant, int quantity) {
+    RemoveStock* removeCommand = new RemoveStock(plant, quantity, this);
+    return executeCommand(removeCommand);
+}
+
+std::vector<std::pair<Plant*, int>>& PlantInventory::getInventoryReference() {
+    return inventoryItems;
+}
+
+const std::vector<std::pair<Plant*, int>> PlantInventory::getInventoryView() const {
+    return inventoryItems;
 }

@@ -1,26 +1,22 @@
 #ifndef SALESFLOOROBSERVER_H
 #define SALESFLOOROBSERVER_H
 
-#include "StaffObserver.h"
-#include "Staff.h"
-#include <string>
-#include <map>
+#include "InventoryObserver.h"
+#include "PlantInventory.h"
+#include <vector>
+#include <utility>
 
-class SalesFloorObserver : public StaffObserver {
+class SalesFloorObserver : public InventoryObserver {
 private:
-    Staff* salesStaff;
-    std::string observerName;
-    std::map<std::string, int> salesFloorStock;  
+    std::vector<std::pair<Plant*, int>> availableItems;
+
 public:
-    SalesFloorObserver(Staff* staff);
-    SalesFloorObserver(const std::string& name); 
-    virtual ~SalesFloorObserver();
-    void update(PlantInventory* inventory, const std::string& plantType, int quantity) override;
-    std::string getObserverName() const override;
-    Staff* getSalesStaff() const;
-    void updateSalesFloorDisplay(const std::string& plantType, int quantity);
-    int getSalesFloorStock(const std::string& plantType) const;
-    void displaySalesFloor() const;
+    SalesFloorObserver(PlantInventory* inventory);
+    void update() override;
+
+    const std::vector<std::pair<Plant*, int>>& getAvailableItems() const {
+        return availableItems;
+    }
 };
 
 #endif

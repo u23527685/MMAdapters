@@ -1,22 +1,17 @@
 #ifndef INVENTORYOBSERVER_H
 #define INVENTORYOBSERVER_H
 
-#include "StaffObserver.h"
-#include "Staff.h"
-#include <string>
+#include "Plant.h"
 
-class InventoryObserver : public StaffObserver {
-private:
-    Staff* associatedStaff;
-    std::string observerName; 
+class PlantInventory;
+
+class InventoryObserver {
+protected:
+    PlantInventory* inventory;
 public:
-    InventoryObserver(Staff* staff);
-    InventoryObserver(const std::string& name);
+    InventoryObserver(PlantInventory* inventory);
     virtual ~InventoryObserver();
-    void update(PlantInventory* inventory, const std::string& plantType, int quantity) override;
-    std::string getObserverName() const override;
-    Staff* getAssociatedStaff() const;
-    void setAssociatedStaff(Staff* staff);
+    virtual void update() = 0;
 };
 
 #endif
