@@ -1,67 +1,49 @@
 # Compiler and flags
 CXX = g++
-CXXFLAGS = -Wall -std=c++17 -g
+CXXFLAGS = -Wall -g
 
 # ------------------------
-# Plant Decorator Project
+# Combined Project Target
 # ------------------------
-PLANT_TARGET = plant_app
-PLANT_SRCS = main.cpp \
-             BasePlant.cpp \
-             PlantDecorator.cpp \
-             GiftWrap.cpp \
-             DecorativePot.cpp \
-             SpecialArrangement.cpp
-PLANT_OBJS = $(PLANT_SRCS:.cpp=.o)
-PLANT_DEPS = Plant.h BasePlant.h PlantDecorator.h GiftWrap.h DecorativePot.h SpecialArrangement.h
+TARGET = main
 
-# ------------------------
-# Transaction Project
-# ------------------------
-TRANS_TARGET = transaction_app
-TRANS_SRCS = main.cpp \
-             Transaction.cpp \
-             TransactionSnapshot.cpp \
-             TransactionHistory.cpp \
-             CreditCardPaymentStrategy.cpp \
-             EWalletPaymentStrategy.cpp \
-             EFTPaymentStrategy.cpp
-TRANS_OBJS = $(TRANS_SRCS:.cpp=.o)
+# Source files
+SRCS = main.cpp \
+       Transaction.cpp \
+       TransactionSnapshot.cpp \
+       TransactionHistory.cpp \
+       CreditCardPaymentStrategy.cpp \
+       EWalletPaymentStrategy.cpp \
+       EFTPaymentStrategy.cpp \
+       BasePlant.cpp \
+       PlantDecorator.cpp \
+       GiftWrap.cpp \
+       DecorativePot.cpp \
+       SpecialArrangement.cpp
 
-# ------------------------
+# Object files
+OBJS = $(SRCS:.cpp=.o)
+
+# Header dependencies (optional, for automatic recompilation)
+DEPS = Transaction.h TransactionSnapshot.h TransactionHistory.h \
+       CreditCardPaymentStrategy.h EWalletPaymentStrategy.h EFTPaymentStrategy.h \
+       Plant.h BasePlant.h PlantDecorator.h GiftWrap.h DecorativePot.h SpecialArrangement.h
+
 # Default target
-# ------------------------
-all: $(PLANT_TARGET) $(TRANS_TARGET)
+all: $(TARGET)
 
-# ------------------------
-# Plant Decorator build
-# ------------------------
-$(PLANT_TARGET): $(PLANT_OBJS)
+# Link objects into executable
+$(TARGET): $(OBJS)
 	$(CXX) $(CXXFLAGS) -o $@ $^
 
-%.o: %.cpp $(PLANT_DEPS)
+# Compile .cpp to .o
+%.o: %.cpp $(DEPS)
 	$(CXX) $(CXXFLAGS) -c $< -o $@
 
-# ------------------------
-# Transaction build
-# ------------------------
-$(TRANS_TARGET): $(TRANS_OBJS)
-	$(CXX) -std=c++11 -Wall -Wextra -o $@ $^
-
-%.o: %.cpp
-	$(CXX) -std=c++11 -Wall -Wextra -c $< -o $@
-
-# ------------------------
-# Clean build artifacts
-# ------------------------
+# Clean target
 clean:
-	rm -f $(PLANT_TARGET) $(TRANS_TARGET) *.o
+	rm -f $(TARGET) *.o
 
-# ------------------------
-# Run targets
-# ------------------------
-run_plant: $(PLANT_TARGET)
-	./$(PLANT_TARGET)
-
-run_trans: $(TRANS_TARGET)
-	./$(TRANS_TARGET)
+# Run program
+run: $(TARGET)
+	./$(TARGET)
