@@ -6,14 +6,13 @@
 
 class Transaction {
 private:
-    std::string customerName;
-    std::string planName;
+    std::string orderNum;      // The order number this transaction belongs to
     double amount;
     int quantity;
     PaymentStrategy* strategy;
 
 public:
-    Transaction(const std::string& customerName, const std::string& planName, double amount, int quantity);
+    Transaction(const std::string& orderNum, double amount, int quantity);
 
     void setPaymentMethod(PaymentStrategy* strategy);
     void processPayment();

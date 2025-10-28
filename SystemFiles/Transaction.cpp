@@ -1,8 +1,8 @@
 #include "Transaction.h"
 #include <iostream>
 
-Transaction::Transaction(const std::string& customerName, const std::string& planName, double amount, int quantity)
-    : customerName(customerName), planName(planName), amount(amount), quantity(quantity), strategy(nullptr) {}
+Transaction::Transaction(const std::string& orderNum, double amount, int quantity)
+    : orderNum(orderNum), amount(amount), quantity(quantity), strategy(NULL) {}
 
 void Transaction::setPaymentMethod(PaymentStrategy* strategy) {
     this->strategy = strategy;
@@ -10,7 +10,7 @@ void Transaction::setPaymentMethod(PaymentStrategy* strategy) {
 
 void Transaction::processPayment() {
     if (strategy) {
-        strategy->pay(amount * quantity, customerName);
+        strategy->pay(amount * quantity, orderNum); // Use orderNum as identifier
     } else {
         std::cout << "No payment strategy set!" << std::endl;
     }
@@ -18,8 +18,7 @@ void Transaction::processPayment() {
 
 void Transaction::getDetails() const {
     std::cout << "Transaction Details:\n"
-              << "Customer: " << customerName << "\n"
-              << "Plan: " << planName << "\n"
-              << "Amount: $" << amount << "\n"
+              << "Order Number: " << orderNum << "\n"
+              << "Amount: R" << amount << "\n"
               << "Quantity: " << quantity << std::endl;
 }
