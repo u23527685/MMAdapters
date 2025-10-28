@@ -11,8 +11,8 @@ class SalesEmployee: public SalesStaff{
     public:
         SalesEmployee(std::string name);
         virtual ~SalesEmployee();
-        bool staffCanHandle() override;
-        void reply() override;
+        bool staffCanHandle(std::string type) override;
+        void reply(Query* query) override;
 };
 
 #endif // !SALESEMPLOYEE_H

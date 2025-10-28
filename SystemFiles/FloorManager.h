@@ -11,8 +11,8 @@ class FloorManager: public FloorStaff{
     public:
         FloorManager(std::string name);
         virtual ~FloorManager();
-        bool staffCanHandle() override;
-        void reply() override;
+        bool staffCanHandle(std::string type) override;
+        void reply(Query* query) override;
 };
 
 #endif // !FLOORMANAGER_H

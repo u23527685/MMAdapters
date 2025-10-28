@@ -15,7 +15,7 @@ SalesManager::~SalesManager(){
     responsibilities.clear();
 }
 
-bool SalesManager::staffCanHandle(){
+bool SalesManager::staffCanHandle(std::string type){
     std::random_device rd;
 
     std::mt19937 gen(rd());
@@ -27,6 +27,6 @@ bool SalesManager::staffCanHandle(){
     return randomNumber%2;
 }
 
-void SalesManager::reply(){
+void SalesManager::reply(Query* query){
     std::cout<<"Floor Manager "<<getName()<<" answered the query "<<std::endl;
 }

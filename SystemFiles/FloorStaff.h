@@ -9,16 +9,16 @@
  * @brief Represents floor staff members who work on the operational floor.
  * 
  * @see Staff
- * @author Okaile
+ * @author Okaile Gaesale 23527685
  * @version 1.0
  */
 class FloorStaff : public Staff {
     public:
         FloorStaff(std::string name);
         virtual ~FloorStaff();
-        void handleQuery() override;
-        virtual bool staffCanHandle()=0;
-        virtual void reply()=0;
+        void handleQuery(Query* query) override;
+        virtual bool staffCanHandle(std::string type)=0;
+        virtual void reply(Query* query)=0;
 };
 
 #endif 
