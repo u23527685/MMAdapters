@@ -10,7 +10,7 @@ void Transaction::setPaymentMethod(PaymentStrategy* strategy) {
 
 void Transaction::processPayment() {
     if (strategy) {
-        strategy->pay(amount * quantity, orderNum); // Use orderNum as identifier
+        strategy->pay(amount * quantity, orderNum); 
     } else {
         std::cout << "No payment strategy set!" << std::endl;
     }
