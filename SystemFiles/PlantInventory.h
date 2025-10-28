@@ -6,6 +6,8 @@
 #include <iostream>
 #include "InventoryObserver.h"
 
+class InventoryObserver;
+
 class PlantInventory {
     public:
         bool attach(InventoryObserver* observer);

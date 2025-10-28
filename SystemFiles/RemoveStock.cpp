@@ -1,9 +1,9 @@
 #include "RemoveStock.h"
 
-removeStock::removeStock(PlantStock* s, string type, int qty)
-    : stock(s), plantType(type), quantity(qty) {}
+RemoveStock::RemoveStock(PlantStock* s, std::string type, int quantity)
+    : stock(s), plantType(type), quantity(quantity) {}
 
-void removeStock::execute() {
+void RemoveStock::execute() {
     if (stock)
         stock->removeStock(plantType, quantity);
 }

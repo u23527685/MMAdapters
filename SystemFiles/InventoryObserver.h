@@ -1,14 +1,10 @@
-#ifndef INVENTORYOBSERVER_H
-#define INVENTORYOBSERVER_H
+#ifndef INVENTORY_OBSERVER_H
+#define INVENTORY_OBSERVER_H
 
-#include <iostream>
-#include <string>
-
-class InventoryObserver{
-    public:
-        virtual void update() = 0;
-        virtual ~InventoryObserver();
+class InventoryObserver {
+public:
+    virtual ~InventoryObserver();
+    virtual void update() = 0;
 };
 
 #endif
-

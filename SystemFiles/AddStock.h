@@ -6,15 +6,16 @@
 #include <string>
 #include <iostream>
 
-class addStock : public StockCommand {
-    public:
-        addStock(PlantStock* s, std::string type, int quantity);
-        void execute() override;
+class AddStock : public StockCommand {
+public:
+    AddStock(PlantStock* s, std::string type, int quantity);
+    void execute() override;
 
-    private:
-        std::string plantType;
-        int quantity;
-        PlantStock* stock;
+private:
+    PlantStock* stock;
+    std::string plantType;
+    int quantity;
 };
+
 
 #endif

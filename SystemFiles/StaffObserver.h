@@ -1,20 +1,19 @@
 #ifndef STAFFOBSERVER_H
-#define SRAFFOBSERVER_H
+#define STAFFOBSERVER_H
 
 #include "InventoryObserver.h"
 #include <iostream>
-#include <string>
 
 class PlantInventory;
 
-class StaffObserver : public InventoryObserver{
-    public:
-        StaffObserver(PlantInventory* inventory);
-        void update();
-    
-    private:
-        PlantInventory* inventory;
+class StaffObserver : public InventoryObserver {
+public:
+    StaffObserver();
+    ~StaffObserver() override;
+    void update() override;
+
+private:
+    PlantInventory* inventory;
 };
 
 #endif
-

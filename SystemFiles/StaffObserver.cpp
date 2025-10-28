@@ -1,8 +1,9 @@
 #include "StaffObserver.h"
-#include "PlantInventory.h"
 
-StaffObserver::StaffObserver(PlantInventory* inventory) : inventory(inventory){}
+StaffObserver::StaffObserver() {}
 
-void StaffObserver::update(){
-    std::cout << "[StaffObserver] Inventory updated for staff." << std::endl;
+StaffObserver::~StaffObserver() {}
+
+void StaffObserver::update() {
+    std::cout << "[StaffObserver] Inventory updated - Staff notified of stock changes." << std::endl;
 }

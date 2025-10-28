@@ -1,3 +1,3 @@
 #include "InventoryObserver.h"
 
-//not implemented because virtual functions
+InventoryObserver::~InventoryObserver() {}

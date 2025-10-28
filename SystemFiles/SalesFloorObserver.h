@@ -3,17 +3,12 @@
 
 #include "InventoryObserver.h"
 #include <iostream>
-#include <string>
 
-class PlantInventory;
-
-class SalesFloorObserver : public InventoryObserver{
-    public:
-        SalesFloorObserver(PlantInventory* inv);
-        void update();
-        
-    private:
-        PlantInventory* inventory
+class SalesFloorObserver : public InventoryObserver {
+public:
+    SalesFloorObserver();
+    ~SalesFloorObserver() override;
+    void update() override;
 };
 
 #endif

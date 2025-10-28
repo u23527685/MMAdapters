@@ -1,20 +1,18 @@
-#ifndef REMOVESTOCK_H
-#define REMOVESTOCK_H
+#ifndef REMOVE_STOCK_H
+#define REMOVE_STOCK_H
 
 #include "StockCommand.h"
 #include "PlantStock.h"
 #include <string>
 #include <iostream>
+class RemoveStock : public StockCommand {
+public:
+    RemoveStock(PlantStock* s, std::string type, int quantity);
+    void execute() override;
 
-class removeStock : public StockCommand {
-    public:
-        removeStock(PlantStock* s, std::string type, int qty);
-        void execute() override;
-
-    private:
-        std::string plantType;
-        int quantity;
-        PlantStock* stock;
+private:
+    PlantStock* stock;
+    std::string plantType;
+    int quantity;
 };
-
 #endif

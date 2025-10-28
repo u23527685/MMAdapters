@@ -1,21 +1,40 @@
 CXX = g++
-CXXFLAGS = -std=c++17 -Wall -Wextra
+CXXFLAGS = -std=c++11 -Wall -Wextra -pedantic
 
 TARGET = main
 
-SRCS = CommandObserverMain.cpp AddStock.cpp RemoveStock.cpp PlantStock.cpp PlantInventory.cpp InventoryObserver.cpp
+SOURCES = main.cpp \
+          PlantStock.cpp \
+          PlantInventory.cpp \
+          AddStock.cpp \
+          RemoveStock.cpp \
+          StaffObserver.cpp \
+          SalesFloorObserver.cpp \
+		  InventoryObserver.cpp
 
-OBJS = $(SRCS:.cpp=.o)
+OBJECTS = $(SOURCES:.cpp=.o)
+
+HEADERS = PlantStock.h \
+          PlantInventory.h \
+          InventoryObserver.h \
+          StockCommand.h \
+          AddStock.h \
+          RemoveStock.h \
+          StaffObserver.h \
+          SalesFloorObserver.h
 
 all: $(TARGET)
 
-$(TARGET): $(OBJS)
-	$(CXX) $(CXXFLAGS) -o $(TARGET) $(OBJS)
+$(TARGET): $(OBJECTS)
+	$(CXX) $(CXXFLAGS) -o $(TARGET) $(OBJECTS)
 
-%.o: %.cpp
+%.o: %.cpp $(HEADERS)
 	$(CXX) $(CXXFLAGS) -c $< -o $@
 
-clean:
-	rm -f $(OBJS) $(TARGET)
+run: $(TARGET)
+	./$(TARGET)
 
-.PHONY: all clean
+clean:
+	rm -f $(OBJECTS) $(TARGET)
+
+rebuild: clean all
