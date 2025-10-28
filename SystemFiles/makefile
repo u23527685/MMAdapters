@@ -1,40 +1,42 @@
 CXX = g++
-CXXFLAGS = -std=c++11 -Wall -Wextra -pedantic
+CXXFLAGS = -Wall -g
 
 TARGET = main
 
-SOURCES = main.cpp \
-          PlantStock.cpp \
-          PlantInventory.cpp \
-          AddStock.cpp \
-          RemoveStock.cpp \
-          StaffObserver.cpp \
-          SalesFloorObserver.cpp \
-		  InventoryObserver.cpp
+SRCS = main.cpp \
+       Transaction.cpp \
+       TransactionSnapshot.cpp \
+       TransactionHistory.cpp \
+       CreditCardPaymentStrategy.cpp \
+       EWalletPaymentStrategy.cpp \
+       EFTPaymentStrategy.cpp \
+       BasePlant.cpp \
+       PlantDecorator.cpp \
+       GiftWrap.cpp \
+       DecorativePot.cpp \
+       SpecialArrangement.cpp
 
-OBJECTS = $(SOURCES:.cpp=.o)
+OBJS = $(SRCS:.cpp=.o)
 
-HEADERS = PlantStock.h \
-          PlantInventory.h \
-          InventoryObserver.h \
-          StockCommand.h \
-          AddStock.h \
-          RemoveStock.h \
-          StaffObserver.h \
-          SalesFloorObserver.h
+DEPS = Transaction.h TransactionSnapshot.h TransactionHistory.h \
+       CreditCardPaymentStrategy.h EWalletPaymentStrategy.h EFTPaymentStrategy.h \
+       Plant.h BasePlant.h PlantDecorator.h GiftWrap.h DecorativePot.h SpecialArrangement.h
 
 all: $(TARGET)
 
-$(TARGET): $(OBJECTS)
-	$(CXX) $(CXXFLAGS) -o $(TARGET) $(OBJECTS)
+$(TARGET): $(OBJS)
+	$(CXX) $(CXXFLAGS) -o $@ $^
 
-%.o: %.cpp $(HEADERS)
+%.o: %.cpp $(DEPS)
 	$(CXX) $(CXXFLAGS) -c $< -o $@
+
+clean:
+	rm -f $(TARGET) *.o *.gcda *.gcno *.gcov
 
 run: $(TARGET)
 	./$(TARGET)
 
-clean:
-	rm -f $(OBJECTS) $(TARGET)
-
-rebuild: clean all
+coverage: CXXFLAGS += --coverage
+coverage: clean $(TARGET)
+	./$(TARGET)
+	gcov $(SRCS)
