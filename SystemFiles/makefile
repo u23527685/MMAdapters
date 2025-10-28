@@ -1,43 +1,21 @@
 CXX = g++
-CXXFLAGS = -std=c++17 -Wall
+CXXFLAGS = -std=c++17 -Wall -Wextra
 
-OBSERVER_TARGET = TestObserver
-COMMAND_TARGET = TestCommand
+TARGET = main
 
-OBSERVER_OBJS = PlantInventory.o TestObserverPattern.o
-COMMAND_OBJS = PlantStock.o addStock.o removeStock.o TestCommandPattern.o
+SRCS = CommandObserverMain.cpp AddStock.cpp RemoveStock.cpp PlantStock.cpp PlantInventory.cpp InventoryObserver.cpp
 
-all: $(OBSERVER_TARGET) $(COMMAND_TARGET)
+OBJS = $(SRCS:.cpp=.o)
 
-PlantInventory.o: PlantInventory.cpp PlantInventory.h InventoryObserver.h
-	$(CXX) $(CXXFLAGS) -c PlantInventory.cpp
+all: $(TARGET)
 
-TestObserverPattern.o: TestObserverPattern.cpp PlantInventory.h InventoryObserver.h
-	$(CXX) $(CXXFLAGS) -c TestObserverPattern.cpp
+$(TARGET): $(OBJS)
+	$(CXX) $(CXXFLAGS) -o $(TARGET) $(OBJS)
 
-$(OBSERVER_TARGET): $(OBSERVER_OBJS)
-	$(CXX) $(CXXFLAGS) $(OBSERVER_OBJS) -o $(OBSERVER_TARGET)
-
-PlantStock.o: PlantStock.cpp PlantStock.h
-	$(CXX) $(CXXFLAGS) -c PlantStock.cpp
-
-addStock.o: addStock.cpp addStock.h PlantStock.h
-	$(CXX) $(CXXFLAGS) -c addStock.cpp
-
-removeStock.o: removeStock.cpp removeStock.h PlantStock.h
-	$(CXX) $(CXXFLAGS) -c removeStock.cpp
-
-TestCommandPattern.o: TestCommandPattern.cpp PlantStock.h addStock.h removeStock.h
-	$(CXX) $(CXXFLAGS) -c TestCommandPattern.cpp
-
-$(COMMAND_TARGET): $(COMMAND_OBJS)
-	$(CXX) $(CXXFLAGS) $(COMMAND_OBJS) -o $(COMMAND_TARGET)
-
-run: $(OBSERVER_TARGET) $(COMMAND_TARGET)
-	@echo "=== Running Observer Pattern Test ==="
-	./$(OBSERVER_TARGET)
-	@echo "\n=== Running Command Pattern Test ==="
-	./$(COMMAND_TARGET)
+%.o: %.cpp
+	$(CXX) $(CXXFLAGS) -c $< -o $@
 
 clean:
-	rm -f *.o $(OBSERVER_TARGET) $(COMMAND_TARGET)
+	rm -f $(OBJS) $(TARGET)
+
+.PHONY: all clean
