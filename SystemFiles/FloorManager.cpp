@@ -3,9 +3,7 @@
 #include<iostream>
 
 FloorManager::FloorManager(std::string name):FloorStaff(name){
-    responsibilities.push_back("FUTURE STOCK");
-    responsibilities.push_back("CURRENT STOCK");
-    responsibilities.push_back("RECOMENDATIONS");
+    responsibilities.push_back("STOCK");
 }
 
 FloorManager::~FloorManager(){
@@ -21,5 +19,21 @@ bool FloorManager::staffCanHandle(std::string type){
 }
 
 void FloorManager::reply(Query* query){
+    std::string q= query->getQuestion();
+    if(q=="What Stock is comming in"){
+        /*
+        get incoming stock
+        */
+    }
+    if(q=="What Stock is going out in"){
+        /*
+        get old stock
+        */
+    }
+    if(q=="What is the current Stock"){
+        /*
+        get current stock
+        */
+    }
     std::cout<<"Floor Manager "<<getName()<<" answered the query "<<std::endl;
 }

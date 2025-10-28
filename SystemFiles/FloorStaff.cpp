@@ -11,7 +11,7 @@ void FloorStaff::handleQuery(Query* query){
     if(staffCanHandle(query->getType())){
         reply(query);
     }else{
-        std::cout<<"Staff memeber "<<getName()<<"can not handle this query"<<std::endl;
+        std::cout<<"Staff member "<<getName()<<"can not handle this query"<<std::endl;
         Staff* next= getNext();
         if(next==nullptr){
             std::cout<<"Sorry we can not handle the query"<<std::endl;
