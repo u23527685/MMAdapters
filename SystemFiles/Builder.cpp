@@ -1,4 +1,5 @@
-#include"Builder.h"
+#include "Builder.h"
+#include "Query.h" 
 
 Builder::Builder(){
     item=NULL;

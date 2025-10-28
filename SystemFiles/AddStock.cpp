@@ -17,7 +17,5 @@ bool AddStock::execute() {
         inventory.push_back(std::make_pair(plant, quantityToAdd));
     }
 
-    targetInventory->notify();
-
     return true;
 }

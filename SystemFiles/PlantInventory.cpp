@@ -14,11 +14,10 @@ PlantInventory* PlantInventory::getInstance() {
 }
 
 PlantInventory::~PlantInventory() {
+    inventoryObservers.clear();
+    
     for (std::pair<Plant*, int> &item : inventoryItems) {
         delete item.first;
-    }
-    for (InventoryObserver* observer : inventoryObservers) {
-        delete observer;
     }
 }
 
@@ -62,6 +61,11 @@ bool PlantInventory::executeCommand(StockCommand* command) {
     }
 
     bool executionResults = command->execute();
+    
+    //notify observers after successful command execution
+    if (executionResults) {
+        updateStock();
+    }
 
     delete command;
 

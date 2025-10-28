@@ -1,10 +1,12 @@
 #ifndef BULDER_H
 #define BULDER_H
 #include "Plant.h"
-#include"Query.h"
-#include<string>
+#include <string>
+
+class Query;  // Forward declaration - don't include Query.h here
+
 class Builder{
-    friend Query;
+    friend class Query;  // Use 'class' keyword
     protected:
         Plant* item;
         std::string type;
