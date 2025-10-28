@@ -6,12 +6,19 @@
 class Plant{
 private:
     std::string name;
+
     int currentSunlight;
     int currentWater;
     int currentNutrients;
-    int maxNurtients;
+
+    int maxNurtrients;
     int maxWater;
     int maxSunlight;
+
+    int minWater;
+    int minSunlight;
+    int minNutrients;
+
 public:
     Plant(std::string name);
     virtual ~Plant();
@@ -28,5 +35,11 @@ public:
     void setCurrentSunlight(int mL);
     int getMaxSunlight();
     void setMaxSunlight(int mL);
+
+    int getMinWater() const ;
+    int getMinSunlight() const ;
+    int getMinNutrients() const;
+
+
 };
 #endif

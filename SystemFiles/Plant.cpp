@@ -20,26 +20,38 @@ int Plant::getCurrentWater(){
     return currentWater;
 }
 void Plant::setCurrentWater(int cW){
-    this->currentWater = cW;
+    if (cW > maxWater) {
+        this->currentWater = maxWater;
+    } else {
+        this->currentWater = cW;
+    }
 }
 
 int Plant::getCurrentNutrients(){
     return currentNutrients;
 }
 void Plant::setCurrentNutrients(int cN){
-    this->currentNutrients = cN;
+    if (cN > maxNurtrients) {
+        this->currentNutrients = maxNurtrients;
+    } else {
+        this->currentNutrients = cN;
+    }
 }
 int Plant::getMaxNutrients(){
-    return maxNurtients;
+    return maxNurtrients;
 }
 void Plant::setMaxNutrients(int mN){
-    this->maxNurtients = mN;
+    this->maxNurtrients = mN;
 }
 int Plant::getCurrentSunlight(){
     return currentSunlight;
 }
 void Plant::setCurrentSunlight(int sL){
-    this->currentSunlight = sL;
+    if (sL > maxSunlight) {
+        this->currentSunlight = maxSunlight;
+    } else {
+        this->currentSunlight = sL;
+    }
 }
 int Plant::getMaxSunlight(){
     return maxSunlight;
@@ -47,3 +59,19 @@ int Plant::getMaxSunlight(){
 void Plant::setMaxSunlight(int mL){
     this->maxSunlight = mL;
 }
+
+int Plant::getMinWater() const
+{
+    return minWater;
+}
+
+int Plant::getMinSunlight() const
+{
+    return minSunlight;
+}
+
+int Plant::getMinNutrients() const
+{
+    return minNutrients;
+}
+

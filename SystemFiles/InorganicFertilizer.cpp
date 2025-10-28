@@ -1,6 +1,10 @@
 #include "InorganicFertilizer.h"
 #include <iostream>
 
+std::string InorganicFertilizer::getStrategyName() const{
+    return "Inorganic Fertilizer";
+}
+
 void InorganicFertilizer::applyFertilizer(Plant* p){
     std::cout << "applying the inorganic fertilizer strategy" << std::endl << "Current Nutrients level: " << p->getCurrentNutrients() << "ppm" <<std::endl;
     std::cout << "Max Nutrients level: " << p->getMaxNutrients() << "ppm" << std::endl << "Nurtient level %: " << (p->getCurrentNutrients()/p->getMaxNutrients())*100 << std::endl;

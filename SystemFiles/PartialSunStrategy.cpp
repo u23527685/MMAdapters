@@ -2,6 +2,10 @@
 #include "PartialSunStrategy.h"
 #include <iostream>
 
+std::string PartialSunStrategy::getStrategyName() const{
+    return "Partial Sun";
+}
+
 void PartialSunStrategy::applySunlight(Plant* p){
     std::cout << "applying the Partial Sun strategy" << std::endl << "Current Sunlight level: " << p->getCurrentSunlight() << "% (hrs/day)" <<std::endl;
     std::cout << "Max Sunlight level: " << p->getMaxSunlight() << "% (hrs/day)" << std::endl;
