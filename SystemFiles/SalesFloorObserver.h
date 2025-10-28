@@ -7,11 +7,13 @@
 #include <vector>
 #include <utility>
 #include <string>
+#include <map>
 
 class SalesFloorObserver : public InventoryObserver {
 private:
     std::vector<std::pair<Plant*, int>> availableItems;
     std::vector<Staff*> notifiedStaff;
+    std::map<Plant*, std::string> plantDescriptions;
     
 public:
     SalesFloorObserver(PlantInventory* inventory);
