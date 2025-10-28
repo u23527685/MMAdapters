@@ -3,27 +3,79 @@
 #include "Staff.h"
 #include <iostream>
 #include <algorithm>
+#include <map>
 
 SalesFloorObserver::SalesFloorObserver(PlantInventory* inventory) : InventoryObserver(inventory) {
     update();
 }
 
 void SalesFloorObserver::update() {
-    // Track only available items if their quantity is greater than zero
+    //Save old state for comparison
+    std::vector<std::pair<Plant*, int>> oldItems = availableItems;
+    
+    //Get current inventory and update availableItems
     const std::vector<std::pair<Plant*, int>> items = inventory->getInventoryView();
     availableItems.clear();
     
     for (const auto& item : items) {
         if (item.second > 0) {
             availableItems.push_back(item);
+            plantDescriptions[item.first] = item.first->getDescription();
         }
     }
 
     std::cout << "Sales Floor Update: " << availableItems.size() << " plant types currently available." << std::endl;
     
-    //notify all registered staff members
-    std::string message = "Inventory updated: " + std::to_string(availableItems.size()) + " plant types available.";
-    notifyStaff(message);
+    //Determine what changed and notify staff
+    for (const auto& newItem : availableItems) {
+        Plant* plant = newItem.first;
+        int newQty = newItem.second;
+        
+        //Find old quantity
+        int oldQty = 0;
+        for (const auto& oldItem : oldItems) {
+            if (oldItem.first == plant) {
+                oldQty = oldItem.second;
+                break;
+            }
+        }
+        
+        //If this is new or quantity increased
+        if (oldQty == 0) {
+            std::string message = "New stock added: " + plant->getDescription() + " (Qty: " + std::to_string(newQty) + ")";
+            notifyStaff(message);
+        } else if (newQty > oldQty) {
+            int added = newQty - oldQty;
+            std::string message = "Stock added: " + std::to_string(added) + " " + plant->getDescription() + " (Total: " + std::to_string(newQty) + ")";
+            notifyStaff(message);
+        } else if (newQty < oldQty) {
+            int removed = oldQty - newQty;
+            std::string message = "Stock removed: " + std::to_string(removed) + " " + plant->getDescription() + " (Remaining: " + std::to_string(newQty) + ")";
+            notifyStaff(message);
+        }
+    }
+    
+    //Check for items that were completely removed (went to 0)
+    for (const auto& oldItem : oldItems) {
+        Plant* plant = oldItem.first;
+        bool found = false;
+        
+        for (const auto& newItem : availableItems) {
+            if (newItem.first == plant) {
+                found = true;
+                break;
+            }
+        }
+        
+        if (!found) {
+            // Use the cached description from when the plant existed
+            std::string description = plantDescriptions.count(plant) > 0 
+                ? plantDescriptions[plant] 
+                : "Unknown Plant";
+            std::string message = "Stock depleted: " + description + " is now out of stock";
+            notifyStaff(message);
+        }
+    }
 }
 
 bool SalesFloorObserver::isPlantAvailable(Plant* plant) const {
