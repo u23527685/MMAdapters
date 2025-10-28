@@ -8,13 +8,12 @@
 class Plant;
 
 class PlantCareRoutine{
-private:
-    PlantCareRoutine* PCR;
 public:
-    PlantCareRoutine* PlantCare(Plant* p);
-    virtual void Fertilizing(Plant* p);
-    virtual void Watering(Plant* p);
-    virtual void Sunlight(Plant* p);
+    virtual ~PlantCareRoutine() = default;
+    static  PlantCareRoutine* PlantCare(Plant* p);
+    virtual void Fertilizing(Plant* p) = 0;
+    virtual void Watering(Plant* p) =0;
+    virtual void Sunlight(Plant* p)= 0;
 };
 
 #endif

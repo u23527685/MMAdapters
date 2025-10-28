@@ -2,6 +2,7 @@
 
 Plant::Plant(double price, std::string description)
     : name(description),
+      category("generic"),
       description(description), 
       price(price),
       currentState(nullptr),
@@ -140,4 +141,11 @@ int Plant::getMinSunlight() const{
 
 int Plant::getMinNutrients() const{
     return minNutrients;
+}
+
+std::string Plant::getCategory(){
+    return category;
+}
+void Plant::setCategory(const std::string& c){
+    category = c;
 }

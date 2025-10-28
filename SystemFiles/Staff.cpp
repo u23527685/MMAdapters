@@ -60,6 +60,7 @@ void Staff::update(PlantLifeCycle* p) {
    if (!p->isHealthy()) {
         std::cout << "[Staff] " << name << " is applying care..." << std::endl;
         p->getStateObj()->applyCare(p, plant, careRoutine);
+        delete careRoutine;
     } else {
         std::cout << "[Staff] " << name << " continues regular maintenance of "
                   << p->getName() << std::endl;

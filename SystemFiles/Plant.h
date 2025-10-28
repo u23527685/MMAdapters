@@ -17,6 +17,7 @@ class PlantState;
 class Plant {
 private:
     std::string name;
+    
 
     int currentSunlight;
     int currentWater;
@@ -37,6 +38,7 @@ protected:
     FertilizerStrategy* fertilizerStrategy;
     PlantState* state;
     std::vector<LifeCycleObserver*> observerList;
+    std::string category;
 
     std::string description;
     double price;
@@ -69,6 +71,8 @@ public:
     int getMinWater() const ;
     int getMinSunlight() const ;
     int getMinNutrients() const;
+    std::string getCategory();
+    void setCategory( const std::string& c);
 
     virtual ~Plant();
 };

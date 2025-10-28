@@ -1,4 +1,6 @@
 #include "PLantLifeCycle.h"
+#include "DistressedState.h"
+#include "WitheredState.h"
 
 PlantLifeCycle::PlantLifeCycle(Plant* plant, PlantState* initialState, std::string name)
     :  p(plant), currentState(initialState), name(name)
@@ -10,7 +12,7 @@ PlantLifeCycle::~PlantLifeCycle() {
 }
 
 std::string PlantLifeCycle::getState(){
-    return name;
+    return currentState ? currentState->getName() : "Unknown";
 }
 
 PlantState* PlantLifeCycle::getStateObj() const {
@@ -29,7 +31,7 @@ void PlantLifeCycle::setState(PlantState* state) {
         notify(); // only notify if state actually changed
     }
 }
-/**
+
 void PlantLifeCycle::attach(LifeCycleObserver* obs){
     observers.push_back(obs);
 }
@@ -42,7 +44,7 @@ void PlantLifeCycle::detach(LifeCycleObserver* obs){
         }
     }
 }
-**/
+
 void PlantLifeCycle::notify() {
         for (auto obs : observers) {
             obs->update(this);
@@ -50,7 +52,14 @@ void PlantLifeCycle::notify() {
 }
 
 bool PlantLifeCycle::isHealthy(){
-    return currentState->evaluate(this, p); //delegate to state
+    bool healthy = currentState->evaluate(this, p);
+
+    // 2. If NOT healthy → automatically transition to the correct state
+    if (!healthy) {
+        transitionToCorrectState();
+    }
+
+    return healthy; //delegate to state
 }
 
 /**
@@ -83,4 +92,30 @@ Plant* PlantLifeCycle::getPlant() {
 
 std::string PlantLifeCycle::getName() {
     return name;
+}
+
+void PlantLifeCycle::transitionToCorrectState() {
+    int w = p->getCurrentWater();
+    int s = p->getCurrentSunlight();
+    int n = p->getCurrentNutrients();
+
+    PlantState* newState = nullptr;
+    std::string newStateName;
+
+    if (w < 10 || s < 10 || n < 10) {
+        newState = new WitheredState();
+        newStateName = "Withered";
+    } else if (w < 30 || s < 30 || n < 30) {
+        newState = new DistressedState();
+        newStateName = "Distressed";
+    } 
+
+    
+    if (!currentState || currentState->getName() != newStateName) {
+        delete currentState;
+        currentState = newState;
+        notify();  
+    } else {
+        delete newState;  
+    }
 }
