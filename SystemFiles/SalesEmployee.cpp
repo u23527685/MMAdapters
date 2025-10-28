@@ -3,9 +3,9 @@
 #include<iostream>
 
 SalesEmployee::SalesEmployee(std::string name):SalesStaff(name){
-    responsibilities.push_back("STOCK");
-    responsibilities.push_back("INCOMMING STOCK");
-    responsibilities.push_back("OUTGOING STOCK");
+    responsibilities.push_back("FUTURE STOCK");
+    responsibilities.push_back("CURRENT STOCK");
+    responsibilities.push_back("DEALS");
     responsibilities.push_back("CURRENT SALES");
 }
 
