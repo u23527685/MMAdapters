@@ -1,10 +1,12 @@
 #include "Plant.h"
 
-Plant::Plant(double price, std::string description) : BasePlant(price, description) {
+Plant::Plant(double price, std::string description){
     this->state = nullptr;
     this->waterStrategy = nullptr;
     this->sunlightStrategy = nullptr;
     this->fertilizerStrategy = nullptr;
+    this->description = description;
+    this->price = price;
 }
 
 // Applies care routines
@@ -25,7 +27,7 @@ void Plant::attach(LifeCycleObserver* o) {
     observerList.push_back(o);
 }
 
-// Detaches an observer from the plant
+// Detaches an observer to the Plant
 void Plant::detach(LifeCycleObserver* o) {
     for (std::vector<LifeCycleObserver*>::iterator it = observerList.begin(); it != observerList.end(); ++it) {
         if (*it == o) {
@@ -38,4 +40,12 @@ void Plant::detach(LifeCycleObserver* o) {
 
 void Plant::notify() {
 
+}
+
+std::string Plant::getDescription() {
+    return description;
+}
+
+double Plant::getPrice() {
+    return price;
 }
