@@ -3,11 +3,12 @@
 
 #include "InventoryObserver.h"
 #include "PlantInventory.h"
-#include "Staff.h"
 #include <vector>
 #include <utility>
 #include <string>
 #include <map>
+
+class Staff;
 
 class SalesFloorObserver : public InventoryObserver {
 private:

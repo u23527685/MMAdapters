@@ -1,4 +1,5 @@
 #include "Tropical.h"
+#include <iostream>
 
 #include "PartialSunStrategy.h"
 #include "OrganicFertilizer.h"
@@ -17,4 +18,11 @@ void Tropical::Watering(Plant* p){
 }
 void Tropical::Sunlight(Plant* p){
     sS->applySunlight(p);
+}
+void Tropical::printCareRoutine(){
+    std::cout << "\n ================================================= \n";
+    std::cout << "This plant uses: \n";
+    std::cout << "-Medium Watering care strategy \n";
+    std::cout << "-Partial Sunlight care strategy \n";
+    std::cout << "-Organic Fertilizing care strategy \n";
 }

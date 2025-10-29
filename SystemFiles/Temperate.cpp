@@ -18,3 +18,10 @@ void Temperate::Watering(Plant* p){
 void Temperate::Sunlight(Plant* p){
     sS->applySunlight(p);
 }
+void Temperate::printCareRoutine(){
+    std::cout << "\n ================================================= \n";
+    std::cout << "This plant uses: \n";
+    std::cout << "-Medium Watering care strategy \n";
+    std::cout << "-Partial Sunlight care strategy \n";
+    std::cout << "-Organic Fertilizing care strategy \n";
+}

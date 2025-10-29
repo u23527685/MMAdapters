@@ -21,6 +21,7 @@ public:
     void Fertilizing(Plant* p) override;
     void Watering(Plant* p) override;
     void Sunlight(Plant* p) override;
+    void printCareRoutine() override;
 };
 
 #endif

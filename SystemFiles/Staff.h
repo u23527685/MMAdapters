@@ -4,10 +4,11 @@
 #include "PLantLifeCycle.h"
 #include "LifeCycleObserver.h"
 #include "PlantCareRoutine.h"
-#include"SalesFloorObserver.h"
 #include"Query.h"
 #include <iostream>
 #include<string>
+
+class SalesFloorObserver;
 
 class Staff : public LifeCycleObserver {
     private:

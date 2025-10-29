@@ -1,4 +1,5 @@
 #include "Staff.h"
+#include "SalesFloorObserver.h"
 
 Staff::Staff(std::string name){
     this->name=name;

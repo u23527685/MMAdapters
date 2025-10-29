@@ -18,3 +18,10 @@ void Sunny::Watering(Plant* p){
 void Sunny::Sunlight(Plant* p){
     sS->applySunlight(p);
 }
+void Sunny::printCareRoutine(){
+    std::cout << "\n ================================================= \n";
+    std::cout << "This plant uses: \n";
+    std::cout << "-Low Watering care strategy \n";
+    std::cout << "-Full Sunlight care strategy \n";
+    std::cout << "-Inorganic Fertilizing care strategy \n";
+}

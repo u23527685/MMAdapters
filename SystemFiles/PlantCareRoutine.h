@@ -3,6 +3,7 @@
 
 #include <string>
 #include "Plant.h"
+#include <iostream>
 
 
 class Plant;
@@ -14,6 +15,7 @@ public:
     virtual void Fertilizing(Plant* p) = 0;
     virtual void Watering(Plant* p) =0;
     virtual void Sunlight(Plant* p)= 0;
+    virtual void printCareRoutine() = 0;
 };
 
 #endif

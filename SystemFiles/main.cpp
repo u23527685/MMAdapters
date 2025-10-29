@@ -186,6 +186,11 @@ int main() {
     std::cout << "  State: " << oakCycle->getState() << "\n";
     std::cout << "=====================================\n\n";
 
+    //Test PlantCareRoutine print method
+    PlantCareRoutine* PCR;
+    PCR = PCR->PlantCare(redRose);
+    PCR->printCareRoutine();
+
     // ==========================================
     // Step 9: Sell Out Alien Plants
     // ==========================================
