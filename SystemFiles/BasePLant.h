@@ -1,16 +1,12 @@
-#ifndef BASEPLANT_H
-#define BASEPLANT_H
-#include <string>
+#ifndef BASE_PLANT_H
+#define BASE_PLANT_H
 
-class BasePlant {
-    protected:
-    std::string description;
-    double price;
-    public:
-    BasePlant(double p, std::string desc) : price(p), description(desc) {}
-    virtual std::string getDescription();
-    virtual double getPrice();
-    virtual ~BasePlant() {}
+#include "Plant.h"
+
+class BasePlant : public Plant {
+public:
+    std::string getDescription() const override;
+    double getPrice() const override;
 };
 
-#endif
+#endif 

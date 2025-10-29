@@ -42,6 +42,7 @@ protected:
 
     std::string description;
     double price;
+    std::string color;
 
 public:
     Plant(double price, std::string description);
@@ -54,6 +55,8 @@ public:
     void notify();
     std::string getDescription();
     double getPrice();
+    bool setColor(const std::string& color);
+    std::string getColor() const;
 
     std::string getName();
     int getMaxWater();

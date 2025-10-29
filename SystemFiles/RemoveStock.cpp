@@ -26,5 +26,7 @@ bool RemoveStock::execute() {
         inventory.erase(inventory.begin() + idx);
     }
 
+    targetInventory->notify();
+
     return true;
 }

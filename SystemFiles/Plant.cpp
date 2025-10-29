@@ -149,3 +149,11 @@ std::string Plant::getCategory(){
 void Plant::setCategory(const std::string& c){
     category = c;
 }
+bool Plant::setColor(const std::string& color) {
+    this->color = color;
+    return true;
+}
+
+std::string Plant::getColor() const {
+    return color;
+}

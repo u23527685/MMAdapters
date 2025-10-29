@@ -9,10 +9,10 @@
 
 class StaffObserver : public InventoryObserver {
 private:
+
 public:
     StaffObserver(PlantInventory* inventory);
     void update() override;
     
 };
-
 #endif

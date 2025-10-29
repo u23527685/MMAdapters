@@ -13,3 +13,4 @@ InventoryObserver::~InventoryObserver() {
         inventory->detach(this);
     }
 }
+
