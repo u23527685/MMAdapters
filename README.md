@@ -3,7 +3,7 @@
 🌸🌿🌼  
 # 🌱 **Plantopia**  
 ### *Where Growth Becomes a Game*  
-**COS 214 – Object-Oriented Programming | University of Pretoria**  
+**COS 214 – Software Modelling| University of Pretoria**  
 🌼🌿🌸  
 
 ---
