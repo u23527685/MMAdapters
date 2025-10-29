@@ -38,5 +38,5 @@ void FloorEmployee::reply(Query* query){
         */
        std::cout<<"I recommend cactus as they are easy to take care of and they are very stylish"<<std::endl;
     }
-    std::cout<<"Floor Manager "<<getName()<<" answered the query "<<std::endl;
+    std::cout<<"Floor Employee "<<getName()<<" answered the query "<<std::endl;
 }

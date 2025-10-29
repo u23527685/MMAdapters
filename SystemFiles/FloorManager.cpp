@@ -21,19 +21,13 @@ bool FloorManager::staffCanHandle(std::string type){
 void FloorManager::reply(Query* query){
     std::string q= query->getQuestion();
     if(q=="What Stock is comming in"){
-        /*
-        get incoming stock
-        */
+        getStock();
     }
     if(q=="What Stock is going out in"){
-        /*
-        get old stock
-        */
+        getStock();
     }
     if(q=="What is the current Stock"){
-        /*
-        get current stock
-        */
+        getStock();
     }
     std::cout<<"Floor Manager "<<getName()<<" answered the query "<<std::endl;
 }

@@ -4,6 +4,7 @@
 #include "PLantLifeCycle.h"
 #include "LifeCycleObserver.h"
 #include "PlantCareRoutine.h"
+#include"SalesFloorObserver.h"
 #include"Query.h"
 #include <iostream>
 #include<string>
@@ -13,7 +14,9 @@ class Staff : public LifeCycleObserver {
         Staff* next;
         std::string name;
         PlantCareRoutine* careRoutine;
+        SalesFloorObserver* salesFloorObserver;
     public:
+        void getStock();
         virtual void handleQuery(Query* query)=0;
         Staff(std::string name);
         virtual ~Staff();

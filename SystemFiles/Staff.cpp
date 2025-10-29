@@ -19,6 +19,10 @@ Staff* Staff::getNext(){
     return next;
 }
 
+void Staff::getStock(){
+    salesFloorObserver->getAvailableItems();
+}
+
 /**
 void Staff::update(PlantLifeCycle* p){
     Plant* plant = p->getPlant();
