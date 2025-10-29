@@ -49,3 +49,31 @@ std::string Plant::getDescription() {
 double Plant::getPrice() {
     return price;
 }
+
+bool Plant::setPrice(double price) {
+    this->price = price;
+    return true;
+}
+
+bool Plant::setDescription(const std::string& description) {
+    this->description = description;
+    return true;
+}
+
+bool Plant::setCategory(const std::string& category) {
+    this->category = category;
+    return true;
+}
+
+std::string Plant::getCategory() const {
+    return category;
+}
+
+bool Plant::setColor(const std::string& color) {
+    this->color = color;
+    return true;
+}
+
+std::string Plant::getColor() const {
+    return color;
+}
