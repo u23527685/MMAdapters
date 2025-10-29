@@ -6,7 +6,7 @@
 #include "PlantCareRoutine.h"
 
 void WitheredState::applyCare(PlantLifeCycle* context, Plant* plant, PlantCareRoutine* routine) {
-    std::cout << "[WitheredState] Plant is withered. Care may be attempted, but recovery is unlikely." << std::endl;
+    std::cout << "[Withered State] " << plant->getName() << " is withered. Care may be attempted, but recovery is unlikely." << std::endl;
 
     if (plant->getCurrentWater() < 10) routine->Watering(plant);
     if (plant->getCurrentSunlight() < 10) routine->Sunlight(plant);
