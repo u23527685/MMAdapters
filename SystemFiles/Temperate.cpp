@@ -1,13 +1,13 @@
 #include "Temperate.h"
 
-#include "PartialSunStrategy.h"
-#include "OrganicFertilizer.h"
-#include "MediumWaterStrategy.h"
+#include "FullSunStrategy.h"
+#include "InorganicFertilizer.h"
+#include "LowWaterStrategy.h"
 
 Temperate::Temperate(){
-    wS = new MediumWaterStrategy();
-    sS = new PartialSunStrategy();
-    fS = new OrganicFertilizer();
+    wS = new LowWaterStrategy();
+    sS = new FullSunStrategy();
+    fS = new InorganicFertilizer();
 }
 void Temperate::Fertilizing(Plant* p){
     fS->applyFertilizer(p);

@@ -59,7 +59,7 @@ bool PlantLifeCycle::isHealthy(){
         transitionToCorrectState();
     }
 
-    return healthy; //delegate to state
+    return currentState->getName() == "Mature" || currentState->getName() == "Seedling" ||currentState->getName() == "Seed"  ; //delegate to state
 }
 
 /**
@@ -108,6 +108,9 @@ void PlantLifeCycle::transitionToCorrectState() {
     } else if (w < 30 || s < 30 || n < 30) {
         newState = new DistressedState();
         newStateName = "Distressed";
+    }
+    else{
+        newState = currentState;
     } 
 
     
