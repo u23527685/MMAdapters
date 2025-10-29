@@ -41,8 +41,9 @@ public:
     void detach(LifeCycleObserver* o);
     void notify();
     
-    std::string getDescription();
-    double getPrice();
+    virtual std::string getDescription();
+    virtual double getPrice();
+  
     bool setPrice(double price);
     bool setDescription(const std::string& description);
     bool setCategory(const std::string& category);
