@@ -33,9 +33,6 @@ void FloorEmployee::reply(Query* query){
         */
     }
     if(q=="What plants do you recomend?"){
-        /*
-        get plant recomendations
-        */
        std::cout<<"I recommend cactus as they are easy to take care of and they are very stylish"<<std::endl;
     }
     std::cout<<"Floor Employee "<<getName()<<" answered the query "<<std::endl;
