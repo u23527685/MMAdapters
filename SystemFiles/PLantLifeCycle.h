@@ -15,6 +15,7 @@ private:
     Plant* p;
     std::vector<LifeCycleObserver*> observers;
     std::string name;
+    void transitionToCorrectState();
 public:
     PlantLifeCycle(Plant* plant, PlantState* initialState, std::string name);
     ~PlantLifeCycle();
@@ -25,10 +26,11 @@ public:
     //void setState(std::string s);
     void setState(PlantState* state);
 
-    void attach(PlantState* ol);
-    void detach(PlantState* ol);
+    void attach(LifeCycleObserver* ol);
+    void detach(LifeCycleObserver* ol);
     void notify();
     bool isHealthy();
+    
 
     Plant* getPlant();
     std::string getName();

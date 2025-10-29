@@ -1,8 +1,7 @@
 #include "StaffObserver.h"
 #include "PlantInventory.h"
 
-StaffObserver::StaffObserver(PlantInventory* inventory)
-    : InventoryObserver(inventory) {}
+StaffObserver::StaffObserver(PlantInventory* inventory) : InventoryObserver(inventory) {}
 
 void StaffObserver::update() {
     // Track inventory changes internally

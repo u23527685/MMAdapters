@@ -8,7 +8,6 @@ class PlantInventory;
 class InventoryObserver {
 protected:
     PlantInventory* inventory;
-
 public:
     InventoryObserver(PlantInventory* inventory);
     virtual ~InventoryObserver();

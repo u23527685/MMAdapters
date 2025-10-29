@@ -3,6 +3,9 @@
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
+  <component name="CMakeRunConfigurationManager">
+    <generated />
+  </component>
   <component name="CMakeSettings">
     <configurations>
       <configuration PROFILE_NAME="Debug" ENABLED="true" CONFIG_NAME="Debug" />
@@ -10,21 +13,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="769c8feb-e2ca-48e9-9648-caa88488af3d" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/DistressedState.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/DistressedState.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DistressedState.h" beforeDir="false" afterPath="$PROJECT_DIR$/DistressedState.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MatureState.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/MatureState.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MatureState.h" beforeDir="false" afterPath="$PROJECT_DIR$/MatureState.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PLantLifeCycle.h" beforeDir="false" afterPath="$PROJECT_DIR$/PLantLifeCycle.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PlantLifeCycle.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/PlantLifeCycle.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PlantState.h" beforeDir="false" afterPath="$PROJECT_DIR$/PlantState.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SeedState.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/SeedState.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SeedState.h" beforeDir="false" afterPath="$PROJECT_DIR$/SeedState.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SeedlingState.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/SeedlingState.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SeedlingState.h" beforeDir="false" afterPath="$PROJECT_DIR$/SeedlingState.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Staff.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Staff.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Staff.h" beforeDir="false" afterPath="$PROJECT_DIR$/Staff.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WitheredState.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/WitheredState.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WitheredState.h" beforeDir="false" afterPath="$PROJECT_DIR$/WitheredState.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HighWaterStrategy.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/HighWaterStrategy.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/InorganicFertilizer.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/InorganicFertilizer.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LowWaterStrategy.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/LowWaterStrategy.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MediumWaterStrategy.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/MediumWaterStrategy.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OrganicFertilizer.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/OrganicFertilizer.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/main.cpp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -34,10 +31,35 @@
   <component name="ClangdSettings">
     <option name="formatViaClangd" value="false" />
   </component>
+  <component name="ExternalProjectsData">
+    <projectState path="$PROJECT_DIR$">
+      <ProjectState />
+    </projectState>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="MakefileLocalSettings">
+    <option name="availableProjects">
+      <map>
+        <entry>
+          <key>
+            <ExternalProjectPojo>
+              <option name="name" value="SystemFiles" />
+              <option name="path" value="$PROJECT_DIR$" />
+            </ExternalProjectPojo>
+          </key>
+          <value>
+            <list>
+              <ExternalProjectPojo>
+                <option name="name" value="SystemFiles" />
+                <option name="path" value="$PROJECT_DIR$" />
+              </ExternalProjectPojo>
+            </list>
+          </value>
+        </entry>
+      </map>
+    </option>
     <option name="projectSyncType">
       <map>
         <entry key="$PROJECT_DIR$" value="RE_IMPORT" />
@@ -50,9 +72,9 @@
     <option name="minorVersion" value="1.4" />
     <option name="productBranch" value="Classic" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 4
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 4
+}</component>
   <component name="ProjectId" id="34NlpMJe9DUhNpnS7oo15Lxabrq" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -66,7 +88,7 @@
     "RunOnceActivity.readMode.enableVisualFormatting": "true",
     "cf.first.check.clang-format": "false",
     "cidr.known.project.marker": "true",
-    "git-widget-placeholder": "Greenhouse-State",
+    "git-widget-placeholder": "Staff-Observer-Merged",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -75,6 +97,13 @@
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
+  <component name="RunManager">
+    <configuration default="true" type="CLionExternalRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true">
+      <method v="2">
+        <option name="CLION.EXTERNAL.BUILD" enabled="true" />
+      </method>
+    </configuration>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">

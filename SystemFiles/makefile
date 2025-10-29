@@ -1,48 +1,82 @@
-CXX = g++
-CXXFLAGS = -Wall -g
+# Compiler and flags
+CXX := g++
+CXXFLAGS := -Wall -Wextra -std=c++11
+DEBUGFLAGS := -g
+COVERAGEFLAGS := -fprofile-arcs -ftest-coverage
 
-TARGET = main
+# All .cpp files in the directory
+SOURCES := $(wildcard *.cpp)
+OBJECTS := $(SOURCES:.cpp=.o)
 
-SRCS = main.cpp \
-       Transaction.cpp \
-       TransactionSnapshot.cpp \
-       TransactionHistory.cpp \
-       CreditCardPaymentStrategy.cpp \
-       EWalletPaymentStrategy.cpp \
-       EFTPaymentStrategy.cpp \
-       BasePlant.cpp \
-       PlantDecorator.cpp \
-       GiftWrap.cpp \
-       DecorativePot.cpp \
-       SpecialArrangement.cpp \
-       Order.cpp \
-       Customer.cpp \
-       Staff.cpp
+# Output executable
+TARGET := test
 
-OBJS = $(SRCS:.cpp=.o)
-
-DEPS = Transaction.h TransactionSnapshot.h TransactionHistory.h \
-       CreditCardPaymentStrategy.h EWalletPaymentStrategy.h EFTPaymentStrategy.h \
-       Plant.h BasePlant.h PlantDecorator.h GiftWrap.h DecorativePot.h SpecialArrangement.h \
-       AddStock.h RemoveStock.h PlantStock.h PlantInventory.h InventoryObserver.h \
-       StaffObserver.h SalesFloorObserver.h \
-       Order.h Customer.h Staff.h
-
+# Default build
 all: $(TARGET)
 
-$(TARGET): $(OBJS)
-	$(CXX) $(CXXFLAGS) -o $@ $^
+$(TARGET): $(OBJECTS)
+	$(CXX) $(CXXFLAGS) $(LDFLAGS) -o $@ $^
 
-%.o: %.cpp $(DEPS)
+%.o: %.cpp
 	$(CXX) $(CXXFLAGS) -c $< -o $@
 
-clean:
-	rm -f $(TARGET) *.o *.gcda *.gcno *.gcov
+# Debug build with -g
+debug: CXXFLAGS += $(DEBUGFLAGS)
+debug: clean $(TARGET)
+	@echo "Built with debug symbols."
 
+# Build with coverage flags
+coverage: CXXFLAGS += $(COVERAGEFLAGS)
+coverage: LDFLAGS += $(COVERAGEFLAGS)
+coverage: clean $(TARGET)
+	@echo "Built with coverage flags."
+
+# Run the program
 run: $(TARGET)
 	./$(TARGET)
 
-coverage: CXXFLAGS += --coverage
-coverage: clean $(TARGET)
-	./$(TARGET)
-	gcov $(SRCS)
+# Run with gdb
+gdb: debug
+	gdb ./$(TARGET)
+
+# Run with valgrind
+valgrind: debug
+	valgrind --leak-check=full --track-origins=yes --show-leak-kinds=all ./$(TARGET)
+
+# Generate coverage report (after running the program built with 'make coverage')
+gcov-report:
+	gcov $(SOURCES)
+
+# Generate HTML coverage report using gcovr
+coverage-html:
+	@echo "Generating HTML coverage report..."
+	@if command -v gcovr >/dev/null 2>&1; then \
+		gcovr --html-details -o coverage.html --root .; \
+		echo "HTML report generated: coverage.html"; \
+	else \
+		echo "Error: gcovr not found. Install it with: pip install gcovr"; \
+		exit 1; \
+	fi
+
+# Alternative: Generate HTML coverage report using lcov
+coverage-html-lcov:
+	@echo "Generating HTML coverage report with lcov..."
+	@if command -v lcov >/dev/null 2>&1 && command -v genhtml >/dev/null 2>&1; then \
+		lcov --capture --directory . --output-file coverage.info; \
+		lcov --remove coverage.info '/usr/*' --output-file coverage.info; \
+		genhtml coverage.info --output-directory coverage_html; \
+		echo "HTML report generated in coverage_html/index.html"; \
+	else \
+		echo "Error: lcov/genhtml not found. Install with: sudo apt-get install lcov"; \
+		exit 1; \
+	fi
+
+# Clean only coverage HTML report
+clean-html:
+	rm -f coverage*.html coverage*.css
+	rm -rf coverage_html
+
+# Cleanup
+clean:
+	rm -f $(OBJECTS) $(TARGET) *.gcda *.gcno *.gcov coverage*.html coverage*.css coverage.info
+	rm -rf coverage_html

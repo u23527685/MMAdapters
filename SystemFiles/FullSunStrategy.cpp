@@ -2,7 +2,7 @@
 #include "FullSunStrategy.h"
 #include <iostream>
 
-std::string FullSunStrategy::getStrategyName() const override {
+std::string FullSunStrategy::getStrategyName() const {
     return "Full Sun";
 }
 

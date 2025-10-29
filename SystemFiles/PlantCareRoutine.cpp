@@ -3,21 +3,17 @@
 #include "Plant.h"
 
 #include "PlantCareRoutine.h"
+#include "Tropical.h"
+#include "Sunny.h"
+#include "Shade.h"
+#include "Temperate.h"
 
 
 PlantCareRoutine* PlantCareRoutine::PlantCare(Plant* p){
-
-    delete PCR;
-    PCR = nullptr;
-    if(p->getName() == "Rose" || p->getName() == "rose"){
-        //PCR = new RoseCare;
-    } else if(p->getName() == "Oak" || p->getName() == "oak"){
-        //PCR = new OakCare;
-    } else if(p->getName() == "Mint" || p->getName() == "mint" ){
-        //PCR = new MintCare;
-    } else if(p->getName() == "Cactus" || p->getName() == "cactus" ){
-        //PCR = new CactusCare;
-    } else {
-        std::cout << "We're Sorry, The Nursery doesn't house that kind of plant..." << std::endl;
-    }
+    const std::string& cat = p->getCategory();
+    if (cat == "Tropical")   return new Tropical();
+    if (cat == "Sunny")      return new Sunny();
+    if (cat == "Shade")      return new Shade();
+    if (cat == "Temperate")  return new Temperate();
+    return nullptr;
 }

@@ -1,13 +1,25 @@
 #include "Plant.h"
 
-Plant::Plant(double price, std::string description){
-    this->state = nullptr;
-    this->waterStrategy = nullptr;
-    this->sunlightStrategy = nullptr;
-    this->fertilizerStrategy = nullptr;
-    this->description = description;
-    this->price = price;
-    this->name = description;
+Plant::Plant(double price, std::string description)
+    : name(description),
+      category("generic"),
+      description(description), 
+      price(price),
+      currentState(nullptr),
+      waterStrategy(nullptr),
+      sunlightStrategy(nullptr),
+      fertilizerStrategy(nullptr),
+      state(nullptr),
+      currentSunlight(0),
+      currentWater(0),
+      currentNutrients(0),
+      maxNutrtients(100),
+      maxWater(100),
+      maxSunlight(100),
+      minWater(0),
+      minSunlight(0),
+      minNutrients(0)
+{
 }
 
 // Applies care routines
@@ -51,25 +63,92 @@ double Plant::getPrice() {
     return price;
 }
 
-bool Plant::setPrice(double price) {
-    this->price = price;
-    return true;
+Plant::~Plant(){
+    delete currentState;
 }
 
-bool Plant::setDescription(const std::string& description) {
-    this->description = description;
-    return true;
+std::string Plant::getName(){
+    return name;
 }
 
-bool Plant::setCategory(const std::string& category) {
-    this->category = category;
-    return true;
+int Plant::getMaxWater(){
+    return maxWater;
 }
 
-std::string Plant::getCategory() const {
+void Plant::setMaxWater(int mW){
+    this->maxWater = mW;
+}
+
+int Plant::getCurrentWater(){
+    return currentWater;
+}
+
+void Plant::setCurrentWater(int cW){
+    if (cW > maxWater) {
+        this->currentWater = maxWater;
+    } else {
+        this->currentWater = cW;
+    }
+}
+
+int Plant::getCurrentNutrients(){
+    return currentNutrients;
+}
+
+void Plant::setCurrentNutrients(int cN){
+    if (cN > maxNutrtients) {
+        this->currentNutrients = maxNutrtients;
+    } else {
+        this->currentNutrients = cN;
+    }
+}
+
+int Plant::getMaxNutrients(){
+    return maxNutrtients;
+}
+
+void Plant::setMaxNutrients(int mN){
+    this->maxNutrtients = mN;
+}
+
+int Plant::getCurrentSunlight(){
+    return currentSunlight;
+}
+
+void Plant::setCurrentSunlight(int sL){
+    if (sL > maxSunlight) {
+        this->currentSunlight = maxSunlight;
+    } else {
+        this->currentSunlight = sL;
+    }
+}
+
+int Plant::getMaxSunlight(){
+    return maxSunlight;
+}
+
+void Plant::setMaxSunlight(int mL){
+    this->maxSunlight = mL;
+}
+
+int Plant::getMinWater() const{
+    return minWater;
+}
+
+int Plant::getMinSunlight() const{
+    return minSunlight;
+}
+
+int Plant::getMinNutrients() const{
+    return minNutrients;
+}
+
+std::string Plant::getCategory(){
     return category;
 }
-
+void Plant::setCategory(const std::string& c){
+    category = c;
+}
 bool Plant::setColor(const std::string& color) {
     this->color = color;
     return true;
@@ -78,78 +157,3 @@ bool Plant::setColor(const std::string& color) {
 std::string Plant::getColor() const {
     return color;
 }
-
-Plant::Plant(std::string name) {
-    this->name = name;
-
-    this->state = nullptr;
-    this->waterStrategy = nullptr;
-    this->sunlightStrategy = nullptr;
-    this->fertilizerStrategy = nullptr;
-    this->description = name;
-    this->price = price;
-}
-Plant::~Plant(){
-    delete currentState;
-}
-std::string Plant::getName(){
-    return name;
-}
-int Plant::getMaxWater(){
-    return maxWater;
-}
-void Plant::setMaxWater(int mW){
-    this->maxWater = mW;
-}
-int Plant::getCurrentWater(){
-    return currentWater;
-}
-void Plant::setCurrentWater(int cW){
-    if (cW > maxWater) {
-        this->currentWater = maxWater;
-    } else {
-        this->currentWater = cW;
-    }
-}
-int Plant::getCurrentNutrients(){
-    return currentNutrients;
-}
-void Plant::setCurrentNutrients(int cN){
-    if (cN > maxNutrtients) {
-        this->currentNutrients = maxNutrtients;
-    } else {
-        this->currentNutrients = cN;
-    }
-}
-int Plant::getMaxNutrients(){
-    return maxNutrtients;
-}
-void Plant::setMaxNutrients(int mN){
-    this->maxNutrtients = mN;
-}
-int Plant::getCurrentSunlight(){
-    return currentSunlight;
-}
-void Plant::setCurrentSunlight(int sL){
-    if (sL > maxSunlight) {
-        this->currentSunlight = maxSunlight;
-    } else {
-        this->currentSunlight = sL;
-    }
-}
-int Plant::getMaxSunlight(){
-    return maxSunlight;
-}
-void Plant::setMaxSunlight(int mL){
-    this->maxSunlight = mL;
-}
-int Plant::getMinWater() const{
-    return minWater;
-}
-int Plant::getMinSunlight() const{
-    return minSunlight;
-}
-int Plant::getMinNutrients() const{
-    return minNutrients;
-}
-
