@@ -245,12 +245,6 @@ int main() {
     delete john;
     delete sarah;
     delete mike;
-    delete redRose;
-    delete yellowRose;
-    delete alienPlant;
-    delete newAlien;
-    delete oak;
-    delete maple;
 
     std::cout << "Test completed successfully!\n";
 

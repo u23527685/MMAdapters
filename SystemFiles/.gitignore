@@ -1,6 +1,0 @@
-*.o
-*.exe
-.idea/
-.vscode/
-build/
-main
