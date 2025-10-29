@@ -15,13 +15,7 @@ SRCS = main.cpp \
        GiftWrap.cpp \
        DecorativePot.cpp \
        SpecialArrangement.cpp \
-       AddStock.cpp \
-       RemoveStock.cpp \
-       PlantStock.cpp \
-       PlantInventory.cpp \
-       InventoryObserver.cpp \
-       StaffObserver.cpp \
-       SalesFloorObserver.cpp
+  
 
 OBJS = $(SRCS:.cpp=.o)
 
