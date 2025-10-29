@@ -7,3 +7,4 @@ std::string BasePlant::getDescription() const {
 double BasePlant::getPrice() const {
     return 20.0;
 }
+
