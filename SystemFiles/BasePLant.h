@@ -1,12 +1,14 @@
-#ifndef BASE_PLANT_H
-#define BASE_PLANT_H
-
+#ifndef BASEPLANT_H
+#define BASEPLANT_H
+#include <string>
 #include "Plant.h"
 
-class BasePlant : public Plant {
-public:
-    std::string getDescription() const override;
-    double getPrice() const override;
+class BasePlant: public Plant {
+    public:
+    BasePlant(double p, std::string desc);
+    virtual ~BasePlant() {}
+    virtual std::string getDescription();
+    virtual double getPrice();
 };
 
-#endif 
+#endif
