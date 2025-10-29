@@ -15,6 +15,7 @@ protected:
      */
     Plant* currentPlant;
 public:
+    virtual ~FertilizerStrategy() {}
     /**
      * @brief Applies the fertilizer strategy to a plant.
      * This is a pure virtual function that must be implemented by concrete subclasses.

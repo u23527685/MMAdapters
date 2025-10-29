@@ -57,19 +57,38 @@ void Staff::update(PlantLifeCycle* p){
 **/
 
 void Staff::update(PlantLifeCycle* p) {
+//     Plant* plant = p->getPlant();
+//     std::string stateName = p->getState();
+
+//     std::cout << "[Staff] " << name << " noticed " << p->getName() << " is now in state: " << stateName << std::endl;
+
+//     careRoutine = careRoutine->PlantCare(plant);
+
+//    if (!p->isHealthy()) {
+//         std::cout << "[Staff] " << name << " is applying care..." << std::endl;
+//         p->getStateObj()->applyCare(p, plant, careRoutine);
+//         //delete careRoutine;
+//     } else {
+//         std::cout << "[Staff] " << name << " continues regular maintenance of "
+//                   << p->getName() << std::endl;
+//     }
     Plant* plant = p->getPlant();
     std::string stateName = p->getState();
 
     std::cout << "[Staff] " << name << " noticed " << p->getName() << " is now in state: " << stateName << std::endl;
 
-    careRoutine = careRoutine->PlantCare(plant);
-
-   if (!p->isHealthy()) {
-        std::cout << "[Staff] " << name << " is applying care..." << std::endl;
-        p->getStateObj()->applyCare(p, plant, careRoutine);
-        delete careRoutine;
-    } else {
-        std::cout << "[Staff] " << name << " continues regular maintenance of "
-                  << p->getName() << std::endl;
+    // Create care routine
+    PlantCareRoutine* routine = PlantCareRoutine::PlantCare(plant);
+    
+    // Apply care through current state
+    PlantState* currentState = p->getStateObj();
+    if (currentState) {
+        currentState->applyCare(p, plant, routine);
     }
+    
+    // **FIX: Delete the routine immediately after use**
+    delete routine;
+    
+    std::cout << "[Staff] " << name << " continues regular maintenance of "
+                   << p->getName() << std::endl;
 }

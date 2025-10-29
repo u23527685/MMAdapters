@@ -5,10 +5,11 @@
 
 class BasePlant: public Plant {
     public:
+    BasePlant();
     BasePlant(double p, std::string desc);
     virtual ~BasePlant() {}
-    virtual std::string getDescription();
-    virtual double getPrice();
+    std::string getDescription() const override;
+    double getPrice() const override;
 };
 
 #endif

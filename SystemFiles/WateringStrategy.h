@@ -19,6 +19,7 @@ protected:
      */
     Plant* currentPlant;
 public:
+    virtual ~WaterStrategy() {}
     /**
      * @brief Applies water to a plant according to the strategy.
      * This method must be implemented by concrete strategy classes.

@@ -103,21 +103,24 @@ void testChainofResp(){
 
     Query* q=a.careRoutine(asky);
 
+    std::cout << "Customer is asking about care routine for a plant:\n";
     FE.handleQuery(q);
     q=a.describe(asky);
+    std::cout << "Customer is asking about plant description:\n";
     FE.handleQuery(q);
     q=a.stockInfo();
+    std::cout << "Customer is asking about stock info:\n";
     FE.handleQuery(q);
 
     std::cout << "Test completed successfully!\n";
 
     delete asky;
     delete q;
-    delete redRose1;
-    delete yellowRose1;
-    delete alienPlant1;
-    delete oak1;
-    delete maple1;
+    // delete redRose1;
+    // delete yellowRose1;
+    // delete alienPlant1;
+    // delete oak1;
+    // delete maple1;
     //delete inventory1;
 
     #pragma endregion
@@ -126,7 +129,6 @@ void testChainofResp(){
 
 int main() {
     testChainofResp();
-    /*
     std::cout << "\n========== INVENTORY + PLANT CARE SYSTEM TEST ==========\n";
     std::cout << "Testing PlantInventory with SalesFloorObserver + Staff Care\n";
     std::cout << "======================================================\n\n";
@@ -287,9 +289,9 @@ int main() {
     std::cout << "=====================================\n\n";
 
     //Test PlantCareRoutine print method
-    PlantCareRoutine* PCR;
-    PCR = PCR->PlantCare(redRose);
-    PCR->printCareRoutine();
+    // PlantCareRoutine* PCR;
+    // PCR = PCR->PlantCare(redRose);
+    // PCR->printCareRoutine();
 
     // ==========================================
     // Step 9: Sell Out Alien Plants
@@ -354,10 +356,10 @@ int main() {
     std::cout << "Test completed successfully!\n";
 
     std::cout << "\n";
-    std::cout << "╔════════════════════════════════════════════════════════════╗\n";
-    std::cout << "║         STRATEGY PATTERN TEST - PLANT CARE SYSTEM          ║\n";
-    std::cout << "║    Testing Dynamic Strategy Selection for Plant Care       ║\n";
-    std::cout << "╚════════════════════════════════════════════════════════════╝\n";
+    std::cout << "==============================================================\n";
+    std::cout << "|         STRATEGY PATTERN TEST - PLANT CARE SYSTEM          |\n";
+    std::cout << "|    Testing Dynamic Strategy Selection for Plant Care       |\n";
+    std::cout << "==============================================================\n";
 
     // Create plants
     Rose* desertRose = new Rose(29.99, "Desert Rose (Drought Tolerant)");
@@ -430,11 +432,10 @@ int main() {
 
     std::cout << "All objects deleted successfully!\n";
     std::cout << "\n"
-                 "╔════════════════════════════════════════════════════════════╗\n";
-    std::cout << "║ STRATEGY PATTERN TEST COMPLETE                             ║\n";
-    std::cout << "╚════════════════════════════════════════════════════════════╝\n\n";
+                 "==============================================================\n";
+    std::cout << "| STRATEGY PATTERN TEST COMPLETE                             |\n";
+    std::cout << "==============================================================\n\n";
     
-    */
     
     std::cout << "=== Transaction System Test ===\n\n";
 
@@ -518,9 +519,6 @@ int main() {
     customer.placeOrder(order1);
 
     customer.viewOrders();
-
-    Staff staff;
-    customer.makeQuery(staff, "Can I add a gift wrap to my next order?");
   
   
   
@@ -532,7 +530,7 @@ int main() {
   // Greenhouse testing code
 
 
-    Plant* myPlant = new Plant("Lavender");
+    Plant* myPlant = new Rose(10.00, "Lavender");
     myPlant->setCurrentWater(5);
     myPlant->setCurrentSunlight(5);
     myPlant->setCurrentNutrients(5);
@@ -546,15 +544,15 @@ int main() {
     //lifecycle->attach(alice);
 
 
-    std::cout << "\n--- Initial Evaluation ---\n";
-    lifecycle->isHealthy(); // This will call SeedState::evaluate and possibly change state
+    // std::cout << "\n--- Initial Evaluation ---\n";
+    // lifecycle->isHealthy(); // This will call SeedState::evaluate and possibly change state
 
 
-    for (int day = 1; day <= 3; ++day) {
-        std::cout << "\n--- Day " << day << " ---\n";
-        lifecycle->notify(); // Triggers Staff::update
-        lifecycle->isHealthy(); // Re-evaluate after care
-    }
+    // for (int day = 1; day <= 3; ++day) {
+    //     std::cout << "\n--- Day " << day << " ---\n";
+    //     lifecycle->notify(); // Triggers Staff::update
+    //     lifecycle->isHealthy(); // Re-evaluate after care
+    // }
 
     delete lifecycle;
     delete myPlant;

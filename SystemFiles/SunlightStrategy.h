@@ -19,6 +19,7 @@ protected:
     */
     Plant* currentPlant;
 public:
+    virtual ~SunlightStrategy() {}
     /**
      * @brief Applies sun to a plant according to the strategy.
      * This method must be implemented by concrete strategy classes.

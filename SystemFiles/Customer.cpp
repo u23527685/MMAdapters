@@ -31,7 +31,7 @@ void Customer::viewOrders() const {
     }
 }
 
-void Customer::makeQuery(Staff& staff, const std::string& queryMessage) const {
+void Customer::makeQuery(Staff& staff, Query* queryMessage) const {
     std::cout << name << " makes a query to staff: " << queryMessage << std::endl;
-    staff.respondToQuery(queryMessage);
+    staff.handleQuery(queryMessage);
 }

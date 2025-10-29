@@ -6,7 +6,7 @@
 #include <map>
 
 SalesFloorObserver::SalesFloorObserver(PlantInventory* inventory) : InventoryObserver(inventory) {
-    update();
+    //update();
 }
 
 void SalesFloorObserver::update() {

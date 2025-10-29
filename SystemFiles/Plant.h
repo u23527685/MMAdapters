@@ -45,6 +45,7 @@ protected:
     std::string color;
 
 public:
+    Plant();
     Plant(double price, std::string description);
 
     void applyCare();
@@ -53,8 +54,8 @@ public:
     void attach(LifeCycleObserver* o);
     void detach(LifeCycleObserver* o);
     void notify();
-    std::string getDescription();
-    double getPrice();
+    virtual std::string getDescription() const;
+    virtual double getPrice() const;
     bool setColor(const std::string& color);
     std::string getColor() const;
 

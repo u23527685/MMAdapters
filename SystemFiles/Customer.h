@@ -5,6 +5,7 @@
 #include <vector>
 #include "Order.h"
 #include "Staff.h"
+#include "Query.h"
 
 class Customer {
 private:
@@ -18,7 +19,7 @@ public:
     void setName(const std::string& customerName);
     void placeOrder(const Order& order);
     void viewOrders() const;
-    void makeQuery(Staff& staff, const std::string& queryMessage) const;
+    void makeQuery(Staff& staff, Query* queryMessage) const;
 };
 
 #endif

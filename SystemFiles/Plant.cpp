@@ -1,5 +1,7 @@
 #include "Plant.h"
 
+Plant::Plant() {}
+
 Plant::Plant(double price, std::string description)
     : name(description),
       category("generic"),
@@ -55,11 +57,11 @@ void Plant::notify() {
 
 }
 
-std::string Plant::getDescription() {
+std::string Plant::getDescription() const{
     return description;
 }
 
-double Plant::getPrice() {
+double Plant::getPrice() const {
     return price;
 }
 
