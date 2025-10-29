@@ -21,7 +21,9 @@ Staff* Staff::getNext(){
 }
 
 void Staff::getStock(){
-    salesFloorObserver->getAvailableItems();
+    salesFloorObserver= new SalesFloorObserver(PlantInventory::getInstance());
+    salesFloorObserver->displayAvailablePlants();
+    delete salesFloorObserver;
 }
 
 /**

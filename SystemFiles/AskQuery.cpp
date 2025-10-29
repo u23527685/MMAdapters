@@ -22,8 +22,8 @@ Query* AskQuery::careRoutine(Plant* item){
 
 Query* AskQuery::stockInfo(){
     builder= new MiscQueryBuilder();
-    builder->setType("CURRENT STOCK");
-    builder->setQuestion("can I get Stock Information");
+    builder->setType("STOCK");
+    builder->setQuestion("What is the current Stock");
     Query *q=builder->build();
     delete builder;
     return q;

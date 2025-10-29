@@ -5,7 +5,8 @@ FloorStaff::FloorStaff(std::string name):Staff(name){
 
 }
 
-FloorStaff::~FloorStaff(){}
+FloorStaff::~FloorStaff(){
+}
 
 void FloorStaff::handleQuery(Query* query){
     if(staffCanHandle(query->getType())){
