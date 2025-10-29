@@ -1,24 +1,24 @@
 #include "Order.h"
+#include "Customer.h"
 #include <iostream>
 
 Order::Order(Customer* customer, const std::string& orderId)
-    : customer(customer), orderId(orderId), status("Pending") {}
+    : orderId(orderId), status("Pending"), customer(customer) {}
+
 
 Order::~Order() {
-    for (auto transaction : transactions) {
-        delete transaction;
-    }
     transactions.clear();
 }
 
 void Order::addTransaction(Transaction* transaction) {
-    if (transaction != NULL) {
+    if (transaction) {
         transactions.push_back(transaction);
     }
 }
 
 void Order::processOrder() {
     std::cout << "\nProcessing Order: " << orderId << std::endl;
+
     if (customer) {
         std::cout << "Customer: " << customer->getName() << std::endl;
     }
@@ -47,6 +47,7 @@ void Order::displayOrderDetails() const {
     for (auto transaction : transactions) {
         transaction->getDetails();
     }
+
     std::cout << "----------------------\n";
 }
 

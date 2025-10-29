@@ -14,13 +14,10 @@ private:
 public:
     Customer();
     explicit Customer(const std::string& customerName);
-
     std::string getName() const;
     void setName(const std::string& customerName);
-
     void placeOrder(const Order& order);
     void viewOrders() const;
-
     void makeQuery(Staff& staff, const std::string& queryMessage) const;
 };
 

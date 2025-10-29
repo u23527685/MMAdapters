@@ -4,19 +4,20 @@
 #include <string>
 #include <vector>
 #include "Transaction.h"
-#include "Customer.h"
+
+class Customer;
 
 class Order {
 private:
     std::string orderId;
     std::string status;
-    Customer* customer;
-    std::vector<Transaction*> transactions;
+    Customer* customer;                       
+    std::vector<Transaction*> transactions;  
 
 public:
+ 
     Order(Customer* customer, const std::string& orderId);
     ~Order();
-
     void addTransaction(Transaction* transaction);
     void processOrder();
     void displayOrderDetails() const;

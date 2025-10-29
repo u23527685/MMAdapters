@@ -1,23 +1,24 @@
 #ifndef STAFF_H
 #define STAFF_H
 
-#include <iostream>
 #include <string>
-
-class State;
-class PlantLifeCycle;
+#include <iostream>
+#include "Order.h"
 
 class Staff {
-    public:
-        void update();
-        void handleQuery();
+private:
+    std::string staffName;
+    std::string role;
 
-    private:
-        State* observerState;
-        PlantLifeCycle* plant;
-        Staff* next;
+public:
+    Staff();
+    Staff(const std::string& name, const std::string& role);
+    std::string getName() const;
+    std::string getRole() const;
+    void setName(const std::string& name);
+    void setRole(const std::string& role);
+    void respondToQuery(const std::string& queryMessage) const;
+    void checkOrderStatus(const Order& order) const;
 };
 
 #endif 
-
-

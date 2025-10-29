@@ -9,6 +9,9 @@
 #include "GiftWrap.h"
 #include "DecorativePot.h"
 #include "SpecialArrangement.h"
+#include "Customer.h"
+#include "Order.h"
+#include "Staff.h"
 
 using namespace std;
 
@@ -70,6 +73,34 @@ int main() {
     for (auto& plant : plants) {
         delete plant;
     }
+
+ 
+    std::cout << "\n=== Customer and Order Test ===\n\n";
+
+    Customer customer("Alice Green");
+
+    Order order1(&customer, "ORD-CUST-2001");
+
+    Transaction* t1 = new Transaction("ORD-CUST-2001", 100.00, 1);
+    Transaction* t2 = new Transaction("ORD-CUST-2001", 250.00, 3);
+
+    t1->setPaymentStrategy(&creditCard);
+    t2->setPaymentStrategy(&ewallet);
+
+    order1.addTransaction(t1);
+    order1.addTransaction(t2);
+
+    order1.processOrder();
+
+    order1.displayOrderDetails();
+
+ 
+    customer.placeOrder(order1);
+
+    customer.viewOrders();
+
+    Staff staff;
+    customer.makeQuery(staff, "Can I add a gift wrap to my next order?");
 
     return 0;
 }
