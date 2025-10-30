@@ -87,11 +87,11 @@ void displayHireOptions() {
 int main() {
     srand(static_cast<unsigned>(time(0)));
 
-    // Initialize inventory and observers
+    
     PlantInventory* inventory = PlantInventory::getInstance();
     SalesFloorObserver* salesFloor = new SalesFloorObserver(inventory);
 
-    // Prototypes for plants
+    
     Rose* redRose = new Rose(9.99, "Beautiful Red Rose");
     redRose->setCategory("Sunny");
     redRose->setMaxWater(100);
@@ -118,7 +118,6 @@ int main() {
     maple->setMaxSunlight(100);
     maple->setMaxNutrients(100);
 
-    // Map for plant prototypes and buy prices
     std::map<int, std::pair<Plant*, double>> plantOptions = {
         {1, {redRose, 10.0}},
         {2, {yellowRose, 9.0}},
@@ -127,7 +126,7 @@ int main() {
         {5, {maple, 7.0}}
     };
 
-    // Game variables
+    
     double money = 1000.0;
     std::vector<Staff*> hiredStaff;
     std::map<Plant*, PlantLifeCycle*> lifecycles;
@@ -136,12 +135,12 @@ int main() {
     SalesEmployee* salesEmployee = nullptr;
     SalesManager* salesManager = nullptr;
 
-    // Payment strategies
+    
     CreditCardPaymentStrategy creditCard("1234-5678-9012-3456");
     EWalletPaymentStrategy ewallet("wallet123");
     EFTPaymentStrategy eft("9876543210");
 
-    // AskQuery for queries
+    
     AskQuery askQuery;
 
     bool running = true;
@@ -151,7 +150,7 @@ int main() {
         std::cin >> choice;
 
         switch (choice) {
-            case 1: { // Buy Plants
+            case 1: { 
                 displayPlantBuyOptions();
                 int plantChoice;
                 std::cin >> plantChoice;
@@ -175,22 +174,20 @@ int main() {
                 inventory->addStock(plant, qty);
                 std::cout << "Bought " << qty << " " << plant->getDescription() << "(s).\n";
 
-                // Create or update lifecycle if new
+
                 if (lifecycles.find(plant) == lifecycles.end()) {
                     PlantLifeCycle* cycle = new PlantLifeCycle(plant, new SeedState(), plant->getDescription() + " Cycle");
                     lifecycles[plant] = cycle;
-                    // Set initial care levels
                     plant->setCurrentWater(plant->getMaxWater());
                     plant->setCurrentSunlight(plant->getMaxSunlight());
                     plant->setCurrentNutrients(plant->getMaxNutrients());
-                    // Attach hired staff
                     for (auto staff : hiredStaff) {
                         cycle->attach(staff);
                     }
                 }
                 break;
             }
-            case 2: { // Hire Staff
+            case 2: { 
                 displayHireOptions();
                 int staffChoice;
                 std::cin >> staffChoice;
@@ -247,13 +244,12 @@ int main() {
                 money -= hireCost;
                 hiredStaff.push_back(newStaff);
                 salesFloor->attachStaff(newStaff);
-                // Attach to all lifecycles
                 for (auto& pair : lifecycles) {
                     pair.second->attach(newStaff);
                 }
                 std::cout << "Hired " << newStaff->getName() << ".\n";
 
-                // Set up chain of responsibility
+                
                 Staff* chainStart = nullptr;
 
                 if (floorEmployee) {
@@ -286,10 +282,10 @@ int main() {
                 std::cout << "Hired " << newStaff->getName() << ".\n";
                 break;
             }
-            case 3: { // Simulate Day
+            case 3: { 
                 std::cout << "\nSimulating a day...\n";
 
-                // Decay plant care levels
+                
                 for (auto& pair : lifecycles) {
                     Plant* p = pair.first;
                     PlantLifeCycle* cycle = pair.second;
@@ -297,10 +293,10 @@ int main() {
                     p->setCurrentWater(std::max(0.0, p->getCurrentWater() - decay));
                     p->setCurrentSunlight(std::max(0.0, p->getCurrentSunlight() - decay));
                     p->setCurrentNutrients(std::max(0.0, p->getCurrentNutrients() - decay));
-                    cycle->isHealthy(); // Trigger evaluation and care if needed
+                    cycle->isHealthy(); 
                 }
 
-                // Generate customers
+                
                 int numCustomers = rand() % 5 + 1;
                 std::cout << numCustomers << " customers visited today.\n";
                 Staff* chainStart = floorEmployee ? static_cast<Staff*>(floorEmployee) :
@@ -310,17 +306,17 @@ int main() {
 
                 for (int i = 0; i < numCustomers; ++i) {
                     Customer customer("Customer" + std::to_string(i + 1));
-                    int action = rand() % 2; // 0: ask query, 1: buy
+                    int action = rand() % 2; 
                     if (action == 0) {
                         if (!chainStart) {
                             std::cout << customer.getName() << " asked a query but no staff available.\n";
                             continue;
                         }
-                        // Random query
+                        
                         int queryType = rand() % 3;
                         Query* q = nullptr;
                         if (!lifecycles.empty()) {
-                            // Pick random plant
+                            
                             auto it = lifecycles.begin();
                             std::advance(it, rand() % lifecycles.size());
                             Plant* randPlant = it->first;
@@ -341,12 +337,12 @@ int main() {
                         chainStart->handleQuery(q);
                         delete q;
                     } else {
-                        // Buy
+                        
                         if (lifecycles.empty()) {
                             std::cout << customer.getName() << " wanted to buy but no plants available.\n";
                             continue;
                         }
-                        // Pick random plant
+
                         auto it = lifecycles.begin();
                         std::advance(it, rand() % lifecycles.size());
                         Plant* buyPlant = it->first;
@@ -364,9 +360,9 @@ int main() {
                         }
                         if (buyQty == 0) continue;
 
-                        // Possible decorator
+                        
                         Plant* decorated = new BasePlant(buyPlant->getPrice(), buyPlant->getDescription());
-                        int deco = rand() % 4; // ~25% chance for each, or none
+                        int deco = rand() % 4; 
                         if (deco == 0) {
                             decorated = new GiftWrap(decorated);
                         } else if (deco == 1) {
@@ -376,11 +372,8 @@ int main() {
                         }
 
                         double totalPrice = decorated->getPrice() * buyQty;
-
-                        // Create order and transaction
                         Order order(&customer, "ORD-" + std::to_string(rand()));
                         Transaction* tx = new Transaction(order.getOrderId(), totalPrice, buyQty);
-                        // Random payment
                         int payType = rand() % 3;
                         if (payType == 0) tx->setPaymentStrategy(&creditCard);
                         else if (payType == 1) tx->setPaymentStrategy(&ewallet);
@@ -393,23 +386,12 @@ int main() {
                         std::cout << customer.getName() << " bought " << buyQty << " " << decorated->getDescription() << " for $" << totalPrice << ".\n";
 
                         customer.placeOrder(order);
-
-                        // Cleanup decorated
-                        // Since decorators wrap, need to delete chain
-                        /*while (dynamic_cast<PlantDecorator*>(decorated)) {
-                            PlantDecorator* decoPtr = dynamic_cast<PlantDecorator*>(decorated);
-                            Plant* inner = decoPtr->plant; // Assuming plant is protected but accessible? Wait, in headers, protected, but since in same file? No.
-                            // Actually, to delete, need to unwrap or just delete top.
-                            // But since no destructor chain, just delete top, but leaks.
-                            // Better not to use new for decorators, or implement proper delete.
-                            // For simplicity, since demo, ignore leak.
-                        } */
                         delete decorated;
                     }
                 }
                 break;
             }
-            case 4: { // View Status
+            case 4: { 
                 std::cout << "\nCurrent Money: $" << std::fixed << std::setprecision(2) << money << "\n";
                 std::cout << "Hired Staff:\n";
                 for (auto staff : hiredStaff) {
@@ -429,7 +411,7 @@ int main() {
                 }
                 break;
             }
-            case 5: // Quit
+            case 5: 
                 running = false;
                 break;
             default:
@@ -437,7 +419,6 @@ int main() {
         }
     }
 
-    // Cleanup
     delete salesFloor;
     for (auto staff : hiredStaff) {
         delete staff;
