@@ -5,7 +5,7 @@ DEBUGFLAGS := -g
 COVERAGEFLAGS := -fprofile-arcs -ftest-coverage
 
 # All .cpp files in the directory
-SOURCES := $(wildcard *.cpp)
+SOURCES := DemoMain.cpp \ $(filter-out main.cpp, $(wildcard *.cpp))
 OBJECTS := $(SOURCES:.cpp=.o)
 
 # Output executable
