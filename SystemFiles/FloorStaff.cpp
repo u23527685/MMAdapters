@@ -9,6 +9,8 @@ FloorStaff::~FloorStaff(){
 }
 
 void FloorStaff::handleQuery(Query* query){
+    std::cout<<"Staff Member "<<getName()<<" has received the query"<<std::endl;
+    query->printQuery();
     if(staffCanHandle(query->getType())){
         reply(query);
     }else{

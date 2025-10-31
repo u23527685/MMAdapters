@@ -17,3 +17,9 @@ std::string Query::getQuestion(){
 Plant* Query::getItem(){
     return item;
 }
+
+void Query::printQuery(){
+    std::cout<<"Item : "<< item->getName()<<std::end;
+    std::cout<<"Type : "<<getType()<<std::endl;
+    std::cout<<"Question : "<< getQuestion()<<std::end;
+}

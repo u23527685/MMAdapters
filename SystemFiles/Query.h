@@ -14,5 +14,6 @@ class Query{
         std::string getType();
         std::string getQuestion();
         Plant* getItem(); 
+        void printQuery();
 };
 #endif // !QUERY_H
