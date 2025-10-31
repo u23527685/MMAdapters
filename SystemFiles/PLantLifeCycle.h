@@ -29,7 +29,8 @@ public:
     void attach(LifeCycleObserver* ol);
     void detach(LifeCycleObserver* ol);
     void notify();
-    bool isHealthy();
+    void simulateTimePassing();
+    bool updatePlant();
     
 
     Plant* getPlant();

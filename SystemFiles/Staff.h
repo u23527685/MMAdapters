@@ -24,7 +24,7 @@ class Staff : public LifeCycleObserver {
         std::string getName();
         void setNext(Staff* staff);
         Staff* getNext();
-        void update(PlantLifeCycle* lifeCycle) override;
+        void isHealthy(PlantLifeCycle* lifeCycle);
 };
 
 #endif

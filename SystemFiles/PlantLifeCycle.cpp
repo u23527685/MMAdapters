@@ -51,15 +51,15 @@ void PlantLifeCycle::notify() {
         }
 }
 
-bool PlantLifeCycle::isHealthy(){
-    bool healthy = currentState->evaluate(this, p);
+bool PlantLifeCycle::updatePlant(){
+    return currentState->evaluate(this, p); //delegate to state
+}
 
-    // 2. If NOT healthy → automatically transition to the correct state
-    if (!healthy) {
-        transitionToCorrectState();
-    }
-
-    return currentState->getName() == "Mature" || currentState->getName() == "Seedling" ||currentState->getName() == "Seed"  ; //delegate to state
+void PlantLifeCycle::simulateTimePassing() {
+    Plant* plant = getPlant();
+    plant->setCurrentWater(plant->getCurrentWater() - 10);
+    plant->setCurrentSunlight(plant->getCurrentSunlight() - 10);
+    plant->setCurrentNutrients(plant->getCurrentNutrients() - 10);
 }
 
 /**

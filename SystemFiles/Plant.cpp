@@ -159,3 +159,13 @@ bool Plant::setColor(const std::string& color) {
 std::string Plant::getColor() const {
     return color;
 }
+
+int Plant::getGrowthProgress() const {
+    return growthProgress;
+}
+void Plant::setGrowthProgress(int gp) {
+    growthProgress = gp;
+}
+void Plant::increaseGrowthProgress() {
+    ++growthProgress;
+}

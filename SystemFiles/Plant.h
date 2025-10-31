@@ -23,13 +23,15 @@ private:
     int currentWater;
     int currentNutrients;
 
-    int maxNutrtients;
-    int maxWater;
-    int maxSunlight;
+    int maxNutrtients =200;
+    int maxWater=200;
+    int maxSunlight=200;
 
-    int minWater;
-    int minSunlight;
-    int minNutrients;
+    int minWater = 10;
+    int minSunlight = 10;
+    int minNutrients = 10;
+
+    int growthProgress = 0;
 
     PlantState* currentState;
 protected:
@@ -77,6 +79,10 @@ public:
     int getMinNutrients() const;
     std::string getCategory();
     void setCategory( const std::string& c);
+
+    int getGrowthProgress() const;
+    void setGrowthProgress(int gp);
+    void increaseGrowthProgress();
 
     virtual ~Plant();
 };

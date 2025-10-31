@@ -13,21 +13,37 @@ void SeedlingState::applyCare(PlantLifeCycle* context, Plant* plant, PlantCareRo
     routine->Sunlight(plant);
     routine->Fertilizing(plant);
 
-    if (plant->getCurrentWater() >= 100 &&
-        plant->getCurrentSunlight() >= 100 &&
-        plant->getCurrentNutrients() >= 100) {
-        context->setState(new MatureState());
+    plant->increaseGrowthProgress();
+
+    // grow only based on growthProgress AND ensure current levels are within allowed range
+    bool withinMinMax =
+        plant->getCurrentWater()  >= plant->getMinWater()  &&
+        plant->getCurrentSunlight()>= plant->getMinSunlight()&&
+        plant->getCurrentNutrients()>=plant->getMinNutrients();
+
+    if (plant->getGrowthProgress() >= 5 && withinMinMax) {
+        context->setState(new MatureState()); // PlantLifeCycle::setState will call notify()
+    } else if(!withinMinMax){
+        context->setState(new DistressedState());
+    } else {
+        // Remain in Seedling state
     }
 }
 
 bool SeedlingState::evaluate(PlantLifeCycle* context, Plant* plant) {
-    if (plant->getCurrentWater() >= 100 &&
-        plant->getCurrentSunlight() >= 100 &&
-        plant->getCurrentNutrients() >= 100) {
-        context->setState(new MatureState());
+    // Seedling considered "healthy" (no immediate care needed) only if it has reached growth threshold
+    // AND its current levels are within min..max.
+    bool withinMinMax =
+        plant->getCurrentWater()  >= plant->getMinWater()  &&
+        plant->getCurrentSunlight()>= plant->getMinSunlight()&&
+        plant->getCurrentNutrients()>=plant->getMinNutrients();
+
+    if (plant->getGrowthProgress() >= 5 && withinMinMax) {
+        context->setState(new MatureState()); // triggers notify()
         return true;
     }
-    return true; // Still healthy, just not ready to transition
+
+    return false;
 }
 
 

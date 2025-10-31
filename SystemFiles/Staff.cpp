@@ -54,7 +54,7 @@ void Staff::update(PlantLifeCycle* p){
         std::cout << "[Staff] " << name << " continues regular maintenance of " << p->getName() << std::endl;
     }
 }
-**/
+
 
 void Staff::update(PlantLifeCycle* p) {
 //     Plant* plant = p->getPlant();
@@ -91,4 +91,22 @@ void Staff::update(PlantLifeCycle* p) {
     
     std::cout << "[Staff] " << name << " continues regular maintenance of "
                    << p->getName() << std::endl;
+}
+**/
+void Staff::isHealthy(PlantLifeCycle* p) {
+    Plant* plant = p->getPlant();
+    std::string stateName = p->getState();
+
+    std::cout << "[Staff] " << name << " noticed " << p->getName() << " is now in state: " << stateName << std::endl;
+
+    careRoutine = careRoutine->PlantCare(plant);
+
+    if (!p->updatePlant()) {
+        std::cout << "[Staff] " << name << " is applying care..." << std::endl;
+        p->getStateObj()->applyCare(p, plant, careRoutine);
+        delete careRoutine;
+    } else {
+        std::cout << "[Staff] " << name << " continues regular maintenance of "
+                  << p->getName() << std::endl;
+    }
 }

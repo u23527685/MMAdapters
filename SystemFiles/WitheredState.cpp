@@ -6,20 +6,25 @@
 #include "PlantCareRoutine.h"
 
 void WitheredState::applyCare(PlantLifeCycle* context, Plant* plant, PlantCareRoutine* routine) {
-    std::cout << "[Withered State] " << plant->getName() << " is withered. Care may be attempted, but recovery is unlikely." << std::endl;
+    // Withered is a terminal state. Log and attempt minimal care, but do NOT change state.
+    std::cout << "[Withered State] " << plant->getName()
+              << " is withered and cannot be recovered. Care may be attempted but state will remain Withered."
+              << std::endl;
 
-    if (plant->getCurrentWater() < 10) routine->Watering(plant);
-    if (plant->getCurrentSunlight() < 10) routine->Sunlight(plant);
-    if (plant->getCurrentNutrients() < 10) routine->Fertilizing(plant);
-    
-    if (plant->getCurrentWater() >= 20 &&
-        plant->getCurrentSunlight() >= 20 &&
-        plant->getCurrentNutrients() >= 20) {
-        context->setState(new DistressedState());
+    // Attempt to bring levels up as best-effort (no state transition).
+    if (plant->getCurrentWater() < plant->getMaxWater()) {
+        routine->Watering(plant);
+    }
+    if (plant->getCurrentSunlight() < plant->getMaxSunlight()) {
+        routine->Sunlight(plant);
+    }
+    if (plant->getCurrentNutrients() < plant->getMaxNutrients()) {
+        routine->Fertilizing(plant);
     }
 }
 
 bool WitheredState::evaluate(PlantLifeCycle* context, Plant* plant) {
+    /**
     int w = plant->getCurrentWater();
     int s = plant->getCurrentSunlight();
     int n = plant->getCurrentNutrients();
@@ -29,6 +34,7 @@ bool WitheredState::evaluate(PlantLifeCycle* context, Plant* plant) {
         context->setState(new DistressedState());
         return false; // still not healthy
     }
+        **/
     return false;
 }
 

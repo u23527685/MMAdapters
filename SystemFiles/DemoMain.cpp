@@ -293,7 +293,7 @@ int main() {
                     p->setCurrentWater(std::max(0.0, p->getCurrentWater() - decay));
                     p->setCurrentSunlight(std::max(0.0, p->getCurrentSunlight() - decay));
                     p->setCurrentNutrients(std::max(0.0, p->getCurrentNutrients() - decay));
-                    cycle->isHealthy(); 
+                    cycle->updatePlant();
                 }
 
                 

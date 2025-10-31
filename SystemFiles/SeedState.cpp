@@ -1,5 +1,6 @@
 #include "SeedState.h"
 #include "SeedlingState.h"
+#include "DistressedState.h"
 #include "Plant.h"
 #include "PlantLifeCycle.h"
 #include "PlantCareRoutine.h"
@@ -12,20 +13,22 @@ void SeedState::applyCare(PlantLifeCycle* context, Plant* plant, PlantCareRoutin
     routine->Sunlight(plant);
     routine->Fertilizing(plant);
 
-    if (plant->getCurrentWater() >= 60 &&
-        plant->getCurrentSunlight() >= 60 &&
-        plant->getCurrentNutrients() >= 60) {
-        context->setState(new SeedlingState());
+    plant->increaseGrowthProgress();
+
+    // grow only based on growthProgress AND ensure current levels are within allowed range
+
+    if (plant->getGrowthProgress() >= 3) {
+        context->setState(new SeedlingState()); // PlantLifeCycle::setState will call notify()
     }
 }
 
 bool SeedState::evaluate(PlantLifeCycle* context, Plant* plant) {
-    if (plant->getCurrentWater() >= 60 &&
-        plant->getCurrentSunlight() >= 60 &&
-        plant->getCurrentNutrients() >= 60) {
-        context->setState(new SeedlingState());
+    // Seed considered "healthy" (no immediate care needed) only if it has reached growth threshold
+    if (plant->getGrowthProgress() >= 3) {
+        context->setState(new SeedlingState()); // triggers notify()
         return true;
     }
+
     return false;
 }
 

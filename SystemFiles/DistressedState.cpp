@@ -9,22 +9,14 @@
 #include "PlantCareRoutine.h"
 
 void DistressedState::applyCare(PlantLifeCycle* context, Plant* plant, PlantCareRoutine* routine) {
-    /*
-    if (plant->getCurrentWater() < plant->getMinWater()) routine->Watering(plant);
-    if (plant->getCurrentSunlight() < plant->getMinSunlight()) routine->Sunlight(plant);
-    if (plant->getCurrentNutrients() < plant->getMinNutrients()) routine->Fertilizing(plant);
+     routine->Watering(plant);
+    routine->Sunlight(plant);
+    routine->Fertilizing(plant);
 
-    if (plant->getCurrentWater() >= plant->getMinWater() &&
-        plant->getCurrentSunlight() >= plant->getMinSunlight() &&
-        plant->getCurrentNutrients() >= plant->getMinNutrients()) {
-        context->setState(new MatureState());
-        } else if (plant->getCurrentWater() < plant->getMinWater() / 2 ||
-                   plant->getCurrentSunlight() < plant->getMinSunlight() / 2 ||
-                   plant->getCurrentNutrients() < plant->getMinNutrients() / 2) {
-            context->setState(new WitheredState());
-                   } */
+    // after applying care, re-evaluate to possibly recover
+    evaluate(context, plant);
 
-                   
+     /**
     if (plant->getCurrentWater() < 30)     routine->Watering(plant);
     if (plant->getCurrentSunlight() < 30)  routine->Sunlight(plant);
     if (plant->getCurrentNutrients() < 30) routine->Fertilizing(plant);
@@ -42,38 +34,38 @@ void DistressedState::applyCare(PlantLifeCycle* context, Plant* plant, PlantCare
     else if (w >= 30 && s >= 30 && n >= 30) {
         context->setState(new MatureState());
     }
+        **/
 }
 
 bool DistressedState::evaluate(PlantLifeCycle* context, Plant* plant) {
-    /*if (plant->getCurrentWater() < plant->getMinWater() / 2 ||
-        plant->getCurrentSunlight() < plant->getMinSunlight() / 2 ||
-        plant->getCurrentNutrients() < plant->getMinNutrients() / 2) {
-        context->setState(new WitheredState());
-        return false;
-        }
 
-    if (plant->getCurrentWater() >= plant->getMinWater() &&
-        plant->getCurrentSunlight() >= plant->getMinSunlight() &&
-        plant->getCurrentNutrients() >= plant->getMinNutrients()) {
-        context->setState(new MatureState());
-        return true;
-        }
+double minW = plant->getMinWater();
+    double minS = plant->getMinSunlight();
+    double minN = plant->getMinNutrients();
+    double curW = plant->getCurrentWater();
+    double curS = plant->getCurrentSunlight();
+    double curN = plant->getCurrentNutrients();
 
-    return false; */
-
-
-    int w = plant->getCurrentWater();
-    int s = plant->getCurrentSunlight();
-    int n = plant->getCurrentNutrients();
-
-    if (w < 10 || s < 10 || n < 10) {
+    // If any dropped below min -> Withered
+    if (curW < minW || curS < minS || curN < minN) {
         context->setState(new WitheredState());
         return false;
     }
-    if (w >= 30 && s >= 30 && n >= 30) {
+
+    // If recovered to healthy mature thresholds -> Mature
+    double healthyWThreshold = minW * 1.2;
+    double healthySThreshold = minS * 1.2;
+    double healthyNThreshold = minN * 1.2;
+
+    if (curW >= healthyWThreshold && curS >= healthySThreshold && curN >= healthyNThreshold && plant->getGrowthProgress() >= 5) {
         context->setState(new MatureState());
         return true;
+    } else if (curW >= healthyWThreshold && curS >= healthySThreshold && curN >= healthyNThreshold && plant->getGrowthProgress() < 5) {
+        context->setState(new SeedlingState());
+        return true;
     }
+
+    // still distressed (not healthy)
     return false;
 }
 
