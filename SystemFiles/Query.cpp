@@ -19,7 +19,7 @@ Plant* Query::getItem(){
 }
 
 void Query::printQuery(){
-    if(item)
+    if(item!=nullptr)
         std::cout<<"Item : "<< item->getName()<<std::endl;
     else
         std::cout<<"Item : "<<"None"<<std::endl;
