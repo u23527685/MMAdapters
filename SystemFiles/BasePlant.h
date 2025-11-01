@@ -10,6 +10,8 @@ class BasePlant: public Plant {
     virtual ~BasePlant() {}
     std::string getDescription() const override;
     double getPrice() const override;
+
+    
 };
 
 #endif
