@@ -40,3 +40,12 @@ void Transaction::restoreSnapshot(const TransactionSnapshot& snapshot) {
     amount = snapshot.getAmount();
     quantity = snapshot.getQuantity();
 }
+
+Transaction* Transaction::clone() const {
+    Transaction* copy = new Transaction(orderNum, amount, quantity);
+    // copy over the payment method if needed
+    if (paymentMethod) {
+        copy->setPaymentStrategy(paymentMethod);
+    }
+    return copy;
+}

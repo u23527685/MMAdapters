@@ -87,3 +87,12 @@ std::vector<std::pair<Plant*, int>>& PlantInventory::getInventoryReference() {
 const std::vector<std::pair<Plant*, int>> PlantInventory::getInventoryView() const {
     return inventoryItems;
 }
+int PlantInventory::getQuantity(Plant* plant) const {
+    for (const auto& item : inventoryItems) {
+        if (item.first == plant) {
+            return item.second;
+        }
+    }
+    return 0; 
+}
+
