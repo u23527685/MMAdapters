@@ -19,7 +19,10 @@ Plant* Query::getItem(){
 }
 
 void Query::printQuery(){
-    std::cout<<"Item : "<< item->getName()<<std::endl;
+    if(item)
+        std::cout<<"Item : "<< item->getName()<<std::endl;
+    else
+        std::cout<<"Item : "<<"None"<<std::endl;
     std::cout<<"Type : "<<getType()<<std::endl;
     std::cout<<"Question : "<< getQuestion()<<std::endl;
 }

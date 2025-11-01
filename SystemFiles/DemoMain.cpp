@@ -55,6 +55,79 @@
 #include <map>
 #include <string>
 
+void testChainofResp(){
+    #pragma region 
+    std::cout << "\n========== Chain Of Responsibility and Builder test ==========\n";
+    std::cout << "Testing Staff and builder and ask query\n";
+    std::cout << "======================================================\n\n";
+
+    FloorEmployee FE("Jeffery Dahmer");
+    FloorManager FM("Ted Bundy");
+    SalesEmployee SE("Jack The Ripper");
+    SalesManager SM("Hanibal Lecter");
+    PlantInventory* inventory1 = PlantInventory::getInstance();
+
+     // ==========================================
+    // Step 2: Create Plant Products
+    // ==========================================
+    std::cout << "========== Step 2: Create Plant Products ==========\n";
+    Rose* redRose1 = new Rose(25.99, "Beautiful Red Rose");
+    Rose* yellowRose1 = new Rose(22.99, "Bright Yellow Rose");
+    Plant* alienPlant1 = new Plant(999.99, "Mysterious Alien Plant");
+    Oak* oak1 = new Oak(12.50, "Majestic Oak Tree");
+    Oak* maple1 = new Oak(14.75, "Vibrant Maple Tree");
+
+    // Set categories (critical for care routine!)
+    redRose1->setCategory("Sunny");
+    yellowRose1->setCategory("Sunny");
+    alienPlant1->setCategory("Tropical");
+    oak1->setCategory("Temperate");
+    maple1->setCategory("Temperate");
+
+    std::cout << "Created 5 plant products with categories\n\n";
+
+    // ==========================================
+    // Step 3: Add Initial Stock to Inventory
+    // ==========================================
+    std::cout << "========== Step 3: Add Initial Stock to Inventory ==========\n";
+    inventory1->addStock(redRose1, 50);
+    inventory1->addStock(yellowRose1, 30);
+    inventory1->addStock(alienPlant1, 20);
+    inventory1->addStock(oak1, 15);
+    inventory1->addStock(maple1, 100);
+    std::cout << "All stock added successfully\n\n";
+
+    AskQuery a;
+
+    FE.setNext(&FM);
+    FM.setNext(&SE);
+    SE.setNext(&SM);
+
+    Plant* asky = new Rose(22,"A beautiful red rose");
+    asky->setCategory("Sunny");
+
+    Query* q=a.careRoutine(asky);
+
+    FE.handleQuery(q);
+    q=a.describe(asky);
+    FE.handleQuery(q);
+    q=a.stockInfo();
+    FE.handleQuery(q);
+
+    std::cout << "Test completed successfully!\n";
+
+    delete asky;
+    delete q;
+    delete redRose1;
+    delete yellowRose1;
+    delete alienPlant1;
+    delete oak1;
+    delete maple1;
+    //delete inventory1;
+
+    #pragma endregion
+}
+
 void displayMenu() {
     std::cout << "\n=== Plant Nursery Simulator ===\n";
     std::cout << "1. Buy Plants\n";
