@@ -2,7 +2,7 @@
 #include "Query.h" 
 
 Builder::Builder(){
-    item=NULL;
+    item=nullptr;
     type="";
     question="";
 }
