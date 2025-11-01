@@ -3,11 +3,12 @@
 #include "FullSunStrategy.h"
 #include "InorganicFertilizer.h"
 #include "LowWaterStrategy.h"
+#include <memory>
 
 Sunny::Sunny(){
-    wS = new LowWaterStrategy();
-    sS = new FullSunStrategy();
-    fS = new InorganicFertilizer();
+    wS = std::make_unique<LowWaterStrategy>();
+    sS = std::make_unique<FullSunStrategy>();
+    fS = std::make_unique<InorganicFertilizer>();
 }
 void Sunny::Fertilizing(Plant* p){
     fS->applyFertilizer(p);

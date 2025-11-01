@@ -34,7 +34,8 @@ public:
     * @return The name of this state.
     */
     virtual std::string getName() const = 0;
-    virtual ~PlantState() {}
+    virtual PlantState* clone() const = 0;
+    virtual ~PlantState() = default;
 };
 
 #endif

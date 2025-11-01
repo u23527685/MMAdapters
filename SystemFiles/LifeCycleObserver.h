@@ -8,7 +8,7 @@ class PlantLifeCycle;
 class LifeCycleObserver{
     public:
     virtual void update(PlantLifeCycle* p);
-    virtual ~LifeCycleObserver() {}
+    virtual ~LifeCycleObserver() = default;
 };
 
 #endif

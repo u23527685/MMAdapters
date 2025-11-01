@@ -3,11 +3,12 @@
 #include "ShadeStrategy.h"
 #include "OrganicFertilizer.h"
 #include "LowWaterStrategy.h"
+#include <memory>
 
 Shade::Shade(){
-    wS = new LowWaterStrategy();
-    sS = new ShadeStrategy();
-    fS = new OrganicFertilizer();
+    wS = std::make_unique<LowWaterStrategy>();
+    sS = std::make_unique<ShadeStrategy>();
+    fS = std::make_unique<OrganicFertilizer>();
 }
 void Shade::Fertilizing(Plant* p){
     fS->applyFertilizer(p);

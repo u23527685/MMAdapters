@@ -99,12 +99,11 @@ void Staff::isHealthy(PlantLifeCycle* p) {
 
     std::cout << "[Staff] " << name << " noticed " << p->getName() << " is now in state: " << stateName << std::endl;
 
-    careRoutine = careRoutine->PlantCare(plant);
+    std::unique_ptr<PlantCareRoutine> careRoutine = PlantCareRoutine::PlantCare(plant);
 
     if (!p->updatePlant()) {
         std::cout << "[Staff] " << name << " is applying care..." << std::endl;
-        p->getStateObj()->applyCare(p, plant, careRoutine);
-        delete careRoutine;
+        p->getStateObj()->applyCare(p, plant, careRoutine.get());
     } else {
         std::cout << "[Staff] " << name << " continues regular maintenance of "
                   << p->getName() << std::endl;

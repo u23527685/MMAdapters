@@ -9,27 +9,30 @@
 #include "SeedlingState.h"
 
 void SeedState::applyCare(PlantLifeCycle* context, Plant* plant, PlantCareRoutine* routine) {
+    if (!routine) {
+        std::cout << "Error: No care routine provided for " << plant->getName() << "\n";
+        return;
+    }
     routine->Watering(plant);
     routine->Sunlight(plant);
     routine->Fertilizing(plant);
 
     plant->increaseGrowthProgress();
-
-    // grow only based on growthProgress AND ensure current levels are within allowed range
-
-    if (plant->getGrowthProgress() >= 3) {
-        context->setState(new SeedlingState()); // PlantLifeCycle::setState will call notify()
-    }
+    evaluate(context, plant);
 }
 
 bool SeedState::evaluate(PlantLifeCycle* context, Plant* plant) {
     // Seed considered "healthy" (no immediate care needed) only if it has reached growth threshold
     if (plant->getGrowthProgress() >= 3) {
-        context->setState(new SeedlingState()); // triggers notify()
+        context->setState(std::make_unique<SeedlingState>()); // triggers notify()
         return true;
     }
 
     return false;
+}
+
+PlantState* SeedState::clone() const  {
+    return new SeedState();
 }
 
 

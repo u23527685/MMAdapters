@@ -13,6 +13,7 @@ class PlantState;
 #include <string>
 #include <vector>
 #include <utility>
+#include <memory>
 
 class Plant {
 private:
@@ -33,12 +34,11 @@ private:
 
     int growthProgress = 0;
 
-    PlantState* currentState;
+    std::unique_ptr<PlantState> state;
 protected:
     WateringStrategy* waterStrategy;
     SunlightStrategy* sunlightStrategy;
     FertilizerStrategy* fertilizerStrategy;
-    PlantState* state;
     std::vector<LifeCycleObserver*> observerList;
     std::string category;
 
@@ -51,8 +51,8 @@ public:
     Plant(double price, std::string description);
 
     void applyCare();
-    void setState(PlantState* s);
-    PlantState* getState();
+    void setState(std::unique_ptr<PlantState> s){state = std::move(s);}
+    PlantState* getState(){return state.get();}
     void attach(LifeCycleObserver* o);
     void detach(LifeCycleObserver* o);
     void notify();

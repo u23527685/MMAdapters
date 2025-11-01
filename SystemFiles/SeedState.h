@@ -15,6 +15,7 @@ public:
  void applyCare(PlantLifeCycle* context, Plant* plant, PlantCareRoutine* routine) override;
  bool evaluate(PlantLifeCycle* context, Plant* plant) override;
     std::string getName() const override;
+    PlantState* clone() const override;
 };
 
 #endif

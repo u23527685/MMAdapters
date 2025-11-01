@@ -13,9 +13,9 @@ class Plant;
 
 class Shade: public PlantCareRoutine{
     private:
-    WaterStrategy* wS;
-    FertilizerStrategy* fS;
-    SunlightStrategy* sS;
+    std::unique_ptr<WaterStrategy> wS;
+    std::unique_ptr<SunlightStrategy> sS;
+    std::unique_ptr<FertilizerStrategy> fS;
 public:
     Shade();
     void Fertilizing(Plant* p) override;

@@ -5,9 +5,9 @@
 #include "LowWaterStrategy.h"
 
 Temperate::Temperate(){
-    wS = new LowWaterStrategy();
-    sS = new FullSunStrategy();
-    fS = new InorganicFertilizer();
+    wS = std::make_unique<LowWaterStrategy>();
+    sS = std::make_unique<FullSunStrategy>();
+    fS = std::make_unique<InorganicFertilizer>();
 }
 void Temperate::Fertilizing(Plant* p){
     fS->applyFertilizer(p);
