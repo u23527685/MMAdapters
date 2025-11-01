@@ -24,6 +24,8 @@ public:
     // Memento pattern
     TransactionSnapshot createSnapshot() const;
     void restoreSnapshot(const TransactionSnapshot& snapshot);
+    Transaction* clone() const;
+
 };
 
 #endif

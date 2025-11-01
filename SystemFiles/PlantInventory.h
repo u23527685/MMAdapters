@@ -56,7 +56,10 @@ public:
     if plant not found, returns -1
     */
     int findPlantIndex(Plant* plant) const;
-    
+
+
+    int getQuantity(Plant* plant) const;
+
 };
 
 #endif

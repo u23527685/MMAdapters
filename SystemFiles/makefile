@@ -1,6 +1,6 @@
 # Compiler and flags
 CXX := g++
-CXXFLAGS := -Wall -Wextra -std=c++11
+CXXFLAGS := -Wall -Wextra -std=c++17
 DEBUGFLAGS := -g
 COVERAGEFLAGS := -fprofile-arcs -ftest-coverage
 
