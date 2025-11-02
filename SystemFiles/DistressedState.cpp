@@ -9,11 +9,14 @@
 #include "PlantCareRoutine.h"
 
 void DistressedState::applyCare(PlantLifeCycle* context, Plant* plant, PlantCareRoutine* routine) {
-     routine->Watering(plant);
+     if (!routine) {
+        std::cout << "Error: No care routine provided for " << plant->getName() << "\n";
+        return;
+    }
+    routine->Watering(plant);
     routine->Sunlight(plant);
     routine->Fertilizing(plant);
 
-    // after applying care, re-evaluate to possibly recover
     evaluate(context, plant);
 
      /**
@@ -48,7 +51,7 @@ double minW = plant->getMinWater();
 
     // If any dropped below min -> Withered
     if (curW < minW || curS < minS || curN < minN) {
-        context->setState(new WitheredState());
+        context->setState(std::make_unique<WitheredState>());
         return false;
     }
 
@@ -58,15 +61,19 @@ double minW = plant->getMinWater();
     double healthyNThreshold = minN * 1.2;
 
     if (curW >= healthyWThreshold && curS >= healthySThreshold && curN >= healthyNThreshold && plant->getGrowthProgress() >= 5) {
-        context->setState(new MatureState());
+        context->setState(std::make_unique<MatureState>());
         return true;
     } else if (curW >= healthyWThreshold && curS >= healthySThreshold && curN >= healthyNThreshold && plant->getGrowthProgress() < 5) {
-        context->setState(new SeedlingState());
+        context->setState(std::make_unique<SeedlingState>());
         return true;
     }
 
     // still distressed (not healthy)
     return false;
+}
+
+PlantState* DistressedState::clone() const  {
+    return new DistressedState();
 }
 
 

@@ -7,13 +7,14 @@
 #include "Sunny.h"
 #include "Shade.h"
 #include "Temperate.h"
+#include <memory>
 
 
-PlantCareRoutine* PlantCareRoutine::PlantCare(Plant* p){
+std::unique_ptr<PlantCareRoutine> PlantCareRoutine::PlantCare(Plant* p){
     const std::string& cat = p->getCategory();
-    if (cat == "Tropical")   return new Tropical();
-    if (cat == "Sunny")      return new Sunny();
-    if (cat == "Shade")      return new Shade();
-    if (cat == "Temperate")  return new Temperate();
+    if (cat == "Tropical")   return std::make_unique<Tropical>();
+    if (cat == "Sunny")      return std::make_unique<Sunny>();
+    if (cat == "Shade")      return std::make_unique<Shade>();
+    if (cat == "Temperate")  return std::make_unique<Temperate>();
     return nullptr;
 }

@@ -13,7 +13,7 @@ class InventoryProxy {
 public:
     InventoryProxy(SalesFloorObserver* observer);
 
-    void buyPlant(Plant* plant, int quantity);
+    bool buyPlant(Plant* plant, int quantity);
 
     void addStock(Plant* plant, int quantity);
     void removeStock(Plant*, int);

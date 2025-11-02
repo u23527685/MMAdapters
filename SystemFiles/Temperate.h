@@ -7,15 +7,16 @@
 #include "WateringStrategy.h"
 #include "FertilizerStrategy.h"
 #include "SunlightStrategy.h"
+#include <memory>
 
 
 class Plant;
 
 class Temperate: public PlantCareRoutine{
     private:
-    WaterStrategy* wS;
-    FertilizerStrategy* fS;
-    SunlightStrategy* sS;
+    std::unique_ptr<WaterStrategy> wS;
+    std::unique_ptr<SunlightStrategy> sS;
+    std::unique_ptr<FertilizerStrategy> fS;
 public:
     Temperate();
     void Fertilizing(Plant* p) override;
