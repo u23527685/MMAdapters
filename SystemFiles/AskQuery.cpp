@@ -21,13 +21,3 @@ Query* AskQuery::careRoutine(Plant* item){
     builder = nullptr;
     return q;
 }
-
-Query* AskQuery::stockInfo(){
-    builder= new MiscQueryBuilder();
-    builder->setType("STOCK");
-    builder->setQuestion("What is the current stock?");
-    Query *q=builder->build();
-    delete builder;
-    builder = nullptr;
-    return q;
-}

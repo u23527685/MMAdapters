@@ -25,16 +25,14 @@ void SalesManager::reply(Query* query){
     std::string q= query->getQuestion();
     std::string t=query->getType();
     Plant* i=query->getItem();
-    if(q=="What Stock is going out"||t=="STOCK"){
+    if(t=="STOCK"){
         std::cout<<"Sales Manager "<<getName()<<" will answer the query "<<std::endl;
-        getStock();
-        std::cout<<"Sales Manager "<<getName()<<" answered the query "<<std::endl;
-        return;
-    }
-    if(q=="What is the current Stock"||t=="STOCK"){
-        std::cout<<"Sales Manager "<<getName()<<" will answer the query "<<std::endl;
-        getStock();
-        std::cout<<"Sales Manager "<<getName()<<" answered the query "<<std::endl;
+        if(i){
+            getStock(query->getItem());
+            std::cout<<"Sales Manager "<<getName()<<" answered the query "<<std::endl;
+            return;
+        }
+        std::cout<<"You did not add an item to ask about, please add the item and ask the query again"<<std::endl;
         return;
     }
     if(q=="What deals are there currently"||t=="DEALS"){
@@ -58,6 +56,7 @@ void SalesManager::reply(Query* query){
     std::cout<<"Sales Manager "<<getName()<<" is passing the task to the next staff member"<<std::endl;
     Staff* next= getNext();
     if(next==nullptr){
+        std::cout<<"There is no next staff member available "<<std::endl;
         std::cout<<"Sorry we can not handle the query"<<std::endl;
         return;
     }

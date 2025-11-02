@@ -15,7 +15,6 @@ class AskQuery{
     public:
         Query* describe(Plant* item);
         Query* careRoutine(Plant* item);
-        Query* stockInfo();
 };
 
 #endif // !ASKQUERY_H

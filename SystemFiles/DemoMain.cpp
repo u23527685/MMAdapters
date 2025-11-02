@@ -923,8 +923,7 @@ int main() {
             std::cout << "\nSelect query type:\n"
                       << "1. Describe the plant\n"
                       << "2. What is the care routine for this plant?\n"
-                      << "3. What is the current stock?\n"
-                      << "4. Cancel\n"
+                      << "3. Cancel\n"
                       << "Choose: ";
             int queryChoice;
             while (true) {
@@ -937,7 +936,7 @@ int main() {
                 }
                 break;
             }
-            if (queryChoice == 4) continue;
+            if (queryChoice == 3) continue;
 
             AskQuery queryBuilder;
             Query* query = nullptr;
@@ -953,11 +952,6 @@ int main() {
                     query = queryBuilder.careRoutine(selectedPlant);
                     queryType = "CARE ROUTINE";
                     requiredStaffType = "Floor Employee";
-                    break;
-                case 3:
-                    query = queryBuilder.stockInfo();
-                    queryType = "STOCK";
-                    requiredStaffType = "Floor Manager or Sales Staff";
                     break;
                 default:
                     continue;

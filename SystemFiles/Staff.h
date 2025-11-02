@@ -2,6 +2,7 @@
 #define STAFF_H
 
 #include "PLantLifeCycle.h"
+#include "Plant.h"
 #include "LifeCycleObserver.h"
 #include "PlantCareRoutine.h"
 #include"Query.h"
@@ -17,7 +18,7 @@ class Staff : public LifeCycleObserver {
         PlantCareRoutine* careRoutine;
         SalesFloorObserver* salesFloorObserver;
     public:
-        void getStock();
+        void getStock(Plant* plant);
         virtual void handleQuery(Query* query)=0;
         Staff(std::string name);
         virtual ~Staff();
