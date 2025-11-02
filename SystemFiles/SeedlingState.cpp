@@ -22,12 +22,13 @@ void SeedlingState::applyCare(PlantLifeCycle* context, Plant* plant, PlantCareRo
 }
 
 bool SeedlingState::evaluate(PlantLifeCycle* context, Plant* plant) {
-    // Seedling considered "healthy" (no immediate care needed) only if it has reached growth threshold
-    // AND its current levels are within min..max.
+    bool sunlightOk = plant->getCategory() == "Shade" ? 
+                     plant->getCurrentSunlight() >= -10 :
+                     plant->getCurrentSunlight() >= plant->getMinSunlight();
     bool withinMinMax =
-        plant->getCurrentWater()  >= plant->getMinWater()  &&
-        plant->getCurrentSunlight()>= plant->getMinSunlight()&&
-        plant->getCurrentNutrients()>=plant->getMinNutrients();
+        plant->getCurrentWater() >= plant->getMinWater() &&
+        sunlightOk &&
+        plant->getCurrentNutrients() >= plant->getMinNutrients();
 
     if (plant->getGrowthProgress() >= 5 && withinMinMax) {
         context->setState(std::make_unique<MatureState>()); // triggers notify()

@@ -59,8 +59,12 @@ bool PlantLifeCycle::updatePlant() {
 
 void PlantLifeCycle::simulateTimePassing() {
     Plant* plant = getPlant();
+    if (plant->getCategory() != "Shade") {
+        plant->setCurrentSunlight(plant->getCurrentSunlight() - 10); 
+    } else {
+        plant->setCurrentSunlight(0); 
+    }
     plant->setCurrentWater(plant->getCurrentWater() - 10);
-    plant->setCurrentSunlight(plant->getCurrentSunlight() - 10);
     plant->setCurrentNutrients(plant->getCurrentNutrients() - 10);
 }
 
