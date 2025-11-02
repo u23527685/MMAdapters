@@ -39,7 +39,7 @@ Query* AskQuery::careRoutine(Plant* item){
  * @brief Build a Query that provides stock information (misc).
  * @return Newly allocated Query pointer (caller must delete).
  */
-Query* AskQuery::stockInfo(){`
+Query* AskQuery::stockInfo(){
     builder = new MiscQueryBuilder();
     builder->setType("STOCK");
     Query *q = builder->build();

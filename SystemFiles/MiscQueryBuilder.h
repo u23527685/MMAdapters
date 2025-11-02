@@ -29,25 +29,19 @@ class MiscQueryBuilder:public Builder{
          * @brief Set the query type for the miscellaneous query.
          * @param type Type string (e.g. "STOCK").
          */
-        void setType(std::string type);
+        void setType(std::string type)override;
 
         /**
          * @brief Set the explicit question text.
          * @param question Question string.
          */
-        void setQuestion(std::string question);
+        void setQuestion(std::string question)override;
 
         /**
          * @brief setItem has no effect for MiscQueryBuilder.
          * @param item Ignored.
          */
-        void setItem(Plant* item);
-
-        /**
-         * @brief Optionally provides a custom build implementation.
-         * @return Pointer to a constructed Query (caller owns).
-         */
-        Query* build();
+        void setItem(Plant* item)override;
 
         MiscQueryBuilder():Builder(){}
 };
