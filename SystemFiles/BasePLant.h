@@ -1,14 +1,30 @@
-#ifndef BASEPLANT_H
-#define BASEPLANT_H
-#include <string>
+/**
+ *@file BasePLant.h
+ *@brief Defines the cincrete implementation of a basic plant.
+ */
+
+ #ifndef BASE_PLANT_H
+#define BASE_PLANT_H
+
 #include "Plant.h"
 
-class BasePlant: public Plant {
-    public:
-    BasePlant();
-    BasePlant(double p, std::string desc);
-    virtual ~BasePlant() {}
+/**
+ *@class BasePlant
+ *@brief Represents a simple, undecorated plant.
+ */
+
+class BasePlant : public Plant {
+public:
+    /**
+     *@brief Returns the base description of the plant.
+     *@return A string describing the plant.
+     */
     std::string getDescription() const override;
+
+    /**
+     *@brief Returns the base price of the plant.
+     *@return The base price as a double.
+     */
     double getPrice() const override;
 
     
