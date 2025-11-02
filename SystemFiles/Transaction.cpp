@@ -15,11 +15,10 @@ void Transaction::setPaymentStrategy(PaymentStrategy* method) {
 }
 
 void Transaction::processPayment() const {
-    if (paymentMethod) {
+    if (paymentMethod)
         paymentMethod->pay(amount * quantity, orderNum);
-    } else {
+    else
         std::cout << "No payment strategy set for order " << orderNum << std::endl;
-    }
 }
 
 void Transaction::getDetails() const {
@@ -30,7 +29,18 @@ void Transaction::getDetails() const {
               << "\n";
 }
 
-// ===== Memento Pattern Methods =====
+std::string Transaction::getTransactionId() const {
+    return orderNum;
+}
+
+double Transaction::getAmount() const {
+    return amount * quantity;
+}
+
+int Transaction::getQuantity() const {
+    return quantity;
+}
+
 TransactionSnapshot Transaction::createSnapshot() const {
     return TransactionSnapshot(orderNum, amount, quantity);
 }
@@ -43,9 +53,7 @@ void Transaction::restoreSnapshot(const TransactionSnapshot& snapshot) {
 
 Transaction* Transaction::clone() const {
     Transaction* copy = new Transaction(orderNum, amount, quantity);
-    // copy over the payment method if needed
-    if (paymentMethod) {
+    if (paymentMethod)
         copy->setPaymentStrategy(paymentMethod);
-    }
     return copy;
 }

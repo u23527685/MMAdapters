@@ -32,6 +32,8 @@
 #include <cstdlib>
 #include <ctime>
 #include <memory>
+#include <limits>
+
 
 // Factory function returning unique_ptr
 std::unique_ptr<Plant> createSeedPlant(int option) {
@@ -305,16 +307,42 @@ int main() {
             Customer customer("Walk-in Customer");
             bool custRunning = true;
             while (custRunning) {
-                std::cout << "\n--- Customer Menu ---\n1. View Inventory\n2. Buy Plant\n3. Repurchase Last Order (Memento)\n4. Back\nChoose: ";
-                int cChoice; std::cin >> cChoice;
-                if (cChoice == 4) break;
+                std::cout << "\n--- Customer Menu ---\n"
+                        << "1. View Inventory\n"
+                        << "2. Buy Plant\n"
+                        << "3. Repurchase Last Order (Memento)\n"
+                        << "4. View Receipt\n"
+                        << "5. Back\n"
+                        << "Choose: ";
+                        int cChoice;
+                        while (true) {
+                            std::cin >> cChoice;
+                            if (std::cin.fail()) {
+                                std::cin.clear(); // clear error flags
+                                std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); // discard bad input
+                                std::cout << "Invalid input. Please enter a number: ";
+                                continue;
+                            }
+                            break;
+                        }
+
+                        if (cChoice == 5) break;
+
 
                 if (cChoice == 1) {
                     std::cout << "\n🌿 Available Plants 🌿\n";
-                    for (auto& [num, p] : plantOptions)
-                        std::cout << num << ". " << p->getDescription() << " - R" << p->getPrice()
-                                  << " (Qty: " << inventory->getQuantity(p) << ")\n";
+                    for (auto& [num, p] : plantOptions) {
+                        if (!p) continue; // ✅ skip null
+                        int qty = inventory->getQuantity(p);
+                        if (qty > 0)
+                            std::cout << num << ". " << p->getDescription() << " - R" << p->getPrice()
+                                    << " (Qty: " << qty << ")\n";
+                        else
+                            std::cout << num << ". " << p->getDescription() << " - ❌ Out of stock!\n";
+                    }
                 }
+
+
                 else if (cChoice == 2) {
                     std::cout << "\nSelect plant to buy (0 to cancel): ";
                     int choice; std::cin >> choice;
@@ -328,21 +356,32 @@ int main() {
                     int qty; std::cin >> qty;
                     if (qty <= 0 || qty > available) continue;
 
+                    // Decorate plant
+                    Plant* decorated = new BasePlant(plant->getPrice(), plant->getDescription());
+                    bool addingDecor = true;
+                    while (addingDecor) {
+                        std::cout << "\nAdd decoration?\n"
+                                << "1. Gift Wrap (+R5)\n"
+                                << "2. Decorative Pot (+R7)\n"
+                                << "3. Special Arrangement (+R10)\n"
+                                << "4. Done\n"
+                                << "Choose: ";
+                        int decoChoice; std::cin >> decoChoice;
+                        switch (decoChoice) {
+                            case 1: decorated = new GiftWrap(decorated); std::cout << "🎁 Added Gift Wrap\n"; break;
+                            case 2: decorated = new DecorativePot(decorated); std::cout << "🪴 Added Decorative Pot\n"; break;
+                            case 3: decorated = new SpecialArrangement(decorated); std::cout << "💐 Added Special Arrangement\n"; break;
+                            default: addingDecor = false; break;
+                        }
+                    }
+
+                    // Payment
                     std::cout << "\nSelect payment method:\n1. Credit Card\n2. E-Wallet\n3. EFT\nChoose: ";
                     int pay; std::cin >> pay;
-
                     PaymentStrategy* strategy = nullptr;
                     if (pay == 1) strategy = &creditCard;
                     else if (pay == 2) strategy = &ewallet;
-                    else if (pay == 3) strategy = &eft;
-
-                    // Decorate plant
-                    Plant* decorated = new BasePlant(plant->getPrice(), plant->getDescription());
-                    int deco = rand() % 3;
-                    if (deco == 0) decorated = new GiftWrap(decorated);
-                    else if (deco == 1) decorated = new DecorativePot(decorated);
-                    else if (deco == 2) decorated = new SpecialArrangement(decorated);
-
+                    else strategy = &eft;
 
                     double total = decorated->getPrice() * qty;
                     Order order(&customer, "ORD-" + std::to_string(rand()));
@@ -350,13 +389,32 @@ int main() {
                     tx->setPaymentStrategy(strategy);
                     order.addTransaction(tx);
                     order.processOrder();
-                    savedTransactions.push_back(tx);
 
+                    savedTransactions.push_back(tx);
                     inventory->removeStock(plant, qty);
-                    std::cout << "✅ Purchased " << qty << " " << decorated->getDescription() << " for R" << total << "\n";
+
+                    // ✅ Print a neat receipt
+                    std::cout << "\n=========================================\n";
+                    std::cout << "             🧾 PURCHASE RECEIPT\n";
+                    std::cout << "=========================================\n";
+                    std::cout << "Order ID: " << order.getOrderId() << "\n";
+                    std::cout << "Customer: " << customer.getName() << "\n";
+                    std::cout << "Item: " << decorated->getDescription() << "\n";
+                    std::cout << "Quantity: " << qty << "\n";
+                    std::cout << "Payment Method: ";
+                    if (pay == 1) std::cout << "Credit Card\n";
+                    else if (pay == 2) std::cout << "E-Wallet\n";
+                    else std::cout << "EFT\n";
+                    std::cout << "-----------------------------------------\n";
+                    std::cout << std::fixed << std::setprecision(2)
+                            << "Total: R" << total << "\n";
+                    std::cout << "=========================================\n";
+                    std::cout << "     🌸 Thank you for shopping! 🌸\n";
+                    std::cout << "=========================================\n";
 
                     delete decorated;
                 }
+
                 else if (cChoice == 3) {
                     if (savedTransactions.empty()) { std::cout << "\nNo previous orders found!\n"; continue; }
                     Transaction* last = savedTransactions.back()->clone();
@@ -365,8 +423,25 @@ int main() {
                     savedTransactions.push_back(last);
                     std::cout << "✅ Order repeated successfully!\n";
                 }
+
+                else if (cChoice == 4) {
+                    if (savedTransactions.empty()) { std::cout << "\nNo receipts to view yet.\n"; continue; }
+
+                    Transaction* last = savedTransactions.back();
+                    std::cout << "\n=========================================\n";
+                    std::cout << "           📄 LAST PURCHASE RECEIPT\n";
+                    std::cout << "=========================================\n";
+                    std::cout << "Transaction ID: " << last->getTransactionId() << "\n";
+                    std::cout << "Quantity: " << last->getQuantity() << "\n";
+                    std::cout << std::fixed << std::setprecision(2)
+                            << "Total Paid: R" << last->getAmount() << "\n";
+                    std::cout << "=========================================\n";
+                    std::cout << "      🌿 Come again soon! 🌿\n";
+                    std::cout << "=========================================\n";
+                }
             }
         }
+
 
         // --- Simulate Day ---
         else if (roleChoice == 3) {

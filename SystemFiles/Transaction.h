@@ -2,7 +2,6 @@
 #define TRANSACTION_H
 
 #include <string>
-#include <iostream>
 #include "PaymentStrategy.h"
 #include "TransactionSnapshot.h"
 
@@ -11,7 +10,7 @@ private:
     std::string orderNum;
     double amount;
     int quantity;
-    PaymentStrategy* paymentMethod; // Strategy reference
+    PaymentStrategy* paymentMethod;
 
 public:
     Transaction(const std::string& orderNum, double amount, int quantity);
@@ -21,11 +20,13 @@ public:
     void processPayment() const;
     void getDetails() const;
 
-    // Memento pattern
+    std::string getTransactionId() const;
+    double getAmount() const;
+    int getQuantity() const;
+
     TransactionSnapshot createSnapshot() const;
     void restoreSnapshot(const TransactionSnapshot& snapshot);
     Transaction* clone() const;
-
 };
 
 #endif
