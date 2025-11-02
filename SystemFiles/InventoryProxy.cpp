@@ -2,7 +2,7 @@
 
 InventoryProxy::InventoryProxy(SalesFloorObserver* observer) : inventory(PlantInventory::getInstance()), salesObserver(observer) {}
 
-void InventoryProxy::buyPlant(Plant* plant, int quantity) {
+bool InventoryProxy::buyPlant(Plant* plant, int quantity) {
     std::string desc = plant ? plant->getDescription() : "(unknown)";
     bool result = inventory->removeStock(plant, quantity);
     if (result) {
@@ -10,6 +10,7 @@ void InventoryProxy::buyPlant(Plant* plant, int quantity) {
     } else {
         std::cout << "Purchase failed: Not enough stock or invalid request." << std::endl;
     }
+    return result;
 }
 
 void InventoryProxy::addStock(Plant* plant, int quantity) {

@@ -25,6 +25,7 @@
 #include "SpecialArrangement.h"
 #include "MatureState.h"
 #include "AskQuery.h"
+#include "InventoryProxy.h"
 
 #include <iostream>
 #include <iomanip>
@@ -53,6 +54,16 @@ std::unique_ptr<Plant> createSeedPlant(int option) {
 
     if (p) p->setState(std::make_unique<SeedState>());
     return p;
+}
+
+// Helper: get human-readable role for a Staff pointer
+static std::string getStaffRole(Staff* s) {
+    if (!s) return "Unknown";
+    if (dynamic_cast<FloorEmployee*>(s)) return "Floor Employee";
+    if (dynamic_cast<FloorManager*>(s)) return "Floor Manager";
+    if (dynamic_cast<SalesEmployee*>(s)) return "Sales Employee";
+    if (dynamic_cast<SalesManager*>(s)) return "Sales Manager";
+    return "Staff";
 }
 
 // Simulate a day for plants
@@ -410,6 +421,9 @@ int main() {
     EWalletPaymentStrategy ewallet("wallet123");
     EFTPaymentStrategy eft("9876543210");
 
+    // Proxy
+    InventoryProxy proxy(salesFloor.get());
+
     // Initialize inventory with plants
     auto redRose = std::make_unique<Rose>(10.0, "Red Rose");
     auto yellowRose = std::make_unique<Rose>(9.0, "Yellow Rose");
@@ -534,7 +548,11 @@ int main() {
                 else if (sChoice == 2) {
                     std::cout << "\n--- Hired Staff ---\n";
                     if (hiredStaff.empty()) std::cout << "None yet.\n";
-                    else for (auto s : hiredStaff) std::cout << "- " << s->getName() << "\n";
+                    else {
+                        for (auto s : hiredStaff) {
+                            std::cout << "- " << s->getName() << " (" << getStaffRole(s) << ")\n";
+                        }
+                    }
                 }
 
                 // Buy seeds
@@ -674,7 +692,29 @@ int main() {
                 }
 
                 else if (cChoice == 2) {
-                    std::cout << "\nSelect plant to buy (0 to cancel): ";
+                    // Show available plant options first so customer can see numbers
+                    std::cout << "\nSelect plant to buy (0 to cancel):\n";
+                    auto invViewForMenu = inventory->getInventoryView();
+                    if (invViewForMenu.empty()) {
+                        std::cout << "No plants available for sale.\n";
+                        continue;
+                    }
+                    for (const auto& item : invViewForMenu) {
+                        if (!item.first) continue;
+                        auto it = plantMenuOptions.find(item.first->getDescription());
+                        if (it != plantMenuOptions.end()) {
+                            int qty = item.second;
+                            if (qty > 0) {
+                                std::cout << it->second << ". " << item.first->getDescription()
+                                          << " - R" << std::fixed << std::setprecision(2) << item.first->getPrice()
+                                          << " (Qty: " << qty << ")\n";
+                            } else {
+                                std::cout << it->second << ". " << item.first->getDescription() << " - ❌ Out of stock!\n";
+                            }
+                        }
+                    }
+
+                    std::cout << "Enter choice: ";
                     int choice;
                     while (true) {
                         std::cin >> choice;
@@ -692,6 +732,7 @@ int main() {
                     Plant* selectedPlant = nullptr;
                     auto inventoryItems = inventory->getInventoryView();
                     for (const auto& item : inventoryItems) {
+                        if (!item.first) continue;
                         auto it = plantMenuOptions.find(item.first->getDescription());
                         if (it != plantMenuOptions.end() && it->second == choice) {
                             selectedPlant = item.first;
@@ -774,12 +815,17 @@ int main() {
                     Order order(&customer, "ORD-" + std::to_string(rand()));
                     Transaction* tx = new Transaction(order.getOrderId(), total, qty);
                     tx->setPaymentStrategy(strategy);
-                    order.addTransaction(tx);
-                    order.processOrder();
-                    balance += total;
-
-                    savedTransactions.push_back(tx);
-                    inventory->removeStock(selectedPlant, qty);
+                   if (proxy.buyPlant(selectedPlant, qty)) {
+                        order.addTransaction(tx);
+                        order.processOrder();
+                        balance += total;
+                        savedTransactions.push_back(tx);
+                        std::cout << "\nPurchased " << qty << " " << decorated->getDescription() << " for R" << total << "\n";
+                    } else {
+                        delete tx;
+                        std::cout << "\nPurchase failed: not enough stock.\n";
+                    }
+                    inventory->removeStock(selectedPlant, 0);
 
                     // Print a neat receipt
                     std::cout << "\n=========================================\n";
