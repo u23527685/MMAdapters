@@ -1280,13 +1280,13 @@ std::cout << "\n"
                 std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 
                 std::string qtype;
-                std::cout << "\nEnter query TYPE (FULL CAPS, e.g. INFO, CARE ROUTINE, STOCK): ";
+                std::cout << PASTEL_SALMON <<"\nEnter query TYPE (FULL CAPS, e.g. INFO, CARE ROUTINE, STOCK): ";
                 std::getline(std::cin, qtype);
                 // normalize to uppercase so user's input becomes full caps
                 for (auto &ch : qtype) ch = static_cast<char>(std::toupper((unsigned char)ch));
 
                 std::string question;
-                std::cout << "Enter your question: ";
+                std::cout << "Enter your question: "<<RESET;
                 std::getline(std::cin, question);
 
                 std::cout << "\n--- Custom Query Received ---\n";
