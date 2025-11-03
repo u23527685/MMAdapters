@@ -60,6 +60,7 @@ EWalletPaymentStrategy ewallet("wallet123");
 EFTPaymentStrategy eft("9876543210");
 
 double balance = 1000.0;
+int day = 1;
 
 std::vector<Transaction*> savedTransactions;
 
@@ -115,7 +116,7 @@ void simulateDay(std::vector<std::unique_ptr<Plant>>& growingPlants,
             return false;
         }), growingPlants.end());
     if (initialSize != growingPlants.size()) {
-        std::cout << PASTEL_YELLOW << "Debug: Removed " << (initialSize - growingPlants.size()) 
+        std::cout << PASTEL_YELLOW << "Removed " << (initialSize - growingPlants.size()) 
                   << " invalid plants from growingPlants\n" << RESET;
     }
 
@@ -148,17 +149,15 @@ void simulateDay(std::vector<std::unique_ptr<Plant>>& growingPlants,
     std::vector<std::unique_ptr<Plant>*> allPlants = distressedOrWithered;
     allPlants.insert(allPlants.end(), otherPlants.begin(), otherPlants.end());
 
-    for (size_t i = 0; i < allPlants.size(); ) {
+    
+    std::vector<size_t> plantsToRemove;
+    for (size_t i = 0; i < allPlants.size(); ++i) {
         Plant* plant = allPlants[i] ? allPlants[i]->get() : nullptr;
         if (!plant || !plant->getState()) {
             std::cout << PASTEL_GRAY << "💀 Plant " << (plant ? plant->getName() : "Unknown") 
                       << " has no state or is null and died!\n" << RESET;
-            if (plant) {
-                growingPlants.erase(std::find_if(growingPlants.begin(), growingPlants.end(),
-                    [&plant](const auto& p) { return p.get() == plant; }));
-            }
+            plantsToRemove.push_back(i);
             died++;
-            ++i;
             continue;
         }
 
@@ -175,7 +174,6 @@ void simulateDay(std::vector<std::unique_ptr<Plant>>& growingPlants,
             std::cout << PASTEL_YELLOW << "⚠️ No Floor Employee available for " << plant->getName()
                       << " (" << plant->getState()->getName() << "). Plant neglected!\n" << RESET;
             neglected++;
-            ++i;
             continue;
         }
 
@@ -185,17 +183,14 @@ void simulateDay(std::vector<std::unique_ptr<Plant>>& growingPlants,
         auto routine = PlantCareRoutine::PlantCare(plant);
         if (!routine) {
             std::cout << PASTEL_SALMON << "❌ No care routine for " << plant->getName() << "\n" << RESET;
-            growingPlants.erase(std::find_if(growingPlants.begin(), growingPlants.end(),
-                [&plant](const auto& p) { return p.get() == plant; }));
+            plantsToRemove.push_back(i);
             died++;
-            ++i;
             continue;
         }
 
         std::cout << PASTEL_GREEN << "📋 [" << assignedEmployee->getName() << "] noticed " << plant->getName()
                   << " in " << plant->getState()->getName() << " state. Applying care: ";
         cycle.getStateObj()->applyCare(&cycle, plant, routine.get());
-        routine->printCareRoutine();
 
         
         watered++;
@@ -206,13 +201,11 @@ void simulateDay(std::vector<std::unique_ptr<Plant>>& growingPlants,
         std::unique_ptr<PlantState> newState = cycle.releaseState();
         if (!newState) {
             std::cout << PASTEL_SALMON << "❌ Plant " << plant->getName() << " state became null!\n" << RESET;
-            growingPlants.erase(std::find_if(growingPlants.begin(), growingPlants.end(),
-                [&plant](const auto& p) { return p.get() == plant; }));
+            plantsToRemove.push_back(i);
             died++;
-            ++i;
             continue;
         }
-        std::cout << PASTEL_GREEN << "Debug: Updating state for " << plant->getName() 
+        std::cout << PASTEL_GREEN << "Updating state for " << plant->getName() 
                   << " to " << newState->getName() << "\n" << RESET;
         plant->setState(std::move(newState));
 
@@ -226,45 +219,45 @@ void simulateDay(std::vector<std::unique_ptr<Plant>>& growingPlants,
                 inventoryPlant = new Rose(10.0, "Red Rose");
                 inventoryPlant->setCategory("Sunny");
                 inventoryPlant->setState(std::make_unique<MatureState>());
-                std::cout << PASTEL_GREEN << "Debug: Created new Red Rose for inventory (Ptr: " << inventoryPlant << ")\n" << RESET;
+                std::cout << PASTEL_GREEN << "Created new Red Rose for inventory (Ptr: " << inventoryPlant << ")\n" << RESET;
             } else if (plant->getDescription() == "Yellow Rose") {
                 inventoryPlant = new Rose(9.0, "Yellow Rose");
                 inventoryPlant->setCategory("Shade");
                 inventoryPlant->setState(std::make_unique<MatureState>());
-                std::cout << PASTEL_GREEN << "Debug: Created new Yellow Rose for inventory (Ptr: " << inventoryPlant << ")\n" << RESET;
+                std::cout << PASTEL_GREEN << "Created new Yellow Rose for inventory (Ptr: " << inventoryPlant << ")\n" << RESET;
             } else if (plant->getDescription() == "Oak Tree") {
                 inventoryPlant = new Oak(7.0, "Oak Tree");
                 inventoryPlant->setCategory("Temperate");
                 inventoryPlant->setState(std::make_unique<MatureState>());
-                std::cout << PASTEL_GREEN << "Debug: Created new Oak Tree for inventory (Ptr: " << inventoryPlant << ")\n" << RESET;
+                std::cout << PASTEL_GREEN << "Created new Oak Tree for inventory (Ptr: " << inventoryPlant << ")\n" << RESET;
             }
 
             if (inventoryPlant) {
-                std::cout << PASTEL_GREEN << "Debug: Adding " << inventoryPlant->getDescription() 
+                std::cout << PASTEL_GREEN << "Adding " << inventoryPlant->getDescription() 
                           << " to inventory (Ptr: " << inventoryPlant << ").\n" << RESET;
                 inventory->addStock(inventoryPlant, 1);
+                plantsToRemove.push_back(i);
+                matured++;
             } else {
                 std::cout << PASTEL_SALMON << "❌ Failed to create new plant for inventory: " 
                           << plant->getDescription() << "\n" << RESET;
             }
-
-            growingPlants.erase(std::find_if(growingPlants.begin(), growingPlants.end(),
-                [&plant](const auto& p) { return p.get() == plant; }));
-            matured++;
-            ++i;
-            continue;
         } else if (stateName == "Withered") {
             std::cout << PASTEL_GRAY << "💀 Plant " << plant->getName() << " has withered and died!\n" << RESET;
-            growingPlants.erase(std::find_if(growingPlants.begin(), growingPlants.end(),
-                [&plant](const auto& p) { return p.get() == plant; }));
+            plantsToRemove.push_back(i);
             died++;
-            ++i;
-            continue;
         }
-
-        ++i;
     }
 
+    
+    std::sort(plantsToRemove.begin(), plantsToRemove.end(), std::greater<size_t>());
+    for (size_t idx : plantsToRemove) {
+        if (idx < growingPlants.size()) {
+            growingPlants.erase(growingPlants.begin() + idx);
+        }
+    }
+
+    
     int numCustomers = rand() % 5 + 1;
     std::cout << "\n📈 " << numCustomers << " customers visited today.\n" << RESET;
 
@@ -315,7 +308,7 @@ void simulateDay(std::vector<std::unique_ptr<Plant>>& growingPlants,
             }
 
             if (q) {
-                std::cout << PASTEL_GREEN << "Debug: Handling query for " << randPlant->getDescription() << " by " << chainStart->getName() << "\n" << RESET;
+                std::cout << PASTEL_GREEN << "\nHandling query for " << randPlant->getDescription() << " by " << chainStart->getName() << "\n" << RESET;
                 chainStart->handleQuery(q);
                 delete q;
                 q = nullptr;
@@ -344,7 +337,7 @@ void simulateDay(std::vector<std::unique_ptr<Plant>>& growingPlants,
             }
             if (buyQty == 0) continue;
 
-            std::cout << PASTEL_GREEN << "Debug: Processing purchase of " << buyQty << " " << buyPlant->getDescription() << " by " << customer.getName() << "\n" << RESET;
+            std::cout << PASTEL_GREEN << "\nProcessing purchase of " << buyQty << " " << buyPlant->getDescription() << " by " << customer.getName() << "\n" << RESET;
 
             Plant* decorated = new BasePlant(buyPlant->getPrice(), buyPlant->getDescription());
             int deco = rand() % 4;
@@ -389,6 +382,7 @@ void simulateDay(std::vector<std::unique_ptr<Plant>>& growingPlants,
             }
         }
     }
+    day++;
 
     std::cout << "\n═══════════════════════════════════════════\n";
     std::cout << "✅ DAILY SUMMARY\n";
@@ -398,6 +392,7 @@ void simulateDay(std::vector<std::unique_ptr<Plant>>& growingPlants,
     std::cout << PASTEL_PINK << "🌸 Matured:       " << matured << "\n" << RESET;
     std::cout << PASTEL_GRAY << "💀 Died:          " << died << "\n" << RESET;
     std::cout << PASTEL_YELLOW << "⚠️ Neglected:     " << neglected << "\n" << RESET;
+    std::cout << PASTEL_ORANGE << "🗓️Days Passed:     " << day << "\n" << RESET;
     std::cout << "═══════════════════════════════════════════\n";
     std::cout << PASTEL_GREEN << "🌱 End of day processing complete.\n\n" << RESET;
 }
@@ -636,13 +631,13 @@ std::cout << PASTEL_MINT << "=============================================\n" <<
     inventory->addStock(oakTree.get(), 0);
 
     
-    std::cout << "Debug: Initial inventory state:\n";
+    std::cout << "Initial inventory state:\n";
     auto inventoryItems = inventory->getInventoryView();
     if (inventoryItems.empty()) {
-        std::cout << "Debug: Initial inventory is empty!\n";
+        std::cout << "Initial inventory is empty!\n";
     } else {
         for (const auto& item : inventoryItems) {
-            std::cout << "Debug: " << item.first->getDescription() << " (Qty: " << item.second << ", Ptr: " << item.first << ")\n";
+            std::cout << "" << item.first->getDescription() << " (Qty: " << item.second << ", Ptr: " << item.first << ")\n";
         }
     }
 
@@ -751,12 +746,26 @@ std::cout << "\n"
 
                     Staff* newStaff = nullptr;
                     double cost = 0;
-                    std::string name = "Staff_" + std::to_string(hiredStaff.size() + 1);
+                    std::string names[10] = {
+                        "Alex",
+                        "Sophie",
+                        "Michael",
+                        "Emma",
+                        "James",
+                        "Olivia",
+                        "William",
+                        "Ava",
+                        "Lucas",
+                        "Mia"
+                    };
+
+                    srand(time(0));
+                    int randomIndex = rand() % 10;
                     switch (type) {
-                        case 1: newStaff = new FloorEmployee(name); cost = 200; break;
-                        case 2: newStaff = new FloorManager(name); cost = 400; break;
-                        case 3: newStaff = new SalesEmployee(name); cost = 300; break;
-                        case 4: newStaff = new SalesManager(name); cost = 500; break;
+                        case 1: newStaff = new FloorEmployee(names[randomIndex]); cost = 200; break;
+                        case 2: newStaff = new FloorManager(names[randomIndex]); cost = 400; break;
+                        case 3: newStaff = new SalesEmployee(names[randomIndex]); cost = 300; break;
+                        case 4: newStaff = new SalesManager(names[randomIndex]); cost = 500; break;
                         case 5: continue;
                     }
 
