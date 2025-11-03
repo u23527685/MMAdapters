@@ -13,6 +13,7 @@ bool AddStock::execute() {
 
     if (idx >= 0) {
         inventory[idx].second += quantityToAdd;
+        
     } else {
         inventory.push_back(std::make_pair(plant, quantityToAdd));
     }

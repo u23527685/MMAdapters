@@ -4,77 +4,78 @@
 #include <iostream>
 #include <algorithm>
 #include <map>
+#include <set>
 
 SalesFloorObserver::SalesFloorObserver(PlantInventory* inventory) : InventoryObserver(inventory) {
-    if(inventory){
+    if (inventory) {
         inventory->attach(this);
         update();
     }
 }
 
+
 void SalesFloorObserver::update() {
-    //Save old state for comparison
+    if (!inventory) {
+        return;
+    }
+
     std::vector<std::pair<Plant*, int>> oldItems = availableItems;
-    
-    //Get current inventory and update availableItems
-    const std::vector<std::pair<Plant*, int>> items = inventory->getInventoryView();
     availableItems.clear();
-    
+
+    const auto items = inventory->getInventoryView();
     for (const auto& item : items) {
-        if (item.second > 0) {
+        if (item.first && item.second > 0) {
             availableItems.push_back(item);
-            plantDescriptions[item.first] = item.first->getDescription();
         }
     }
 
-    std::cout << "Sales Floor Update: " << availableItems.size() << " plant types currently available." << std::endl;
-    
-    //Determine what changed and notify staff
+    // Count unique plant types
+    std::set<std::string> plantTypes;
+    for (const auto& item : availableItems) {
+        if (item.first) {
+            plantTypes.insert(item.first->getDescription());
+        }
+    }
+    std::cout << "Sales Floor Update: " << plantTypes.size() << " plant types currently available." << std::endl;
+
     for (const auto& newItem : availableItems) {
         Plant* plant = newItem.first;
+        if (!plant) continue;
         int newQty = newItem.second;
-        
-        //Find old quantity
         int oldQty = 0;
         for (const auto& oldItem : oldItems) {
-            if (oldItem.first == plant) {
+            if (oldItem.first && oldItem.first->getDescription() == plant->getDescription()) {
                 oldQty = oldItem.second;
                 break;
             }
         }
-        
-        //If this is new or quantity increased
+
+        std::string description = plant->getDescription();
         if (oldQty == 0) {
-            std::string message = "New stock added: " + plant->getDescription() + " (Qty: " + std::to_string(newQty) + ")";
+            std::string message = "New stock added: " + description + " (Qty: " + std::to_string(newQty) + ")";
             notifyStaff(message);
         } else if (newQty > oldQty) {
             int added = newQty - oldQty;
-            std::string message = "Stock added: " + std::to_string(added) + " " + plant->getDescription() + " (Total: " + std::to_string(newQty) + ")";
+            std::string message = "Stock added: " + std::to_string(added) + " " + description + " (Total: " + std::to_string(newQty) + ")";
             notifyStaff(message);
         } else if (newQty < oldQty) {
             int removed = oldQty - newQty;
-            std::string message = "Stock removed: " + std::to_string(removed) + " " + plant->getDescription() + " (Remaining: " + std::to_string(newQty) + ")";
+            std::string message = "Stock removed: " + std::to_string(removed) + " " + description + " (Remaining: " + std::to_string(newQty) + ")";
             notifyStaff(message);
         }
     }
-    
-    //Check for items that were completely removed (went to 0)
+
     for (const auto& oldItem : oldItems) {
-        Plant* plant = oldItem.first;
+        if (!oldItem.first) continue;
         bool found = false;
-        
         for (const auto& newItem : availableItems) {
-            if (newItem.first == plant) {
+            if (newItem.first && newItem.first->getDescription() == oldItem.first->getDescription()) {
                 found = true;
                 break;
             }
         }
-        
         if (!found) {
-            // Use the cached description from when the plant existed
-            std::string description = plantDescriptions.count(plant) > 0 
-                ? plantDescriptions[plant] 
-                : "Unknown Plant";
+            std::string description = oldItem.first->getDescription();
             std::string message = "Stock depleted: " + description + " is now out of stock";
             notifyStaff(message);
         }
@@ -82,8 +83,9 @@ void SalesFloorObserver::update() {
 }
 
 bool SalesFloorObserver::isPlantAvailable(Plant* plant) const {
+    if (!plant) return false;
     for (const auto& item : availableItems) {
-        if (item.first == plant && item.second > 0) {
+        if (item.first && item.first->getDescription() == plant->getDescription() && item.second > 0) {
             return true;
         }
     }
@@ -91,8 +93,9 @@ bool SalesFloorObserver::isPlantAvailable(Plant* plant) const {
 }
 
 int SalesFloorObserver::getPlantQuantity(Plant* plant) const {
+    if (!plant) return 0;
     for (const auto& item : availableItems) {
-        if (item.first == plant) {
+        if (item.first && item.first->getDescription() == plant->getDescription()) {
             return item.second;
         }
     }
@@ -100,65 +103,64 @@ int SalesFloorObserver::getPlantQuantity(Plant* plant) const {
 }
 
 void SalesFloorObserver::displayAvailablePlants() const {
-    std::cout << "\n=============== SALES FLOOR INVENTORY ===============" << std::endl;
-    
+    std::cout << "\n=============== SALES FLOOR INVENTORY ===============\n";
     if (availableItems.empty()) {
-        std::cout << "No plants currently available on sales floor." << std::endl;
-        std::cout << "====================================================\n" << std::endl;
+        std::cout << "No plants currently available on sales floor.\n";
+        std::cout << "===================================================\n\n";
         return;
     }
 
     int totalCount = 0;
     double totalValue = 0.0;
+    std::map<std::string, std::pair<Plant*, int>> consolidatedItems;
     
-    std::cout << std::left;
-    std::cout << "----------------------------------------------------" << std::endl;
-    
+    // Consolidate items by description
     for (const auto& item : availableItems) {
-        Plant* plant = item.first;
-        
-        if (!isPlantAvailable(plant)) {
-            continue;
+        if (!item.first || item.second <= 0) continue;
+        std::string desc = item.first->getDescription();
+        if (consolidatedItems.find(desc) == consolidatedItems.end()) {
+            consolidatedItems[desc] = {item.first, item.second};
+        } else {
+            consolidatedItems[desc].second += item.second;
         }
-        
-        int quantity = getPlantQuantity(plant);
+    }
+
+    std::cout << std::left << "----------------------------------------------------\n";
+    for (const auto& pair : consolidatedItems) {
+        Plant* plant = pair.second.first;
+        int quantity = pair.second.second;
         double itemValue = plant->getPrice() * quantity;
-        
         totalCount += quantity;
         totalValue += itemValue;
-        
-        std::cout << plant->getDescription() << std::endl;
-        std::cout << "   Price: R" << plant->getPrice() << " | Quantity: " << quantity << " | Subtotal: R" << itemValue << std::endl;
-        std::cout << "----------------------------------------------------" << std::endl;
+        std::cout << plant->getDescription() << "\n";
+        std::cout << "   Price: R" << plant->getPrice() << " | Quantity: " << quantity << " | Subtotal: R" << itemValue << "\n";
+        std::cout << "----------------------------------------------------\n";
     }
-    
-    std::cout << "SUMMARY:" << std::endl;
-    std::cout << "   Total Plant Types: " << availableItems.size() << std::endl;
-    std::cout << "   Total Plants: " << totalCount << std::endl;
-    std::cout << "   Inventory Value: R" << totalValue << std::endl;
-    std::cout << "====================================================\n" << std::endl;
+    std::cout << "SUMMARY:\n";
+    std::cout << "   Total Plant Types: " << consolidatedItems.size() << "\n";
+    std::cout << "   Total Plants: " << totalCount << "\n";
+    std::cout << "   Total Value: R" << totalValue << "\n";
+    std::cout << "===================================================\n\n";
 }
 
 void SalesFloorObserver::attachStaff(Staff* staff) {
-    if (staff) {
+    if (staff && std::find(notifiedStaff.begin(), notifiedStaff.end(), staff) == notifiedStaff.end()) {
         notifiedStaff.push_back(staff);
-        std::cout << "Staff member " << staff->getName() << " attached to sales floor observer." << std::endl;
     }
 }
 
 void SalesFloorObserver::detachStaff(Staff* staff) {
     auto it = std::find(notifiedStaff.begin(), notifiedStaff.end(), staff);
     if (it != notifiedStaff.end()) {
-        std::cout << "Staff member " << (*it)->getName() << " detached from sales floor observer." << std::endl;
         notifiedStaff.erase(it);
     }
 }
 
 void SalesFloorObserver::notifyStaff(const std::string& message) {
-    // Store notification in history
     notificationHistory.push_back(message);
-    
     for (Staff* staff : notifiedStaff) {
-        std::cout << "  [Notification to " << staff->getName() << "] " << message << std::endl;
+        if (staff) {
+            std::cout << "Notifying " << staff->getName() << ": " << message << std::endl;
+        }
     }
 }

@@ -16,9 +16,10 @@ PlantInventory* PlantInventory::getInstance() {
 }
 
 PlantInventory::~PlantInventory() {
-    for (InventoryObserver* observer : inventoryObservers) {
-        delete observer;
+    for(auto& item : inventoryItems) {
+        delete item.first;
     }
+    inventoryItems.clear();
 }
 
 bool PlantInventory::attach(InventoryObserver* observer) {
@@ -46,8 +47,9 @@ void PlantInventory::updateStock() {
 }
 
 int PlantInventory::findPlantIndex(Plant* plant) const {
+    if (!plant) return -1;
     for (size_t i = 0; i < inventoryItems.size(); ++i) {
-        if (inventoryItems[i].first == plant) {
+        if (inventoryItems[i].first && inventoryItems[i].first->getDescription() == plant->getDescription()) {
             return static_cast<int>(i);
         }
     }
@@ -85,8 +87,9 @@ const std::vector<std::pair<Plant*, int>> PlantInventory::getInventoryView() con
     return inventoryItems;
 }
 int PlantInventory::getQuantity(Plant* plant) const {
+    if (!plant) return 0;
     for (const auto& item : inventoryItems) {
-        if (item.first == plant) {
+        if (item.first && item.first->getDescription() == plant->getDescription()) {
             return item.second;
         }
     }
