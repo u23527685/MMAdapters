@@ -27,6 +27,25 @@
 #include "AskQuery.h"
 #include "InventoryProxy.h"
 
+// --- Pastel Color Palette (24-bit Truecolor ANSI) ---
+#define RESET        "\033[0m"
+#define PASTEL_PINK    "\033[38;2;255;182;193m"  // Light Pink
+#define PASTEL_PEACH   "\033[38;2;255;218;185m"  // Peach Puff
+#define PASTEL_ORANGE  "\033[38;2;255;204;153m"  // Soft Orange
+#define PASTEL_YELLOW  "\033[38;2;255;255;204m"  // Lemon Chiffon
+#define PASTEL_MINT    "\033[38;2;189;252;201m"  // Mint Green
+#define PASTEL_GREEN   "\033[38;2;152;251;152m"  // Pale Green
+#define PASTEL_AQUA    "\033[38;2;175;238;238m"  // Pale Turquoise
+#define PASTEL_BLUE    "\033[38;2;173;216;230m"  // Baby Blue
+#define PASTEL_LAVENDER "\033[38;2;230;230;250m" // Lavender Mist
+#define PASTEL_PURPLE  "\033[38;2;216;191;216m"  // Thistle
+#define PASTEL_ROSE    "\033[38;2;255;228;225m"  // Misty Rose
+#define PASTEL_GRAY    "\033[38;2;220;220;220m"  // Light Gray
+#define PASTEL_CYAN  "\033[38;2;176;224;230m"
+#define PASTEL_SALMON    "\033[38;2;255;170;160m" 
+
+
+
 #include <iostream>
 #include <iomanip>
 #include <map>
@@ -69,18 +88,22 @@ static std::string getStaffRole(Staff* s) {
 // Simulate a day for plants
 void simulateDay(std::vector<std::unique_ptr<Plant>>& growingPlants,
                 PlantInventory* inventory, std::vector<Staff*>& staff) {
-    std::cout << "\n📅 --- Simulating a New Day in the Nursery ---\n";
+    std::cout << "\n";
+    std::cout << "╔══════════════════════════════════════════════════════╗\n";
+    std::cout << "📅   SIMULATING A NEW DAY IN THE NURSERY\n";
+    std::cout << "╚══════════════════════════════════════════════════════╝\n\n";
+
 
     int watered = 0, fertilized = 0, matured = 0, died = 0;
 
     // Debug: Print inventory state before simulation
-    std::cout << "Debug: Inventory before simulation:\n";
+    std::cout << "🔍 INVENTORY BEFORE SIMULATION:\n";
     auto inventoryItems = inventory->getInventoryView();
     if (inventoryItems.empty()) {
-        std::cout << "Debug: Inventory is empty!\n";
+        std::cout << "Inventory is empty!\n";
     } else {
         for (const auto& item : inventoryItems) {
-            std::cout << "Debug: " << item.first->getDescription() << " (Qty: " << item.second << ", Ptr: " << item.first << ")\n";
+            std::cout << item.first->getDescription() << " (Qty: " << item.second << ", Ptr: " << item.first << ")\n";
         }
     }
 
@@ -182,8 +205,8 @@ void simulateDay(std::vector<std::unique_ptr<Plant>>& growingPlants,
         ++i;
     }
 
-    // Debug: Print inventory state after simulation
-    std::cout << "Debug: Inventory after simulation:\n";
+//     // Debug: Print inventory state after simulation
+    std::cout << "\n📦 INVENTORY AFTER SIMULATION:\n";
     inventoryItems = inventory->getInventoryView();
     if (inventoryItems.empty()) {
         std::cout << "Debug: Inventory is empty!\n";
@@ -193,13 +216,22 @@ void simulateDay(std::vector<std::unique_ptr<Plant>>& growingPlants,
         }
     }
 
-    std::cout << "\n✅ Daily Summary:\n";
-    std::cout << "- " << watered << " watering actions\n";
-    std::cout << "- " << fertilized << " fertilizer boosts\n";
-    std::cout << "- " << matured << " plants matured and moved to inventory\n";
-    std::cout << "- " << died << " plants withered and removed\n";
-    std::cout << "\n🌱 End of day processing complete.\n";
+
+//     std::cout << "\n✅ Daily Summary:\n";
+    // Summary
+    std::cout <<"\n═══════════════════════════════════════════\n";
+    std::cout << "✅ DAILY SUMMARY\n";
+    std::cout<<  "═══════════════════════════════════════════\n";
+    std::cout << PASTEL_AQUA      << "💧 Watered:       " << watered    << "\n" << RESET;
+    std::cout << PASTEL_MINT      << "🌿 Fertilized:    " << fertilized << "\n" << RESET;
+    std::cout << PASTEL_PINK      << "🌸 Matured:       " << matured    << "\n" << RESET;
+    std::cout << PASTEL_GRAY      << "💀 Withered:      " << died       << "\n" << RESET;
+
+    std::cout << "═══════════════════════════════════════════\n";
+    std::cout << "🌱 End of day processing complete.\n\n";
+   
 }
+
 
 
 void runTutorial(std::vector<std::unique_ptr<Plant>>& growingPlants, PlantInventory* inventory,
@@ -397,9 +429,10 @@ void runTutorial(std::vector<std::unique_ptr<Plant>>& growingPlants, PlantInvent
 int main() {
     srand(static_cast<unsigned>(time(0)));
 
-    std::cout << "=============================================\n";
-    std::cout << "🌿   Welcome to Plantopia: Terminal Edition   🌿\n";
-    std::cout << "=============================================\n";
+std::cout << PASTEL_MINT << "=============================================\n" << RESET;
+std::cout << PASTEL_SALMON << "🌿   Welcome to Plantopia: Terminal Edition   🌿\n" << RESET;
+std::cout << PASTEL_MINT << "=============================================\n" << RESET;
+
 
     std::cout << "\nWould you like to play the interactive tutorial? (y/n): ";
     char tutorialChoice;
@@ -467,9 +500,21 @@ int main() {
     bool running = true;
 
     while (running) {
-        std::cout << "\n=== Main Menu ===\n";
-        std::cout << "\nCurrent Balance: R" << std::fixed << std::setprecision(2) << balance << "\n";
-        std::cout << "1. Staff menu\n2. Customer menu\n3. Simulate a day\n4. Exit\nSelect action: ";
+std::cout << "\n"
+          << PASTEL_MINT << "╔══════════════════════════╗\n"
+          << PASTEL_SALMON << "         Main Menu          \n"
+          << PASTEL_MINT << "╚══════════════════════════╝\n" << RESET;
+
+        std::cout << PASTEL_BLUE << "\nCurrent Balance: R" 
+                << std::fixed << std::setprecision(2) << balance << "\n" << RESET;
+
+        std::cout << PASTEL_ORANGE   << "1. Staff menu\n"        << RESET;
+        std::cout << PASTEL_PINK<< "2. Customer menu\n"     << RESET;
+        std::cout << PASTEL_YELLOW   << "3. Simulate a day\n"    << RESET;
+        std::cout << PASTEL_SALMON   << "4. Exit\n"              << RESET;
+
+        std::cout << PASTEL_MINT << "Select action: " << RESET;
+
         int roleChoice;
         while (true) {
             std::cin >> roleChoice;
@@ -488,13 +533,22 @@ int main() {
         if (roleChoice == 1) {
             bool staffRunning = true;
             while (staffRunning) {
-                std::cout << "\n--- Staff Menu ---\n";
-                std::cout << "1. Hire Staff Member\n";
-                std::cout << "2. View Hired Staff\n";
-                std::cout << "3. Buy plant seeds\n";
-                std::cout << "4. View nursery inventory\n";
-                std::cout << "5. View staff notifications\n";
-                std::cout << "6. Back\nEnter choice: ";
+std::cout << "\n"
+          << PASTEL_PEACH << "╔══════════════════════════╗\n"
+          << PASTEL_PINK  << "         Staff Menu         \n"
+          << PASTEL_PEACH << "╚══════════════════════════╝" << RESET << "\n";
+
+        std::cout << PASTEL_YELLOW  << "1. Hire Staff Member\n"        << RESET;
+        std::cout << PASTEL_ORANGE  << "2. View Hired Staff\n"         << RESET;
+        std::cout << PASTEL_PINK    << "3. Buy Plant Seeds\n"          << RESET;
+        std::cout << PASTEL_CYAN    << "4. View Nursery Inventory\n"   << RESET;
+        std::cout << PASTEL_AQUA    << "5. View staff notifications\n" << RESET;
+        std::cout << PASTEL_SALMON  << "6. Back\n"                     << RESET;
+
+        std::cout << PASTEL_MINT    << "Enter choice: "                << RESET;
+
+
+
                 int sChoice;
                 while (true) {
                     std::cin >> sChoice;
@@ -610,34 +664,41 @@ int main() {
                 }
 
                 // View Nursery Inventory
-                else if (sChoice == 4) {
-                    std::cout << "\n=== Growing Nursery ===\n";
-                    if (growingPlants.empty()) std::cout << "No plants currently growing.\n";
-                    else for (auto& p : growingPlants) {
-                        std::cout << "- " << p->getDescription();
-                        if (p->getState())
-                            std::cout << " | State: " << p->getState()->getName();
-                        else
-                            std::cout << " | State: None";
 
-                        std::cout << " | Category: " << p->getCategory()
-                                  << " | Water: " << p->getCurrentWater() << "/" << p->getMaxWater()
-                                  << " | Sunlight: " << p->getCurrentSunlight() << "/" << p->getMaxSunlight()
-                                  << " | Nutrients: " << p->getCurrentNutrients() << "/" << p->getMaxNutrients()
-                                  << " | Growth: " << p->getGrowthProgress() << "\n";
+                else if (sChoice == 4) {
+                    std::cout << PASTEL_CYAN << "\n🌿 --- Growing Nursery --- 🌿\n" << RESET;
+
+                    if (growingPlants.empty()) {
+                        std::cout << PASTEL_PINK << "No plants currently growing.\n" << RESET;
+                    } else {
+                        for (auto& p : growingPlants) {
+                            std::cout << PASTEL_MINT << "- " << p->getDescription() << RESET;
+                            if (p->getState())
+                                std::cout << " | State: " << PASTEL_PURPLE << p->getState()->getName() << RESET;
+                            else
+                                std::cout << " | State: " << PASTEL_YELLOW << "None" << RESET;
+
+                            std::cout << " | Category: " << PASTEL_ORANGE << p->getCategory() << RESET
+                                    << " | Water: " << PASTEL_BLUE << p->getCurrentWater() << "/" << p->getMaxWater() << RESET
+                                    << " | Sunlight: " << PASTEL_YELLOW << p->getCurrentSunlight() << "/" << p->getMaxSunlight() << RESET
+                                    << " | Nutrients: " << PASTEL_GREEN << p->getCurrentNutrients() << "/" << p->getMaxNutrients() << RESET
+                                    << " | Growth: " << PASTEL_PINK << p->getGrowthProgress() << "%" << RESET << "\n";
+                        }
                     }
 
-                    std::cout << "\nPlants available for sale:\n";
+                    std::cout << PASTEL_CYAN << "\n🌸 --- Plants Available for Sale --- 🌸\n" << RESET;
+
                     auto inventoryItems = inventory->getInventoryView();
                     if (inventoryItems.empty()) {
-                        std::cout << "No plants available for sale.\n";
+                        std::cout << PASTEL_PINK << "No plants available for sale.\n" << RESET;
                     } else {
                         for (const auto& item : inventoryItems) {
                             auto it = plantMenuOptions.find(item.first->getDescription());
                             if (it != plantMenuOptions.end()) {
-                                std::cout << it->second << ". " << item.first->getDescription() << " - R"
-                                          << std::fixed << std::setprecision(2) << item.first->getPrice()
-                                          << " (Qty: " << item.second << ")\n";
+                                std::cout << PASTEL_GREEN << it->second << ". " << item.first->getDescription() << RESET
+                                        << " - R" << PASTEL_YELLOW << std::fixed << std::setprecision(2)
+                                        << item.first->getPrice() << RESET
+                                        << " (Qty: " << PASTEL_PURPLE << item.second << RESET << ")\n";
                             }
                         }
                     }
@@ -698,14 +759,20 @@ int main() {
             Customer customer("Walk-in Customer");
             bool custRunning = true;
             while (custRunning) {
-                std::cout << "\n--- Customer Menu ---\n"
-                          << "1. View Inventory\n"
-                          << "2. Buy Plant\n"
-                          << "3. Repurchase Last Order (Memento)\n"
-                          << "4. View Receipt\n"
-                          <<"5. Ask a query\n"
-                          << "6. Back\n"
-                          << "Choose: ";
+std::cout << "\n"
+          << PASTEL_AQUA << "╔══════════════════════════╗\n"
+          << PASTEL_PINK<< "        Customer Menu     \n"
+          << PASTEL_AQUA << "╚══════════════════════════╝\n" << RESET;
+
+            std::cout << PASTEL_CYAN     << "1. View Inventory\n"                      << RESET;
+            std::cout << PASTEL_BLUE     << "2. Buy Plant\n"                           << RESET;
+            std::cout << PASTEL_PURPLE   << "3. Repurchase Last Order (Memento)\n"     << RESET;
+            std::cout << PASTEL_LAVENDER << "4. View Receipt\n"                        << RESET;
+            std::cout << PASTEL_AQUA     << "5. Ask a query\n"                         << RESET;
+            std::cout << PASTEL_SALMON   << "6. Back\n"                                << RESET;
+
+            std::cout << PASTEL_MINT     << "Choose: " << RESET;
+
                 int cChoice;
                 while (true) {
                     std::cin >> cChoice;
@@ -843,6 +910,9 @@ int main() {
                         }
                     }
 
+                    // If no decorations added
+              
+                   
                     // Payment
                     std::cout << "\nSelect payment method:\n1. Credit Card\n2. E-Wallet\n3. EFT\nChoose: ";
                     int pay;
@@ -875,6 +945,7 @@ int main() {
                         delete tx;
                         std::cout << "\nPurchase failed: not enough stock.\n";
                     }
+
                     inventory->removeStock(selectedPlant, 0);
 
                     // Print a neat receipt
@@ -899,17 +970,58 @@ int main() {
                     delete decorated;
                 }
 
+
                 else if (cChoice == 3) {
-                    if (savedTransactions.empty()) {
-                        std::cout << "\nNo previous orders found!\n";
-                        continue;
-                    }
-                    Transaction* last = savedTransactions.back()->clone();
-                    std::cout << "\n🔁 Re-purchasing last order...\n";
-                    last->processPayment();
-                    savedTransactions.push_back(last);
-                    std::cout << "✅ Order repeated successfully!\n";
+                if (savedTransactions.empty()) {
+                    std::cout << "\nNo previous orders found!\n";
+                    continue;
                 }
+
+                // Retrieve last saved transaction (Memento)
+                Transaction* last = savedTransactions.back()->clone();
+                std::cout << "\n🔁 Re-purchasing last order...\n";
+
+                int quantity = last->getQuantity();
+
+                // Rebuild decorated plant using decorations stored in the Memento
+                Plant* decorated = new BasePlant(0.0, "Plant"); // placeholder
+                for (const auto& decor : last->getDecorations()) {
+                    if (decor == "GiftWrap") decorated = new GiftWrap(decorated);
+                    else if (decor == "DecorativePot") decorated = new DecorativePot(decorated);
+                    else if (decor == "SpecialArrangement") decorated = new SpecialArrangement(decorated);
+                }
+
+                // Execute purchase using the state from Memento
+                Customer customer("Walk-in Customer");
+                Order order(&customer, "ORD-" + std::to_string(rand()));
+
+                order.addTransaction(last);
+                order.processOrder();
+                savedTransactions.push_back(last);
+                balance += last->getAmount();
+
+                // REPURCHASE RECEIPT
+                std::cout << "\n=========================================\n";
+                std::cout << "           🧾 REPURCHASE RECEIPT\n";
+                std::cout << "=========================================\n";
+                std::cout << "Order ID: " << order.getOrderId() << "\n";
+                std::cout << "Customer: " << customer.getName() << "\n";
+                std::cout << "Item: " << decorated->getDescription() << "\n";
+                std::cout << "Payment Method: " << last->getPaymentMethod() << "\n";
+                std::cout << "-----------------------------------------\n";
+
+                // 🔹 Call your existing Transaction::getDetails()
+                
+                std::cout << "=========================================\n";
+                std::cout << "     🌸 Thank you for shopping again! 🌸\n";
+                std::cout << "=========================================\n";
+
+                delete decorated;
+            }
+
+
+
+                
 
                 else if (cChoice == 4) {
                     if (savedTransactions.empty()) {
@@ -1067,6 +1179,24 @@ int main() {
     return 0;
 }
 
+// CHECKLIST:
+// MEMENTO
+// DECORATOR
+// STRATEGY
+// STATE
+// FACTORY METHOD
+// TEMPLATE METHOD
+// ABSTRACT FACTORY
+
+// PROXY
+// OBSERVER
+// CHAIN OF RESPONSIBILITY
+// SINGLETON
+// COMMAND
+// BUILDER
+
+// NOT IMPLEMENTED
+// FACADE
 
 
 // JAYS CODE Below

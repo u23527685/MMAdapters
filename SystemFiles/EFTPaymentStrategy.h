@@ -9,6 +9,7 @@ private:
 public:
     EFTPaymentStrategy(const std::string& accountNumber);
     void pay(double amount, const std::string& orderNum) const override;
+    std::string getName() const override;
 };
 
 #endif

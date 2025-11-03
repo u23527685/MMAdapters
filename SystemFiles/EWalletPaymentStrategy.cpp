@@ -8,3 +8,7 @@ void EWalletPaymentStrategy::pay(double amount, const std::string& orderNum) con
               << " for order " << orderNum << " using wallet ID: " 
               << walletID << std::endl;
 }
+
+std::string EWalletPaymentStrategy::getName() const {
+    return "E-Wallet";
+}

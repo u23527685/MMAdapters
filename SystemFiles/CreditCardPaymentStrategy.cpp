@@ -10,3 +10,6 @@ void CreditCardPaymentStrategy::pay(double amount, const std::string& orderNum) 
 }
 
 
+std::string CreditCardPaymentStrategy::getName() const {
+    return "Credit Card";
+}

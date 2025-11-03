@@ -47,7 +47,9 @@ void Plant::detach(LifeCycleObserver* o) {
 
 
 void Plant::notify() {
-    
+    for(LifeCycleObserver* o : observerList) {
+        o->update(nullptr); 
+    }
 }
 
 std::string Plant::getDescription() const{
