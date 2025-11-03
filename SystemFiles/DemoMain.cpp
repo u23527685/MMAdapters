@@ -493,7 +493,7 @@ int main() {
                 std::cout << "2. View Hired Staff\n";
                 std::cout << "3. Buy plant seeds\n";
                 std::cout << "4. View nursery inventory\n";
-                std::cout << "5. View Staff Notifications\n";
+                std::cout << "5. View staff notifications\n";
                 std::cout << "6. Back\nEnter choice: ";
                 int sChoice;
                 while (true) {
