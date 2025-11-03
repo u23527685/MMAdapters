@@ -155,6 +155,9 @@ void SalesFloorObserver::detachStaff(Staff* staff) {
 }
 
 void SalesFloorObserver::notifyStaff(const std::string& message) {
+    // Store notification in history
+    notificationHistory.push_back(message);
+    
     for (Staff* staff : notifiedStaff) {
         std::cout << "  [Notification to " << staff->getName() << "] " << message << std::endl;
     }
