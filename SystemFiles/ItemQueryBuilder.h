@@ -41,12 +41,6 @@ class ItemQueryBuilder:public Builder{
          */
         void setItem(Plant* item);
 
-        /**
-         * @brief Optionally provide a custom build implementation.
-         * @return Pointer to a constructed Query (caller owns).
-         */
-        Query* build();
-
         ItemQueryBuilder():Builder(){}
 };
 #endif // !ITEMQUERYBULDER_H

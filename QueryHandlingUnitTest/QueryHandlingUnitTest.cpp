@@ -96,16 +96,26 @@ TEST_F(StaffQueryTest, FloorEmployeeHandlesInfo) {
     delete infoQuery;
 }
 
+// Replace FloorManagerHandlesStock test
 TEST_F(StaffQueryTest, FloorManagerHandlesStock) {
-    Query* stockQuery = queryBuilder->stockInfo();
+    // Now using itemQueryBuilder since stock queries need a plant
+    ItemQueryBuilder builder;
+    builder.setType("STOCK");
+    builder.setItem(testPlant);
+    Query* stockQuery = builder.build();
+    
     EXPECT_TRUE(floorMgr->staffCanHandle(std::string("STOCK")));
+    EXPECT_EQ(stockQuery->getItem(), testPlant);
     delete stockQuery;
 }
 
 TEST_F(StaffQueryTest, QueryChainOfResponsibility) {
-    Query* salesQuery = queryBuilder->stockInfo();
-    testing::internal::CaptureStdout();
+    ItemQueryBuilder builder;
+    builder.setType("STOCK");
+    builder.setItem(testPlant);
+    Query* salesQuery = builder.build();
     
+    testing::internal::CaptureStdout();
     floorEmp->handleQuery(salesQuery);
     std::string output = testing::internal::GetCapturedStdout();
 
@@ -192,23 +202,23 @@ TEST_F(StaffQueryTest, UnhandledQueryType) {
 // Test that MiscQueryBuilder properly ignores items
 TEST_F(StaffQueryTest, MiscQueryBuilderIgnoresItem) {
     MiscQueryBuilder builder;
-    builder.setType("STOCK");
+    builder.setType("DEALS");  // Changed from STOCK to DEALS
     builder.setItem(testPlant);  // Should be ignored with warning
     Query* query = builder.build();
     
     EXPECT_EQ(query->getItem(), nullptr);
-    EXPECT_EQ(query->getType(), "STOCK");
+    EXPECT_EQ(query->getType(), "DEALS");
     
     delete query;
 }
 
-// Test multiple misc queries in sequence
+// Update MultipleMiscQueries test to remove STOCK query
 TEST_F(StaffQueryTest, MultipleMiscQueries) {
     MiscQueryBuilder builder;
     std::vector<std::pair<std::string, std::string>> queries = {
-        {"STOCK", "What is the current stock?"},
         {"DEALS", "Are there any deals?"},
-        {"EVENT", "When is the next event?"}
+        {"EVENT", "When is the next event?"},
+        {"RECOMMENDATIONS", "What do you recommend?"}  // Replaced STOCK with RECOMMENDATIONS
     };
     
     for (const auto& q : queries) {

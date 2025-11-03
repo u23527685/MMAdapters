@@ -8,7 +8,6 @@
  * Query objects and requires derived classes to indicate which Query types
  * they can handle and how they reply.
  *
- *@see Staff
  */
 #ifndef FLOORSTAFF_H
 #define FLOORSTAFF_H
@@ -19,6 +18,7 @@
 /**
  * @class FloorStaff
  * @brief Abstract base for operational floor staff members.
+ * @see Staff
  *
  * Implements the common handling entry point for floor staff and requires
  * derived classes to declare which query types they can service and how they

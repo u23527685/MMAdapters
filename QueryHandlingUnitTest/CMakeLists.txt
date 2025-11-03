@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.10)
-project(MMAdaptersTests)
+project(QueryHandlingUnitTest)
 
 # Google Test requires at least C++14
 set(CMAKE_CXX_STANDARD 14)
@@ -31,6 +31,12 @@ set(SOURCE_FILES
     ${SOURCE_DIR}/Query.cpp
     ${SOURCE_DIR}/Builder.cpp
     ${SOURCE_DIR}/ItemQueryBuilder.cpp
+    ${SOURCE_DIR}/Tropical.cpp
+    ${SOURCE_DIR}/Sunny.cpp
+    ${SOURCE_DIR}/Shade.cpp
+    ${SOURCE_DIR}/Temperate.cpp
+    ${SOURCE_DIR}/InventoryObserver.cpp
+    ${SOURCE_DIR}/PlantInventory.cpp
     ${SOURCE_DIR}/MiscQueryBuilder.cpp
     ${SOURCE_DIR}/AskQuery.cpp
     ${SOURCE_DIR}/PlantState.cpp
@@ -38,42 +44,36 @@ set(SOURCE_FILES
     ${SOURCE_DIR}/LifeCycleObserver.cpp
     ${SOURCE_DIR}/PlantLifeCycle.cpp
     ${SOURCE_DIR}/SalesFloorObserver.cpp
-    ${SOURCE_DIR}/PlantInventory.cpp
-    ${SOURCE_DIR}/InventoryObserver.cpp
+
+    # newly added stubs
     ${SOURCE_DIR}/AddStock.cpp
     ${SOURCE_DIR}/RemoveStock.cpp
-    ${SOURCE_DIR}/Tropical.cpp
-    ${SOURCE_DIR}/Temperate.cpp
-    ${SOURCE_DIR}/Sunny.cpp
-    ${SOURCE_DIR}/Shade.cpp
-    ${SOURCE_DIR}/WitheredState.cpp
-    ${SOURCE_DIR}/DistressedState.cpp
-    ${SOURCE_DIR}/MatureState.cpp
-    ${SOURCE_DIR}/SeedlingState.cpp
-    ${SOURCE_DIR}/WateringStrategy.cpp
-    ${SOURCE_DIR}/SunlightStrategy.cpp
-    ${SOURCE_DIR}/FertilizerStrategy.cpp
     ${SOURCE_DIR}/MediumWaterStrategy.cpp
     ${SOURCE_DIR}/LowWaterStrategy.cpp
     ${SOURCE_DIR}/PartialSunStrategy.cpp
     ${SOURCE_DIR}/FullSunStrategy.cpp
-    ${SOURCE_DIR}/ShadeStrategy.cpp
     ${SOURCE_DIR}/OrganicFertilizer.cpp
     ${SOURCE_DIR}/InorganicFertilizer.cpp
+    ${SOURCE_DIR}/ShadeStrategy.cpp
+    ${SOURCE_DIR}/SeedState.cpp
+    ${SOURCE_DIR}/SeedlingState.cpp
+    ${SOURCE_DIR}/MatureState.cpp
+    ${SOURCE_DIR}/WitheredState.cpp
+    ${SOURCE_DIR}/DistressedState.cpp
 )
 
 enable_testing()
 
 add_executable(
-    staff_query_test
-    StaffQueryTests.cpp
+    query_handler_test
+    QueryHandlingUnitTest.cpp
     ${SOURCE_FILES}
 )
 
 target_link_libraries(
-    staff_query_test
+    query_handler_test
     GTest::gtest_main
 )
 
 include(GoogleTest)
-gtest_discover_tests(staff_query_test)
+gtest_discover_tests(query_handler_test)
