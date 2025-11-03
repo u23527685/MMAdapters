@@ -1,4 +1,4 @@
-#include "PlantInventory.h"
+/*#include "PlantInventory.h"
 #include "InventoryObserver.h"
 #include "SalesFloorObserver.h"
 #include "Plant.h"
@@ -1548,6 +1548,7 @@ std::cout << "\n"
     return 0;
 }
 
+*/
 // CHECKLIST:
 // MEMENTO
 // DECORATOR
