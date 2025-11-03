@@ -542,7 +542,8 @@ std::cout << "\n"
         std::cout << PASTEL_ORANGE  << "2. View Hired Staff\n"         << RESET;
         std::cout << PASTEL_PINK    << "3. Buy Plant Seeds\n"          << RESET;
         std::cout << PASTEL_CYAN    << "4. View Nursery Inventory\n"   << RESET;
-        std::cout << PASTEL_SALMON  << "5. Back\n"                     << RESET;
+        std::cout << PASTEL_AQUA    << "5. View staff notifications\n" << RESET;
+        std::cout << PASTEL_SALMON  << "6. Back\n"                     << RESET;
 
         std::cout << PASTEL_MINT    << "Enter choice: "                << RESET;
 
@@ -559,7 +560,7 @@ std::cout << "\n"
                     }
                     break;
                 }
-                if (sChoice >= 5) break;
+                if (sChoice >= 6) break;
 
                 // Hire Staff
                 if (sChoice == 1) {
@@ -593,8 +594,9 @@ std::cout << "\n"
                         delete newStaff;
                     } else {
                         hiredStaff.push_back(newStaff);
+                        salesFloor->attachStaff(newStaff);
                         balance -= cost;
-                        std::cout << "\n✅ Hired " << newStaff->getName() << " successfully!\n";
+                        std::cout << "\n✅ Hired " << newStaff->getName() << " (" << getStaffRole(newStaff) << ") successfully!\n";
                     }
                 }
 
@@ -702,7 +704,53 @@ std::cout << "\n"
                     }
                 }
 
-
+                // View Staff Communications (Observer Pattern Demo)
+                else if (sChoice == 5) {
+                    std::cout << "\n📢 Staff Notifications\n";
+                    std::cout << "Staff are automatically informed of new plants entering and leaving your nursery.\n\n";
+                    
+                    std::cout << "Currently attached staff:\n";
+                    if (hiredStaff.empty()) {
+                        std::cout << "   ⚠️ No staff hired yet. Hire staff to see them receive notifications!\n\n";
+                    } else {
+                        for (auto* s : hiredStaff) {
+                            std::cout << "- " << s->getName() << " (" << getStaffRole(s) << ")\n";
+                        }
+                        std::cout << "\n";
+                    }
+                    
+                    const auto& notifications = salesFloor->getNotificationHistory();
+                    if (notifications.empty()) {
+                        std::cout << "📭 No notifications yet.\n";
+                        std::cout << "   Buy seeds, simulate days, or make sales to see notifications!\n\n";
+                    } else {
+                        std::cout << "📬 Notification History (" << notifications.size() << " total):\n";
+                        std::cout << "---------------------------------------------------\n";
+                        
+                        int startIdx = std::max(0, static_cast<int>(notifications.size()) - 10);
+                        for (size_t i = startIdx; i < notifications.size(); ++i) {
+                            std::cout << "[" << (i + 1) << "] ";
+                            if (!hiredStaff.empty()) {
+                                for (auto* staff : hiredStaff) {
+                                    std::cout << "[Notification to " << staff->getName() << "] ";
+                                }
+                            }
+                            std::cout << notifications[i] << "\n";
+                        }
+                        std::cout << "---------------------------------------------------\n";
+                        
+                        if (notifications.size() > 10) {
+                            std::cout << "Showing last 10 of " << notifications.size() << " notifications.\n";
+                        }
+                    }
+                    
+                    std::cout << "\n--- Current Sales Floor Status ---\n";
+                    proxy.displayAvailablePlants();
+                    
+                    std::cout << "\nPress Enter to continue...";
+                    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+                    std::cin.get();
+                }
             }
         }
 
@@ -839,7 +887,7 @@ std::cout << "\n"
                     while (addingDecor) {
                         std::cout << "\nAdd decoration?\n"
                                   << "1. Gift Wrap (+R5)\n"
-                                  << "2. Decorative Pot (+R7)\n"
+                                  << "2. Decorative Pot (+R10)\n"
                                   << "3. Special Arrangement (+R15)\n"
                                   << "4. Done\n"
                                   << "Choose: ";

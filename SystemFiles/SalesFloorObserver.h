@@ -22,6 +22,7 @@ private:
     std::vector<std::pair<Plant*, int>> availableItems;
     std::vector<Staff*> notifiedStaff;
     std::map<Plant*, std::string> plantDescriptions;
+    std::vector<std::string> notificationHistory; // Stores all past notifications
     
 public:
     /**
@@ -79,6 +80,14 @@ public:
      * @param message Message to send to staff
      */
     void notifyStaff(const std::string& message);
+    
+    /**
+     * @brief Gets all past notifications
+     * @return Const reference to notification history
+     */
+    const std::vector<std::string>& getNotificationHistory() const {
+        return notificationHistory;
+    }
 };
 
 #endif
