@@ -1,1 +1,5 @@
-Diagrams/FR&NFR/~WRL3028.tmp
+*.o
+*.exe
+.vscode/
+.idea/
+build/
