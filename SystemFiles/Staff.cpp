@@ -21,7 +21,11 @@ Staff* Staff::getNext(){
     return next;
 }
 
-void Staff::getStock(){
+void Staff::getStock(Plant* plant){
+    if(!plant){
+        std::cout << "Error: No plant specified for stock inquiry.\n";
+        return;
+    }
     PlantInventory* inventory = PlantInventory::getInstance();
         if (!inventory) {
             std::cout << "Error: Inventory not initialized.\n";
@@ -34,12 +38,11 @@ void Staff::getStock(){
             std::cout <<  "====================================================\n";
             return;
         }
-        std::cout << "\n=============== SALES FLOOR INVENTORY ===============\n";
         int totalCount = 0;
         double totalValue = 0.0;
         std::cout << std::left << "----------------------------------------------------\n";
         for (const auto& item : inventoryItems) {
-            if (item.first && item.second > 0) { // Check for valid Plant* and quantity
+            if (item.first && item.second > 0 && item.first==plant) { // Check for valid Plant* and quantity
                 int quantity = item.second;
                 double itemValue = item.first->getPrice() * quantity;
                 totalCount += quantity;
@@ -51,7 +54,6 @@ void Staff::getStock(){
             }
         }
         std::cout << "SUMMARY:\n";
-        std::cout << "   Total Plant Types: " << inventoryItems.size() << "\n";
         std::cout << "   Total Plants: " << totalCount << "\n";
         std::cout << "   Inventory Value: R" << std::fixed << std::setprecision(2) << totalValue << "\n";
         std::cout << "====================================================\n";

@@ -493,7 +493,8 @@ int main() {
                 std::cout << "2. View Hired Staff\n";
                 std::cout << "3. Buy plant seeds\n";
                 std::cout << "4. View nursery inventory\n";
-                std::cout << "5. Back\nEnter choice: ";
+                std::cout << "5. View staff notifications\n";
+                std::cout << "6. Back\nEnter choice: ";
                 int sChoice;
                 while (true) {
                     std::cin >> sChoice;
@@ -505,7 +506,7 @@ int main() {
                     }
                     break;
                 }
-                if (sChoice >= 5) break;
+                if (sChoice >= 6) break;
 
                 // Hire Staff
                 if (sChoice == 1) {
@@ -539,8 +540,9 @@ int main() {
                         delete newStaff;
                     } else {
                         hiredStaff.push_back(newStaff);
+                        salesFloor->attachStaff(newStaff);
                         balance -= cost;
-                        std::cout << "\n✅ Hired " << newStaff->getName() << " successfully!\n";
+                        std::cout << "\n✅ Hired " << newStaff->getName() << " (" << getStaffRole(newStaff) << ") successfully!\n";
                     }
                 }
 
@@ -639,6 +641,54 @@ int main() {
                             }
                         }
                     }
+                }
+
+                // View Staff Communications (Observer Pattern Demo)
+                else if (sChoice == 5) {
+                    std::cout << "\n📢 Staff Notifications\n";
+                    std::cout << "Staff are automatically informed of new plants entering and leaving your nursery.\n\n";
+                    
+                    std::cout << "Currently attached staff:\n";
+                    if (hiredStaff.empty()) {
+                        std::cout << "   ⚠️ No staff hired yet. Hire staff to see them receive notifications!\n\n";
+                    } else {
+                        for (auto* s : hiredStaff) {
+                            std::cout << "- " << s->getName() << " (" << getStaffRole(s) << ")\n";
+                        }
+                        std::cout << "\n";
+                    }
+                    
+                    const auto& notifications = salesFloor->getNotificationHistory();
+                    if (notifications.empty()) {
+                        std::cout << "📭 No notifications yet.\n";
+                        std::cout << "   Buy seeds, simulate days, or make sales to see notifications!\n\n";
+                    } else {
+                        std::cout << "📬 Notification History (" << notifications.size() << " total):\n";
+                        std::cout << "---------------------------------------------------\n";
+                        
+                        int startIdx = std::max(0, static_cast<int>(notifications.size()) - 10);
+                        for (size_t i = startIdx; i < notifications.size(); ++i) {
+                            std::cout << "[" << (i + 1) << "] ";
+                            if (!hiredStaff.empty()) {
+                                for (auto* staff : hiredStaff) {
+                                    std::cout << "[Notification to " << staff->getName() << "] ";
+                                }
+                            }
+                            std::cout << notifications[i] << "\n";
+                        }
+                        std::cout << "---------------------------------------------------\n";
+                        
+                        if (notifications.size() > 10) {
+                            std::cout << "Showing last 10 of " << notifications.size() << " notifications.\n";
+                        }
+                    }
+                    
+                    std::cout << "\n--- Current Sales Floor Status ---\n";
+                    proxy.displayAvailablePlants();
+                    
+                    std::cout << "\nPress Enter to continue...";
+                    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+                    std::cin.get();
                 }
             }
         }
@@ -770,8 +820,8 @@ int main() {
                     while (addingDecor) {
                         std::cout << "\nAdd decoration?\n"
                                   << "1. Gift Wrap (+R5)\n"
-                                  << "2. Decorative Pot (+R7)\n"
-                                  << "3. Special Arrangement (+R10)\n"
+                                  << "2. Decorative Pot (+R10)\n"
+                                  << "3. Special Arrangement (+R15)\n"
                                   << "4. Done\n"
                                   << "Choose: ";
                         int decoChoice;
@@ -923,8 +973,7 @@ int main() {
             std::cout << "\nSelect query type:\n"
                       << "1. Describe the plant\n"
                       << "2. What is the care routine for this plant?\n"
-                      << "3. What is the current stock?\n"
-                      << "4. Cancel\n"
+                      << "3. Cancel\n"
                       << "Choose: ";
             int queryChoice;
             while (true) {
@@ -937,7 +986,7 @@ int main() {
                 }
                 break;
             }
-            if (queryChoice == 4) continue;
+            if (queryChoice == 3) continue;
 
             AskQuery queryBuilder;
             Query* query = nullptr;
@@ -953,11 +1002,6 @@ int main() {
                     query = queryBuilder.careRoutine(selectedPlant);
                     queryType = "CARE ROUTINE";
                     requiredStaffType = "Floor Employee";
-                    break;
-                case 3:
-                    query = queryBuilder.stockInfo();
-                    queryType = "STOCK";
-                    requiredStaffType = "Floor Manager or Sales Staff";
                     break;
                 default:
                     continue;

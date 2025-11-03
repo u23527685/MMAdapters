@@ -21,23 +21,17 @@ bool FloorManager::staffCanHandle(std::string type){
 void FloorManager::reply(Query* query){
     std::string q= query->getQuestion();
     std::string t=query->getType();
-    if(q=="What Stock is comming in"||t=="STOCK"){
+    Plant* i=query->getItem();
+    if(t=="STOCK"){
         std::cout<<"Floor Manager "<<getName()<<" will answer the query "<<std::endl;
-        getStock();
-        std::cout<<"Floor Manager "<<getName()<<" answered the query "<<std::endl;
+        if(i){
+            getStock(query->getItem());
+            std::cout<<"Floor Manager "<<getName()<<" answered the query "<<std::endl;
+            return;
+        }
+        std::cout<<"You did not add an item to ask about, please add the item and ask the query again"<<std::endl;
         return;
-    }
-    if(q=="What Stock is going out in"||t=="STOCK"){
-        std::cout<<"Floor Manager "<<getName()<<" will answer the query "<<std::endl;
-        getStock();
-        std::cout<<"Floor Manager "<<getName()<<" answered the query "<<std::endl;
-        return;
-    }
-    if(q=="What is the current Stock"||t=="STOCK"){
-        std::cout<<"Floor Manager "<<getName()<<" will answer the query "<<std::endl;
-        getStock();
-        std::cout<<"Floor Manager "<<getName()<<" answered the query "<<std::endl;
-        return;
+        
     }
     std::cout<<"Floor Manager "<<getName()<<" is passing the task to the next staff member"<<std::endl;
     Staff* next= getNext();
