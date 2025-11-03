@@ -487,6 +487,10 @@ std::cout << PASTEL_MINT << "=============================================\n" <<
 
     // Memento / transactions
     std::vector<Transaction*> savedTransactions;
+    
+    // Track last purchase for memento repurchase
+    Plant* lastPurchasedPlant = nullptr;
+    int lastPurchasedQuantity = 0;
 
     // Staff and growing plants
     std::vector<Staff*> hiredStaff;
@@ -940,6 +944,11 @@ std::cout << "\n"
                         order.processOrder();
                         balance += total;
                         savedTransactions.push_back(tx);
+                        
+                        // Track last purchase for memento repurchase
+                        lastPurchasedPlant = selectedPlant;
+                        lastPurchasedQuantity = qty;
+                        
                         std::cout << "\nPurchased " << qty << " " << decorated->getDescription() << " for R" << total << "\n";
                     } else {
                         delete tx;
@@ -972,52 +981,65 @@ std::cout << "\n"
 
 
                 else if (cChoice == 3) {
-                if (savedTransactions.empty()) {
-                    std::cout << "\nNo previous orders found!\n";
-                    continue;
+                    if (savedTransactions.empty()) {
+                        std::cout << "\nNo previous orders found!\n";
+                        continue;
+                    }
+                    
+                    // Check if we have the plant information from the last purchase
+                    if (!lastPurchasedPlant) {
+                        std::cout << "\n❌ Cannot repurchase: No plant information from last order.\n";
+                        continue;
+                    }
+                    
+                    // Check if the plant is still in stock
+                    int availableQty = inventory->getQuantity(lastPurchasedPlant);
+                    if (availableQty < lastPurchasedQuantity) {
+                        std::cout << "\n❌ Cannot repurchase: Not enough stock!\n";
+                        std::cout << "   Last order: " << lastPurchasedQuantity << " " << lastPurchasedPlant->getDescription() << "\n";
+                        std::cout << "   Available: " << availableQty << "\n";
+                        continue;
+                    }
+
+                    // Retrieve last saved transaction (Memento)
+                    Transaction* last = savedTransactions.back()->clone();
+                    std::cout << "\n🔁 Re-purchasing last order...\n";
+
+                    // Remove stock from inventory
+                    if (proxy.buyPlant(lastPurchasedPlant, lastPurchasedQuantity)) {
+                        // Execute purchase using the state from Memento
+                        Customer customer("Walk-in Customer");
+                        Order order(&customer, "ORD-" + std::to_string(rand()));
+
+                        order.addTransaction(last);
+                        order.processOrder();
+                        savedTransactions.push_back(last);
+                        balance += last->getAmount();
+
+                        std::cout << "\n✅ Repurchased " << lastPurchasedQuantity << " " 
+                                  << lastPurchasedPlant->getDescription() << " successfully!\n";
+                        
+                        // REPURCHASE RECEIPT
+                        std::cout << "\n=========================================\n";
+                        std::cout << "           🧾 REPURCHASE RECEIPT\n";
+                        std::cout << "=========================================\n";
+                        std::cout << "Order ID: " << order.getOrderId() << "\n";
+                        std::cout << "Customer: " << customer.getName() << "\n";
+                        std::cout << "Item: " << lastPurchasedPlant->getDescription() << "\n";
+                        std::cout << "Quantity: " << lastPurchasedQuantity << "\n";
+                        std::cout << "Payment Method: " << last->getPaymentMethod() << "\n";
+                        std::cout << "-----------------------------------------\n";
+                        std::cout << std::fixed << std::setprecision(2)
+                                  << "Total: R" << last->getAmount() << "\n";
+                        std::cout << "=========================================\n";
+                        std::cout << "     🌸 Thank you for shopping again! 🌸\n";
+                        std::cout << "=========================================\n";
+                    } else {
+                        delete last;
+                        std::cout << "\n❌ Repurchase failed: Could not remove stock from inventory.\n";
+                        continue;
+                    }
                 }
-
-                // Retrieve last saved transaction (Memento)
-                Transaction* last = savedTransactions.back()->clone();
-                std::cout << "\n🔁 Re-purchasing last order...\n";
-
-                int quantity = last->getQuantity();
-
-                // Rebuild decorated plant using decorations stored in the Memento
-                Plant* decorated = new BasePlant(0.0, "Plant"); // placeholder
-                for (const auto& decor : last->getDecorations()) {
-                    if (decor == "GiftWrap") decorated = new GiftWrap(decorated);
-                    else if (decor == "DecorativePot") decorated = new DecorativePot(decorated);
-                    else if (decor == "SpecialArrangement") decorated = new SpecialArrangement(decorated);
-                }
-
-                // Execute purchase using the state from Memento
-                Customer customer("Walk-in Customer");
-                Order order(&customer, "ORD-" + std::to_string(rand()));
-
-                order.addTransaction(last);
-                order.processOrder();
-                savedTransactions.push_back(last);
-                balance += last->getAmount();
-
-                // REPURCHASE RECEIPT
-                std::cout << "\n=========================================\n";
-                std::cout << "           🧾 REPURCHASE RECEIPT\n";
-                std::cout << "=========================================\n";
-                std::cout << "Order ID: " << order.getOrderId() << "\n";
-                std::cout << "Customer: " << customer.getName() << "\n";
-                std::cout << "Item: " << decorated->getDescription() << "\n";
-                std::cout << "Payment Method: " << last->getPaymentMethod() << "\n";
-                std::cout << "-----------------------------------------\n";
-
-                // 🔹 Call your existing Transaction::getDetails()
-                
-                std::cout << "=========================================\n";
-                std::cout << "     🌸 Thank you for shopping again! 🌸\n";
-                std::cout << "=========================================\n";
-
-                delete decorated;
-            }
 
 
 
