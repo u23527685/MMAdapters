@@ -793,6 +793,9 @@ int main() {
                         }
                     }
 
+                    // If no decorations added
+              
+                   
                     // Payment
                     std::cout << "\nSelect payment method:\n1. Credit Card\n2. E-Wallet\n3. EFT\nChoose: ";
                     int pay;
@@ -825,6 +828,7 @@ int main() {
                         delete tx;
                         std::cout << "\nPurchase failed: not enough stock.\n";
                     }
+
                     inventory->removeStock(selectedPlant, 0);
 
                     // Print a neat receipt
@@ -849,17 +853,59 @@ int main() {
                     delete decorated;
                 }
 
+
                 else if (cChoice == 3) {
-                    if (savedTransactions.empty()) {
-                        std::cout << "\nNo previous orders found!\n";
-                        continue;
-                    }
-                    Transaction* last = savedTransactions.back()->clone();
-                    std::cout << "\n🔁 Re-purchasing last order...\n";
-                    last->processPayment();
-                    savedTransactions.push_back(last);
-                    std::cout << "✅ Order repeated successfully!\n";
-                }
+    if (savedTransactions.empty()) {
+        std::cout << "\nNo previous orders found!\n";
+        continue;
+    }
+
+    // Retrieve last saved transaction (Memento)
+    Transaction* last = savedTransactions.back()->clone();
+    std::cout << "\n🔁 Re-purchasing last order...\n";
+
+    int quantity = last->getQuantity();
+
+    // Rebuild decorated plant using decorations stored in the Memento
+    Plant* decorated = new BasePlant(0.0, "Plant"); // placeholder
+    for (const auto& decor : last->getDecorations()) {
+        if (decor == "GiftWrap") decorated = new GiftWrap(decorated);
+        else if (decor == "DecorativePot") decorated = new DecorativePot(decorated);
+        else if (decor == "SpecialArrangement") decorated = new SpecialArrangement(decorated);
+    }
+
+    // Execute purchase using the state from Memento
+    Customer customer("Walk-in Customer");
+    Order order(&customer, "ORD-" + std::to_string(rand()));
+
+    order.addTransaction(last);
+    order.processOrder();
+    savedTransactions.push_back(last);
+    balance += last->getAmount();
+
+    // REPURCHASE RECEIPT
+    std::cout << "\n=========================================\n";
+    std::cout << "           🧾 REPURCHASE RECEIPT\n";
+    std::cout << "=========================================\n";
+    std::cout << "Order ID: " << order.getOrderId() << "\n";
+    std::cout << "Customer: " << customer.getName() << "\n";
+    std::cout << "Item: " << decorated->getDescription() << "\n";
+    std::cout << "Payment Method: " << last->getPaymentMethod() << "\n";
+    std::cout << "-----------------------------------------\n";
+
+    // 🔹 Call your existing Transaction::getDetails()
+    last->getDetails();
+
+    std::cout << "=========================================\n";
+    std::cout << "     🌸 Thank you for shopping again! 🌸\n";
+    std::cout << "=========================================\n";
+
+    delete decorated;
+}
+
+
+
+                
 
                 else if (cChoice == 4) {
                     if (savedTransactions.empty()) {
@@ -1017,6 +1063,24 @@ int main() {
     return 0;
 }
 
+// CHECKLIST:
+// MEMENTO
+// DECORATOR
+// STRATEGY
+// STATE
+// FACTORY METHOD
+// TEMPLATE METHOD
+// ABSTRACT FACTORY
+
+// PROXY
+// OBSERVER
+// CHAIN OF RESPONSIBILITY
+// SINGLETON
+// COMMAND
+// BUILDER
+
+// NOT IMPLEMENTED
+// FACADE
 
 
 // JAYS CODE Below

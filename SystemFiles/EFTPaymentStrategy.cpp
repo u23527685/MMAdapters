@@ -8,3 +8,7 @@ void EFTPaymentStrategy::pay(double amount, const std::string& orderNum) const {
               << " for order " << orderNum << " using account number: " 
               << accountNumber << std::endl;
 }
+
+std::string EFTPaymentStrategy::getName() const {
+    return "EFT";
+}

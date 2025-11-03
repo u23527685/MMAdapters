@@ -10,6 +10,7 @@ private:
 public:
     CreditCardPaymentStrategy(const std::string& cardNumber);
     void pay(double amount, const std::string& orderNum) const override;
+    std::string getName() const override;
 };
 
 #endif
