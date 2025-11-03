@@ -391,8 +391,8 @@ void simulateDay(std::vector<std::unique_ptr<Plant>>& growingPlants,
     std::cout << PASTEL_MINT << "🌿 Fertilized:    " << fertilized << "\n" << RESET;
     std::cout << PASTEL_PINK << "🌸 Matured:       " << matured << "\n" << RESET;
     std::cout << PASTEL_GRAY << "💀 Died:          " << died << "\n" << RESET;
-    std::cout << PASTEL_YELLOW << "⚠️ Neglected:     " << neglected << "\n" << RESET;
-    std::cout << PASTEL_ORANGE << "🗓️Days Passed:     " << day << "\n" << RESET;
+    std::cout << PASTEL_YELLOW << "⚠️  Neglected:     " << neglected << "\n" << RESET;
+    std::cout << PASTEL_ORANGE << "🗓️  Days Passed:   " << day << "\n" << RESET;
     std::cout << "═══════════════════════════════════════════\n";
     std::cout << PASTEL_GREEN << "🌱 End of day processing complete.\n\n" << RESET;
 }
@@ -956,7 +956,8 @@ std::cout << "\n"
             std::cout << PASTEL_PURPLE   << "3. Repurchase Last Order (Memento)\n"     << RESET;
             std::cout << PASTEL_LAVENDER << "4. View Receipt\n"                        << RESET;
             std::cout << PASTEL_AQUA     << "5. Ask a query\n"                         << RESET;
-            std::cout << PASTEL_SALMON   << "6. Back\n"                                << RESET;
+            std::cout << PASTEL_MINT      << "6. Try to steal plants\n" << RESET;
+            std::cout << PASTEL_SALMON   << "7. Back\n"                                << RESET;
 
             std::cout << PASTEL_MINT     << "Choose: " << RESET;
 
@@ -972,7 +973,7 @@ std::cout << "\n"
                     break;
                 }
 
-                if (cChoice == 6) break;
+                if (cChoice == 7) break;
 
                 if (cChoice == 1) {
                     std::cout << "\n🌿 Available Plants 🌿\n";
@@ -1366,6 +1367,127 @@ std::cout << "\n"
 
             delete query;
         }
+        
+                // Try to Steal Plants (Proxy Demo)
+                else if (cChoice == 6) {
+                    std::cout << "\n" << PASTEL_MINT << "╔════════════════════════════════════════════╗\n";
+                    std::cout << "    🦹 ATTEMPTING TO STEAL PLANTS\n";
+                    std::cout << "╚════════════════════════════════════════════╝\n" << RESET;
+                    
+                    std::cout << "\n" << PASTEL_YELLOW << "⚠️  Shady Customer: \"Let me try to mess with the inventory...\"\n" << RESET;
+                    
+                    // Show available plants first
+                    auto inventoryItems = inventory->getInventoryView();
+                    if (inventoryItems.empty()) {
+                        std::cout << "\n" << PASTEL_GRAY << "No plants in inventory to steal. Come back later!\n" << RESET;
+                        continue;
+                    }
+                    
+                    std::cout << "\n" << PASTEL_CYAN << "Available plants in inventory:\n" << RESET;
+                    for (const auto& item : inventoryItems) {
+                        auto it = plantMenuOptions.find(item.first->getDescription());
+                        if (it != plantMenuOptions.end()) {
+                            std::cout << "  " << it->second << ". " << item.first->getDescription() 
+                                      << " (Qty: " << item.second << ")\n";
+                        }
+                    }
+                    
+                    std::cout << PASTEL_SALMON << "1. Try to add unauthorized plants to inventory\n" << RESET;
+                    std::cout << PASTEL_SALMON << "2. Try to steal plants from inventory\n" << RESET;
+                    std::cout << PASTEL_GRAY << "3. Cancel\n" << RESET;
+                    std::cout << PASTEL_MINT << "Choice: " << RESET;
+                    
+                    int stealChoice;
+                    while (true) {
+                        std::cin >> stealChoice;
+                        if (std::cin.fail() || stealChoice < 1 || stealChoice > 3) {
+                            std::cin.clear();
+                            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+                            std::cout << "Invalid input. Please enter 1-3: ";
+                            continue;
+                        }
+                        break;
+                    }
+                    
+                    if (stealChoice == 3) continue;
+                    
+                    // Select a plant
+                    std::cout << "\nSelect plant number: ";
+                    int plantChoice;
+                    while (true) {
+                        std::cin >> plantChoice;
+                        if (std::cin.fail()) {
+                            std::cin.clear();
+                            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+                            std::cout << "Invalid input. Please enter a number: ";
+                            continue;
+                        }
+                        break;
+                    }
+                    
+                    Plant* selectedPlant = nullptr;
+                    for (const auto& item : inventoryItems) {
+                        auto it = plantMenuOptions.find(item.first->getDescription());
+                        if (it != plantMenuOptions.end() && it->second == plantChoice) {
+                            selectedPlant = item.first;
+                            break;
+                        }
+                    }
+                    
+                    if (!selectedPlant) {
+                        std::cout << PASTEL_SALMON << "❌ Invalid plant selection!\n" << RESET;
+                        continue;
+                    }
+                    
+                    std::cout << "\nEnter quantity: ";
+                    int qty;
+                    while (true) {
+                        std::cin >> qty;
+                        if (std::cin.fail() || qty <= 0) {
+                            std::cin.clear();
+                            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+                            std::cout << "Invalid quantity. Please enter a positive number: ";
+                            continue;
+                        }
+                        break;
+                    }
+                    
+                    std::cout << "\n" << PASTEL_YELLOW << "═══════════════════════════════════════════\n" << RESET;
+                    std::cout << PASTEL_PINK << "        🛡️  PROTECTION IN ACTION 🛡️\n" << RESET;
+                    std::cout << PASTEL_YELLOW << "═══════════════════════════════════════════\n" << RESET;
+                    
+                    if (stealChoice == 1) {
+                        std::cout << "\n" << PASTEL_SALMON << "Customer attempting to add unauthorized ("
+                                  << selectedPlant->getDescription() << ", " << qty << ")\n" << RESET;
+                        std::cout << PASTEL_CYAN << "   Response:\n" << RESET;
+                        std::cout << "   → ";
+                        proxy.addStock(selectedPlant, qty);
+
+                        std::cout << "\n" << PASTEL_SALMON << "🚨 ALERT! ALERT! Unauthorized access detected! 🚨\n" << RESET;
+                        std::cout << PASTEL_BLUE << "👮 Police: \"FREEZE! You're under arrest for attempting inventory fraud!\"\n" << RESET;
+                        std::cout << PASTEL_YELLOW << "🦹 Customer: \"Wait, I was just testing...\"\n" << RESET;
+                        std::cout << PASTEL_BLUE << "👮 Police: \"Tell it to the judge! You have the right to remain silent...\"\n" << RESET;
+                        std::cout << PASTEL_SALMON << "🚔 *HANDCUFFS CLICK* 🚔\n" << RESET;
+                        
+                    } else if (stealChoice == 2) {
+                        std::cout << "\n" << PASTEL_SALMON << "Customer attempting to steal (" 
+                                  << selectedPlant->getDescription() << ", " << qty << ")\n" << RESET;
+                        std::cout << PASTEL_CYAN << "   Response:\n" << RESET;
+                        std::cout << "   → ";
+                        proxy.removeStock(selectedPlant, qty);
+                        
+                        std::cout << "\n" << PASTEL_SALMON << "🚨 SECURITY BREACH! Theft attempt detected! 🚨\n" << RESET;
+                        std::cout << PASTEL_BLUE << "👮 Police: \"STOP RIGHT THERE! Hands where I can see them!\"\n" << RESET;
+                        std::cout << PASTEL_YELLOW << "🦹 Customer: \"It was just a prank bro!\"\n" << RESET;
+                        std::cout << PASTEL_BLUE << "👮 Police: \"Pranks are for YouTube, not our nursery! You're coming with us!\"\n" << RESET;
+                        std::cout << PASTEL_SALMON << "🚓 *WEE-OOO WEE-OOO* Police car arrives 🚓\n" << RESET;
+                        
+                    }
+                    
+                    std::cout << "\n" << PASTEL_GRAY << "Press Enter to continue..." << RESET;
+                    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+                    std::cin.get();
+                }
             }
         }
 
