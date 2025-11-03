@@ -1045,16 +1045,16 @@ std::cout << "\n"
             std::cout << "\n--- Query Plant ---\n";
             std::cout << "Select plant to query (0 to cancel):\n";
             auto inventoryItems = inventory->getInventoryView();
-            if (inventoryItems.empty()) {
-                std::cout << "No plants available to query.\n";
-                continue;
-            }
-            for (const auto& item : inventoryItems) {
-                auto it = plantMenuOptions.find(item.first->getDescription());
-                if (it != plantMenuOptions.end()) {
-                    std::cout << it->second << ". " << item.first->getDescription() << " (Qty: " << item.second << ")\n";
+            if (!inventoryItems.empty()) {
+                for (const auto& item : inventoryItems) {
+                    auto it = plantMenuOptions.find(item.first->getDescription());
+                    if (it != plantMenuOptions.end()) {
+                        std::cout << it->second << ". " << item.first->getDescription() << " (Qty: " << item.second << ")\n";
+                    }
                 }
             }
+            
+            std::cout<<"99. Custom Plant Query (Queries with No plant)\n";
             int plantChoice;
             while (true) {
                 std::cin >> plantChoice;
@@ -1067,6 +1067,48 @@ std::cout << "\n"
                 break;
             }
             if (plantChoice == 0) continue;
+
+            // Custom query path (no plant)
+            if (plantChoice == 99) {
+                // clear remaining newline
+                std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+
+                std::string qtype;
+                std::cout << "\nEnter query TYPE (FULL CAPS, e.g. INFO, CARE ROUTINE, STOCK): ";
+                std::getline(std::cin, qtype);
+                // normalize to uppercase so user's input becomes full caps
+                for (auto &ch : qtype) ch = static_cast<char>(std::toupper((unsigned char)ch));
+
+                std::string question;
+                std::cout << "Enter your question: ";
+                std::getline(std::cin, question);
+
+                std::cout << "\n--- Custom Query Received ---\n";
+                MiscQueryBuilder m;
+                m.setQuestion(question);
+                m.setType(qtype);
+                Query* query = m.build();
+
+                // Set up chain of responsibility
+                for (size_t i = 0; i < hiredStaff.size(); ++i) {
+                    if (i < hiredStaff.size() - 1) {
+                        hiredStaff[i]->setNext(hiredStaff[i + 1]);
+                    } else {
+                        hiredStaff[i]->setNext(nullptr);
+                    }
+                }
+
+                 // Handle query with the first staff in the chain
+                if (!hiredStaff.empty()) {
+                    std::cout << "\n--- Processing Query ---\n";
+                    hiredStaff[0]->handleQuery(query);
+                } else {
+                    std::cout << "❌ No staff hired to handle this query.\n";
+                }
+
+                delete query;
+                continue;
+            }
 
             Plant* selectedPlant = nullptr;
             for (const auto& item : inventoryItems) {
