@@ -21,7 +21,7 @@ std::string Transaction::getPaymentMethod() const {
 
 void Transaction::processPayment() const {
     if (paymentMethod)
-        paymentMethod->pay(amount * quantity, orderNum);
+        paymentMethod->pay(amount, orderNum);
     else
         std::cout << "No payment strategy set for order " << orderNum << std::endl;
 }
@@ -45,7 +45,7 @@ std::string Transaction::getTransactionId() const {
 }
 
 double Transaction::getAmount() const {
-    return amount * quantity;
+    return amount;
 }
 
 int Transaction::getQuantity() const {
