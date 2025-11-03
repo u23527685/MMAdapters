@@ -35,6 +35,10 @@ public:
 
     Plant* getPlant();
     std::string getName();
+
+    //for unit testing:
+    std::vector<LifeCycleObserver*>::iterator observersBegin() { return observers.begin(); }
+    std::vector<LifeCycleObserver*>::iterator observersEnd() { return observers.end(); }
 };
 
 #endif
