@@ -69,12 +69,16 @@ static std::string getStaffRole(Staff* s) {
 // Simulate a day for plants
 void simulateDay(std::vector<std::unique_ptr<Plant>>& growingPlants,
                 PlantInventory* inventory, std::vector<Staff*>& staff) {
-    std::cout << "\n📅 --- Simulating a New Day in the Nursery ---\n";
+    std::cout << "\n";
+    std::cout << "╔══════════════════════════════════════════════════════╗\n";
+    std::cout << "📅   SIMULATING A NEW DAY IN THE NURSERY\n";
+    std::cout << "╚══════════════════════════════════════════════════════╝\n\n";
+
 
     int watered = 0, fertilized = 0, matured = 0, died = 0;
 
     // Debug: Print inventory state before simulation
-    std::cout << "Debug: Inventory before simulation:\n";
+    std::cout << "🔍 INVENTORY BEFORE SIMULATION:\n";
     auto inventoryItems = inventory->getInventoryView();
     if (inventoryItems.empty()) {
         std::cout << "Debug: Inventory is empty!\n";
@@ -182,8 +186,8 @@ void simulateDay(std::vector<std::unique_ptr<Plant>>& growingPlants,
         ++i;
     }
 
-    // Debug: Print inventory state after simulation
-    std::cout << "Debug: Inventory after simulation:\n";
+//     // Debug: Print inventory state after simulation
+    std::cout << "\n📦 INVENTORY AFTER SIMULATION:\n";
     inventoryItems = inventory->getInventoryView();
     if (inventoryItems.empty()) {
         std::cout << "Debug: Inventory is empty!\n";
@@ -193,13 +197,21 @@ void simulateDay(std::vector<std::unique_ptr<Plant>>& growingPlants,
         }
     }
 
-    std::cout << "\n✅ Daily Summary:\n";
-    std::cout << "- " << watered << " watering actions\n";
-    std::cout << "- " << fertilized << " fertilizer boosts\n";
-    std::cout << "- " << matured << " plants matured and moved to inventory\n";
-    std::cout << "- " << died << " plants withered and removed\n";
-    std::cout << "\n🌱 End of day processing complete.\n";
+
+//     std::cout << "\n✅ Daily Summary:\n";
+    // Summary
+    std::cout << "\n═══════════════════════════════════════════\n";
+    std::cout << "✅ DAILY SUMMARY\n";
+    std::cout << "═══════════════════════════════════════════\n";
+    std::cout << "💧 Watered:       " << watered << "\n";
+    std::cout << "🌿 Fertilized:    " << fertilized << "\n";
+    std::cout << "🌸 Matured:       " << matured << "\n";
+    std::cout << "💀 Withered:      " << died << "\n";
+    std::cout << "═══════════════════════════════════════════\n";
+    std::cout << "🌱 End of day processing complete.\n\n";
+   
 }
+
 
 
 void runTutorial(std::vector<std::unique_ptr<Plant>>& growingPlants, PlantInventory* inventory,
@@ -855,53 +867,52 @@ int main() {
 
 
                 else if (cChoice == 3) {
-    if (savedTransactions.empty()) {
-        std::cout << "\nNo previous orders found!\n";
-        continue;
-    }
+                if (savedTransactions.empty()) {
+                    std::cout << "\nNo previous orders found!\n";
+                    continue;
+                }
 
-    // Retrieve last saved transaction (Memento)
-    Transaction* last = savedTransactions.back()->clone();
-    std::cout << "\n🔁 Re-purchasing last order...\n";
+                // Retrieve last saved transaction (Memento)
+                Transaction* last = savedTransactions.back()->clone();
+                std::cout << "\n🔁 Re-purchasing last order...\n";
 
-    int quantity = last->getQuantity();
+                int quantity = last->getQuantity();
 
-    // Rebuild decorated plant using decorations stored in the Memento
-    Plant* decorated = new BasePlant(0.0, "Plant"); // placeholder
-    for (const auto& decor : last->getDecorations()) {
-        if (decor == "GiftWrap") decorated = new GiftWrap(decorated);
-        else if (decor == "DecorativePot") decorated = new DecorativePot(decorated);
-        else if (decor == "SpecialArrangement") decorated = new SpecialArrangement(decorated);
-    }
+                // Rebuild decorated plant using decorations stored in the Memento
+                Plant* decorated = new BasePlant(0.0, "Plant"); // placeholder
+                for (const auto& decor : last->getDecorations()) {
+                    if (decor == "GiftWrap") decorated = new GiftWrap(decorated);
+                    else if (decor == "DecorativePot") decorated = new DecorativePot(decorated);
+                    else if (decor == "SpecialArrangement") decorated = new SpecialArrangement(decorated);
+                }
 
-    // Execute purchase using the state from Memento
-    Customer customer("Walk-in Customer");
-    Order order(&customer, "ORD-" + std::to_string(rand()));
+                // Execute purchase using the state from Memento
+                Customer customer("Walk-in Customer");
+                Order order(&customer, "ORD-" + std::to_string(rand()));
 
-    order.addTransaction(last);
-    order.processOrder();
-    savedTransactions.push_back(last);
-    balance += last->getAmount();
+                order.addTransaction(last);
+                order.processOrder();
+                savedTransactions.push_back(last);
+                balance += last->getAmount();
 
-    // REPURCHASE RECEIPT
-    std::cout << "\n=========================================\n";
-    std::cout << "           🧾 REPURCHASE RECEIPT\n";
-    std::cout << "=========================================\n";
-    std::cout << "Order ID: " << order.getOrderId() << "\n";
-    std::cout << "Customer: " << customer.getName() << "\n";
-    std::cout << "Item: " << decorated->getDescription() << "\n";
-    std::cout << "Payment Method: " << last->getPaymentMethod() << "\n";
-    std::cout << "-----------------------------------------\n";
+                // REPURCHASE RECEIPT
+                std::cout << "\n=========================================\n";
+                std::cout << "           🧾 REPURCHASE RECEIPT\n";
+                std::cout << "=========================================\n";
+                std::cout << "Order ID: " << order.getOrderId() << "\n";
+                std::cout << "Customer: " << customer.getName() << "\n";
+                std::cout << "Item: " << decorated->getDescription() << "\n";
+                std::cout << "Payment Method: " << last->getPaymentMethod() << "\n";
+                std::cout << "-----------------------------------------\n";
 
-    // 🔹 Call your existing Transaction::getDetails()
-    last->getDetails();
+                // 🔹 Call your existing Transaction::getDetails()
+                
+                std::cout << "=========================================\n";
+                std::cout << "     🌸 Thank you for shopping again! 🌸\n";
+                std::cout << "=========================================\n";
 
-    std::cout << "=========================================\n";
-    std::cout << "     🌸 Thank you for shopping again! 🌸\n";
-    std::cout << "=========================================\n";
-
-    delete decorated;
-}
+                delete decorated;
+            }
 
 
 
