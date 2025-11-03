@@ -820,8 +820,8 @@ int main() {
                     while (addingDecor) {
                         std::cout << "\nAdd decoration?\n"
                                   << "1. Gift Wrap (+R5)\n"
-                                  << "2. Decorative Pot (+R7)\n"
-                                  << "3. Special Arrangement (+R10)\n"
+                                  << "2. Decorative Pot (+R10)\n"
+                                  << "3. Special Arrangement (+R15)\n"
                                   << "4. Done\n"
                                   << "Choose: ";
                         int decoChoice;
