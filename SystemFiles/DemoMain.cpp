@@ -706,25 +706,25 @@ std::cout << "\n"
 
                 // View Staff Communications (Observer Pattern Demo)
                 else if (sChoice == 5) {
-                    std::cout << "\n📢 Staff Notifications\n";
+                    std::cout << PASTEL_BLUE << "\n📢 Staff Notifications\n" << RESET;
                     std::cout << "Staff are automatically informed of new plants entering and leaving your nursery.\n\n";
                     
                     std::cout << "Currently attached staff:\n";
                     if (hiredStaff.empty()) {
-                        std::cout << "   ⚠️ No staff hired yet. Hire staff to see them receive notifications!\n\n";
+                        std::cout << "⚠️ No staff hired yet. Hire staff to see them receive notifications!\n\n";
                     } else {
                         for (auto* s : hiredStaff) {
-                            std::cout << "- " << s->getName() << " (" << getStaffRole(s) << ")\n";
+                            std::cout << PASTEL_GREEN << "- " << s->getName() << " (" << getStaffRole(s) << ")\n" << RESET;
                         }
                         std::cout << "\n";
                     }
                     
                     const auto& notifications = salesFloor->getNotificationHistory();
                     if (notifications.empty()) {
-                        std::cout << "📭 No notifications yet.\n";
-                        std::cout << "   Buy seeds, simulate days, or make sales to see notifications!\n\n";
+                        std::cout << PASTEL_ROSE << "📭 No notifications yet.\n" << RESET;
+                        std::cout << "Buy seeds, simulate days, or make sales to see notifications!\n\n";
                     } else {
-                        std::cout << "📬 Notification History (" << notifications.size() << " total):\n";
+                        std::cout << PASTEL_BLUE << "📬 Notification History (" << notifications.size() << " total):\n" << RESET;
                         std::cout << "---------------------------------------------------\n";
                         
                         int startIdx = std::max(0, static_cast<int>(notifications.size()) - 10);
@@ -732,7 +732,7 @@ std::cout << "\n"
                             std::cout << "[" << (i + 1) << "] ";
                             if (!hiredStaff.empty()) {
                                 for (auto* staff : hiredStaff) {
-                                    std::cout << "[Notification to " << staff->getName() << "] ";
+                                    std::cout << PASTEL_GREEN << "[Notification to " << staff->getName() << "] " << RESET;
                                 }
                             }
                             std::cout << notifications[i] << "\n";
