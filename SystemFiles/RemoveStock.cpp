@@ -12,21 +12,20 @@ bool RemoveStock::execute() {
     if (idx < 0) {
         return false;
     }
-    
+
     auto& inventory = targetInventory->getInventoryReference();
-    
+
     if (inventory[idx].second < quantityToRemove) {
         return false;
     }
 
     inventory[idx].second -= quantityToRemove;
 
+    //  Do NOT delete plant pointers shared elsewhere (e.g. main plantOptions)
     if (inventory[idx].second <= 0) {
-        delete inventory[idx].first;
         inventory.erase(inventory.begin() + idx);
     }
 
     targetInventory->notify();
-
     return true;
 }

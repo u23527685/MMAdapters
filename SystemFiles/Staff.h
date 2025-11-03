@@ -45,11 +45,12 @@ class Staff : public LifeCycleObserver {
     public:
         /**
          * @brief Request stock information or trigger stock-related behaviour.
+         * @param plant Plant for which to get stock information.
          *
          * Concrete implementations or callers may use this hook to fetch or
          * report stock data. Default behaviour is implementation-specific.
          */
-        void getStock();
+        void getStock(Plant* plant);
 
         /**
          * @brief Handle an incoming Query.

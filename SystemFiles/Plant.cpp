@@ -1,4 +1,5 @@
 #include "Plant.h"
+#include "SeedState.h"
 
 Plant::Plant() {}
 
@@ -7,11 +8,10 @@ Plant::Plant(double price, std::string description)
       category("generic"),
       description(description), 
       price(price),
-      currentState(nullptr),
       waterStrategy(nullptr),
       sunlightStrategy(nullptr),
       fertilizerStrategy(nullptr),
-      state(nullptr),
+      state(std::make_unique<SeedState>()),
       currentSunlight(0),
       currentWater(0),
       currentNutrients(0),
@@ -29,13 +29,6 @@ void Plant::applyCare() {
     
 }
 
-void Plant::setState(PlantState* s) {
-    state = s;
-}
-
-PlantState* Plant::getState() {
-    return state;
-}
 
 // Attaches an observer to the plant
 void Plant::attach(LifeCycleObserver* o) {
@@ -54,7 +47,7 @@ void Plant::detach(LifeCycleObserver* o) {
 
 
 void Plant::notify() {
-
+    
 }
 
 std::string Plant::getDescription() const{
@@ -66,7 +59,7 @@ double Plant::getPrice() const {
 }
 
 Plant::~Plant(){
-    delete currentState;
+    
 }
 
 std::string Plant::getName(){

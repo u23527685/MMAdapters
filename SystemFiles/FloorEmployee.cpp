@@ -44,7 +44,7 @@ void FloorEmployee::reply(Query* query){
     if(q=="What is the care routine for this plant" || t=="CARE ROUTINE"){        
         std::cout<<"Floor Employee "<<getName()<<" will answer the query "<<std::endl;
         if(i){
-            PlantCareRoutine* PCR = PlantCareRoutine::PlantCare(i);
+            auto PCR = PlantCareRoutine::PlantCare(i);
             PCR->printCareRoutine();
             std::cout<<"Floor Employee "<<getName()<<" answered the query "<<std::endl;
             return;

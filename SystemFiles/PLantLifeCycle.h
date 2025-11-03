@@ -5,27 +5,27 @@
 #include <string>
 #include <vector>
 #include "LifeCycleObserver.h"
+#include <memory>
 class Plant;
 class PlantState;
 class LifeCycleObserver;
 
 class PlantLifeCycle{
 private:
-    PlantState* currentState;
+    std::unique_ptr<PlantState> currentState;
     Plant* p;
     std::vector<LifeCycleObserver*> observers;
     std::string name;
-    void transitionToCorrectState();
 public:
-    PlantLifeCycle(Plant* plant, PlantState* initialState, std::string name);
+    PlantLifeCycle(Plant* plant, std::unique_ptr<PlantState>initialState, std::string name);
     ~PlantLifeCycle();
 
     std::string getState();
     PlantState* getStateObj() const;
 
     //void setState(std::string s);
-    void setState(PlantState* state);
-
+    void setState(std::unique_ptr<PlantState> state);
+    std::unique_ptr<PlantState> releaseState();
     void attach(LifeCycleObserver* ol);
     void detach(LifeCycleObserver* ol);
     void notify();

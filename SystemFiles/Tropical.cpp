@@ -6,9 +6,9 @@
 #include "MediumWaterStrategy.h"
 
 Tropical::Tropical(){
-    wS = new MediumWaterStrategy();
-    sS = new PartialSunStrategy();
-    fS = new OrganicFertilizer();
+    wS = std::make_unique<MediumWaterStrategy>();
+    sS = std::make_unique<PartialSunStrategy>();
+    fS = std::make_unique<OrganicFertilizer>();
 }
 void Tropical::Fertilizing(Plant* p){
     fS->applyFertilizer(p);

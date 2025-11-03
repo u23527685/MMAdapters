@@ -7,35 +7,36 @@
 
 void WitheredState::applyCare(PlantLifeCycle* context, Plant* plant, PlantCareRoutine* routine) {
     // Withered is a terminal state. Log and attempt minimal care, but do NOT change state.
+    if (!routine) {
+        std::cout << "Error: No care routine provided for " << plant->getName() << "\n";
+        return;
+    }
     std::cout << "[Withered State] " << plant->getName()
-              << " is withered and cannot be recovered. Care may be attempted but state will remain Withered."
-              << std::endl;
+              << " is withered. Attempting care, but state may remain Withered.\n";
 
-    // Attempt to bring levels up as best-effort (no state transition).
-    if (plant->getCurrentWater() < plant->getMaxWater()) {
-        routine->Watering(plant);
-    }
-    if (plant->getCurrentSunlight() < plant->getMaxSunlight()) {
-        routine->Sunlight(plant);
-    }
-    if (plant->getCurrentNutrients() < plant->getMaxNutrients()) {
-        routine->Fertilizing(plant);
-    }
+    routine->Watering(plant);
+    routine->Sunlight(plant);
+    routine->Fertilizing(plant);
+    evaluate(context, plant);
 }
 
 bool WitheredState::evaluate(PlantLifeCycle* context, Plant* plant) {
-    /**
-    int w = plant->getCurrentWater();
-    int s = plant->getCurrentSunlight();
-    int n = plant->getCurrentNutrients();
+    double minW = plant->getMinWater();
+    double minS = plant->getMinSunlight();
+    double minN = plant->getMinNutrients();
+    double curW = plant->getCurrentWater();
+    double curS = plant->getCurrentSunlight();
+    double curN = plant->getCurrentNutrients();
 
-    // Can only recover to Distressed, not Mature
-    if (w >= 20 && s >= 20 && n >= 20) {
-        context->setState(new DistressedState());
-        return false; // still not healthy
+    if (curW >= minW * 2 && curS >= minS * 2 && curN >= minN * 2) {
+        context->setState(std::make_unique<DistressedState>());
+        return false;
     }
-        **/
     return false;
+}
+
+PlantState* WitheredState::clone() const{
+    return new WitheredState();
 }
 
 

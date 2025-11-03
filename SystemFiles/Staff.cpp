@@ -1,5 +1,6 @@
 #include "Staff.h"
 #include "SalesFloorObserver.h"
+#include <iomanip>
 
 Staff::Staff(std::string name){
     this->name=name;
@@ -20,11 +21,44 @@ Staff* Staff::getNext(){
     return next;
 }
 
-void Staff::getStock(){
-    salesFloorObserver= new SalesFloorObserver(PlantInventory::getInstance());
-    salesFloorObserver->displayAvailablePlants();
-    delete salesFloorObserver;
-}
+void Staff::getStock(Plant* plant){
+    if(!plant){
+        std::cout << "Error: No plant specified for stock inquiry.\n";
+        return;
+    }
+    PlantInventory* inventory = PlantInventory::getInstance();
+        if (!inventory) {
+            std::cout << "Error: Inventory not initialized.\n";
+            return;
+        }
+        auto inventoryItems = inventory->getInventoryView();
+        if (inventoryItems.empty()) {
+            std::cout << "\n=============== SALES FLOOR INVENTORY ===============\n";
+            std::cout << "No plants currently available on sales floor.\n";
+            std::cout <<  "====================================================\n";
+            return;
+        }
+        int totalCount = 0;
+        double totalValue = 0.0;
+        std::cout << std::left << "----------------------------------------------------\n";
+        for (const auto& item : inventoryItems) {
+            if (item.first && item.second > 0 && item.first==plant) { // Check for valid Plant* and quantity
+                int quantity = item.second;
+                double itemValue = item.first->getPrice() * quantity;
+                totalCount += quantity;
+                totalValue += itemValue;
+                std::cout << item.first->getDescription() << "\n";
+                std::cout << "   Price: R" << std::fixed << std::setprecision(2) << item.first->getPrice()
+                          << " | Quantity: " << quantity << " | Subtotal: R" << itemValue << "\n";
+                std::cout << "----------------------------------------------------\n";
+            }
+        }
+        std::cout << "SUMMARY:\n";
+        std::cout << "   Total Plants: " << totalCount << "\n";
+        std::cout << "   Inventory Value: R" << std::fixed << std::setprecision(2) << totalValue << "\n";
+        std::cout << "====================================================\n";
+    }
+
 
 /**
 void Staff::update(PlantLifeCycle* p){
@@ -99,12 +133,11 @@ void Staff::isHealthy(PlantLifeCycle* p) {
 
     std::cout << "[Staff] " << name << " noticed " << p->getName() << " is now in state: " << stateName << std::endl;
 
-    careRoutine = careRoutine->PlantCare(plant);
+    std::unique_ptr<PlantCareRoutine> careRoutine = PlantCareRoutine::PlantCare(plant);
 
     if (!p->updatePlant()) {
         std::cout << "[Staff] " << name << " is applying care..." << std::endl;
-        p->getStateObj()->applyCare(p, plant, careRoutine);
-        delete careRoutine;
+        p->getStateObj()->applyCare(p, plant, careRoutine.get());
     } else {
         std::cout << "[Staff] " << name << " continues regular maintenance of "
                   << p->getName() << std::endl;

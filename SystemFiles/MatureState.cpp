@@ -8,6 +8,10 @@
 #include "PlantCareRoutine.h"
 
 void MatureState::applyCare(PlantLifeCycle* context, Plant* plant, PlantCareRoutine* routine) {
+    if (!routine) {
+        std::cout << "Error: No care routine provided for " << plant->getName() << "\n";
+        return;
+    }
     routine->Watering(plant);
     routine->Sunlight(plant);
     routine->Fertilizing(plant);
@@ -25,13 +29,13 @@ bool MatureState::evaluate(PlantLifeCycle* context, Plant* plant) {
 
     // Withered if any resource < min
     if (curW < minW || curS < minS || curN < minN) {
-        context->setState(new WitheredState());
+        context->setState(std::make_unique<WitheredState>());
         return false;
     }
 
     // Distressed if any resource == min
     if (curW == minW || curS == minS || curN == minN) {
-        context->setState(new DistressedState());
+        context->setState(std::make_unique<DistressedState>());
         return false;
     }
 
@@ -47,6 +51,9 @@ bool MatureState::evaluate(PlantLifeCycle* context, Plant* plant) {
     return (wGood && sGood && nGood);
 }
 
+PlantState* MatureState::clone() const  {
+    return new MatureState();
+}
 
 std::string MatureState::getName() const {
     return "Mature";

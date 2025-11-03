@@ -16,9 +16,6 @@ PlantInventory* PlantInventory::getInstance() {
 }
 
 PlantInventory::~PlantInventory() {
-    for (std::pair<Plant*, int> &item : inventoryItems) {
-        delete item.first;
-    }
     for (InventoryObserver* observer : inventoryObservers) {
         delete observer;
     }

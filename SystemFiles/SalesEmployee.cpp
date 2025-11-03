@@ -24,16 +24,14 @@ void SalesEmployee::reply(Query* query){
     std::string q= query->getQuestion();
     std::string t=query->getType();
     Plant* i=query->getItem();
-    if(q=="What Stock is going out"||t=="SALES"){
+    if(t=="STOCK"){
         std::cout<<"Sales Employee "<<getName()<<" will answer the query "<<std::endl;
-        getStock();
-        std::cout<<"Sales Employee "<<getName()<<" answered the query "<<std::endl;
-        return;
-    }
-    if(q=="What is the current Stock"||t=="SALES"){
-        std::cout<<"Sales Employee "<<getName()<<" will answer the query "<<std::endl;
-        getStock();
-        std::cout<<"Sales Employee "<<getName()<<" answered the query "<<std::endl;
+        if(i){
+            getStock(query->getItem());
+            std::cout<<"Sales Employee "<<getName()<<" answered the query "<<std::endl;
+            return;
+        }
+        std::cout<<"You did not add an item to ask about, please add the item and ask the query again"<<std::endl;
         return;
     }
     if(q=="What deals are there currently"||t=="DEALS"){

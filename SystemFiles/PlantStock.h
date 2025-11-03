@@ -7,17 +7,40 @@
 #include "PlantInventory.h"
 #include <string>
 
-// PlantStock acts as the Invoker in the Command pattern
+/**
+ * @class PlantStock
+ * @brief Acts as the Invoker in the Command pattern
+ * 
+ * This class creates and executes stock commands for adding
+ * and removing plants from inventory.
+ */
 class PlantStock {
 private:
     PlantInventory* inventory;
 
 public:
+    /**
+     * @brief Constructs a PlantStock invoker
+     * @param inventory Pointer to the inventory to manage
+     */
     PlantStock(PlantInventory* inventory);
+    
     ~PlantStock();
 
-    // Command execution methods
+    /**
+     * @brief Adds stock to inventory via command
+     * @param plant Plant to add
+     * @param quantity Quantity to add
+     * @return true if successful
+     */
     bool addStock(Plant* plant, int quantity);
+    
+    /**
+     * @brief Removes stock from inventory via command
+     * @param plant Plant to remove
+     * @param quantity Quantity to remove
+     * @return true if successful
+     */
     bool removeStock(Plant* plant, int quantity);
 };
 
