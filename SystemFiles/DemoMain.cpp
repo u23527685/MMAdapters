@@ -709,9 +709,9 @@ std::cout << "\n"
                     std::cout << PASTEL_BLUE << "\n📢 Staff Notifications\n" << RESET;
                     std::cout << "Staff are automatically informed of new plants entering and leaving your nursery.\n\n";
                     
-                    std::cout << "Currently attached staff:\n";
+                    std::cout << PASTEL_BLUE << "Currently attached staff:\n" << RESET;
                     if (hiredStaff.empty()) {
-                        std::cout << "⚠️ No staff hired yet. Hire staff to see them receive notifications!\n\n";
+                        std::cout << PASTEL_SALMON << "⚠️ No staff hired yet. Hire staff to see them receive notifications!\n\n" << RESET;
                     } else {
                         for (auto* s : hiredStaff) {
                             std::cout << PASTEL_GREEN << "- " << s->getName() << " (" << getStaffRole(s) << ")\n" << RESET;
@@ -721,7 +721,7 @@ std::cout << "\n"
                     
                     const auto& notifications = salesFloor->getNotificationHistory();
                     if (notifications.empty()) {
-                        std::cout << PASTEL_ROSE << "📭 No notifications yet.\n" << RESET;
+                        std::cout << PASTEL_SALMON << "📭 No notifications yet.\n" << RESET;
                         std::cout << "Buy seeds, simulate days, or make sales to see notifications!\n\n";
                     } else {
                         std::cout << PASTEL_BLUE << "📬 Notification History (" << notifications.size() << " total):\n" << RESET;
@@ -744,7 +744,7 @@ std::cout << "\n"
                         }
                     }
                     
-                    std::cout << "\n--- Current Sales Floor Status ---\n";
+                    std::cout << PASTEL_GREEN << "\n--- Current Sales Floor Status ---\n" << RESET;
                     proxy.displayAvailablePlants();
                     
                     std::cout << "\nPress Enter to continue...";
