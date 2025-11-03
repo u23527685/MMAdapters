@@ -18,26 +18,6 @@ void DistressedState::applyCare(PlantLifeCycle* context, Plant* plant, PlantCare
     routine->Fertilizing(plant);
 
     evaluate(context, plant);
-
-     /**
-    if (plant->getCurrentWater() < 30)     routine->Watering(plant);
-    if (plant->getCurrentSunlight() < 30)  routine->Sunlight(plant);
-    if (plant->getCurrentNutrients() < 30) routine->Fertilizing(plant);
-
-    // After care: check current levels
-    int w = plant->getCurrentWater();
-    int s = plant->getCurrentSunlight();
-    int n = plant->getCurrentNutrients();
-
-    // If any stat drops below 10 → Withered
-    if (w < 10 || s < 10 || n < 10) {
-        context->setState(new WitheredState());
-    }
-    // If all stats >= 30 → Recovered to Mature
-    else if (w >= 30 && s >= 30 && n >= 30) {
-        context->setState(new MatureState());
-    }
-        **/
 }
 
 bool DistressedState::evaluate(PlantLifeCycle* context, Plant* plant) {

@@ -6,10 +6,8 @@ std::string MediumWaterStrategy::getStrategyName() const{
     return "Medium Water";
 }
 
-void MediumWaterStrategy::applyWater(Plant* p){
-    std::cout << "applying the Medium Water Strategy" << std::endl << "Current Water level: " << p->getCurrentWater() << "ml" <<std::endl;
-    std::cout << "Max Water level: " << p->getMaxWater() << "ml" << std::endl << "Water level %: " << ((double)p->getCurrentWater()/p->getMaxWater())*100 << std::endl;
-    std::cout << "Filling " << p->getName() << "with 50ml of water" << std::endl;
+void MediumWaterStrategy::applyWater(Plant* p) {
+    std::cout << "Applying Medium Water to " << p->getName() << ": " << p->getCurrentWater() << "ml → ";
     p->setCurrentWater(p->getCurrentWater() + 50);
-    std::cout << "Current Water level: " << p->getCurrentWater() << "ml" <<std::endl << "Water level %: " << ((double)p->getCurrentWater()/p->getMaxWater())*100 << std::endl;
+    std::cout << p->getCurrentWater() << "ml (" << (p->getCurrentWater() * 100.0 / p->getMaxWater()) << "%)\n";
 }

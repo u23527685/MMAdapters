@@ -27,7 +27,7 @@
 #include "AskQuery.h"
 #include "InventoryProxy.h"
 
-// --- Pastel Color Palette (24-bit Truecolor ANSI) ---
+
 #define RESET        "\033[0m"
 #define PASTEL_PINK    "\033[38;2;255;182;193m"  // Light Pink
 #define PASTEL_PEACH   "\033[38;2;255;218;185m"  // Peach Puff
@@ -55,8 +55,16 @@
 #include <memory>
 #include <limits>
 
+CreditCardPaymentStrategy creditCard("1234-5678-9012-3456");
+EWalletPaymentStrategy ewallet("wallet123");
+EFTPaymentStrategy eft("9876543210");
 
-// Factory function returning unique_ptr
+double balance = 1000.0;
+
+std::vector<Transaction*> savedTransactions;
+
+
+
 std::unique_ptr<Plant> createSeedPlant(int option) {
     std::unique_ptr<Plant> p;
 
@@ -75,7 +83,7 @@ std::unique_ptr<Plant> createSeedPlant(int option) {
     return p;
 }
 
-// Helper: get human-readable role for a Staff pointer
+
 static std::string getStaffRole(Staff* s) {
     if (!s) return "Unknown";
     if (dynamic_cast<FloorEmployee*>(s)) return "Floor Employee";
@@ -85,7 +93,6 @@ static std::string getStaffRole(Staff* s) {
     return "Staff";
 }
 
-// Simulate a day for plants
 void simulateDay(std::vector<std::unique_ptr<Plant>>& growingPlants,
                 PlantInventory* inventory, std::vector<Staff*>& staff) {
     std::cout << "\n";
@@ -93,143 +100,306 @@ void simulateDay(std::vector<std::unique_ptr<Plant>>& growingPlants,
     std::cout << "📅   SIMULATING A NEW DAY IN THE NURSERY\n";
     std::cout << "╚══════════════════════════════════════════════════════╝\n\n";
 
+    int watered = 0, fertilized = 0, matured = 0, died = 0, neglected = 0;
 
-    int watered = 0, fertilized = 0, matured = 0, died = 0;
+    
+    size_t initialSize = growingPlants.size();
+    growingPlants.erase(std::remove_if(growingPlants.begin(), growingPlants.end(),
+        [&died](const auto& p) {
+            if (!p || !p->getState()) {
+                std::cout << PASTEL_GRAY << "💀 Removing invalid plant (Ptr: " << p.get() << ", State: " 
+                          << (p && p->getState() ? p->getState()->getName() : "null") << ")\n" << RESET;
+                died++;
+                return true;
+            }
+            return false;
+        }), growingPlants.end());
+    if (initialSize != growingPlants.size()) {
+        std::cout << PASTEL_YELLOW << "Debug: Removed " << (initialSize - growingPlants.size()) 
+                  << " invalid plants from growingPlants\n" << RESET;
+    }
 
-    // Debug: Print inventory state before simulation
-    std::cout << "🔍 INVENTORY BEFORE SIMULATION:\n";
-    auto inventoryItems = inventory->getInventoryView();
-    if (inventoryItems.empty()) {
-        std::cout << "Inventory is empty!\n";
-    } else {
-        for (const auto& item : inventoryItems) {
-            std::cout << item.first->getDescription() << " (Qty: " << item.second << ", Ptr: " << item.first << ")\n";
+    
+    std::vector<FloorEmployee*> floorEmployees;
+    const int MAX_TASKS_PER_EMPLOYEE = 10;
+    std::map<FloorEmployee*, int> tasksAssigned;
+    for (auto* s : staff) {
+        if (auto* fe = dynamic_cast<FloorEmployee*>(s)) {
+            floorEmployees.push_back(fe);
+            tasksAssigned[fe] = 0;
         }
     }
 
-    for (size_t i = 0; i < growingPlants.size(); ) {
-        Plant* plant = growingPlants[i].get();
-        if (!plant->getState()) {
-            std::cout << "Error: Plant " << plant->getName() << " has no state!\n";
-            growingPlants.erase(growingPlants.begin() + i);
+    if (floorEmployees.empty()) {
+        std::cout << PASTEL_SALMON << "⚠️ No Floor Employees available to care for plants! All plants will be neglected.\n" << RESET;
+    }
+
+    
+    std::vector<std::unique_ptr<Plant>*> distressedOrWithered;
+    std::vector<std::unique_ptr<Plant>*> otherPlants;
+    for (auto& plant : growingPlants) {
+        if (plant && plant->getState() && (plant->getState()->getName() == "Distressed" || plant->getState()->getName() == "Withered")) {
+            distressedOrWithered.push_back(&plant);
+        } else if (plant) {
+            otherPlants.push_back(&plant);
+        }
+    }
+
+    std::vector<std::unique_ptr<Plant>*> allPlants = distressedOrWithered;
+    allPlants.insert(allPlants.end(), otherPlants.begin(), otherPlants.end());
+
+    for (size_t i = 0; i < allPlants.size(); ) {
+        Plant* plant = allPlants[i] ? allPlants[i]->get() : nullptr;
+        if (!plant || !plant->getState()) {
+            std::cout << PASTEL_GRAY << "💀 Plant " << (plant ? plant->getName() : "Unknown") 
+                      << " has no state or is null and died!\n" << RESET;
+            if (plant) {
+                growingPlants.erase(std::find_if(growingPlants.begin(), growingPlants.end(),
+                    [&plant](const auto& p) { return p.get() == plant; }));
+            }
             died++;
+            ++i;
             continue;
         }
 
-        // Debug: Print plant being processed
-        std::cout << "Debug: Processing plant: " << plant->getDescription() << " (Ptr: " << plant << ")\n";
-
-        // Initialize PlantLifeCycle with a cloned copy of the plant's current state
-        PlantLifeCycle cycle(plant, std::unique_ptr<PlantState>(plant->getState()->clone()), plant->getName());
-
-        // Attach staff
-        for (auto* s : staff) {
-            if (auto* floor = dynamic_cast<FloorStaff*>(s)) {
-                cycle.attach(floor);
+        FloorEmployee* assignedEmployee = nullptr;
+        for (auto* fe : floorEmployees) {
+            if (tasksAssigned[fe] < MAX_TASKS_PER_EMPLOYEE) {
+                assignedEmployee = fe;
+                tasksAssigned[fe]++;
+                break;
             }
         }
+
+        if (!assignedEmployee) {
+            std::cout << PASTEL_YELLOW << "⚠️ No Floor Employee available for " << plant->getName()
+                      << " (" << plant->getState()->getName() << "). Plant neglected!\n" << RESET;
+            neglected++;
+            ++i;
+            continue;
+        }
+
+        PlantLifeCycle cycle(plant, std::unique_ptr<PlantState>(plant->getState()->clone()), plant->getName());
+        cycle.attach(assignedEmployee);
 
         auto routine = PlantCareRoutine::PlantCare(plant);
         if (!routine) {
-            std::cout << "Error: No care routine for " << plant->getName() << "\n";
-            growingPlants.erase(growingPlants.begin() + i);
+            std::cout << PASTEL_SALMON << "❌ No care routine for " << plant->getName() << "\n" << RESET;
+            growingPlants.erase(std::find_if(growingPlants.begin(), growingPlants.end(),
+                [&plant](const auto& p) { return p.get() == plant; }));
             died++;
+            ++i;
             continue;
         }
 
-        // Apply care, simulate time, and evaluate state
+        std::cout << PASTEL_GREEN << "📋 [" << assignedEmployee->getName() << "] noticed " << plant->getName()
+                  << " in " << plant->getState()->getName() << " state. Applying care: ";
         cycle.getStateObj()->applyCare(&cycle, plant, routine.get());
-        cycle.simulateTimePassing();
-        bool stateChanged = cycle.updatePlant(); // Evaluate state transitions
+        routine->printCareRoutine();
 
-        // Transfer the updated state to the plant
-        std::unique_ptr<PlantState> newState = cycle.releaseState();
-        if (!newState) {
-            std::cout << "Error: Plant " << plant->getName() << " state became null after update!\n";
-            growingPlants.erase(growingPlants.begin() + i);
-            died++;
-            continue;
-        }
-        plant->setState(std::move(newState));
-
-        // Check the plant's state after update
-        std::string stateName = plant->getState()->getName();
-        if (stateName == "Mature") {
-            // Find existing plant in inventory by description
-            auto& inventoryItems = inventory->getInventoryReference();
-            Plant* targetPlant = nullptr;
-            for (auto& item : inventoryItems) {
-                if (item.first->getDescription() == plant->getDescription()) {
-                    targetPlant = item.first;
-                    break;
-                }
-            }
-
-            if (targetPlant) {
-                // Increment the quantity of the existing plant in inventory
-                inventory->addStock(targetPlant, 1);
-                std::cout << "Debug: Incremented " << targetPlant->getDescription() << " to qty " << inventory->getQuantity(targetPlant) << "\n";
-            } else {
-                std::cout << "Warning: No matching plant found in inventory for " << plant->getDescription() << ". Adding new plant.\n";
-                // Create a new plant instance for the inventory
-                std::unique_ptr<Plant> newPlant;
-                if (plant->getDescription() == "Red Rose") {
-                    newPlant = std::make_unique<Rose>(10.0, "Red Rose");
-                    newPlant->setCategory("Sunny");
-                } else if (plant->getDescription() == "Yellow Rose") {
-                    newPlant = std::make_unique<Rose>(9.0, "Yellow Rose");
-                    newPlant->setCategory("Shade");
-                } else if (plant->getDescription() == "Oak Tree") {
-                    newPlant = std::make_unique<Oak>(7.0, "Oak Tree");
-                    newPlant->setCategory("Temperate");
-                }
-                if (newPlant) {
-                    newPlant->setState(std::make_unique<MatureState>());
-                    // Add to inventory and transfer ownership
-                    Plant* rawPlant = newPlant.release();
-                    inventory->addStock(rawPlant, 1);
-                }
-            }
-
-            growingPlants.erase(growingPlants.begin() + i);
-            matured++;
-            continue;
-        } else if (stateName == "Withered") {
-            growingPlants.erase(growingPlants.begin() + i);
-            died++;
-            continue;
-        }
-
+        
         watered++;
         fertilized++;
+
+        cycle.simulateTimePassing();
+        bool stateChanged = cycle.updatePlant();
+        std::unique_ptr<PlantState> newState = cycle.releaseState();
+        if (!newState) {
+            std::cout << PASTEL_SALMON << "❌ Plant " << plant->getName() << " state became null!\n" << RESET;
+            growingPlants.erase(std::find_if(growingPlants.begin(), growingPlants.end(),
+                [&plant](const auto& p) { return p.get() == plant; }));
+            died++;
+            ++i;
+            continue;
+        }
+        std::cout << PASTEL_GREEN << "Debug: Updating state for " << plant->getName() 
+                  << " to " << newState->getName() << "\n" << RESET;
+        plant->setState(std::move(newState));
+
+        std::string stateName = plant->getState()->getName();
+        if (stateName == "Mature") {
+            std::cout << PASTEL_GREEN << "🌸 Plant " << plant->getName() << " has matured. Moving to inventory.\n" << RESET;
+
+            
+            Plant* inventoryPlant = nullptr;
+            if (plant->getDescription() == "Red Rose") {
+                inventoryPlant = new Rose(10.0, "Red Rose");
+                inventoryPlant->setCategory("Sunny");
+                inventoryPlant->setState(std::make_unique<MatureState>());
+                std::cout << PASTEL_GREEN << "Debug: Created new Red Rose for inventory (Ptr: " << inventoryPlant << ")\n" << RESET;
+            } else if (plant->getDescription() == "Yellow Rose") {
+                inventoryPlant = new Rose(9.0, "Yellow Rose");
+                inventoryPlant->setCategory("Shade");
+                inventoryPlant->setState(std::make_unique<MatureState>());
+                std::cout << PASTEL_GREEN << "Debug: Created new Yellow Rose for inventory (Ptr: " << inventoryPlant << ")\n" << RESET;
+            } else if (plant->getDescription() == "Oak Tree") {
+                inventoryPlant = new Oak(7.0, "Oak Tree");
+                inventoryPlant->setCategory("Temperate");
+                inventoryPlant->setState(std::make_unique<MatureState>());
+                std::cout << PASTEL_GREEN << "Debug: Created new Oak Tree for inventory (Ptr: " << inventoryPlant << ")\n" << RESET;
+            }
+
+            if (inventoryPlant) {
+                std::cout << PASTEL_GREEN << "Debug: Adding " << inventoryPlant->getDescription() 
+                          << " to inventory (Ptr: " << inventoryPlant << ").\n" << RESET;
+                inventory->addStock(inventoryPlant, 1);
+            } else {
+                std::cout << PASTEL_SALMON << "❌ Failed to create new plant for inventory: " 
+                          << plant->getDescription() << "\n" << RESET;
+            }
+
+            growingPlants.erase(std::find_if(growingPlants.begin(), growingPlants.end(),
+                [&plant](const auto& p) { return p.get() == plant; }));
+            matured++;
+            ++i;
+            continue;
+        } else if (stateName == "Withered") {
+            std::cout << PASTEL_GRAY << "💀 Plant " << plant->getName() << " has withered and died!\n" << RESET;
+            growingPlants.erase(std::find_if(growingPlants.begin(), growingPlants.end(),
+                [&plant](const auto& p) { return p.get() == plant; }));
+            died++;
+            ++i;
+            continue;
+        }
+
         ++i;
     }
 
-//     // Debug: Print inventory state after simulation
-    std::cout << "\n📦 INVENTORY AFTER SIMULATION:\n";
-    inventoryItems = inventory->getInventoryView();
-    if (inventoryItems.empty()) {
-        std::cout << "Debug: Inventory is empty!\n";
-    } else {
-        for (const auto& item : inventoryItems) {
-            std::cout << "Debug: " << item.first->getDescription() << " (Qty: " << item.second << ", Ptr: " << item.first << ")\n";
+    int numCustomers = rand() % 5 + 1;
+    std::cout << "\n📈 " << numCustomers << " customers visited today.\n" << RESET;
+
+    Staff* chainStart = nullptr;
+    for (size_t i = 0; i < staff.size(); ++i) {
+        if (i == 0) chainStart = staff[i];
+        if (i < staff.size() - 1) {
+            staff[i]->setNext(staff[i + 1]);
+        } else {
+            staff[i]->setNext(nullptr);
         }
     }
 
+    for (int i = 0; i < numCustomers; ++i) {
+        Customer customer("Customer_" + std::to_string(i + 1));
+        int action = rand() % 2; 
+        if (action == 0) {
+            if (!chainStart) {
+                std::cout << PASTEL_SALMON << "❌ " << customer.getName() << " tried to ask a query, but no staff available.\n" << RESET;
+                continue;
+            }
 
-//     std::cout << "\n✅ Daily Summary:\n";
-    // Summary
-    std::cout <<"\n═══════════════════════════════════════════\n";
+            auto inventoryItems = inventory->getInventoryView();
+            if (inventoryItems.empty()) {
+                std::cout << PASTEL_SALMON << "❌ " << customer.getName() << " tried to ask a query, but no plants available.\n" << RESET;
+                continue;
+            }
+
+            Plant* randPlant = nullptr;
+            auto it = inventoryItems.begin();
+            std::advance(it, rand() % inventoryItems.size());
+            randPlant = it->first;
+
+            if (!randPlant) {
+                std::cout << PASTEL_SALMON << "❌ " << customer.getName() << " tried to ask a query, but no valid plant found.\n" << RESET;
+                continue;
+            }
+
+            int queryType = rand() % 2;
+            AskQuery queryBuilder;
+            Query* q = nullptr;
+            if (queryType == 0) {
+                q = queryBuilder.careRoutine(randPlant);
+                std::cout << PASTEL_AQUA << customer.getName() << " asking about care routine for " << randPlant->getDescription() << ".\n" << RESET;
+            } else {
+                q = queryBuilder.describe(randPlant);
+                std::cout << PASTEL_AQUA << customer.getName() << " asking for description of " << randPlant->getDescription() << ".\n" << RESET;
+            }
+
+            if (q) {
+                std::cout << PASTEL_GREEN << "Debug: Handling query for " << randPlant->getDescription() << " by " << chainStart->getName() << "\n" << RESET;
+                chainStart->handleQuery(q);
+                delete q;
+                q = nullptr;
+            } else {
+                std::cout << PASTEL_SALMON << "❌ Failed to create query for " << customer.getName() << ".\n" << RESET;
+            }
+        } else {
+            auto inventoryItems = inventory->getInventoryView();
+            if (inventoryItems.empty()) {
+                std::cout << PASTEL_SALMON << customer.getName() << " wanted to buy, but no plants available.\n" << RESET;
+                continue;
+            }
+            auto it = inventoryItems.begin();
+            std::advance(it, rand() % inventoryItems.size());
+            Plant* buyPlant = it->first;
+            if (!buyPlant) {
+                std::cout << PASTEL_SALMON << "❌ No valid plant selected for purchase by " << customer.getName() << ".\n" << RESET;
+                continue;
+            }
+            int buyQty = rand() % 3 + 1;
+            int available = inventory->getQuantity(buyPlant);
+            if (available < buyQty) {
+                std::cout << PASTEL_YELLOW << customer.getName() << " wanted " << buyQty << " " << buyPlant->getDescription()
+                          << ", but only " << available << " available.\n" << RESET;
+                buyQty = available;
+            }
+            if (buyQty == 0) continue;
+
+            std::cout << PASTEL_GREEN << "Debug: Processing purchase of " << buyQty << " " << buyPlant->getDescription() << " by " << customer.getName() << "\n" << RESET;
+
+            Plant* decorated = new BasePlant(buyPlant->getPrice(), buyPlant->getDescription());
+            int deco = rand() % 4;
+            if (deco == 0) decorated = new GiftWrap(decorated);
+            else if (deco == 1) decorated = new DecorativePot(decorated);
+            else if (deco == 2) decorated = new SpecialArrangement(decorated);
+
+            double totalPrice = decorated->getPrice() * buyQty;
+            Order order(&customer, "ORD-" + std::to_string(rand()));
+            Transaction* tx = new Transaction(order.getOrderId(), totalPrice, buyQty);
+            int payType = rand() % 3;
+            if (payType == 0) tx->setPaymentStrategy(&creditCard);
+            else if (payType == 1) tx->setPaymentStrategy(&ewallet);
+            else tx->setPaymentStrategy(&eft);
+            order.addTransaction(tx);
+            order.processOrder();
+
+            if (inventory->removeStock(buyPlant, buyQty)) {
+                balance += totalPrice;
+                savedTransactions.push_back(tx);
+                std::cout << PASTEL_GREEN << customer.getName() << " bought " << buyQty << " " << decorated->getDescription()
+                          << " for R" << std::fixed << std::setprecision(2) << totalPrice << ".\n" << RESET;
+            } else {
+                delete tx;
+                std::cout << PASTEL_SALMON << "❌ Purchase failed for " << customer.getName() << ": not enough stock.\n" << RESET;
+            }
+            delete decorated;
+        }
+    }
+
+    std::cout << "\n📦 INVENTORY AFTER SIMULATION:\n";
+    auto inventoryItems = inventory->getInventoryView();
+    if (inventoryItems.empty()) {
+        std::cout << PASTEL_GRAY << "Inventory is empty!\n" << RESET;
+    } else {
+        for (const auto& item : inventoryItems) {
+            if (item.first) {
+                std::cout << PASTEL_GREEN << item.first->getDescription() << " (Qty: " << item.second 
+                          << ", Ptr: " << item.first << ")\n" << RESET;
+            } else {
+                std::cout << PASTEL_SALMON << "⚠️ Invalid plant pointer in inventory!\n" << RESET;
+            }
+        }
+    }
+
+    std::cout << "\n═══════════════════════════════════════════\n";
     std::cout << "✅ DAILY SUMMARY\n";
-    std::cout<<  "═══════════════════════════════════════════\n";
-    std::cout << PASTEL_AQUA      << "💧 Watered:       " << watered    << "\n" << RESET;
-    std::cout << PASTEL_MINT      << "🌿 Fertilized:    " << fertilized << "\n" << RESET;
-    std::cout << PASTEL_PINK      << "🌸 Matured:       " << matured    << "\n" << RESET;
-    std::cout << PASTEL_GRAY      << "💀 Withered:      " << died       << "\n" << RESET;
-
     std::cout << "═══════════════════════════════════════════\n";
-    std::cout << "🌱 End of day processing complete.\n\n";
-   
+    std::cout << PASTEL_AQUA << "💧 Watered:       " << watered << "\n" << RESET;
+    std::cout << PASTEL_MINT << "🌿 Fertilized:    " << fertilized << "\n" << RESET;
+    std::cout << PASTEL_PINK << "🌸 Matured:       " << matured << "\n" << RESET;
+    std::cout << PASTEL_GRAY << "💀 Died:          " << died << "\n" << RESET;
+    std::cout << PASTEL_YELLOW << "⚠️ Neglected:     " << neglected << "\n" << RESET;
+    std::cout << "═══════════════════════════════════════════\n";
+    std::cout << PASTEL_GREEN << "🌱 End of day processing complete.\n\n" << RESET;
 }
 
 
@@ -279,7 +449,7 @@ void runTutorial(std::vector<std::unique_ptr<Plant>>& growingPlants, PlantInvent
         std::cout << "Skipping the tutorial! Happy planting! 🌿\n";
         return;
     }
-    auto seed = createSeedPlant(1); // Red Rose seed
+    auto seed = createSeedPlant(1); 
     growingPlants.push_back(std::move(seed));
     if (balance >= 3.0) {
         balance -= 3.0;
@@ -303,7 +473,7 @@ void runTutorial(std::vector<std::unique_ptr<Plant>>& growingPlants, PlantInvent
         matureRose->setState(std::make_unique<MatureState>());
         Plant* rawRose = matureRose.release();
         inventory->addStock(rawRose, 1);
-        growingPlants.clear(); // Clear growing plants to simulate maturity
+        growingPlants.clear(); 
         std::cout << "🌟 Wow! Your Red Rose matured in record time and is now available for sale!\n";
     } else {
         auto matureRose = std::make_unique<Rose>(10.0, "Red Rose");
@@ -386,8 +556,8 @@ void runTutorial(std::vector<std::unique_ptr<Plant>>& growingPlants, PlantInvent
         Customer customer("Tutorial Customer");
         Plant* decorated = new BasePlant(selectedPlant->getPrice(), selectedPlant->getDescription());
         decorated = new GiftWrap(decorated);
-        double total = decorated->getPrice() * 1; // 1 Red Rose with Gift Wrap
-        if (inventory->removeStock(selectedPlant, 1)) { // Check if removal succeeds
+        double total = decorated->getPrice() * 1; 
+        if (inventory->removeStock(selectedPlant, 1)) { 
             Order order(&customer, "ORD-TUTORIAL");
             Transaction* tx = new Transaction(order.getOrderId(), total, 1);
             tx->setPaymentStrategy(&creditCard);
@@ -445,29 +615,27 @@ std::cout << PASTEL_MINT << "=============================================\n" <<
         std::cout << "Invalid input. Please enter 'y' or 'n': ";
     }
 
-    // Core systems
+    
     PlantInventory* inventory = PlantInventory::getInstance();
     std::unique_ptr<SalesFloorObserver> salesFloor = std::make_unique<SalesFloorObserver>(inventory);
 
-    // Payment strategies
-    CreditCardPaymentStrategy creditCard("1234-5678-9012-3456");
-    EWalletPaymentStrategy ewallet("wallet123");
-    EFTPaymentStrategy eft("9876543210");
+    
+   
 
-    // Proxy
+    
     InventoryProxy proxy(salesFloor.get());
 
-    // Initialize inventory with plants
+    
     auto redRose = std::make_unique<Rose>(10.0, "Red Rose");
     auto yellowRose = std::make_unique<Rose>(9.0, "Yellow Rose");
     auto oakTree = std::make_unique<Oak>(7.0, "Oak Tree");
 
-    // Store plants in inventory (use raw pointers, ownership remains with unique_ptr)
+    
     inventory->addStock(redRose.get(), 0);
     inventory->addStock(yellowRose.get(), 0);
     inventory->addStock(oakTree.get(), 0);
 
-    // Debug: Verify initial inventory
+    
     std::cout << "Debug: Initial inventory state:\n";
     auto inventoryItems = inventory->getInventoryView();
     if (inventoryItems.empty()) {
@@ -478,25 +646,24 @@ std::cout << PASTEL_MINT << "=============================================\n" <<
         }
     }
 
-    // Map plant descriptions to menu options for user input
+    
     std::map<std::string, int> plantMenuOptions = {
         {"Red Rose", 1},
         {"Yellow Rose", 2},
         {"Oak Tree", 3}
     };
 
-    // Memento / transactions
-    std::vector<Transaction*> savedTransactions;
     
-    // Track last purchase for memento repurchase
+    
+
+
     Plant* lastPurchasedPlant = nullptr;
     int lastPurchasedQuantity = 0;
 
-    // Staff and growing plants
+   
     std::vector<Staff*> hiredStaff;
     std::vector<std::unique_ptr<Plant>> growingPlants;
 
-    double balance = 1000.0;
     if (tutorialChoice == 'y' || tutorialChoice == 'Y') {
         runTutorial(growingPlants, inventory, hiredStaff, savedTransactions, plantMenuOptions, balance,
                     creditCard, ewallet, eft);
@@ -533,7 +700,7 @@ std::cout << "\n"
 
         if (roleChoice >= 4) break;
 
-        // --- Staff Menu ---
+        
         if (roleChoice == 1) {
             bool staffRunning = true;
             while (staffRunning) {
@@ -566,7 +733,7 @@ std::cout << "\n"
                 }
                 if (sChoice >= 6) break;
 
-                // Hire Staff
+                
                 if (sChoice == 1) {
                     std::cout << "\nCurrent Balance: R" << std::fixed << std::setprecision(2) << balance;
                     std::cout << "\nChoose staff type:\n1. Floor Employee (R200)\n2. Floor Manager (R400)\n3. Sales Employee (R300)\n4. Sales Manager (R500)\n5. Back to staff menu\nEnter number: ";
@@ -604,7 +771,7 @@ std::cout << "\n"
                     }
                 }
 
-                // View Staff
+                
                 else if (sChoice == 2) {
                     std::cout << "\n--- Hired Staff ---\n";
                     if (hiredStaff.empty()) std::cout << "None yet.\n";
@@ -615,7 +782,7 @@ std::cout << "\n"
                     }
                 }
 
-                // Buy seeds
+                
                 else if (sChoice == 3) {
                     while (true) {
                         std::cout << "\nAvailable seeds to buy:\n1. Red rose seed (R3.00)\n2. Yellow rose seed (R2.50)\n3. Oak tree seed (R1.50)\n4. Return to staff menu\n";
@@ -631,10 +798,10 @@ std::cout << "\n"
                             break;
                         }
 
-                        // Exit the loop if the user chooses 4
+                        
                         if (type == 4) {
                             std::cout << "Returning to staff menu.\n";
-                            break; // Exit the seed selection loop
+                            break; 
                         }
 
                         std::cout << "\nEnter quantity to buy: ";
@@ -654,7 +821,7 @@ std::cout << "\n"
                         double totalCost = costPerSeed * qty;
                         if (balance < totalCost) {
                             std::cout << "❌ Not enough balance.\n";
-                            continue; // Restart the loop to re-show seed options
+                            continue; 
                         }
 
                         for (int i = 0; i < qty; ++i) {
@@ -667,11 +834,10 @@ std::cout << "\n"
                     }
                 }
 
-                // View Nursery Inventory
+                
 
                 else if (sChoice == 4) {
                     std::cout << PASTEL_CYAN << "\n🌿 --- Growing Nursery --- 🌿\n" << RESET;
-
                     if (growingPlants.empty()) {
                         std::cout << PASTEL_PINK << "No plants currently growing.\n" << RESET;
                     } else {
@@ -681,7 +847,6 @@ std::cout << "\n"
                                 std::cout << " | State: " << PASTEL_PURPLE << p->getState()->getName() << RESET;
                             else
                                 std::cout << " | State: " << PASTEL_YELLOW << "None" << RESET;
-
                             std::cout << " | Category: " << PASTEL_ORANGE << p->getCategory() << RESET
                                     << " | Water: " << PASTEL_BLUE << p->getCurrentWater() << "/" << p->getMaxWater() << RESET
                                     << " | Sunlight: " << PASTEL_YELLOW << p->getCurrentSunlight() << "/" << p->getMaxSunlight() << RESET
@@ -691,24 +856,33 @@ std::cout << "\n"
                     }
 
                     std::cout << PASTEL_CYAN << "\n🌸 --- Plants Available for Sale --- 🌸\n" << RESET;
-
                     auto inventoryItems = inventory->getInventoryView();
                     if (inventoryItems.empty()) {
                         std::cout << PASTEL_PINK << "No plants available for sale.\n" << RESET;
                     } else {
+                        std::map<std::string, std::pair<Plant*, int>> consolidatedItems;
                         for (const auto& item : inventoryItems) {
-                            auto it = plantMenuOptions.find(item.first->getDescription());
+                            if (!item.first || item.second <= 0) continue;
+                            std::string desc = item.first->getDescription();
+                            if (consolidatedItems.find(desc) == consolidatedItems.end()) {
+                                consolidatedItems[desc] = {item.first, item.second};
+                            } else {
+                                consolidatedItems[desc].second += item.second;
+                            }
+                        }
+                        for (const auto& item : consolidatedItems) {
+                            auto it = plantMenuOptions.find(item.first);
                             if (it != plantMenuOptions.end()) {
-                                std::cout << PASTEL_GREEN << it->second << ". " << item.first->getDescription() << RESET
+                                std::cout << PASTEL_GREEN << it->second << ". " << item.first << RESET
                                         << " - R" << PASTEL_YELLOW << std::fixed << std::setprecision(2)
-                                        << item.first->getPrice() << RESET
-                                        << " (Qty: " << PASTEL_PURPLE << item.second << RESET << ")\n";
+                                        << item.second.first->getPrice() << RESET
+                                        << " (Qty: " << PASTEL_PURPLE << item.second.second << RESET << ")\n";
                             }
                         }
                     }
                 }
 
-                // View Staff Communications (Observer Pattern Demo)
+                
                 else if (sChoice == 5) {
                     std::cout << PASTEL_BLUE << "\n📢 Staff Notifications\n" << RESET;
                     std::cout << "Staff are automatically informed of new plants entering and leaving your nursery.\n\n";
@@ -758,7 +932,7 @@ std::cout << "\n"
             }
         }
 
-        // --- Customer Menu ---
+        
         else if (roleChoice == 2) {
             Customer customer("Walk-in Customer");
             bool custRunning = true;
@@ -813,7 +987,7 @@ std::cout << "\n"
                 }
 
                 else if (cChoice == 2) {
-                    // Show available plant options first so customer can see numbers
+                    
                     std::cout << "\nSelect plant to buy (0 to cancel):\n";
                     auto invViewForMenu = inventory->getInventoryView();
                     if (invViewForMenu.empty()) {
@@ -849,7 +1023,7 @@ std::cout << "\n"
                     }
                     if (choice == 0) continue;
 
-                    // Find the plant corresponding to the user's choice
+                    
                     Plant* selectedPlant = nullptr;
                     auto inventoryItems = inventory->getInventoryView();
                     for (const auto& item : inventoryItems) {
@@ -885,7 +1059,7 @@ std::cout << "\n"
                         break;
                     }
 
-                    // Decorate plant
+                    
                     Plant* decorated = new BasePlant(selectedPlant->getPrice(), selectedPlant->getDescription());
                     bool addingDecor = true;
                     while (addingDecor) {
@@ -914,10 +1088,10 @@ std::cout << "\n"
                         }
                     }
 
-                    // If no decorations added
+                    
               
                    
-                    // Payment
+                    
                     std::cout << "\nSelect payment method:\n1. Credit Card\n2. E-Wallet\n3. EFT\nChoose: ";
                     int pay;
                     while (true) {
@@ -944,11 +1118,11 @@ std::cout << "\n"
                         order.processOrder();
                         balance += total;
                         savedTransactions.push_back(tx);
+                         
                         
-                        // Track last purchase for memento repurchase
                         lastPurchasedPlant = selectedPlant;
                         lastPurchasedQuantity = qty;
-                        
+
                         std::cout << "\nPurchased " << qty << " " << decorated->getDescription() << " for R" << total << "\n";
                     } else {
                         delete tx;
@@ -957,7 +1131,7 @@ std::cout << "\n"
 
                     inventory->removeStock(selectedPlant, 0);
 
-                    // Print a neat receipt
+                    
                     std::cout << "\n=========================================\n";
                     std::cout << "             🧾 PURCHASE RECEIPT\n";
                     std::cout << "=========================================\n";
@@ -981,18 +1155,18 @@ std::cout << "\n"
 
 
                 else if (cChoice == 3) {
-                    if (savedTransactions.empty()) {
-                        std::cout << "\nNo previous orders found!\n";
-                        continue;
-                    }
-                    
-                    // Check if we have the plant information from the last purchase
+                if (savedTransactions.empty()) {
+                    std::cout << "\nNo previous orders found!\n";
+                    continue;
+                }
+
+                
                     if (!lastPurchasedPlant) {
                         std::cout << "\n❌ Cannot repurchase: No plant information from last order.\n";
                         continue;
                     }
                     
-                    // Check if the plant is still in stock
+                    
                     int availableQty = inventory->getQuantity(lastPurchasedPlant);
                     if (availableQty < lastPurchasedQuantity) {
                         std::cout << "\n❌ Cannot repurchase: Not enough stock!\n";
@@ -1001,40 +1175,40 @@ std::cout << "\n"
                         continue;
                     }
 
-                    // Retrieve last saved transaction (Memento)
-                    Transaction* last = savedTransactions.back()->clone();
-                    std::cout << "\n🔁 Re-purchasing last order...\n";
+                
+                Transaction* last = savedTransactions.back()->clone();
+                std::cout << "\n🔁 Re-purchasing last order...\n";
 
-                    // Remove stock from inventory
+                
                     if (proxy.buyPlant(lastPurchasedPlant, lastPurchasedQuantity)) {
-                        // Execute purchase using the state from Memento
-                        Customer customer("Walk-in Customer");
-                        Order order(&customer, "ORD-" + std::to_string(rand()));
+                
+                Customer customer("Walk-in Customer");
+                Order order(&customer, "ORD-" + std::to_string(rand()));
 
-                        order.addTransaction(last);
-                        order.processOrder();
-                        savedTransactions.push_back(last);
-                        balance += last->getAmount();
+                order.addTransaction(last);
+                order.processOrder();
+                savedTransactions.push_back(last);
+                balance += last->getAmount();
 
-                        std::cout << "\n✅ Repurchased " << lastPurchasedQuantity << " " 
+                std::cout << "\n✅ Repurchased " << lastPurchasedQuantity << " " 
                                   << lastPurchasedPlant->getDescription() << " successfully!\n";
-                        
-                        // REPURCHASE RECEIPT
-                        std::cout << "\n=========================================\n";
-                        std::cout << "           🧾 REPURCHASE RECEIPT\n";
-                        std::cout << "=========================================\n";
-                        std::cout << "Order ID: " << order.getOrderId() << "\n";
-                        std::cout << "Customer: " << customer.getName() << "\n";
-                        std::cout << "Item: " << lastPurchasedPlant->getDescription() << "\n";
-                        std::cout << "Quantity: " << lastPurchasedQuantity << "\n";
-                        std::cout << "Payment Method: " << last->getPaymentMethod() << "\n";
-                        std::cout << "-----------------------------------------\n";
-                        std::cout << std::fixed << std::setprecision(2)
+
+                
+                std::cout << "\n=========================================\n";
+                std::cout << "           🧾 REPURCHASE RECEIPT\n";
+                std::cout << "=========================================\n";
+                std::cout << "Order ID: " << order.getOrderId() << "\n";
+                std::cout << "Customer: " << customer.getName() << "\n";
+                std::cout << "Item: " << lastPurchasedPlant->getDescription() << "\n";
+                std::cout << "Quantity: " << lastPurchasedQuantity << "\n";
+                std::cout << "Payment Method: " << last->getPaymentMethod() << "\n";
+                std::cout << "-----------------------------------------\n";
+                std::cout << std::fixed << std::setprecision(2)
                                   << "Total: R" << last->getAmount() << "\n";
-                        std::cout << "=========================================\n";
-                        std::cout << "     🌸 Thank you for shopping again! 🌸\n";
-                        std::cout << "=========================================\n";
-                    } else {
+                std::cout << "=========================================\n";
+                std::cout << "     🌸 Thank you for shopping again! 🌸\n";
+                std::cout << "=========================================\n";
+                } else {
                         delete last;
                         std::cout << "\n❌ Repurchase failed: Could not remove stock from inventory.\n";
                         continue;
@@ -1141,7 +1315,7 @@ std::cout << "\n"
                     continue;
             }
 
-            // Check if any staff can handle the query
+            
             bool canHandle = false;
             for (auto* staff : hiredStaff) {
                 if (dynamic_cast<FloorEmployee*>(staff) && (queryType == "INFO" || queryType == "CARE ROUTINE")) {
@@ -1164,7 +1338,7 @@ std::cout << "\n"
                 continue;
             }
 
-            // Set up chain of responsibility
+            
             for (size_t i = 0; i < hiredStaff.size(); ++i) {
                 if (i < hiredStaff.size() - 1) {
                     hiredStaff[i]->setNext(hiredStaff[i + 1]);
@@ -1173,7 +1347,7 @@ std::cout << "\n"
                 }
             }
 
-            // Handle query with the first staff in the chain
+            
             if (!hiredStaff.empty()) {
                 std::cout << "\n--- Processing Query ---\n";
                 hiredStaff[0]->handleQuery(query);
@@ -1186,14 +1360,14 @@ std::cout << "\n"
             }
         }
 
-        // --- Simulate Day ---
+        
         else if (roleChoice == 3) {
             std::cout << "\n--- Simulating a Day at Plantopia ---\n";
             simulateDay(growingPlants, inventory, hiredStaff);
         }
     }
 
-    // Cleanup
+    
     for (auto s : hiredStaff) delete s;
     for (auto tx : savedTransactions) delete tx;
 
