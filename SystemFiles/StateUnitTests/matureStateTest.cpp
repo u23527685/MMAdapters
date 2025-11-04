@@ -2,7 +2,7 @@
 #include "doctest.h"
 
 #include "../Plant.h"
-#include "../PlantLifeCycle.h"
+#include "../PLantLifeCycle.h"
 #include "../PlantCareRoutine.h"
 
 #include "../SeedState.h"

@@ -1,104 +1,94 @@
-#include <gtest/gtest.h>
-#include "Transaction.h"
-#include "TransactionHistory.h"
-#include "Customer.h"
-#include "Order.h"
-#include "PaymentStrategy.h"
-#include "CreditCardPaymentStrategy.h"
-#include "EFTPaymentStrategy.h"
-#include "EWalletPaymentStrategy.h"
+// Converted from gtest to doctest for inclusion in TestingMain.cpp
+
+#include "../Transaction.h"
+#include "../TransactionHistory.h"
+#include "../Customer.h"
+#include "../Order.h"
+#include "../PaymentStrategy.h"
+#include "../CreditCardPaymentStrategy.h"
+#include "../EFTPaymentStrategy.h"
+#include "../EWalletPaymentStrategy.h"
 #include <string>
 
-class TransactionMementoTest : public ::testing::Test {
-protected:
-    void SetUp() override {
-        // Setup code if needed
-    }
-
-    void TearDown() override {
-        // Cleanup code if needed
-    }
-};
-
 // Customer Tests
-TEST_F(TransactionMementoTest, CustomerDefaultConstructor) {
+TEST_CASE("Memento: Customer Default Constructor") {
     Customer customer;
-    EXPECT_EQ(customer.getName(), "Unknown");
+    CHECK(customer.getName() == "Unknown");
 }
 
-TEST_F(TransactionMementoTest, CustomerParameterizedConstructor) {
+TEST_CASE("Memento: Customer Parameterized Constructor") {
     Customer customer("TestUser");
-    EXPECT_EQ(customer.getName(), "TestUser");
+    CHECK(customer.getName() == "TestUser");
 }
 
-TEST_F(TransactionMementoTest, CustomerSetName) {
+TEST_CASE("Memento: Customer Set Name") {
     Customer customer("DefaultUser");
-    EXPECT_EQ(customer.getName(), "DefaultUser");
+    CHECK(customer.getName() == "DefaultUser");
     
     customer.setName("Jerusha");
-    EXPECT_EQ(customer.getName(), "Jerusha");
+    CHECK(customer.getName() == "Jerusha");
 }
 
-TEST_F(TransactionMementoTest, CustomerEmptyNameHandling) {
+TEST_CASE("Memento: Customer Empty Name Handling") {
     Customer customer("");
     customer.setName("Jerusha");
-    EXPECT_EQ(customer.getName(), "Jerusha");
+    CHECK(customer.getName() == "Jerusha");
 }
 
 // Payment Strategy Tests
-TEST_F(TransactionMementoTest, CreditCardPaymentStrategy) {
+TEST_CASE("Memento: Credit Card Payment Strategy") {
     CreditCardPaymentStrategy credit("1111-2222-3333-4444");
     Transaction t1("ORD001", 200.0, 2);
     t1.setPaymentStrategy(&credit);
     
     // Verify payment processing works (no exception)
-    EXPECT_NO_THROW(t1.processPayment());
+    CHECK_NOTHROW(t1.processPayment());
 }
 
-TEST_F(TransactionMementoTest, EFTPaymentStrategy) {
+TEST_CASE("Memento: EFT Payment Strategy") {
     EFTPaymentStrategy eft("ACC-987654321");
     Transaction t2("ORD002", 150.5, 1);
     t2.setPaymentStrategy(&eft);
     
-    EXPECT_NO_THROW(t2.processPayment());
+    CHECK_NOTHROW(t2.processPayment());
 }
 
-TEST_F(TransactionMementoTest, EWalletPaymentStrategy) {
+TEST_CASE("Memento: EWallet Payment Strategy") {
     EWalletPaymentStrategy wallet("WALLET-ABC123");
     Transaction t3("ORD003", 300.75, 3);
     t3.setPaymentStrategy(&wallet);
     
-    EXPECT_NO_THROW(t3.processPayment());
+    CHECK_NOTHROW(t3.processPayment());
 }
 
 // Transaction Tests
-TEST_F(TransactionMementoTest, TransactionCreation) {
+TEST_CASE("Memento: Transaction Creation") {
     Transaction t1("ORD001", 200.0, 2);
     
     // Verify transaction was created (test by using it)
-    EXPECT_NO_THROW(t1.getDetails());
+    CHECK_NOTHROW(t1.getDetails());
 }
 
-TEST_F(TransactionMementoTest, TransactionModification) {
+TEST_CASE("Memento: Transaction Modification") {
     Transaction t1("ORD001", 200.0, 2);
     
     // Modify transaction
     t1.setTransaction("ORD001_MOD", 500.0, 1);
     
-    EXPECT_NO_THROW(t1.getDetails());
+    CHECK_NOTHROW(t1.getDetails());
 }
 
 // Memento Pattern Tests
-TEST_F(TransactionMementoTest, CreateSnapshot) {
+TEST_CASE("Memento: Create Snapshot") {
     Transaction t1("ORD001", 200.0, 2);
     
     TransactionSnapshot snap = t1.createSnapshot();
     
     // Snapshot should be created successfully
-    EXPECT_NO_THROW(t1.createSnapshot());
+    CHECK_NOTHROW(t1.createSnapshot());
 }
 
-TEST_F(TransactionMementoTest, RestoreSnapshot) {
+TEST_CASE("Memento: Restore Snapshot") {
     Transaction t1("ORD001", 200.0, 2);
     CreditCardPaymentStrategy credit("1111-2222-3333-4444");
     t1.setPaymentStrategy(&credit);
@@ -113,10 +103,10 @@ TEST_F(TransactionMementoTest, RestoreSnapshot) {
     t1.restoreSnapshot(snap);
     
     // Verify restoration worked (should not throw)
-    EXPECT_NO_THROW(t1.getDetails());
+    CHECK_NOTHROW(t1.getDetails());
 }
 
-TEST_F(TransactionMementoTest, TransactionHistoryAddSnapshot) {
+TEST_CASE("Memento: Transaction History Add Snapshot") {
     TransactionHistory history;
     
     Transaction t1("ORD001", 200.0, 2);
@@ -136,12 +126,12 @@ TEST_F(TransactionMementoTest, TransactionHistoryAddSnapshot) {
     history.addSnapshot(t3.createSnapshot());
     
     // Verify snapshots were added (test by retrieving)
-    EXPECT_NO_THROW(history.getSnapshot(0));
-    EXPECT_NO_THROW(history.getSnapshot(1));
-    EXPECT_NO_THROW(history.getSnapshot(2));
+    CHECK_NOTHROW(history.getSnapshot(0));
+    CHECK_NOTHROW(history.getSnapshot(1));
+    CHECK_NOTHROW(history.getSnapshot(2));
 }
 
-TEST_F(TransactionMementoTest, TransactionHistoryRetrieveSnapshot) {
+TEST_CASE("Memento: Transaction History Retrieve Snapshot") {
     TransactionHistory history;
     
     Transaction t1("ORD001", 200.0, 2);
@@ -157,24 +147,24 @@ TEST_F(TransactionMementoTest, TransactionHistoryRetrieveSnapshot) {
     TransactionSnapshot snap = history.getSnapshot(0);
     t1.restoreSnapshot(snap);
     
-    EXPECT_NO_THROW(t1.getDetails());
+    CHECK_NOTHROW(t1.getDetails());
 }
 
 // Prototype Pattern Tests
-TEST_F(TransactionMementoTest, TransactionClone) {
+TEST_CASE("Memento: Transaction Clone") {
     Transaction t2("ORD002", 150.5, 1);
     EFTPaymentStrategy eft("ACC-987654321");
     t2.setPaymentStrategy(&eft);
     
     Transaction* tClone = t2.clone();
     
-    ASSERT_NE(tClone, nullptr);
-    EXPECT_NO_THROW(tClone->getDetails());
+    REQUIRE(tClone != nullptr);
+    CHECK_NOTHROW(tClone->getDetails());
     
     delete tClone;
 }
 
-TEST_F(TransactionMementoTest, ClonedTransactionIndependence) {
+TEST_CASE("Memento: Cloned Transaction Independence") {
     Transaction t2("ORD002", 150.5, 1);
     EFTPaymentStrategy eft("ACC-987654321");
     t2.setPaymentStrategy(&eft);
@@ -185,21 +175,21 @@ TEST_F(TransactionMementoTest, ClonedTransactionIndependence) {
     t2.setTransaction("ORD002_MOD", 999.0, 5);
     
     // Clone should still work independently
-    EXPECT_NO_THROW(tClone->getDetails());
-    EXPECT_NO_THROW(t2.getDetails());
+    CHECK_NOTHROW(tClone->getDetails());
+    CHECK_NOTHROW(t2.getDetails());
     
     delete tClone;
 }
 
 // Order Tests
-TEST_F(TransactionMementoTest, OrderCreation) {
+TEST_CASE("Memento: Order Creation") {
     Customer customer("TestUser");
     Order order(&customer, "ORDER-1001");
     
-    EXPECT_NO_THROW(order.displayOrderDetails());
+    CHECK_NOTHROW(order.displayOrderDetails());
 }
 
-TEST_F(TransactionMementoTest, OrderAddTransaction) {
+TEST_CASE("Memento: Order Add Transaction") {
     Customer customer("TestUser");
     Order order(&customer, "ORDER-1001");
     
@@ -209,10 +199,10 @@ TEST_F(TransactionMementoTest, OrderAddTransaction) {
     
     order.addTransaction(&t1);
     
-    EXPECT_NO_THROW(order.displayOrderDetails());
+    CHECK_NOTHROW(order.displayOrderDetails());
 }
 
-TEST_F(TransactionMementoTest, OrderMultipleTransactions) {
+TEST_CASE("Memento: Order Multiple Transactions") {
     Customer customer("TestUser");
     Order order(&customer, "ORDER-1001");
     
@@ -232,10 +222,10 @@ TEST_F(TransactionMementoTest, OrderMultipleTransactions) {
     order.addTransaction(&t2);
     order.addTransaction(&t3);
     
-    EXPECT_NO_THROW(order.displayOrderDetails());
+    CHECK_NOTHROW(order.displayOrderDetails());
 }
 
-TEST_F(TransactionMementoTest, OrderProcessing) {
+TEST_CASE("Memento: Order Processing") {
     Customer customer("TestUser");
     Order order(&customer, "ORDER-1001");
     
@@ -255,10 +245,10 @@ TEST_F(TransactionMementoTest, OrderProcessing) {
     order.addTransaction(&t2);
     order.addTransaction(&t3);
     
-    EXPECT_NO_THROW(order.processOrder());
+    CHECK_NOTHROW(order.processOrder());
 }
 
-TEST_F(TransactionMementoTest, ProcessPayments) {
+TEST_CASE("Memento: Process Payments") {
     Transaction t1("ORD001", 200.0, 2);
     Transaction t2("ORD002", 150.5, 1);
     Transaction t3("ORD003", 300.75, 3);
@@ -271,13 +261,13 @@ TEST_F(TransactionMementoTest, ProcessPayments) {
     t2.setPaymentStrategy(&eft);
     t3.setPaymentStrategy(&wallet);
     
-    EXPECT_NO_THROW(t1.processPayment());
-    EXPECT_NO_THROW(t2.processPayment());
-    EXPECT_NO_THROW(t3.processPayment());
+    CHECK_NOTHROW(t1.processPayment());
+    CHECK_NOTHROW(t2.processPayment());
+    CHECK_NOTHROW(t3.processPayment());
 }
 
 // Customer Order Management Tests
-TEST_F(TransactionMementoTest, CustomerPlaceOrder) {
+TEST_CASE("Memento: Customer Place Order") {
     Customer customer("TestUser");
     Order order(&customer, "ORDER-1001");
     
@@ -287,10 +277,10 @@ TEST_F(TransactionMementoTest, CustomerPlaceOrder) {
     
     order.addTransaction(&t1);
     
-    EXPECT_NO_THROW(customer.placeOrder(order));
+    CHECK_NOTHROW(customer.placeOrder(order));
 }
 
-TEST_F(TransactionMementoTest, CustomerViewOrders) {
+TEST_CASE("Memento: Customer View Orders") {
     Customer customer("TestUser");
     Order order(&customer, "ORDER-1001");
     
@@ -301,15 +291,15 @@ TEST_F(TransactionMementoTest, CustomerViewOrders) {
     order.addTransaction(&t1);
     customer.placeOrder(order);
     
-    EXPECT_NO_THROW(customer.viewOrders());
+    CHECK_NOTHROW(customer.viewOrders());
 }
 
 // Integration Test - Full Workflow
-TEST_F(TransactionMementoTest, FullWorkflowIntegration) {
+TEST_CASE("Memento: Full Workflow Integration") {
     // Create customer
     Customer customer("TestUser");
     customer.setName("Jerusha");
-    EXPECT_EQ(customer.getName(), "Jerusha");
+    CHECK(customer.getName() == "Jerusha");
     
     // Create transaction history
     TransactionHistory history;
@@ -340,12 +330,12 @@ TEST_F(TransactionMementoTest, FullWorkflowIntegration) {
     
     // Clone transaction
     Transaction* tClone = t2.clone();
-    ASSERT_NE(tClone, nullptr);
+    REQUIRE(tClone != nullptr);
     
     // Process payments
-    EXPECT_NO_THROW(t1.processPayment());
-    EXPECT_NO_THROW(t2.processPayment());
-    EXPECT_NO_THROW(t3.processPayment());
+    CHECK_NOTHROW(t1.processPayment());
+    CHECK_NOTHROW(t2.processPayment());
+    CHECK_NOTHROW(t3.processPayment());
     
     // Create and process order
     Order order(&customer, "ORDER-1001");
@@ -353,24 +343,19 @@ TEST_F(TransactionMementoTest, FullWorkflowIntegration) {
     order.addTransaction(&t2);
     order.addTransaction(&t3);
     
-    EXPECT_NO_THROW(order.processOrder());
-    EXPECT_NO_THROW(order.displayOrderDetails());
+    CHECK_NOTHROW(order.processOrder());
+    CHECK_NOTHROW(order.displayOrderDetails());
     
     // Customer places order and views
-    EXPECT_NO_THROW(customer.placeOrder(order));
-    EXPECT_NO_THROW(customer.viewOrders());
+    CHECK_NOTHROW(customer.placeOrder(order));
+    CHECK_NOTHROW(customer.viewOrders());
     
     // Cleanup
     delete tClone;
 }
 
-TEST_F(TransactionMementoTest, TemporaryCustomer) {
+TEST_CASE("Memento: Temporary Customer") {
     Customer tempCustomer;
     tempCustomer.setName("Jerusha");
-    EXPECT_EQ(tempCustomer.getName(), "Jerusha");
-}
-
-int main(int argc, char **argv) {
-    ::testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
+    CHECK(tempCustomer.getName() == "Jerusha");
 }
