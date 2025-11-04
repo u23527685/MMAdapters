@@ -7,8 +7,6 @@
  *
  * @see Plant
  *
- * @author
- * Mthokozisi Duba
  */
 #ifndef ROSE_H
 #define ROSE_H

@@ -5,8 +5,6 @@
  * The ManagerFactory is responsible for instantiating FloorManager and
  * SalesManager objects using the StaffFactory interface.
  *
- * @author 
- * Okaile Gaesale
  */
 #ifndef MANAGERFACTORY_H
 #define MANAGERFACTORY_H

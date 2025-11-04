@@ -1,6 +1,5 @@
 /**
  * @file WitheredState.h
- * @author Rachel
  * @brief Declares the WitheredState class representing a plant’s final life stage.
  */
 #ifndef WITHEREDSTATE_H

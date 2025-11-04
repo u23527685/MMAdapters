@@ -5,8 +5,6 @@
  * Implements the PaymentStrategy interface for processing e-wallet payments
  * through a stored wallet ID (e.g., PayPal, SnapScan, etc.).
  *
- * @author
- * Jerusha Thaver
  */
 #ifndef EWALLETPAYMENTSTRATEGY_H
 #define EWALLETPAYMENTSTRATEGY_H

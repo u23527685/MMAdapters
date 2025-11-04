@@ -8,8 +8,6 @@
  *
  * @see PlantInventory
  *
- * @author
- * Mthokozisi Duba
  */
 #ifndef INVENTORYOBSERVER_H
 #define INVENTORYOBSERVER_H

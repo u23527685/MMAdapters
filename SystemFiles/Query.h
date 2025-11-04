@@ -9,8 +9,6 @@
  * @see Builder
  * @see Plant
  *
- * @author
- * Okaile Gaesale
  */
 
 #ifndef QUERY_H

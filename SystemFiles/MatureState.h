@@ -5,8 +5,6 @@
  * In this state, the plant thrives under regular care and sustenance.
  * If its resources fall below minimum thresholds, it transitions to DistressedState.
  *
- * @author
- * Isha Kalyan
  */
 #ifndef MATURESTATE_H
 #define MATURESTATE_H

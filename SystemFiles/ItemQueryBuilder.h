@@ -9,8 +9,6 @@
  * @see Query
  * @see Plant
  *
- * @author
- * Okaile Gaesale
  */
 #ifndef ITEMQUERYBULDER_H
 #define ITEMQUERYBULDER_H

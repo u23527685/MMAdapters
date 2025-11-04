@@ -8,8 +8,6 @@
  * @see PlantDecorator
  * @see Plant
  *
- * @author
- * Jerusha Thaver
  */
 #ifndef GIFT_WRAP_H
 #define GIFT_WRAP_H

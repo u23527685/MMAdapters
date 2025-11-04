@@ -10,8 +10,6 @@
  * @see PlantStock
  * @see StockCommand
  *
- * @author
- * Mthokozisi Duba
  */
 #ifndef PLANTINVENTORY_H
 #define PLANTINVENTORY_H

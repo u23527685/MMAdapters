@@ -9,8 +9,6 @@
  * @see FertilizerStrategy
  * @see Plant
  *
- * @author
- * Jay Lopes
  */
 #ifndef INORGANICFERTILIZER_H
 #define INORGANICFERTILIZER_H

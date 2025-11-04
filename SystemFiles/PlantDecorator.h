@@ -10,8 +10,6 @@
  * @see DecorativePot
  * @see GiftWrap
  *
- * @author
- * Rachel Kambala
  */
 #ifndef PLANT_DECORATOR_H
 #define PLANT_DECORATOR_H

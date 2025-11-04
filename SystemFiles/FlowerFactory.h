@@ -5,8 +5,6 @@
  * The FlowerFactory is a concrete implementation of PlantFactory
  * that constructs various flower-based Plant objects (e.g., Roses).
  *
- * @author
- * Mthokozisi Duba
  */
 #ifndef FLOWERFACTORY_H
 #define FLOWERFACTORY_H

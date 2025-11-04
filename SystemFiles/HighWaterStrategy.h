@@ -8,8 +8,6 @@
  * @see WaterStrategy
  * @see Plant
  *
- * @author
- * Jay Lopes
  */
 #ifndef HIGHWATERSTRATEGY_H
 #define HIGHWATERSTRATEGY_H

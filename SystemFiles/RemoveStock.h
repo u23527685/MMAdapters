@@ -9,8 +9,6 @@
  * @see PlantInventory
  * @see AddStock
  *
- * @author
- * Mthokozisi Duba
  */
 
 #ifndef REMOVESTOCK_H

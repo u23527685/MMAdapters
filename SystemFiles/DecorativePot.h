@@ -5,8 +5,6 @@
  * DecorativePot is a concrete decorator extending PlantDecorator. It enhances
  * the description and price of a plant by adding a decorative pot.
  *
- * @author
- * Jerusha Thaver
  */
 #ifndef DECORATIVE_POT_H
 #define DECORATIVE_POT_H

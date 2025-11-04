@@ -5,8 +5,6 @@
  * Handles advanced floor-related queries requiring managerial authority,
  * such as stock and inventory control.
  *
- * @author 
- * Okaile Gaesale
  */
 #ifndef FLOORMANAGER_H
 #define FLOORMANAGER_H

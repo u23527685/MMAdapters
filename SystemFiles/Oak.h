@@ -8,8 +8,6 @@
  *
  * @see Plant
  *
- * @author
- * Mthokozisi Duba
  */
 #ifndef OAK_H
 #define OAK_H

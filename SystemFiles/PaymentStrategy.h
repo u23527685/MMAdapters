@@ -8,8 +8,6 @@
  * @see EFTPaymentStrategy
  * @see EWalletPaymentStrategy
  *
- * @author
- * Jerusha Thaver
  */
 #ifndef PAYMENTSTRATEGY_H
 #define PAYMENTSTRATEGY_H

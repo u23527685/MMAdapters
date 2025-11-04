@@ -5,8 +5,6 @@
  * This interface allows for different fertilizer strategies to be applied
  * polymorphically to various plant types.
  *
- * @author 
- * Jay Lopes
  */
 #ifndef FERTILIZERSTRATEGY_H
 #define FERTILIZERSTRATEGY_H

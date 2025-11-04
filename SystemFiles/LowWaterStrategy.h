@@ -5,8 +5,6 @@
  * This strategy increases a plant’s water level by a small, controlled amount,
  * ensuring it doesn’t exceed its maximum capacity.
  *
- * @author 
- * Jay Lopes
  */
 #ifndef LOWWATERSTRATEGY_H
 #define LOWWATERSTRATEGY_H

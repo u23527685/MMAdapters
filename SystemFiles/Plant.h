@@ -12,8 +12,6 @@
  * @see FertilizerStrategy
  * @see LifeCycleObserver
  *
- * @author
- * Mthokozisi Duba/Isha Kalyan/Jay Lopes
  */
 #ifndef PLANT_H
 #define PLANT_H

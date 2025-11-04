@@ -10,8 +10,6 @@
  * @see PlantInventory
  * @see SalesFloorObserver
  *
- * @author
- * Cobus Botha
  */
 #ifndef INVENTORYPROXY_H
 #define INVENTORYPROXY_H

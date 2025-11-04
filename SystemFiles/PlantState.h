@@ -9,8 +9,6 @@
  * @see PlantLifeCycle
  * @see DistressedState
  *
- * @author
- * Isha Kalyan
  */
 #ifndef PLANTSTATE_H
 #define PLANTSTATE_H

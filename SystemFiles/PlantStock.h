@@ -11,8 +11,6 @@
  * @see RemoveStock
  * @see PlantInventory
  *
- * @author
- * Isha Kalyan
  */
 #ifndef PLANTSTOCK_H
 #define PLANTSTOCK_H

@@ -10,8 +10,6 @@
  * @see LifeCycleObserver
  * @see Plant
  *
- * @author
- * Jay Lopes
  */
 #ifndef PLANTLIFECYCLE_H
 #define PLANTLIFECYCLE_H

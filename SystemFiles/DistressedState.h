@@ -10,8 +10,6 @@
  * @see PlantLifeCycle
  * @see PlantCareRoutine
  *
- * @autor
- * Isha Kalyan
  */
 #ifndef DISTRESSEDSTATE_H
 #define DISTRESSEDSTATE_H

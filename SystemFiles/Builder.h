@@ -7,8 +7,6 @@
  * and interface used to assemble Query objects.
  *
  *
- * @author 
- * Okaile Gaesale
  */
 #ifndef BULDER_H
 #define BULDER_H
@@ -60,4 +58,4 @@ class Builder{
          */
         Builder();
 };
-#endif // !BUILDER_H
+#endif 

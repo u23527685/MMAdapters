@@ -9,8 +9,6 @@
  * @see FlowerFactory
  * @see Plant
  *
- * @author
- * Mthokozisi Duba
  */
 #ifndef PLANTFACTORY_H
 #define PLANTFACTORY_H

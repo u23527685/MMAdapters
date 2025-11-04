@@ -4,8 +4,6 @@
  *
  * This strategy provides a balanced water increase suitable for most plants.
  *
- * @author 
- * Jay Lopes
  */
 #ifndef MEDIUMWATERSTRATEGY_H
 #define MEDIUMWATERSTRATEGY_H

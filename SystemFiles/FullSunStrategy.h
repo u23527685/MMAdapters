@@ -13,8 +13,6 @@
  * @see SunlightStrategy
  * @see Plant
  *
- * @author
- * Jay Lopes
  */
 #ifndef FULLSUNSTRATEGY_H
 #define FULLSUNSTRATEGY_H

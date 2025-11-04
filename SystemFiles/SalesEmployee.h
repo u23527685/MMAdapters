@@ -7,7 +7,6 @@
  *
  * @see SalesStaff
  * @see SalesManager
-++
  */
 
 #ifndef SALESEMPLOYEE_H

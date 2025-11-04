@@ -5,8 +5,6 @@
  * Handles basic customer interactions such as providing plant care
  * information and general inquiries.
  *
- * @author 
- * Okaile Gaesale/Cobus Botha/Jay Lopes
  */
 #ifndef FLOOREMPLOYEE_H
 #define FLOOREMPLOYEE_H
@@ -39,4 +37,4 @@ class FloorEmployee : public FloorStaff {
         void reply(Query* query) override;
 };
 
-#endif // !FLOOREMPLOYEE_H
+#endif 

@@ -5,8 +5,6 @@
  * Implements the PaymentStrategy interface for EFT-based payments.
  * Stores an account number and handles electronic transfers.
  *
- * @author
- * Jerusha Thaver
  */
 #ifndef EFTPAYMENTSTRATEGY_H
 #define EFTPAYMENTSTRATEGY_H

@@ -5,8 +5,6 @@
  * Serves as the base for FloorEmployee and FloorManager classes,
  * implementing shared behavior and chain-of-responsibility forwarding.
  *
- * @author 
- * Okaile Gaesale
  */
 #ifndef FLOORSTAFF_H
 #define FLOORSTAFF_H

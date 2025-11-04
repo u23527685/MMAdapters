@@ -8,8 +8,6 @@
  * @see SunlightStrategy
  * @see Plant
  *
- * @author
- * Jay Lopes
  */
 #ifndef PARTIALSUNSTRATEGY_H
 #define PARTIALSUNSTRATEGY_H

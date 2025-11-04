@@ -8,8 +8,6 @@
  * @see FertilizerStrategy
  * @see Plant
  *
- * @author
- * Jay Lopes
  */
 #ifndef ORGANICFERTILIZER_H
 #define ORGANICFERTILIZER_H

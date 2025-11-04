@@ -5,8 +5,6 @@
  * Constructs Query instances that are not tied to a specific Plant object,
  * such as global stock inquiries or system-wide data requests.
  *
- * @author 
- * Okaile Gaesale
  */
 #ifndef MISCQUERYBUILDER_H
 #define MISCQUERYBUILDER_H

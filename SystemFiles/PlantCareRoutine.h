@@ -9,8 +9,6 @@
  * @see Plant
  * @see PlantLifeCycle
  *
- * @author
- * Jay Lopes
  */
 #ifndef PLANTCAREROUTINE_H
 #define PLANTCAREROUTINE_H

@@ -45,4 +45,4 @@ class EmployeeFactory : public StaffFactory {
         SalesStaff* createSalesStaff(std::string name) override;
 };
 
-#endif // !EMPLOYEEFACTORY_H
+#endif

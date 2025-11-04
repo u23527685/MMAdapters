@@ -8,8 +8,6 @@
  * @see Transaction
  * @see Customer
  *
- * @author
- * Jerusha Thaver
  */
 #ifndef ORDER_H
 #define ORDER_H
