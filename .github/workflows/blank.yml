@@ -22,3 +22,97 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           VALIDATE_ALL_CODEBASE: true
           DEFAULT_BRANCH: main
+          VALIDATE_CLANG_FORMAT: true  # Enable clang-format validation
+          VALIDATE_C_CPP: true         # Enable C/C++ validation
+
+  clang-format:
+    runs-on: ubuntu-latest
+    needs: lint  # Wait for lint job to complete first
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      
+      - name: Set up clang-format
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y clang-format
+          
+      - name: Create .clang-format configuration
+        run: |
+          cat > .clang-format << EOF
+          BasedOnStyle: LLVM
+          IndentWidth: 4
+          AccessModifierOffset: -4
+          BreakBeforeBraces: Allman
+          ColumnLimit: 80
+          FixNamespaceComments: false
+          SortIncludes: false
+          EOF
+          
+      - name: Check code formatting with clang-format
+        run: |
+          # Find all C/C++ files that have been changed
+          if [ "${{ github.event_name }}" == "pull_request" ]; then
+            # For PRs, check only changed files
+            BASE_SHA=${{ github.event.pull_request.base.sha }}
+            HEAD_SHA=${{ github.event.pull_request.head.sha }}
+            FILES=$(git diff --name-only $BASE_SHA..$HEAD_SHA | grep -E '\.(cpp|cxx|cc|c|hpp|hxx|hh|h)$' || true)
+          else
+            # For direct pushes, check all C/C++ files
+            FILES=$(find . -type f -name '*.cpp' -o -name '*.cxx' -o -name '*.cc' -o -name '*.c' -o -name '*.hpp' -o -name '*.hxx' -o -name '*.hh' -o -name '*.h' | grep -v build/ || true)
+          fi
+          
+          if [ -n "$FILES" ]; then
+            echo "Checking formatting for files:"
+            echo "$FILES"
+            
+            # Check formatting and create patch if needed
+            clang-format -style=file -n -Werror $FILES
+            
+            echo "✅ All files are properly formatted!"
+          else
+            echo "No C/C++ files to check."
+          fi
+
+  format-check:
+    runs-on: ubuntu-latest
+    if: github.event_name == 'pull_request'  # Only run on PRs
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.ref }}
+          repository: ${{ github.event.pull_request.head.repo.full_name }}
+          
+      - name: Setup clang-format
+        run: sudo apt-get install -y clang-format
+        
+      - name: Auto-format and create patch
+        run: |
+          # Find C/C++ files in the PR
+          FILES=$(find . -type f -name '*.cpp' -o -name '*.cxx' -o -name '*.cc' -o -name '*.c' -o -name '*.hpp' -o -name '*.hxx' -o -name '*.hh' -o -name '*.h' | grep -v build/ || true)
+          
+          if [ -n "$FILES" ]; then
+            echo "Checking formatting for files:"
+            echo "$FILES"
+            
+            # Create backup and format
+            clang-format -style=file -i $FILES
+            
+            # Check if formatting changed anything
+            if ! git diff --exit-code --quiet; then
+              echo "❌ Some files need formatting adjustments."
+              echo "Changes needed:"
+              git diff
+              
+              # Create patch file for download
+              git diff > clang_format_fixes.patch
+              echo "📎 Download the patch file from Artifacts and apply with: git apply clang_format_fixes.patch"
+              
+              exit 1
+            else
+              echo "✅ All files are properly formatted!"
+            fi
+          else
+            echo "No C/C++ files to check."
+          fi
