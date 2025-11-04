@@ -1,0 +1,95 @@
+\hypertarget{classFullSunStrategy}{}\doxysection{Full\+Sun\+Strategy Class Reference}
+\label{classFullSunStrategy}\index{FullSunStrategy@{FullSunStrategy}}
+
+
+Strategy for applying full sunlight to a \mbox{\hyperlink{classPlant}{Plant}}.  
+
+
+
+
+{\ttfamily \#include $<$Full\+Sun\+Strategy.\+h$>$}
+
+
+
+Inheritance diagram for Full\+Sun\+Strategy\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=178pt]{classFullSunStrategy__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Full\+Sun\+Strategy\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=346pt]{classFullSunStrategy__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classFullSunStrategy_a736d5282feac41fa823bdf820ba38d04}{apply\+Sunlight}} (\mbox{\hyperlink{classPlant}{Plant}} $\ast$p) override
+\begin{DoxyCompactList}\small\item\em Apply the full sun strategy to a \mbox{\hyperlink{classPlant}{Plant}}. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{classFullSunStrategy_a47f3f6b8c28c4a1243916da59c44f49f}{get\+Strategy\+Name}} () const override
+\begin{DoxyCompactList}\small\item\em Get the name of this strategy. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Detailed Description}
+Strategy for applying full sunlight to a \mbox{\hyperlink{classPlant}{Plant}}. 
+
+Adjusts sunlight exposure to simulate plants requiring high sunlight levels. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classFullSunStrategy_a736d5282feac41fa823bdf820ba38d04}\label{classFullSunStrategy_a736d5282feac41fa823bdf820ba38d04}} 
+\index{FullSunStrategy@{FullSunStrategy}!applySunlight@{applySunlight}}
+\index{applySunlight@{applySunlight}!FullSunStrategy@{FullSunStrategy}}
+\doxysubsubsection{\texorpdfstring{applySunlight()}{applySunlight()}}
+{\footnotesize\ttfamily void Full\+Sun\+Strategy\+::apply\+Sunlight (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classPlant}{Plant}} $\ast$}]{p }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Apply the full sun strategy to a \mbox{\hyperlink{classPlant}{Plant}}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p} & Pointer to the \mbox{\hyperlink{classPlant}{Plant}} being exposed to sunlight.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+Increases sunlight exposure by 60\% (hours/day). 
+\end{DoxyNote}
+\begin{DoxyWarning}{Warning}
+If exposure exceeds the max value, it is capped at the maximum. 
+\end{DoxyWarning}
+
+
+Implements \mbox{\hyperlink{classSunlightStrategy_a748a138b0ac64c383d39ee519f55ce8a}{Sunlight\+Strategy}}.
+
+\mbox{\Hypertarget{classFullSunStrategy_a47f3f6b8c28c4a1243916da59c44f49f}\label{classFullSunStrategy_a47f3f6b8c28c4a1243916da59c44f49f}} 
+\index{FullSunStrategy@{FullSunStrategy}!getStrategyName@{getStrategyName}}
+\index{getStrategyName@{getStrategyName}!FullSunStrategy@{FullSunStrategy}}
+\doxysubsubsection{\texorpdfstring{getStrategyName()}{getStrategyName()}}
+{\footnotesize\ttfamily std\+::string Full\+Sun\+Strategy\+::get\+Strategy\+Name (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Get the name of this strategy. 
+
+\begin{DoxyReturn}{Returns}
+\char`\"{}\+Full Sun Strategy\char`\"{}. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classSunlightStrategy_ae95a57b42c00f0bc465cc27bae20d735}{Sunlight\+Strategy}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{FullSunStrategy_8h}{Full\+Sun\+Strategy.\+h}}\item 
+Full\+Sun\+Strategy.\+cpp\end{DoxyCompactItemize}

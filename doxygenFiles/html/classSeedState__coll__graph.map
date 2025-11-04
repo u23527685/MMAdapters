@@ -1,0 +1,4 @@
+<map id="SeedState" name="SeedState">
+<area shape="rect" id="node1" title="Represents the initial state of a plant&#39;s life cycle, where it is a seed. In this state,..." alt="" coords="6,80,94,107"/>
+<area shape="rect" id="node2" href="$classPlantState.html" title="Abstract base class representing a state in a plant&#39;s life cycle." alt="" coords="5,5,95,32"/>
+</map>

@@ -1,0 +1,14 @@
+<map id="SunlightStrategy.h" name="SunlightStrategy.h">
+<area shape="rect" id="node1" title="Abstract base class for sunlight strategies." alt="" coords="266,5,406,32"/>
+<area shape="rect" id="node2" href="$Plant_8h.html" title="Abstract base class representing a plant in the nursery system." alt="" coords="303,80,369,107"/>
+<area shape="rect" id="node3" href="$PlantState_8h.html" title="Defines the abstract interface for plant life cycle states." alt="" coords="285,155,387,181"/>
+<area shape="rect" id="node5" title=" " alt="" coords="5,304,64,331"/>
+<area shape="rect" id="node7" title=" " alt="" coords="192,304,269,331"/>
+<area shape="rect" id="node9" title=" " alt="" coords="470,304,533,331"/>
+<area shape="rect" id="node12" title=" " alt="" coords="513,155,573,181"/>
+<area shape="rect" id="node4" href="$PlantCareRoutine_8h.html" title="Defines the abstract interface for plant care routines." alt="" coords="64,229,211,256"/>
+<area shape="rect" id="node8" href="$PLantLifeCycle_8h_source.html" title=" " alt="" coords="285,229,416,256"/>
+<area shape="rect" id="node6" title=" " alt="" coords="88,304,168,331"/>
+<area shape="rect" id="node10" href="$LifeCycleObserver_8h.html" title="Abstract base class for observers monitoring plant life cycle changes." alt="" coords="293,304,445,331"/>
+<area shape="rect" id="node11" title=" " alt="" coords="306,379,433,405"/>
+</map>

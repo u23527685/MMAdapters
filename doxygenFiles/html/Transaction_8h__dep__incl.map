@@ -1,0 +1,5 @@
+<map id="Transaction.h" name="Transaction.h">
+<area shape="rect" id="node1" title="Represents a customer transaction and payment." alt="" coords="5,5,113,32"/>
+<area shape="rect" id="node2" href="$Order_8h.html" title="Represents a customer&#39;s order containing multiple transactions." alt="" coords="25,80,94,107"/>
+<area shape="rect" id="node3" href="$Customer_8h.html" title="Represents a Customer who can place orders and make staff queries." alt="" coords="11,155,107,181"/>
+</map>

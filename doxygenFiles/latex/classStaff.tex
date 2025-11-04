@@ -1,0 +1,221 @@
+\hypertarget{classStaff}{}\doxysection{Staff Class Reference}
+\label{classStaff}\index{Staff@{Staff}}
+
+
+Base class representing a staff member and lifecycle observer.  
+
+
+
+
+{\ttfamily \#include $<$Staff.\+h$>$}
+
+
+
+Inheritance diagram for Staff\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classStaff__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Staff\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=186pt]{classStaff__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classStaff_a62fd1ce588b3eca1bbbbc6ee5d970c9a}{get\+Stock}} (\mbox{\hyperlink{classPlant}{Plant}} $\ast$plant)
+\begin{DoxyCompactList}\small\item\em Request stock information or trigger stock-\/related behaviour. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classStaff_ad3a2fc2fa16b71fcbe2153111d69597b}{handle\+Query}} (\mbox{\hyperlink{classQuery}{Query}} $\ast$query)=0
+\begin{DoxyCompactList}\small\item\em Handle an incoming \mbox{\hyperlink{classQuery}{Query}}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classStaff_aca40c0bb24d3a7fa57524c6bb8229f3e}{Staff}} (std\+::string name)
+\begin{DoxyCompactList}\small\item\em Construct a \mbox{\hyperlink{classStaff}{Staff}} instance with the given name. \end{DoxyCompactList}\item 
+virtual \mbox{\hyperlink{classStaff_a1c2f98aad2fbd5ddf72e9ff92304cbfd}{$\sim$\+Staff}} ()
+\begin{DoxyCompactList}\small\item\em Virtual destructor. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{classStaff_a31d6569724aca585b74e4e551584a086}{get\+Name}} ()
+\begin{DoxyCompactList}\small\item\em Get this staff member\textquotesingle{}s name. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classStaff_ac130bdfec35615afe37b8c9968c2e1a8}{set\+Next}} (\mbox{\hyperlink{classStaff}{Staff}} $\ast$staff)
+\begin{DoxyCompactList}\small\item\em Set the next staff member in the chain-\/of-\/responsibility. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classStaff}{Staff}} $\ast$ \mbox{\hyperlink{classStaff_af769db8c954fe353c11696f11f39f9df}{get\+Next}} ()
+\begin{DoxyCompactList}\small\item\em Get the next staff member in the chain. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classStaff_a37b46a6b40b5a6b02248bd97a2ebcf12}{is\+Healthy}} (\mbox{\hyperlink{classPlantLifeCycle}{Plant\+Life\+Cycle}} $\ast$life\+Cycle)
+\begin{DoxyCompactList}\small\item\em Notification callback from \mbox{\hyperlink{classPlantLifeCycle}{Plant\+Life\+Cycle}} to indicate health state. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Base class representing a staff member and lifecycle observer. 
+
+Inheritance\+:
+\begin{DoxyItemize}
+\item \mbox{\hyperlink{classStaff}{Staff}} \+: \mbox{\hyperlink{classLifeCycleObserver}{Life\+Cycle\+Observer}}
+\end{DoxyItemize}
+
+Data members\+:
+\begin{DoxyItemize}
+\item next\+: pointer to the next \mbox{\hyperlink{classStaff}{Staff}} in the chain (non-\/owning).
+\item name\+: human-\/readable staff member name.
+\item care\+Routine\+: optional \mbox{\hyperlink{classPlantCareRoutine}{Plant\+Care\+Routine}} associated with this staff member.
+\item sales\+Floor\+Observer\+: optional observer used for sales-\/floor notifications. 
+\end{DoxyItemize}
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classStaff_aca40c0bb24d3a7fa57524c6bb8229f3e}\label{classStaff_aca40c0bb24d3a7fa57524c6bb8229f3e}} 
+\index{Staff@{Staff}!Staff@{Staff}}
+\index{Staff@{Staff}!Staff@{Staff}}
+\doxysubsubsection{\texorpdfstring{Staff()}{Staff()}}
+{\footnotesize\ttfamily Staff\+::\+Staff (\begin{DoxyParamCaption}\item[{std\+::string}]{name }\end{DoxyParamCaption})}
+
+
+
+Construct a \mbox{\hyperlink{classStaff}{Staff}} instance with the given name. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & Human-\/readable name of the staff member. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classStaff_a1c2f98aad2fbd5ddf72e9ff92304cbfd}\label{classStaff_a1c2f98aad2fbd5ddf72e9ff92304cbfd}} 
+\index{Staff@{Staff}!````~Staff@{$\sim$Staff}}
+\index{````~Staff@{$\sim$Staff}!Staff@{Staff}}
+\doxysubsubsection{\texorpdfstring{$\sim$Staff()}{~Staff()}}
+{\footnotesize\ttfamily Staff\+::$\sim$\+Staff (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Virtual destructor. 
+
+Ensures derived destructors are invoked correctly. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classStaff_a31d6569724aca585b74e4e551584a086}\label{classStaff_a31d6569724aca585b74e4e551584a086}} 
+\index{Staff@{Staff}!getName@{getName}}
+\index{getName@{getName}!Staff@{Staff}}
+\doxysubsubsection{\texorpdfstring{getName()}{getName()}}
+{\footnotesize\ttfamily std\+::string Staff\+::get\+Name (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Get this staff member\textquotesingle{}s name. 
+
+\begin{DoxyReturn}{Returns}
+Name string. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classStaff_af769db8c954fe353c11696f11f39f9df}\label{classStaff_af769db8c954fe353c11696f11f39f9df}} 
+\index{Staff@{Staff}!getNext@{getNext}}
+\index{getNext@{getNext}!Staff@{Staff}}
+\doxysubsubsection{\texorpdfstring{getNext()}{getNext()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classStaff}{Staff}} $\ast$ Staff\+::get\+Next (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Get the next staff member in the chain. 
+
+\begin{DoxyReturn}{Returns}
+Non-\/owning pointer to the next \mbox{\hyperlink{classStaff}{Staff}}, or nullptr if none. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classStaff_a62fd1ce588b3eca1bbbbc6ee5d970c9a}\label{classStaff_a62fd1ce588b3eca1bbbbc6ee5d970c9a}} 
+\index{Staff@{Staff}!getStock@{getStock}}
+\index{getStock@{getStock}!Staff@{Staff}}
+\doxysubsubsection{\texorpdfstring{getStock()}{getStock()}}
+{\footnotesize\ttfamily void Staff\+::get\+Stock (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classPlant}{Plant}} $\ast$}]{plant }\end{DoxyParamCaption})}
+
+
+
+Request stock information or trigger stock-\/related behaviour. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em plant} & \mbox{\hyperlink{classPlant}{Plant}} for which to get stock information.\\
+\hline
+\end{DoxyParams}
+Concrete implementations or callers may use this hook to fetch or report stock data. Default behaviour is implementation-\/specific. \mbox{\Hypertarget{classStaff_ad3a2fc2fa16b71fcbe2153111d69597b}\label{classStaff_ad3a2fc2fa16b71fcbe2153111d69597b}} 
+\index{Staff@{Staff}!handleQuery@{handleQuery}}
+\index{handleQuery@{handleQuery}!Staff@{Staff}}
+\doxysubsubsection{\texorpdfstring{handleQuery()}{handleQuery()}}
+{\footnotesize\ttfamily virtual void Staff\+::handle\+Query (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classQuery}{Query}} $\ast$}]{query }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Handle an incoming \mbox{\hyperlink{classQuery}{Query}}. 
+
+This pure virtual function must be implemented by concrete staff types to process or forward \mbox{\hyperlink{classQuery}{Query}} objects. Implementations are responsible for deciding whether to reply or pass the query on.
+
+
+\begin{DoxyParams}{Parameters}
+{\em query} & Non-\/owning pointer to the \mbox{\hyperlink{classQuery}{Query}} to handle. \\
+\hline
+\end{DoxyParams}
+
+
+Implemented in \mbox{\hyperlink{classSalesStaff_a584d9a8a6268644cc1a44c97f6945ff5}{Sales\+Staff}}, and \mbox{\hyperlink{classFloorStaff_a7d64b40888748d1e85179360d4c8a102}{Floor\+Staff}}.
+
+\mbox{\Hypertarget{classStaff_a37b46a6b40b5a6b02248bd97a2ebcf12}\label{classStaff_a37b46a6b40b5a6b02248bd97a2ebcf12}} 
+\index{Staff@{Staff}!isHealthy@{isHealthy}}
+\index{isHealthy@{isHealthy}!Staff@{Staff}}
+\doxysubsubsection{\texorpdfstring{isHealthy()}{isHealthy()}}
+{\footnotesize\ttfamily void Staff\+::is\+Healthy (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classPlantLifeCycle}{Plant\+Life\+Cycle}} $\ast$}]{p }\end{DoxyParamCaption})}
+
+
+
+Notification callback from \mbox{\hyperlink{classPlantLifeCycle}{Plant\+Life\+Cycle}} to indicate health state. 
+
+As part of the \mbox{\hyperlink{classLifeCycleObserver}{Life\+Cycle\+Observer}} interface, this method is invoked when observed \mbox{\hyperlink{classPlantLifeCycle}{Plant\+Life\+Cycle}} instances produce lifecycle events. Implementations can use care\+Routine to adjust or log plant care state.
+
+
+\begin{DoxyParams}{Parameters}
+{\em life\+Cycle} & Pointer to the \mbox{\hyperlink{classPlantLifeCycle}{Plant\+Life\+Cycle}} that triggered the update.\\
+\hline
+\end{DoxyParams}
+void \mbox{\hyperlink{classLifeCycleObserver_aad160579baa9f2668b8639b047894da8}{Staff\+::update(\+Plant\+Life\+Cycle$\ast$ p)}}\{ Plant$\ast$ plant = p-\/$>$get\+Plant(); std\+::string state = p-\/$>$get\+State();
+
+std\+::cout$<$$<$ \char`\"{}\mbox{[}\+Staff\mbox{]} \char`\"{} $<$$<$ name $<$$<$ \char`\"{} noticed \char`\"{} $<$$<$ p-\/$>$\mbox{\hyperlink{classStaff_a31d6569724aca585b74e4e551584a086}{get\+Name()}} $<$$<$ \char`\"{} is now in state\+: \char`\"{} $<$$<$ state $<$$<$ std\+::endl; if(!p-\/$>$\mbox{\hyperlink{classStaff_a37b46a6b40b5a6b02248bd97a2ebcf12}{is\+Healthy()}})\{ care\+Routine = care\+Routine-\/$>$Plant\+Care(plant); std\+::cout $<$$<$ \char`\"{}\mbox{[}\+Staff\mbox{]} \char`\"{} $<$$<$ name; if(state == \char`\"{}\+Withered\char`\"{} \&\& p-\/$>$get\+Current\+Water() $<$ 10 )\{ care\+Routine-\/$>$Watering(plant); \} else if(state == \char`\"{}\+Withered\char`\"{} \&\&p-\/$>$get\+Current\+Sunlight() $<$ 10)\{ care\+Routine-\/$>$Sunlight(plant); \} else if(state == \char`\"{}\+Withered\char`\"{} \&\& p-\/$>$get\+Current\+Nutrients() $<$ 10)\{ care\+Routine-\/$>$Fertilizing(plant); \}
+
+if(state == \char`\"{}\+Distressed\char`\"{} \&\& p-\/$>$get\+Current\+Water() $<$ 20 )\{ care\+Routine-\/$>$Watering(plant); \} else if(state == \char`\"{}\+Distressed\char`\"{} \&\&p-\/$>$get\+Current\+Sunlight() $<$ 20)\{ care\+Routine-\/$>$Sunlight(plant); \} else if(state == \char`\"{}\+Distressed\char`\"{} \&\& p-\/$>$get\+Current\+Nutrients() $<$ 20)\{ care\+Routine-\/$>$Fertilizing(plant); \} \} else\{ std\+::cout $<$$<$ \char`\"{}\mbox{[}\+Staff\mbox{]} \char`\"{} $<$$<$ name $<$$<$ \char`\"{} continues regular maintenance of \char`\"{} $<$$<$ p-\/$>$\mbox{\hyperlink{classStaff_a31d6569724aca585b74e4e551584a086}{get\+Name()}} $<$$<$ std\+::endl; \} \}
+
+void \mbox{\hyperlink{classLifeCycleObserver_aad160579baa9f2668b8639b047894da8}{Staff\+::update(\+Plant\+Life\+Cycle$\ast$ p)}} \{ Plant$\ast$ plant = p-\/$>$get\+Plant(); std\+::string state\+Name = p-\/$>$get\+State();
+
+std\+::cout $<$$<$ \char`\"{}\mbox{[}\+Staff\mbox{]} \char`\"{} $<$$<$ name $<$$<$ \char`\"{} noticed \char`\"{} $<$$<$ p-\/$>$\mbox{\hyperlink{classStaff_a31d6569724aca585b74e4e551584a086}{get\+Name()}} $<$$<$ \char`\"{} is now in state\+: \char`\"{} $<$$<$ state\+Name $<$$<$ std\+::endl;
+
+care\+Routine = care\+Routine-\/$>$Plant\+Care(plant);
+
+if (!p-\/$>$\mbox{\hyperlink{classStaff_a37b46a6b40b5a6b02248bd97a2ebcf12}{is\+Healthy()}}) \{ std\+::cout $<$$<$ \char`\"{}\mbox{[}\+Staff\mbox{]} \char`\"{} $<$$<$ name $<$$<$ \char`\"{} is applying care...\char`\"{} $<$$<$ std\+::endl; p-\/$>$get\+State\+Obj()-\/$>$apply\+Care(p, plant, care\+Routine); //delete care\+Routine; \} else \{ std\+::cout $<$$<$ \char`\"{}\mbox{[}\+Staff\mbox{]} \char`\"{} $<$$<$ name $<$$<$ \char`\"{} continues regular maintenance of \char`\"{} $<$$<$ p-\/$>$\mbox{\hyperlink{classStaff_a31d6569724aca585b74e4e551584a086}{get\+Name()}} $<$$<$ std\+::endl; \} Plant$\ast$ plant = p-\/$>$get\+Plant(); std\+::string state\+Name = p-\/$>$get\+State();
+
+std\+::cout $<$$<$ \char`\"{}\mbox{[}\+Staff\mbox{]} \char`\"{} $<$$<$ name $<$$<$ \char`\"{} noticed \char`\"{} $<$$<$ p-\/$>$\mbox{\hyperlink{classStaff_a31d6569724aca585b74e4e551584a086}{get\+Name()}} $<$$<$ \char`\"{} is now in state\+: \char`\"{} $<$$<$ state\+Name $<$$<$ std\+::endl;
+
+Create care routine Plant\+Care\+Routine$\ast$ routine = Plant\+Care\+Routine\+::\+Plant\+Care(plant);
+
+Apply care through current state Plant\+State$\ast$ current\+State = p-\/$>$get\+State\+Obj(); if (current\+State) \{ current\+State-\/$>$apply\+Care(p, plant, routine); \}
+
+{\bfseries{FIX\+: Delete the routine immediately after use}} delete routine;
+
+std\+::cout $<$$<$ \char`\"{}\mbox{[}\+Staff\mbox{]} \char`\"{} $<$$<$ name $<$$<$ \char`\"{} continues regular maintenance of \char`\"{} $<$$<$ p-\/$>$\mbox{\hyperlink{classStaff_a31d6569724aca585b74e4e551584a086}{get\+Name()}} $<$$<$ std\+::endl; \} \mbox{\Hypertarget{classStaff_ac130bdfec35615afe37b8c9968c2e1a8}\label{classStaff_ac130bdfec35615afe37b8c9968c2e1a8}} 
+\index{Staff@{Staff}!setNext@{setNext}}
+\index{setNext@{setNext}!Staff@{Staff}}
+\doxysubsubsection{\texorpdfstring{setNext()}{setNext()}}
+{\footnotesize\ttfamily void Staff\+::set\+Next (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classStaff}{Staff}} $\ast$}]{staff }\end{DoxyParamCaption})}
+
+
+
+Set the next staff member in the chain-\/of-\/responsibility. 
+
+The \mbox{\hyperlink{classStaff}{Staff}} class does not take ownership of the provided pointer.
+
+
+\begin{DoxyParams}{Parameters}
+{\em staff} & Non-\/owning pointer to the next \mbox{\hyperlink{classStaff}{Staff}}. \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{Staff_8h}{Staff.\+h}}\item 
+Staff.\+cpp\end{DoxyCompactItemize}

@@ -1,0 +1,10 @@
+<map id="Staff" name="Staff">
+<area shape="rect" id="node1" title="Base class representing a staff member and lifecycle observer." alt="" coords="250,80,302,107"/>
+<area shape="rect" id="node3" href="$classFloorStaff.html" title="Base class for all floor staff types." alt="" coords="163,155,248,181"/>
+<area shape="rect" id="node6" href="$classSalesStaff.html" title="Abstract base class for staff members in the sales department." alt="" coords="303,155,390,181"/>
+<area shape="rect" id="node2" href="$classLifeCycleObserver.html" title="Observer interface for plant life cycle changes." alt="" coords="205,5,347,32"/>
+<area shape="rect" id="node4" href="$classFloorEmployee.html" title="Regular employee handling on&#45;floor customer queries." alt="" coords="5,229,125,256"/>
+<area shape="rect" id="node5" href="$classFloorManager.html" title="Manages floor staff and handles high&#45;level queries." alt="" coords="149,229,261,256"/>
+<area shape="rect" id="node7" href="$classSalesEmployee.html" title="Concrete class representing a regular sales employee." alt="" coords="285,229,408,256"/>
+<area shape="rect" id="node8" href="$classSalesManager.html" title="Represents a manager in the sales department." alt="" coords="432,229,547,256"/>
+</map>

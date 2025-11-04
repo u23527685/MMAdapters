@@ -1,0 +1,95 @@
+\hypertarget{classLowWaterStrategy}{}\doxysection{Low\+Water\+Strategy Class Reference}
+\label{classLowWaterStrategy}\index{LowWaterStrategy@{LowWaterStrategy}}
+
+
+Strategy for plants requiring minimal water intake.  
+
+
+
+
+{\ttfamily \#include $<$Low\+Water\+Strategy.\+h$>$}
+
+
+
+Inheritance diagram for Low\+Water\+Strategy\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=186pt]{classLowWaterStrategy__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Low\+Water\+Strategy\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classLowWaterStrategy__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classLowWaterStrategy_a274dfbccd13bceccf1ffb5d34cf4e820}{apply\+Water}} (\mbox{\hyperlink{classPlant}{Plant}} $\ast$p) override
+\begin{DoxyCompactList}\small\item\em Applies the low water strategy to a plant. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{classLowWaterStrategy_a62bf734430f6802e96bd45b87531f69f}{get\+Strategy\+Name}} () const override
+\begin{DoxyCompactList}\small\item\em Retrieves the name of this watering strategy. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Detailed Description}
+Strategy for plants requiring minimal water intake. 
+
+Applies a 20ml water increase, capping the level at the plant’s maximum water limit. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classLowWaterStrategy_a274dfbccd13bceccf1ffb5d34cf4e820}\label{classLowWaterStrategy_a274dfbccd13bceccf1ffb5d34cf4e820}} 
+\index{LowWaterStrategy@{LowWaterStrategy}!applyWater@{applyWater}}
+\index{applyWater@{applyWater}!LowWaterStrategy@{LowWaterStrategy}}
+\doxysubsubsection{\texorpdfstring{applyWater()}{applyWater()}}
+{\footnotesize\ttfamily void Low\+Water\+Strategy\+::apply\+Water (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classPlant}{Plant}} $\ast$}]{p }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Applies the low water strategy to a plant. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p} & The target plant. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+Increases water level by 20ml. 
+\end{DoxyNote}
+\begin{DoxyWarning}{Warning}
+Caps the value at the plant’s maximum water level. 
+\end{DoxyWarning}
+
+
+Implements \mbox{\hyperlink{classWaterStrategy_a68a777faa9840b21a68b5c7388f644c9}{Water\+Strategy}}.
+
+\mbox{\Hypertarget{classLowWaterStrategy_a62bf734430f6802e96bd45b87531f69f}\label{classLowWaterStrategy_a62bf734430f6802e96bd45b87531f69f}} 
+\index{LowWaterStrategy@{LowWaterStrategy}!getStrategyName@{getStrategyName}}
+\index{getStrategyName@{getStrategyName}!LowWaterStrategy@{LowWaterStrategy}}
+\doxysubsubsection{\texorpdfstring{getStrategyName()}{getStrategyName()}}
+{\footnotesize\ttfamily std\+::string Low\+Water\+Strategy\+::get\+Strategy\+Name (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Retrieves the name of this watering strategy. 
+
+\begin{DoxyReturn}{Returns}
+A string representing the strategy name. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classWaterStrategy_a4117055fdba821e6d2773beef61cb1f0}{Water\+Strategy}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{LowWaterStrategy_8h}{Low\+Water\+Strategy.\+h}}\item 
+Low\+Water\+Strategy.\+cpp\end{DoxyCompactItemize}

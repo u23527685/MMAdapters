@@ -1,0 +1,89 @@
+\hypertarget{classInorganicFertilizer}{}\doxysection{Inorganic\+Fertilizer Class Reference}
+\label{classInorganicFertilizer}\index{InorganicFertilizer@{InorganicFertilizer}}
+
+
+Strategy for applying inorganic fertilizers to a plant.  
+
+
+
+
+{\ttfamily \#include $<$Inorganic\+Fertilizer.\+h$>$}
+
+
+
+Inheritance diagram for Inorganic\+Fertilizer\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=184pt]{classInorganicFertilizer__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Inorganic\+Fertilizer\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classInorganicFertilizer__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classInorganicFertilizer_a1b6476b5f8390d256f765f6acece89ca}{apply\+Fertilizer}} (\mbox{\hyperlink{classPlant}{Plant}} $\ast$p) override
+\begin{DoxyCompactList}\small\item\em Applies the inorganic fertilizer strategy to a plant. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{classInorganicFertilizer_a353d3fae65e72a2ca26a9ace5cc702d6}{get\+Strategy\+Name}} () const override
+\begin{DoxyCompactList}\small\item\em Gets the name of this fertilizer strategy. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Detailed Description}
+Strategy for applying inorganic fertilizers to a plant. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classInorganicFertilizer_a1b6476b5f8390d256f765f6acece89ca}\label{classInorganicFertilizer_a1b6476b5f8390d256f765f6acece89ca}} 
+\index{InorganicFertilizer@{InorganicFertilizer}!applyFertilizer@{applyFertilizer}}
+\index{applyFertilizer@{applyFertilizer}!InorganicFertilizer@{InorganicFertilizer}}
+\doxysubsubsection{\texorpdfstring{applyFertilizer()}{applyFertilizer()}}
+{\footnotesize\ttfamily void Inorganic\+Fertilizer\+::apply\+Fertilizer (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classPlant}{Plant}} $\ast$}]{p }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Applies the inorganic fertilizer strategy to a plant. 
+
+Increases the nutrient level by 40ppm, capped at the plant’s maximum level.
+
+
+\begin{DoxyParams}{Parameters}
+{\em p} & Pointer to the plant being fertilized. \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{classFertilizerStrategy_a6c2088db603760eb61fc1fa7549a2a57}{Fertilizer\+Strategy}}.
+
+\mbox{\Hypertarget{classInorganicFertilizer_a353d3fae65e72a2ca26a9ace5cc702d6}\label{classInorganicFertilizer_a353d3fae65e72a2ca26a9ace5cc702d6}} 
+\index{InorganicFertilizer@{InorganicFertilizer}!getStrategyName@{getStrategyName}}
+\index{getStrategyName@{getStrategyName}!InorganicFertilizer@{InorganicFertilizer}}
+\doxysubsubsection{\texorpdfstring{getStrategyName()}{getStrategyName()}}
+{\footnotesize\ttfamily std\+::string Inorganic\+Fertilizer\+::get\+Strategy\+Name (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Gets the name of this fertilizer strategy. 
+
+\begin{DoxyReturn}{Returns}
+String representing the strategy name. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classFertilizerStrategy_a716d0a4861d471361e9750d718447359}{Fertilizer\+Strategy}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{InorganicFertilizer_8h}{Inorganic\+Fertilizer.\+h}}\item 
+Inorganic\+Fertilizer.\+cpp\end{DoxyCompactItemize}

@@ -1,0 +1,6 @@
+<map id="PlantFactory.h" name="PlantFactory.h">
+<area shape="rect" id="node1" title="Abstract factory interface for creating Plant objects." alt="" coords="109,5,221,32"/>
+<area shape="rect" id="node2" href="$FlowerFactory_8h.html" title="Factory for creating flower&#45;type Plant objects." alt="" coords="5,80,128,107"/>
+<area shape="rect" id="node3" href="$GreenhouseUnitTest_8h_source.html" title=" " alt="" coords="83,155,248,181"/>
+<area shape="rect" id="node4" href="$TreeFactory_8h.html" title="Declares the TreeFactory class responsible for creating tree&#45;type plants." alt="" coords="203,80,309,107"/>
+</map>

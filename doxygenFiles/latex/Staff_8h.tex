@@ -1,0 +1,48 @@
+\hypertarget{Staff_8h}{}\doxysection{Staff.\+h File Reference}
+\label{Staff_8h}\index{Staff.h@{Staff.h}}
+
+
+Abstract base class for staff members and lifecycle observers.  
+
+
+{\ttfamily \#include \char`\"{}PLant\+Life\+Cycle.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Life\+Cycle\+Observer.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Plant\+Care\+Routine.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Query.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$string$>$}\newline
+Include dependency graph for Staff.\+h\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{Staff_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{Staff_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classStaff}{Staff}}
+\begin{DoxyCompactList}\small\item\em Base class representing a staff member and lifecycle observer. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Abstract base class for staff members and lifecycle observers. 
+
+\mbox{\hyperlink{classStaff}{Staff}} observes \mbox{\hyperlink{classPlantLifeCycle}{Plant\+Life\+Cycle}} events, applies care routines, and optionally participates in a chain-\/of-\/responsibility for query handling.
+
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{classLifeCycleObserver}{Life\+Cycle\+Observer}} 
+
+\mbox{\hyperlink{classPlantCareRoutine}{Plant\+Care\+Routine}} 
+
+\mbox{\hyperlink{classQuery}{Query}} 
+\end{DoxySeeAlso}

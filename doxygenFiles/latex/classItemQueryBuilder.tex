@@ -1,0 +1,116 @@
+\hypertarget{classItemQueryBuilder}{}\doxysection{Item\+Query\+Builder Class Reference}
+\label{classItemQueryBuilder}\index{ItemQueryBuilder@{ItemQueryBuilder}}
+
+
+\mbox{\hyperlink{classBuilder}{Builder}} class for constructing queries about specific plants.  
+
+
+
+
+{\ttfamily \#include $<$Item\+Query\+Builder.\+h$>$}
+
+
+
+Inheritance diagram for Item\+Query\+Builder\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=183pt]{classItemQueryBuilder__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Item\+Query\+Builder\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classItemQueryBuilder__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classItemQueryBuilder_acc97291ce87541b39e875c4ea54c9840}{set\+Type}} (std\+::string \mbox{\hyperlink{classBuilder_a6541a067a21e09a23099dd882bed9639}{type}})
+\begin{DoxyCompactList}\small\item\em Set the query type (e.\+g. \char`\"{}\+INFO\char`\"{}, \char`\"{}\+CARE ROUTINE\char`\"{}). \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classItemQueryBuilder_a806dc882b77f8e987c8ba37e73988b92}{set\+Question}} (std\+::string \mbox{\hyperlink{classBuilder_afc60247660d2a02f1dd44d331c851045}{question}})
+\begin{DoxyCompactList}\small\item\em Set the explicit question text for the query. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classItemQueryBuilder_a30b03c162d489b82ff9c89b19e742a23}{set\+Item}} (\mbox{\hyperlink{classPlant}{Plant}} $\ast$\mbox{\hyperlink{classBuilder_a2366e89f49c467f9e9aa9c37eaa3e740}{item}})
+\begin{DoxyCompactList}\small\item\em Set the \mbox{\hyperlink{classPlant}{Plant}} item targeted by the query. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Detailed Description}
+\mbox{\hyperlink{classBuilder}{Builder}} class for constructing queries about specific plants. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classItemQueryBuilder_a30b03c162d489b82ff9c89b19e742a23}\label{classItemQueryBuilder_a30b03c162d489b82ff9c89b19e742a23}} 
+\index{ItemQueryBuilder@{ItemQueryBuilder}!setItem@{setItem}}
+\index{setItem@{setItem}!ItemQueryBuilder@{ItemQueryBuilder}}
+\doxysubsubsection{\texorpdfstring{setItem()}{setItem()}}
+{\footnotesize\ttfamily void Item\+Query\+Builder\+::set\+Item (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classPlant}{Plant}} $\ast$}]{item }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Set the \mbox{\hyperlink{classPlant}{Plant}} item targeted by the query. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em item} & Non-\/owning pointer to the \mbox{\hyperlink{classPlant}{Plant}}. \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{classBuilder_aef33f773fe3d65e0c6273f843150ab9a}{Builder}}.
+
+\mbox{\Hypertarget{classItemQueryBuilder_a806dc882b77f8e987c8ba37e73988b92}\label{classItemQueryBuilder_a806dc882b77f8e987c8ba37e73988b92}} 
+\index{ItemQueryBuilder@{ItemQueryBuilder}!setQuestion@{setQuestion}}
+\index{setQuestion@{setQuestion}!ItemQueryBuilder@{ItemQueryBuilder}}
+\doxysubsubsection{\texorpdfstring{setQuestion()}{setQuestion()}}
+{\footnotesize\ttfamily void Item\+Query\+Builder\+::set\+Question (\begin{DoxyParamCaption}\item[{std\+::string}]{question }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Set the explicit question text for the query. 
+
+Set the explicit question text for the item query.
+
+
+\begin{DoxyParams}{Parameters}
+{\em question} & Question string. \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{classBuilder_a99f6a7648dd2e2b3a765ddcd1e92e04b}{Builder}}.
+
+\mbox{\Hypertarget{classItemQueryBuilder_acc97291ce87541b39e875c4ea54c9840}\label{classItemQueryBuilder_acc97291ce87541b39e875c4ea54c9840}} 
+\index{ItemQueryBuilder@{ItemQueryBuilder}!setType@{setType}}
+\index{setType@{setType}!ItemQueryBuilder@{ItemQueryBuilder}}
+\doxysubsubsection{\texorpdfstring{setType()}{setType()}}
+{\footnotesize\ttfamily void Item\+Query\+Builder\+::set\+Type (\begin{DoxyParamCaption}\item[{std\+::string}]{type }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Set the query type (e.\+g. \char`\"{}\+INFO\char`\"{}, \char`\"{}\+CARE ROUTINE\char`\"{}). 
+
+Set the query type for the item query.
+
+
+\begin{DoxyParams}{Parameters}
+{\em type} & Type string.\\
+\hline
+{\em type} & Type string (e.\+g. \char`\"{}\+INFO\char`\"{}, \char`\"{}\+CARE ROUTINE\char`\"{}). \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{classBuilder_a48f67a2baa9fd50fa54aa46db891eefc}{Builder}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{ItemQueryBuilder_8h}{Item\+Query\+Builder.\+h}}\item 
+\mbox{\hyperlink{ItemQueryBuilder_8cpp}{Item\+Query\+Builder.\+cpp}}\end{DoxyCompactItemize}

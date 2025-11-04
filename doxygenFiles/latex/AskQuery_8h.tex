@@ -1,0 +1,41 @@
+\hypertarget{AskQuery_8h}{}\doxysection{Ask\+Query.\+h File Reference}
+\label{AskQuery_8h}\index{AskQuery.h@{AskQuery.h}}
+
+
+Director for creating different types of \mbox{\hyperlink{classQuery}{Query}} objects using builders.  
+
+
+{\ttfamily \#include \char`\"{}Builder.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Floor\+Staff.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Item\+Query\+Builder.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Misc\+Query\+Builder.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Plant.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Query.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$string$>$}\newline
+Include dependency graph for Ask\+Query.\+h\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{AskQuery_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=163pt]{AskQuery_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classAskQuery}{Ask\+Query}}
+\begin{DoxyCompactList}\small\item\em Director class that simplifies \mbox{\hyperlink{classQuery}{Query}} object creation using builders. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Director for creating different types of \mbox{\hyperlink{classQuery}{Query}} objects using builders. 
+
+This class provides a simplified interface for creating \mbox{\hyperlink{classQuery}{Query}} objects using the \mbox{\hyperlink{classBuilder}{Builder}} pattern. It handles the details of choosing and configuring the appropriate builder (\mbox{\hyperlink{classItemQueryBuilder}{Item\+Query\+Builder}} or \mbox{\hyperlink{classMiscQueryBuilder}{Misc\+Query\+Builder}}) based on the type of query needed. 

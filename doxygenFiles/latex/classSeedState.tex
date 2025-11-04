@@ -1,0 +1,119 @@
+\hypertarget{classSeedState}{}\doxysection{Seed\+State Class Reference}
+\label{classSeedState}\index{SeedState@{SeedState}}
+
+
+Represents the initial state of a plant\textquotesingle{}s life cycle, where it is a seed. In this state, the seed is dormant and requires specific conditions to germinate and grow into a seedling.  
+
+
+
+
+{\ttfamily \#include $<$Seed\+State.\+h$>$}
+
+
+
+Inheritance diagram for Seed\+State\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=147pt]{classSeedState__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Seed\+State\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=147pt]{classSeedState__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classSeedState_aef5e404a3b493226d952b3b9804072b4}{apply\+Care}} (\mbox{\hyperlink{classPlantLifeCycle}{Plant\+Life\+Cycle}} $\ast$context, \mbox{\hyperlink{classPlant}{Plant}} $\ast$plant, \mbox{\hyperlink{classPlantCareRoutine}{Plant\+Care\+Routine}} $\ast$routine) override
+\begin{DoxyCompactList}\small\item\em Applies care to the plant in this state. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classSeedState_a7facfbd4e73e965adc285a562c5a4b04}{evaluate}} (\mbox{\hyperlink{classPlantLifeCycle}{Plant\+Life\+Cycle}} $\ast$context, \mbox{\hyperlink{classPlant}{Plant}} $\ast$plant) override
+\begin{DoxyCompactList}\small\item\em Evaluates the plant\textquotesingle{}s condition and transitions to another state if necessary. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{classSeedState_afbc53134b2c6bd4430cfe5ae503ab981}{get\+Name}} () const override
+\begin{DoxyCompactList}\small\item\em Gets the name of this state. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classSeedState_a8d235af05eb437df4ca9155e07a7f738}\label{classSeedState_a8d235af05eb437df4ca9155e07a7f738}} 
+\mbox{\hyperlink{classPlantState}{Plant\+State}} $\ast$ {\bfseries clone} () const override
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Represents the initial state of a plant\textquotesingle{}s life cycle, where it is a seed. In this state, the seed is dormant and requires specific conditions to germinate and grow into a seedling. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classSeedState_aef5e404a3b493226d952b3b9804072b4}\label{classSeedState_aef5e404a3b493226d952b3b9804072b4}} 
+\index{SeedState@{SeedState}!applyCare@{applyCare}}
+\index{applyCare@{applyCare}!SeedState@{SeedState}}
+\doxysubsubsection{\texorpdfstring{applyCare()}{applyCare()}}
+{\footnotesize\ttfamily void Seed\+State\+::apply\+Care (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classPlantLifeCycle}{Plant\+Life\+Cycle}} $\ast$}]{context,  }\item[{\mbox{\hyperlink{classPlant}{Plant}} $\ast$}]{plant,  }\item[{\mbox{\hyperlink{classPlantCareRoutine}{Plant\+Care\+Routine}} $\ast$}]{routine }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Applies care to the plant in this state. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em context} & The plant\textquotesingle{}s life cycle context. \\
+\hline
+{\em plant} & The plant object being cared for. \\
+\hline
+{\em routine} & The care routine to apply. \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{classPlantState_a7b559b59a64faf46ccdd329b7bbe0da2}{Plant\+State}}.
+
+\mbox{\Hypertarget{classSeedState_a7facfbd4e73e965adc285a562c5a4b04}\label{classSeedState_a7facfbd4e73e965adc285a562c5a4b04}} 
+\index{SeedState@{SeedState}!evaluate@{evaluate}}
+\index{evaluate@{evaluate}!SeedState@{SeedState}}
+\doxysubsubsection{\texorpdfstring{evaluate()}{evaluate()}}
+{\footnotesize\ttfamily bool Seed\+State\+::evaluate (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classPlantLifeCycle}{Plant\+Life\+Cycle}} $\ast$}]{context,  }\item[{\mbox{\hyperlink{classPlant}{Plant}} $\ast$}]{plant }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Evaluates the plant\textquotesingle{}s condition and transitions to another state if necessary. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em context} & The plant\textquotesingle{}s life cycle context. \\
+\hline
+{\em plant} & The plant object being evaluated. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if the plant remains in this state, false otherwise. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classPlantState_ae67b11c881de6e8036a8a0467d5358f2}{Plant\+State}}.
+
+\mbox{\Hypertarget{classSeedState_afbc53134b2c6bd4430cfe5ae503ab981}\label{classSeedState_afbc53134b2c6bd4430cfe5ae503ab981}} 
+\index{SeedState@{SeedState}!getName@{getName}}
+\index{getName@{getName}!SeedState@{SeedState}}
+\doxysubsubsection{\texorpdfstring{getName()}{getName()}}
+{\footnotesize\ttfamily std\+::string Seed\+State\+::get\+Name (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Gets the name of this state. 
+
+\begin{DoxyReturn}{Returns}
+The name of this state. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classPlantState_a73210ce999094374a7a38e8afde9b937}{Plant\+State}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{SeedState_8h}{Seed\+State.\+h}}\item 
+Seed\+State.\+cpp\end{DoxyCompactItemize}

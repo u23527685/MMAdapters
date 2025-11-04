@@ -1,0 +1,141 @@
+\hypertarget{classFloorStaff}{}\doxysection{Floor\+Staff Class Reference}
+\label{classFloorStaff}\index{FloorStaff@{FloorStaff}}
+
+
+Base class for all floor staff types.  
+
+
+
+
+{\ttfamily \#include $<$Floor\+Staff.\+h$>$}
+
+
+
+Inheritance diagram for Floor\+Staff\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=272pt]{classFloorStaff__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Floor\+Staff\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=186pt]{classFloorStaff__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classFloorStaff_a86de294b506717cd261ea8e28a3ee577}{Floor\+Staff}} (std\+::string name)
+\begin{DoxyCompactList}\small\item\em Construct a \mbox{\hyperlink{classFloorStaff}{Floor\+Staff}} with the given name. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classFloorStaff_a6acd63d4a3c3de3a7bef48f8082acc05}\label{classFloorStaff_a6acd63d4a3c3de3a7bef48f8082acc05}} 
+virtual \mbox{\hyperlink{classFloorStaff_a6acd63d4a3c3de3a7bef48f8082acc05}{$\sim$\+Floor\+Staff}} ()
+\begin{DoxyCompactList}\small\item\em Virtual destructor. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classFloorStaff_a7d64b40888748d1e85179360d4c8a102}{handle\+Query}} (\mbox{\hyperlink{classQuery}{Query}} $\ast$query) override
+\begin{DoxyCompactList}\small\item\em Entry point for handling a \mbox{\hyperlink{classQuery}{Query}}. \end{DoxyCompactList}\item 
+virtual bool \mbox{\hyperlink{classFloorStaff_ab5e3329546b265f51b86e7be7e333a89}{staff\+Can\+Handle}} (std\+::string type)=0
+\begin{DoxyCompactList}\small\item\em Determine whether this staff member can handle queries of the given type. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classFloorStaff_aa8225994cca34b75a87cea28c01f530e}{reply}} (\mbox{\hyperlink{classQuery}{Query}} $\ast$query)=0
+\begin{DoxyCompactList}\small\item\em Produce a reply for the provided \mbox{\hyperlink{classQuery}{Query}}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Base class for all floor staff types. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classFloorStaff_a86de294b506717cd261ea8e28a3ee577}\label{classFloorStaff_a86de294b506717cd261ea8e28a3ee577}} 
+\index{FloorStaff@{FloorStaff}!FloorStaff@{FloorStaff}}
+\index{FloorStaff@{FloorStaff}!FloorStaff@{FloorStaff}}
+\doxysubsubsection{\texorpdfstring{FloorStaff()}{FloorStaff()}}
+{\footnotesize\ttfamily Floor\+Staff\+::\+Floor\+Staff (\begin{DoxyParamCaption}\item[{std\+::string}]{name }\end{DoxyParamCaption})}
+
+
+
+Construct a \mbox{\hyperlink{classFloorStaff}{Floor\+Staff}} with the given name. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & \mbox{\hyperlink{classStaff}{Staff}} member\textquotesingle{}s name. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classFloorStaff_a7d64b40888748d1e85179360d4c8a102}\label{classFloorStaff_a7d64b40888748d1e85179360d4c8a102}} 
+\index{FloorStaff@{FloorStaff}!handleQuery@{handleQuery}}
+\index{handleQuery@{handleQuery}!FloorStaff@{FloorStaff}}
+\doxysubsubsection{\texorpdfstring{handleQuery()}{handleQuery()}}
+{\footnotesize\ttfamily void Floor\+Staff\+::handle\+Query (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classQuery}{Query}} $\ast$}]{query }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Entry point for handling a \mbox{\hyperlink{classQuery}{Query}}. 
+
+This override logs receipt of the \mbox{\hyperlink{classQuery}{Query}}, prints its contents, asks \mbox{\hyperlink{classFloorStaff_ab5e3329546b265f51b86e7be7e333a89}{staff\+Can\+Handle()}} whether the current instance can service it, calls \mbox{\hyperlink{classFloorStaff_aa8225994cca34b75a87cea28c01f530e}{reply()}} if it can, or forwards the \mbox{\hyperlink{classQuery}{Query}} to the next \mbox{\hyperlink{classStaff}{Staff}} in the chain when it cannot be handled.
+
+
+\begin{DoxyParams}{Parameters}
+{\em query} & Pointer to the \mbox{\hyperlink{classQuery}{Query}} to handle (non-\/owning). \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{classStaff_ad3a2fc2fa16b71fcbe2153111d69597b}{Staff}}.
+
+\mbox{\Hypertarget{classFloorStaff_aa8225994cca34b75a87cea28c01f530e}\label{classFloorStaff_aa8225994cca34b75a87cea28c01f530e}} 
+\index{FloorStaff@{FloorStaff}!reply@{reply}}
+\index{reply@{reply}!FloorStaff@{FloorStaff}}
+\doxysubsubsection{\texorpdfstring{reply()}{reply()}}
+{\footnotesize\ttfamily virtual void Floor\+Staff\+::reply (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classQuery}{Query}} $\ast$}]{query }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Produce a reply for the provided \mbox{\hyperlink{classQuery}{Query}}. 
+
+Called when staff\+Can\+Handle(query-\/$>$get\+Type()) returns true. Implementations should output or otherwise process the \mbox{\hyperlink{classQuery}{Query}} and may forward it if further escalation is required.
+
+
+\begin{DoxyParams}{Parameters}
+{\em query} & Pointer to the \mbox{\hyperlink{classQuery}{Query}} to reply to (non-\/owning). \\
+\hline
+\end{DoxyParams}
+
+
+Implemented in \mbox{\hyperlink{classFloorManager_a308d7f6d740a5c6ec868f60239afb109}{Floor\+Manager}}, and \mbox{\hyperlink{classFloorEmployee_a6fc10f62c2bafe010f5e2cbb9720d5f6}{Floor\+Employee}}.
+
+\mbox{\Hypertarget{classFloorStaff_ab5e3329546b265f51b86e7be7e333a89}\label{classFloorStaff_ab5e3329546b265f51b86e7be7e333a89}} 
+\index{FloorStaff@{FloorStaff}!staffCanHandle@{staffCanHandle}}
+\index{staffCanHandle@{staffCanHandle}!FloorStaff@{FloorStaff}}
+\doxysubsubsection{\texorpdfstring{staffCanHandle()}{staffCanHandle()}}
+{\footnotesize\ttfamily virtual bool Floor\+Staff\+::staff\+Can\+Handle (\begin{DoxyParamCaption}\item[{std\+::string}]{type }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Determine whether this staff member can handle queries of the given type. 
+
+Implementations should return true for supported \mbox{\hyperlink{classQuery}{Query}} types (e.\+g. \char`\"{}\+INFO\char`\"{}, \char`\"{}\+STOCK\char`\"{}, \char`\"{}\+CARE ROUTINE\char`\"{}) and false otherwise.
+
+
+\begin{DoxyParams}{Parameters}
+{\em type} & The \mbox{\hyperlink{classQuery}{Query}} type string. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if this staff member can handle the type, false otherwise. 
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{classFloorManager_a5052b579c3a7c14f63eab88de2077b47}{Floor\+Manager}}, and \mbox{\hyperlink{classFloorEmployee_a9a9d0d4ad22e6ffe8fa0e12ee7018f41}{Floor\+Employee}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{FloorStaff_8h}{Floor\+Staff.\+h}}\item 
+Floor\+Staff.\+cpp\end{DoxyCompactItemize}

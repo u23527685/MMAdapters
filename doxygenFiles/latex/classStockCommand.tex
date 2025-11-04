@@ -1,0 +1,71 @@
+\hypertarget{classStockCommand}{}\doxysection{Stock\+Command Class Reference}
+\label{classStockCommand}\index{StockCommand@{StockCommand}}
+
+
+Abstract base class for command pattern in stock management.  
+
+
+
+
+{\ttfamily \#include $<$Stock\+Command.\+h$>$}
+
+
+
+Inheritance diagram for Stock\+Command\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=244pt]{classStockCommand__inherit__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual bool \mbox{\hyperlink{classStockCommand_a8a7d34b5b29be7959f3d5166b05b83aa}{execute}} ()=0
+\begin{DoxyCompactList}\small\item\em Executes the stock command. \end{DoxyCompactList}\item 
+virtual \mbox{\hyperlink{classStockCommand_aaeaa9273a6fa37687893a14dc92adb80}{$\sim$\+Stock\+Command}} ()
+\begin{DoxyCompactList}\small\item\em Virtual destructor. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Abstract base class for command pattern in stock management. 
+
+This interface defines the execute method that all concrete stock commands must implement. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classStockCommand_aaeaa9273a6fa37687893a14dc92adb80}\label{classStockCommand_aaeaa9273a6fa37687893a14dc92adb80}} 
+\index{StockCommand@{StockCommand}!````~StockCommand@{$\sim$StockCommand}}
+\index{````~StockCommand@{$\sim$StockCommand}!StockCommand@{StockCommand}}
+\doxysubsubsection{\texorpdfstring{$\sim$StockCommand()}{~StockCommand()}}
+{\footnotesize\ttfamily virtual Stock\+Command\+::$\sim$\+Stock\+Command (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Virtual destructor. 
+
+Ensures proper cleanup in derived command classes. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classStockCommand_a8a7d34b5b29be7959f3d5166b05b83aa}\label{classStockCommand_a8a7d34b5b29be7959f3d5166b05b83aa}} 
+\index{StockCommand@{StockCommand}!execute@{execute}}
+\index{execute@{execute}!StockCommand@{StockCommand}}
+\doxysubsubsection{\texorpdfstring{execute()}{execute()}}
+{\footnotesize\ttfamily virtual bool Stock\+Command\+::execute (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Executes the stock command. 
+
+\begin{DoxyReturn}{Returns}
+true on success, false on failure 
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{classRemoveStock_a1464483133d7ef00acd6932875888667}{Remove\+Stock}}, and \mbox{\hyperlink{classAddStock_ab5849e14bede9c9b41d17c75e8a526b0}{Add\+Stock}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{StockCommand_8h}{Stock\+Command.\+h}}\end{DoxyCompactItemize}

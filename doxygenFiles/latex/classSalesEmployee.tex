@@ -1,0 +1,114 @@
+\hypertarget{classSalesEmployee}{}\doxysection{Sales\+Employee Class Reference}
+\label{classSalesEmployee}\index{SalesEmployee@{SalesEmployee}}
+
+
+Concrete class representing a regular sales employee.  
+
+
+
+
+{\ttfamily \#include $<$Sales\+Employee.\+h$>$}
+
+
+
+Inheritance diagram for Sales\+Employee\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=186pt]{classSalesEmployee__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Sales\+Employee\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=186pt]{classSalesEmployee__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classSalesEmployee_a2a0886ab29168e1016cf203374ccf72b}{Sales\+Employee}} (std\+::string name)
+\begin{DoxyCompactList}\small\item\em Construct a sales employee with given name. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classSalesEmployee_a7d26dbbbf402d945f7b594eebce08283}\label{classSalesEmployee_a7d26dbbbf402d945f7b594eebce08283}} 
+virtual \mbox{\hyperlink{classSalesEmployee_a7d26dbbbf402d945f7b594eebce08283}{$\sim$\+Sales\+Employee}} ()
+\begin{DoxyCompactList}\small\item\em Virtual destructor. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classSalesEmployee_a3829734238893452ef5aeb538fd9f8a2}{staff\+Can\+Handle}} (std\+::string type) override
+\begin{DoxyCompactList}\small\item\em Check if this staff member can handle a query type. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classSalesEmployee_a4e8d30f99406fb04f938b5e82e718a54}{reply}} (\mbox{\hyperlink{classQuery}{Query}} $\ast$query) override
+\begin{DoxyCompactList}\small\item\em Generate a reply for a query. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Concrete class representing a regular sales employee. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classSalesEmployee_a2a0886ab29168e1016cf203374ccf72b}\label{classSalesEmployee_a2a0886ab29168e1016cf203374ccf72b}} 
+\index{SalesEmployee@{SalesEmployee}!SalesEmployee@{SalesEmployee}}
+\index{SalesEmployee@{SalesEmployee}!SalesEmployee@{SalesEmployee}}
+\doxysubsubsection{\texorpdfstring{SalesEmployee()}{SalesEmployee()}}
+{\footnotesize\ttfamily Sales\+Employee\+::\+Sales\+Employee (\begin{DoxyParamCaption}\item[{std\+::string}]{name }\end{DoxyParamCaption})}
+
+
+
+Construct a sales employee with given name. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & The employee\textquotesingle{}s name \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classSalesEmployee_a4e8d30f99406fb04f938b5e82e718a54}\label{classSalesEmployee_a4e8d30f99406fb04f938b5e82e718a54}} 
+\index{SalesEmployee@{SalesEmployee}!reply@{reply}}
+\index{reply@{reply}!SalesEmployee@{SalesEmployee}}
+\doxysubsubsection{\texorpdfstring{reply()}{reply()}}
+{\footnotesize\ttfamily void Sales\+Employee\+::reply (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classQuery}{Query}} $\ast$}]{query }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Generate a reply for a query. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em query} & The query to reply to (non-\/owning pointer) \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{classSalesStaff_a92cd5c2bc513506e76a212d27beb38b7}{Sales\+Staff}}.
+
+\mbox{\Hypertarget{classSalesEmployee_a3829734238893452ef5aeb538fd9f8a2}\label{classSalesEmployee_a3829734238893452ef5aeb538fd9f8a2}} 
+\index{SalesEmployee@{SalesEmployee}!staffCanHandle@{staffCanHandle}}
+\index{staffCanHandle@{staffCanHandle}!SalesEmployee@{SalesEmployee}}
+\doxysubsubsection{\texorpdfstring{staffCanHandle()}{staffCanHandle()}}
+{\footnotesize\ttfamily bool Sales\+Employee\+::staff\+Can\+Handle (\begin{DoxyParamCaption}\item[{std\+::string}]{type }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Check if this staff member can handle a query type. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em type} & The query type to check \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if the staff member can handle it, false otherwise 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classSalesStaff_ab03b86dc18015b583c549745e91dced2}{Sales\+Staff}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{SalesEmployee_8h}{Sales\+Employee.\+h}}\item 
+Sales\+Employee.\+cpp\end{DoxyCompactItemize}

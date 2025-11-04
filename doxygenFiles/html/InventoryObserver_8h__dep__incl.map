@@ -1,0 +1,11 @@
+<map id="InventoryObserver.h" name="InventoryObserver.h">
+<area shape="rect" id="node1" title="Abstract base class for observers monitoring plant inventory changes." alt="" coords="325,5,480,32"/>
+<area shape="rect" id="node2" href="$PlantInventory_8h.html" title="Manages plant inventory using Singleton and Observer patterns." alt="" coords="339,80,466,107"/>
+<area shape="rect" id="node8" href="$SalesFloorObserver_8h.html" title="Defines the SalesFloorObserver class for inventory updates." alt="" coords="5,155,165,181"/>
+<area shape="rect" id="node9" href="$StaffObserver_8h.html" title="Observer class for tracking inventory relevant to staff." alt="" coords="611,155,733,181"/>
+<area shape="rect" id="node3" href="$AddStock_8h_source.html" title=" " alt="" coords="441,155,535,181"/>
+<area shape="rect" id="node4" href="$GreenhouseUnitTest_8h_source.html" title=" " alt="" coords="361,304,527,331"/>
+<area shape="rect" id="node5" href="$PlantStock_8h.html" title="Invoker for executing stock&#45;related commands." alt="" coords="349,229,451,256"/>
+<area shape="rect" id="node6" href="$InventoryProxy_8h.html" title="Proxy class controlling access to plant inventory operations." alt="" coords="79,229,209,256"/>
+<area shape="rect" id="node7" href="$RemoveStock_8h.html" title="Defines the RemoveStock command for decreasing inventory." alt="" coords="241,155,365,181"/>
+</map>

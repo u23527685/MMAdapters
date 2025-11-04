@@ -1,0 +1,19 @@
+<map id="SalesFloorObserver.h" name="SalesFloorObserver.h">
+<area shape="rect" id="node1" title="Defines the SalesFloorObserver class for inventory updates." alt="" coords="537,5,697,32"/>
+<area shape="rect" id="node2" href="$InventoryObserver_8h.html" title="Abstract base class for observers monitoring plant inventory changes." alt="" coords="416,155,571,181"/>
+<area shape="rect" id="node6" title=" " alt="" coords="531,453,589,480"/>
+<area shape="rect" id="node10" title=" " alt="" coords="41,453,103,480"/>
+<area shape="rect" id="node13" title=" " alt="" coords="629,304,689,331"/>
+<area shape="rect" id="node14" href="$PlantInventory_8h.html" title="Manages plant inventory using Singleton and Observer patterns." alt="" coords="259,80,386,107"/>
+<area shape="rect" id="node17" title=" " alt="" coords="764,80,815,107"/>
+<area shape="rect" id="node3" href="$Plant_8h.html" title="Abstract base class representing a plant in the nursery system." alt="" coords="329,229,396,256"/>
+<area shape="rect" id="node4" href="$PlantState_8h.html" title="Defines the abstract interface for plant life cycle states." alt="" coords="312,304,413,331"/>
+<area shape="rect" id="node8" title=" " alt="" coords="241,453,319,480"/>
+<area shape="rect" id="node5" href="$PlantCareRoutine_8h.html" title="Defines the abstract interface for plant care routines." alt="" coords="201,379,348,405"/>
+<area shape="rect" id="node9" href="$PLantLifeCycle_8h_source.html" title=" " alt="" coords="372,379,503,405"/>
+<area shape="rect" id="node7" title=" " alt="" coords="137,453,217,480"/>
+<area shape="rect" id="node11" href="$LifeCycleObserver_8h.html" title="Abstract base class for observers monitoring plant life cycle changes." alt="" coords="355,453,507,480"/>
+<area shape="rect" id="node12" title=" " alt="" coords="367,528,494,555"/>
+<area shape="rect" id="node15" title=" " alt="" coords="144,155,229,181"/>
+<area shape="rect" id="node16" href="$StockCommand_8h.html" title="Abstract base class for stock management commands." alt="" coords="254,155,391,181"/>
+</map>

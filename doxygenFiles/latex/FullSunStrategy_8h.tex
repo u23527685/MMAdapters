@@ -1,0 +1,40 @@
+\hypertarget{FullSunStrategy_8h}{}\doxysection{Full\+Sun\+Strategy.\+h File Reference}
+\label{FullSunStrategy_8h}\index{FullSunStrategy.h@{FullSunStrategy.h}}
+
+
+Concrete sunlight strategy applying full sunlight exposure to a plant.  
+
+
+{\ttfamily \#include \char`\"{}Plant.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Sunlight\+Strategy.\+h\char`\"{}}\newline
+Include dependency graph for Full\+Sun\+Strategy.\+h\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{FullSunStrategy_8h__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classFullSunStrategy}{Full\+Sun\+Strategy}}
+\begin{DoxyCompactList}\small\item\em Strategy for applying full sunlight to a \mbox{\hyperlink{classPlant}{Plant}}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Concrete sunlight strategy applying full sunlight exposure to a plant. 
+
+Implements the \mbox{\hyperlink{classSunlightStrategy}{Sunlight\+Strategy}} interface to provide maximum sunlight exposure to a plant. Increases sunlight level by 60\% per day, capped at the plant\textquotesingle{}s maximum allowed sunlight.
+
+\begin{DoxyNote}{Note}
+Helps simulate sun-\/loving plants that thrive in full light.
+\end{DoxyNote}
+\begin{DoxyWarning}{Warning}
+Exceeding the maximum sunlight value resets it to the limit.
+\end{DoxyWarning}
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{classSunlightStrategy}{Sunlight\+Strategy}} 
+
+\mbox{\hyperlink{classPlant}{Plant}} 
+\end{DoxySeeAlso}

@@ -1,0 +1,121 @@
+\hypertarget{classOrder}{}\doxysection{Order Class Reference}
+\label{classOrder}\index{Order@{Order}}
+
+
+Represents a customer\textquotesingle{}s purchase order.  
+
+
+
+
+{\ttfamily \#include $<$Order.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classOrder_ad4c6311b0264040b65206d5f60c41023}{Order}} (\mbox{\hyperlink{classCustomer}{Customer}} $\ast$customer, const std\+::string \&order\+Id)
+\begin{DoxyCompactList}\small\item\em Constructs a new \mbox{\hyperlink{classOrder}{Order}} instance. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classOrder_a8fb25876ccbd534465f5f96ef9bb2212}\label{classOrder_a8fb25876ccbd534465f5f96ef9bb2212}} 
+\mbox{\hyperlink{classOrder_a8fb25876ccbd534465f5f96ef9bb2212}{$\sim$\+Order}} ()
+\begin{DoxyCompactList}\small\item\em Destructor to clean up order resources. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classOrder_a9d628b7c9841526aa7c5feed075461f1}{add\+Transaction}} (\mbox{\hyperlink{classTransaction}{Transaction}} $\ast$transaction)
+\begin{DoxyCompactList}\small\item\em Adds a transaction to this order. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classOrder_a79fab77e39d0a5a6b9021a2f2881f69d}\label{classOrder_a79fab77e39d0a5a6b9021a2f2881f69d}} 
+void \mbox{\hyperlink{classOrder_a79fab77e39d0a5a6b9021a2f2881f69d}{process\+Order}} ()
+\begin{DoxyCompactList}\small\item\em Processes all transactions associated with this order. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classOrder_ac6f3e5ecd1bae20d414118216a0ba552}\label{classOrder_ac6f3e5ecd1bae20d414118216a0ba552}} 
+void \mbox{\hyperlink{classOrder_ac6f3e5ecd1bae20d414118216a0ba552}{display\+Order\+Details}} () const
+\begin{DoxyCompactList}\small\item\em Displays detailed information about this order. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{classOrder_ae999a76aef60219b09fbfe1e890b4743}{get\+Order\+Id}} () const
+\begin{DoxyCompactList}\small\item\em Retrieves the order ID. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{classOrder_abababdc3b90d482d807766e5fbad5100}{get\+Status}} () const
+\begin{DoxyCompactList}\small\item\em Retrieves the current order status. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classCustomer}{Customer}} $\ast$ \mbox{\hyperlink{classOrder_acd11c01e17e8161b06941fc1df3bb8f1}{get\+Customer}} () const
+\begin{DoxyCompactList}\small\item\em Gets the customer associated with this order. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Represents a customer\textquotesingle{}s purchase order. 
+
+An \mbox{\hyperlink{classOrder}{Order}} aggregates multiple transactions and manages their processing, status updates, and display details. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classOrder_ad4c6311b0264040b65206d5f60c41023}\label{classOrder_ad4c6311b0264040b65206d5f60c41023}} 
+\index{Order@{Order}!Order@{Order}}
+\index{Order@{Order}!Order@{Order}}
+\doxysubsubsection{\texorpdfstring{Order()}{Order()}}
+{\footnotesize\ttfamily Order\+::\+Order (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classCustomer}{Customer}} $\ast$}]{customer,  }\item[{const std\+::string \&}]{order\+Id }\end{DoxyParamCaption})}
+
+
+
+Constructs a new \mbox{\hyperlink{classOrder}{Order}} instance. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em customer} & Pointer to the customer placing the order. \\
+\hline
+{\em order\+Id} & Unique order identifier. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classOrder_a9d628b7c9841526aa7c5feed075461f1}\label{classOrder_a9d628b7c9841526aa7c5feed075461f1}} 
+\index{Order@{Order}!addTransaction@{addTransaction}}
+\index{addTransaction@{addTransaction}!Order@{Order}}
+\doxysubsubsection{\texorpdfstring{addTransaction()}{addTransaction()}}
+{\footnotesize\ttfamily void Order\+::add\+Transaction (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classTransaction}{Transaction}} $\ast$}]{transaction }\end{DoxyParamCaption})}
+
+
+
+Adds a transaction to this order. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em transaction} & Pointer to the transaction to add. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classOrder_acd11c01e17e8161b06941fc1df3bb8f1}\label{classOrder_acd11c01e17e8161b06941fc1df3bb8f1}} 
+\index{Order@{Order}!getCustomer@{getCustomer}}
+\index{getCustomer@{getCustomer}!Order@{Order}}
+\doxysubsubsection{\texorpdfstring{getCustomer()}{getCustomer()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classCustomer}{Customer}} $\ast$ Order\+::get\+Customer (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Gets the customer associated with this order. 
+
+\begin{DoxyReturn}{Returns}
+Pointer to the \mbox{\hyperlink{classCustomer}{Customer}}. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classOrder_ae999a76aef60219b09fbfe1e890b4743}\label{classOrder_ae999a76aef60219b09fbfe1e890b4743}} 
+\index{Order@{Order}!getOrderId@{getOrderId}}
+\index{getOrderId@{getOrderId}!Order@{Order}}
+\doxysubsubsection{\texorpdfstring{getOrderId()}{getOrderId()}}
+{\footnotesize\ttfamily std\+::string Order\+::get\+Order\+Id (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Retrieves the order ID. 
+
+\begin{DoxyReturn}{Returns}
+String representing the order ID. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classOrder_abababdc3b90d482d807766e5fbad5100}\label{classOrder_abababdc3b90d482d807766e5fbad5100}} 
+\index{Order@{Order}!getStatus@{getStatus}}
+\index{getStatus@{getStatus}!Order@{Order}}
+\doxysubsubsection{\texorpdfstring{getStatus()}{getStatus()}}
+{\footnotesize\ttfamily std\+::string Order\+::get\+Status (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Retrieves the current order status. 
+
+\begin{DoxyReturn}{Returns}
+String representing the order status. 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{Order_8h}{Order.\+h}}\item 
+Order.\+cpp\end{DoxyCompactItemize}

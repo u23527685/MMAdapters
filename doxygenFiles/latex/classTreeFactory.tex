@@ -1,0 +1,74 @@
+\hypertarget{classTreeFactory}{}\doxysection{Tree\+Factory Class Reference}
+\label{classTreeFactory}\index{TreeFactory@{TreeFactory}}
+
+
+Concrete factory for creating tree plants.  
+
+
+
+
+{\ttfamily \#include $<$Tree\+Factory.\+h$>$}
+
+
+
+Inheritance diagram for Tree\+Factory\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=157pt]{classTreeFactory__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Tree\+Factory\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=157pt]{classTreeFactory__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classPlant}{Plant}} $\ast$ \mbox{\hyperlink{classTreeFactory_a8c7b94167214c2b1bb2981cc78efdd18}{create\+Plant}} (std\+::string plant\+Type, double price) override
+\begin{DoxyCompactList}\small\item\em Creates a tree plant of the specified type. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Concrete factory for creating tree plants. 
+
+This class implements the \mbox{\hyperlink{classPlantFactory}{Plant\+Factory}} interface to create specific tree-\/type plants like \mbox{\hyperlink{classOak}{Oak}} trees. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classTreeFactory_a8c7b94167214c2b1bb2981cc78efdd18}\label{classTreeFactory_a8c7b94167214c2b1bb2981cc78efdd18}} 
+\index{TreeFactory@{TreeFactory}!createPlant@{createPlant}}
+\index{createPlant@{createPlant}!TreeFactory@{TreeFactory}}
+\doxysubsubsection{\texorpdfstring{createPlant()}{createPlant()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classPlant}{Plant}} $\ast$ Tree\+Factory\+::create\+Plant (\begin{DoxyParamCaption}\item[{std\+::string}]{plant\+Type = {\ttfamily \char`\"{}Oak\char`\"{}},  }\item[{double}]{price = {\ttfamily 100} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Creates a tree plant of the specified type. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em plant\+Type} & The type of tree to create (e.\+g., \char`\"{}\+Oak\char`\"{}) \\
+\hline
+{\em price} & The price of the tree plant \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Pointer to the newly created \mbox{\hyperlink{classPlant}{Plant}} object 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classPlantFactory_abcdff8c5cf47bd6846e2c47589d1e0e9}{Plant\+Factory}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{TreeFactory_8h}{Tree\+Factory.\+h}}\item 
+Tree\+Factory.\+cpp\end{DoxyCompactItemize}

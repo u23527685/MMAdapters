@@ -1,0 +1,233 @@
+\hypertarget{classTransaction}{}\doxysection{Transaction Class Reference}
+\label{classTransaction}\index{Transaction@{Transaction}}
+
+
+Encapsulates all details of a plant purchase transaction.  
+
+
+
+
+{\ttfamily \#include $<$Transaction.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classTransaction_a46e6526cbc20881a3fb3cf19d4a45293}{Transaction}} (const std\+::string \&order\+Num, double amount, int quantity)
+\begin{DoxyCompactList}\small\item\em Constructs a transaction. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classTransaction_afd270b72d60647a0a262dbd738d56aab}{set\+Transaction}} (const std\+::string \&order\+Num, double amount, int quantity)
+\begin{DoxyCompactList}\small\item\em Updates transaction details. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classTransaction_acd8d9c1e3aff752772c6bb5f033f71ca}{set\+Payment\+Strategy}} (\mbox{\hyperlink{classPaymentStrategy}{Payment\+Strategy}} $\ast$method)
+\begin{DoxyCompactList}\small\item\em Sets the payment strategy. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classTransaction_a4d85cdd375a768090ba774ceeaf39b88}\label{classTransaction_a4d85cdd375a768090ba774ceeaf39b88}} 
+void \mbox{\hyperlink{classTransaction_a4d85cdd375a768090ba774ceeaf39b88}{process\+Payment}} () const
+\begin{DoxyCompactList}\small\item\em Processes payment using the selected strategy. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classTransaction_ac941fdacefc0687664c5f1867183bfa6}\label{classTransaction_ac941fdacefc0687664c5f1867183bfa6}} 
+void \mbox{\hyperlink{classTransaction_ac941fdacefc0687664c5f1867183bfa6}{get\+Details}} () const
+\begin{DoxyCompactList}\small\item\em Displays the transaction details. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{classTransaction_acec626b2aaa0012a6b3d6f0c009cd65f}{get\+Transaction\+Id}} () const
+\begin{DoxyCompactList}\small\item\em Retrieves the transaction ID. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{classTransaction_a82032f30ae2c62aaf5b911994f844a31}{get\+Amount}} () const
+\begin{DoxyCompactList}\small\item\em Retrieves the transaction amount. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classTransaction_ae60615ada8cd17b92b49bee6467184a7}{get\+Quantity}} () const
+\begin{DoxyCompactList}\small\item\em Retrieves quantity purchased. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{classTransaction_ac7713f20cea8b7c0342b9725823a0de2}{get\+Payment\+Method}} () const
+\begin{DoxyCompactList}\small\item\em Retrieves payment method name. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classTransaction_acfa8c35ab1dceebd4212e28919e35a0c}{add\+Decoration}} (const std\+::string \&decor)
+\begin{DoxyCompactList}\small\item\em Adds a decorative feature to the transaction. \end{DoxyCompactList}\item 
+const std\+::vector$<$ std\+::string $>$ \& \mbox{\hyperlink{classTransaction_ab1e936fea41d9f43c271c7713662d8e0}{get\+Decorations}} () const
+\begin{DoxyCompactList}\small\item\em Returns all applied decorations. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classTransactionSnapshot}{Transaction\+Snapshot}} \mbox{\hyperlink{classTransaction_a9a5b78f7dbd867c475b1ce53586f6699}{create\+Snapshot}} () const
+\begin{DoxyCompactList}\small\item\em Creates a snapshot of the current transaction state. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classTransaction_aecfb94d117424540ac0c911463297887}{restore\+Snapshot}} (const \mbox{\hyperlink{classTransactionSnapshot}{Transaction\+Snapshot}} \&snapshot)
+\begin{DoxyCompactList}\small\item\em Restores the transaction from a snapshot. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classTransaction}{Transaction}} $\ast$ \mbox{\hyperlink{classTransaction_a57844b06b3e5a732797c2c874e29c808}{clone}} () const
+\begin{DoxyCompactList}\small\item\em Clones this transaction. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Encapsulates all details of a plant purchase transaction. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classTransaction_a46e6526cbc20881a3fb3cf19d4a45293}\label{classTransaction_a46e6526cbc20881a3fb3cf19d4a45293}} 
+\index{Transaction@{Transaction}!Transaction@{Transaction}}
+\index{Transaction@{Transaction}!Transaction@{Transaction}}
+\doxysubsubsection{\texorpdfstring{Transaction()}{Transaction()}}
+{\footnotesize\ttfamily Transaction\+::\+Transaction (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{order\+Num,  }\item[{double}]{amount,  }\item[{int}]{quantity }\end{DoxyParamCaption})}
+
+
+
+Constructs a transaction. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em order\+Num} & Unique identifier for the order. \\
+\hline
+{\em amount} & Total purchase amount. \\
+\hline
+{\em quantity} & Number of items purchased. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classTransaction_acfa8c35ab1dceebd4212e28919e35a0c}\label{classTransaction_acfa8c35ab1dceebd4212e28919e35a0c}} 
+\index{Transaction@{Transaction}!addDecoration@{addDecoration}}
+\index{addDecoration@{addDecoration}!Transaction@{Transaction}}
+\doxysubsubsection{\texorpdfstring{addDecoration()}{addDecoration()}}
+{\footnotesize\ttfamily void Transaction\+::add\+Decoration (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{decor }\end{DoxyParamCaption})}
+
+
+
+Adds a decorative feature to the transaction. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em decor} & Name of the decoration. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classTransaction_a57844b06b3e5a732797c2c874e29c808}\label{classTransaction_a57844b06b3e5a732797c2c874e29c808}} 
+\index{Transaction@{Transaction}!clone@{clone}}
+\index{clone@{clone}!Transaction@{Transaction}}
+\doxysubsubsection{\texorpdfstring{clone()}{clone()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classTransaction}{Transaction}} $\ast$ Transaction\+::clone (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Clones this transaction. 
+
+\begin{DoxyReturn}{Returns}
+Pointer to a new \mbox{\hyperlink{classTransaction}{Transaction}} object with the same state. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classTransaction_a9a5b78f7dbd867c475b1ce53586f6699}\label{classTransaction_a9a5b78f7dbd867c475b1ce53586f6699}} 
+\index{Transaction@{Transaction}!createSnapshot@{createSnapshot}}
+\index{createSnapshot@{createSnapshot}!Transaction@{Transaction}}
+\doxysubsubsection{\texorpdfstring{createSnapshot()}{createSnapshot()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classTransactionSnapshot}{Transaction\+Snapshot}} Transaction\+::create\+Snapshot (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Creates a snapshot of the current transaction state. 
+
+\begin{DoxyReturn}{Returns}
+A \mbox{\hyperlink{classTransactionSnapshot}{Transaction\+Snapshot}} instance. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classTransaction_a82032f30ae2c62aaf5b911994f844a31}\label{classTransaction_a82032f30ae2c62aaf5b911994f844a31}} 
+\index{Transaction@{Transaction}!getAmount@{getAmount}}
+\index{getAmount@{getAmount}!Transaction@{Transaction}}
+\doxysubsubsection{\texorpdfstring{getAmount()}{getAmount()}}
+{\footnotesize\ttfamily double Transaction\+::get\+Amount (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Retrieves the transaction amount. 
+
+\begin{DoxyReturn}{Returns}
+Total amount. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classTransaction_ab1e936fea41d9f43c271c7713662d8e0}\label{classTransaction_ab1e936fea41d9f43c271c7713662d8e0}} 
+\index{Transaction@{Transaction}!getDecorations@{getDecorations}}
+\index{getDecorations@{getDecorations}!Transaction@{Transaction}}
+\doxysubsubsection{\texorpdfstring{getDecorations()}{getDecorations()}}
+{\footnotesize\ttfamily const std\+::vector$<$ std\+::string $>$ \& Transaction\+::get\+Decorations (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Returns all applied decorations. 
+
+\begin{DoxyReturn}{Returns}
+Vector of decoration names. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classTransaction_ac7713f20cea8b7c0342b9725823a0de2}\label{classTransaction_ac7713f20cea8b7c0342b9725823a0de2}} 
+\index{Transaction@{Transaction}!getPaymentMethod@{getPaymentMethod}}
+\index{getPaymentMethod@{getPaymentMethod}!Transaction@{Transaction}}
+\doxysubsubsection{\texorpdfstring{getPaymentMethod()}{getPaymentMethod()}}
+{\footnotesize\ttfamily std\+::string Transaction\+::get\+Payment\+Method (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Retrieves payment method name. 
+
+\begin{DoxyReturn}{Returns}
+Payment strategy name. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classTransaction_ae60615ada8cd17b92b49bee6467184a7}\label{classTransaction_ae60615ada8cd17b92b49bee6467184a7}} 
+\index{Transaction@{Transaction}!getQuantity@{getQuantity}}
+\index{getQuantity@{getQuantity}!Transaction@{Transaction}}
+\doxysubsubsection{\texorpdfstring{getQuantity()}{getQuantity()}}
+{\footnotesize\ttfamily int Transaction\+::get\+Quantity (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Retrieves quantity purchased. 
+
+\begin{DoxyReturn}{Returns}
+Quantity of items. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classTransaction_acec626b2aaa0012a6b3d6f0c009cd65f}\label{classTransaction_acec626b2aaa0012a6b3d6f0c009cd65f}} 
+\index{Transaction@{Transaction}!getTransactionId@{getTransactionId}}
+\index{getTransactionId@{getTransactionId}!Transaction@{Transaction}}
+\doxysubsubsection{\texorpdfstring{getTransactionId()}{getTransactionId()}}
+{\footnotesize\ttfamily std\+::string Transaction\+::get\+Transaction\+Id (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Retrieves the transaction ID. 
+
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{classOrder}{Order}} number as a string. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classTransaction_aecfb94d117424540ac0c911463297887}\label{classTransaction_aecfb94d117424540ac0c911463297887}} 
+\index{Transaction@{Transaction}!restoreSnapshot@{restoreSnapshot}}
+\index{restoreSnapshot@{restoreSnapshot}!Transaction@{Transaction}}
+\doxysubsubsection{\texorpdfstring{restoreSnapshot()}{restoreSnapshot()}}
+{\footnotesize\ttfamily void Transaction\+::restore\+Snapshot (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classTransactionSnapshot}{Transaction\+Snapshot}} \&}]{snapshot }\end{DoxyParamCaption})}
+
+
+
+Restores the transaction from a snapshot. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em snapshot} & The snapshot to restore from. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classTransaction_acd8d9c1e3aff752772c6bb5f033f71ca}\label{classTransaction_acd8d9c1e3aff752772c6bb5f033f71ca}} 
+\index{Transaction@{Transaction}!setPaymentStrategy@{setPaymentStrategy}}
+\index{setPaymentStrategy@{setPaymentStrategy}!Transaction@{Transaction}}
+\doxysubsubsection{\texorpdfstring{setPaymentStrategy()}{setPaymentStrategy()}}
+{\footnotesize\ttfamily void Transaction\+::set\+Payment\+Strategy (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classPaymentStrategy}{Payment\+Strategy}} $\ast$}]{method }\end{DoxyParamCaption})}
+
+
+
+Sets the payment strategy. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em method} & Pointer to the chosen \mbox{\hyperlink{classPaymentStrategy}{Payment\+Strategy}}. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classTransaction_afd270b72d60647a0a262dbd738d56aab}\label{classTransaction_afd270b72d60647a0a262dbd738d56aab}} 
+\index{Transaction@{Transaction}!setTransaction@{setTransaction}}
+\index{setTransaction@{setTransaction}!Transaction@{Transaction}}
+\doxysubsubsection{\texorpdfstring{setTransaction()}{setTransaction()}}
+{\footnotesize\ttfamily void Transaction\+::set\+Transaction (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{order\+Num,  }\item[{double}]{amount,  }\item[{int}]{quantity }\end{DoxyParamCaption})}
+
+
+
+Updates transaction details. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em order\+Num} & \mbox{\hyperlink{classOrder}{Order}} identifier. \\
+\hline
+{\em amount} & Updated amount. \\
+\hline
+{\em quantity} & Updated quantity. \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{Transaction_8h}{Transaction.\+h}}\item 
+Transaction.\+cpp\end{DoxyCompactItemize}

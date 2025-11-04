@@ -1,0 +1,6 @@
+<map id="WaterStrategy" name="WaterStrategy">
+<area shape="rect" id="node1" title="Abstract base class for water strategies. This class defines the interface for water strategies,..." alt="" coords="189,5,303,32"/>
+<area shape="rect" id="node2" href="$classHighWaterStrategy.html" title="Strategy for applying a high amount of water to a plant." alt="" coords="5,80,151,107"/>
+<area shape="rect" id="node3" href="$classLowWaterStrategy.html" title="Strategy for plants requiring minimal water intake." alt="" coords="175,80,317,107"/>
+<area shape="rect" id="node4" href="$classMediumWaterStrategy.html" title="Strategy for moderately watering plants." alt="" coords="341,80,509,107"/>
+</map>

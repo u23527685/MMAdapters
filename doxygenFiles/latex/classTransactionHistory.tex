@@ -1,0 +1,83 @@
+\hypertarget{classTransactionHistory}{}\doxysection{Transaction\+History Class Reference}
+\label{classTransactionHistory}\index{TransactionHistory@{TransactionHistory}}
+
+
+Manages the storage and retrieval of transaction snapshots.  
+
+
+
+
+{\ttfamily \#include $<$Transaction\+History.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classTransactionHistory_ab736b8571675862ccb36af1249ca0e7f}{add\+Snapshot}} (const \mbox{\hyperlink{classTransactionSnapshot}{Transaction\+Snapshot}} \&snapshot)
+\begin{DoxyCompactList}\small\item\em Adds a new snapshot to the transaction history. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classTransactionSnapshot}{Transaction\+Snapshot}} \mbox{\hyperlink{classTransactionHistory_ab66812338d7f07c7898f7cb175cc1c4c}{get\+Snapshot}} (int index) const
+\begin{DoxyCompactList}\small\item\em Retrieves a specific snapshot by index. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classTransactionHistory_a15cf1388aa03aedae19221b7bca89259}{get\+History\+Size}} () const
+\begin{DoxyCompactList}\small\item\em Gets the total number of snapshots in the history. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Manages the storage and retrieval of transaction snapshots. 
+
+Provides functionality to add new snapshots, access previous ones, and get the total number of transactions recorded. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classTransactionHistory_ab736b8571675862ccb36af1249ca0e7f}\label{classTransactionHistory_ab736b8571675862ccb36af1249ca0e7f}} 
+\index{TransactionHistory@{TransactionHistory}!addSnapshot@{addSnapshot}}
+\index{addSnapshot@{addSnapshot}!TransactionHistory@{TransactionHistory}}
+\doxysubsubsection{\texorpdfstring{addSnapshot()}{addSnapshot()}}
+{\footnotesize\ttfamily void Transaction\+History\+::add\+Snapshot (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classTransactionSnapshot}{Transaction\+Snapshot}} \&}]{snapshot }\end{DoxyParamCaption})}
+
+
+
+Adds a new snapshot to the transaction history. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em snapshot} & The \mbox{\hyperlink{classTransactionSnapshot}{Transaction\+Snapshot}} object representing a completed order. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classTransactionHistory_a15cf1388aa03aedae19221b7bca89259}\label{classTransactionHistory_a15cf1388aa03aedae19221b7bca89259}} 
+\index{TransactionHistory@{TransactionHistory}!getHistorySize@{getHistorySize}}
+\index{getHistorySize@{getHistorySize}!TransactionHistory@{TransactionHistory}}
+\doxysubsubsection{\texorpdfstring{getHistorySize()}{getHistorySize()}}
+{\footnotesize\ttfamily int Transaction\+History\+::get\+History\+Size (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Gets the total number of snapshots in the history. 
+
+\begin{DoxyReturn}{Returns}
+The number of stored \mbox{\hyperlink{classTransactionSnapshot}{Transaction\+Snapshot}} objects. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classTransactionHistory_ab66812338d7f07c7898f7cb175cc1c4c}\label{classTransactionHistory_ab66812338d7f07c7898f7cb175cc1c4c}} 
+\index{TransactionHistory@{TransactionHistory}!getSnapshot@{getSnapshot}}
+\index{getSnapshot@{getSnapshot}!TransactionHistory@{TransactionHistory}}
+\doxysubsubsection{\texorpdfstring{getSnapshot()}{getSnapshot()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classTransactionSnapshot}{Transaction\+Snapshot}} Transaction\+History\+::get\+Snapshot (\begin{DoxyParamCaption}\item[{int}]{index }\end{DoxyParamCaption}) const}
+
+
+
+Retrieves a specific snapshot by index. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em index} & The index of the snapshot to retrieve. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The \mbox{\hyperlink{classTransactionSnapshot}{Transaction\+Snapshot}} at the specified index. 
+\end{DoxyReturn}
+\begin{DoxyWarning}{Warning}
+Calling with an invalid index may cause undefined behavior. 
+\end{DoxyWarning}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{TransactionHistory_8h}{Transaction\+History.\+h}}\item 
+Transaction\+History.\+cpp\end{DoxyCompactItemize}

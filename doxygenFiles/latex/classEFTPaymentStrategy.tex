@@ -1,0 +1,110 @@
+\hypertarget{classEFTPaymentStrategy}{}\doxysection{EFTPayment\+Strategy Class Reference}
+\label{classEFTPaymentStrategy}\index{EFTPaymentStrategy@{EFTPaymentStrategy}}
+
+
+Payment strategy implementation for EFT transactions.  
+
+
+
+
+{\ttfamily \#include $<$EFTPayment\+Strategy.\+h$>$}
+
+
+
+Inheritance diagram for EFTPayment\+Strategy\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=198pt]{classEFTPaymentStrategy__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for EFTPayment\+Strategy\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=198pt]{classEFTPaymentStrategy__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classEFTPaymentStrategy_ad42b59f765781e7ff5716b156e6f3571}{EFTPayment\+Strategy}} (const std\+::string \&account\+Number)
+\begin{DoxyCompactList}\small\item\em Construct an \mbox{\hyperlink{classEFTPaymentStrategy}{EFTPayment\+Strategy}} with a specific account number. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classEFTPaymentStrategy_abbd811553e951f7398d76e3274525620}{pay}} (double amount, const std\+::string \&order\+Num) const override
+\begin{DoxyCompactList}\small\item\em Process a payment via EFT. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{classEFTPaymentStrategy_a99f6c254ef18c5d7ac9437a0f98dc766}{get\+Name}} () const override
+\begin{DoxyCompactList}\small\item\em Retrieve the strategy\textquotesingle{}s display name. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Payment strategy implementation for EFT transactions. 
+
+Handles payments made via direct bank transfers using an account number. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classEFTPaymentStrategy_ad42b59f765781e7ff5716b156e6f3571}\label{classEFTPaymentStrategy_ad42b59f765781e7ff5716b156e6f3571}} 
+\index{EFTPaymentStrategy@{EFTPaymentStrategy}!EFTPaymentStrategy@{EFTPaymentStrategy}}
+\index{EFTPaymentStrategy@{EFTPaymentStrategy}!EFTPaymentStrategy@{EFTPaymentStrategy}}
+\doxysubsubsection{\texorpdfstring{EFTPaymentStrategy()}{EFTPaymentStrategy()}}
+{\footnotesize\ttfamily EFTPayment\+Strategy\+::\+EFTPayment\+Strategy (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{account\+Number }\end{DoxyParamCaption})}
+
+
+
+Construct an \mbox{\hyperlink{classEFTPaymentStrategy}{EFTPayment\+Strategy}} with a specific account number. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em account\+Number} & Bank account number used for transfer. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classEFTPaymentStrategy_a99f6c254ef18c5d7ac9437a0f98dc766}\label{classEFTPaymentStrategy_a99f6c254ef18c5d7ac9437a0f98dc766}} 
+\index{EFTPaymentStrategy@{EFTPaymentStrategy}!getName@{getName}}
+\index{getName@{getName}!EFTPaymentStrategy@{EFTPaymentStrategy}}
+\doxysubsubsection{\texorpdfstring{getName()}{getName()}}
+{\footnotesize\ttfamily std\+::string EFTPayment\+Strategy\+::get\+Name (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Retrieve the strategy\textquotesingle{}s display name. 
+
+\begin{DoxyReturn}{Returns}
+\char`\"{}\+EFT Payment\char`\"{}. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classPaymentStrategy_a01cc0ce75dab09e6ad06015213f12cf6}{Payment\+Strategy}}.
+
+\mbox{\Hypertarget{classEFTPaymentStrategy_abbd811553e951f7398d76e3274525620}\label{classEFTPaymentStrategy_abbd811553e951f7398d76e3274525620}} 
+\index{EFTPaymentStrategy@{EFTPaymentStrategy}!pay@{pay}}
+\index{pay@{pay}!EFTPaymentStrategy@{EFTPaymentStrategy}}
+\doxysubsubsection{\texorpdfstring{pay()}{pay()}}
+{\footnotesize\ttfamily void EFTPayment\+Strategy\+::pay (\begin{DoxyParamCaption}\item[{double}]{amount,  }\item[{const std\+::string \&}]{order\+Num }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Process a payment via EFT. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em amount} & Amount to transfer. \\
+\hline
+{\em order\+Num} & Associated order number. \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{classPaymentStrategy_ab2aa48fb2342c4fca4af0a5279ea048b}{Payment\+Strategy}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{EFTPaymentStrategy_8h}{EFTPayment\+Strategy.\+h}}\item 
+EFTPayment\+Strategy.\+cpp\end{DoxyCompactItemize}

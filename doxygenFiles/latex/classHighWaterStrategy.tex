@@ -1,0 +1,89 @@
+\hypertarget{classHighWaterStrategy}{}\doxysection{High\+Water\+Strategy Class Reference}
+\label{classHighWaterStrategy}\index{HighWaterStrategy@{HighWaterStrategy}}
+
+
+Strategy for applying a high amount of water to a plant.  
+
+
+
+
+{\ttfamily \#include $<$High\+Water\+Strategy.\+h$>$}
+
+
+
+Inheritance diagram for High\+Water\+Strategy\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=189pt]{classHighWaterStrategy__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for High\+Water\+Strategy\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classHighWaterStrategy__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classHighWaterStrategy_a097221d44a1c28fe1328ae815f0d3125}{apply\+Water}} (\mbox{\hyperlink{classPlant}{Plant}} $\ast$p) override
+\begin{DoxyCompactList}\small\item\em Applies the high water strategy to a plant. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{classHighWaterStrategy_a2a74cff12c8d52bb2498266275c0b6b3}{get\+Strategy\+Name}} () const override
+\begin{DoxyCompactList}\small\item\em Gets the name of this watering strategy. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Detailed Description}
+Strategy for applying a high amount of water to a plant. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classHighWaterStrategy_a097221d44a1c28fe1328ae815f0d3125}\label{classHighWaterStrategy_a097221d44a1c28fe1328ae815f0d3125}} 
+\index{HighWaterStrategy@{HighWaterStrategy}!applyWater@{applyWater}}
+\index{applyWater@{applyWater}!HighWaterStrategy@{HighWaterStrategy}}
+\doxysubsubsection{\texorpdfstring{applyWater()}{applyWater()}}
+{\footnotesize\ttfamily void High\+Water\+Strategy\+::apply\+Water (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classPlant}{Plant}} $\ast$}]{p }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Applies the high water strategy to a plant. 
+
+Increases the plant\textquotesingle{}s water level by 100ml, capped at the plant’s maximum water capacity.
+
+
+\begin{DoxyParams}{Parameters}
+{\em p} & Pointer to the plant receiving water. \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{classWaterStrategy_a68a777faa9840b21a68b5c7388f644c9}{Water\+Strategy}}.
+
+\mbox{\Hypertarget{classHighWaterStrategy_a2a74cff12c8d52bb2498266275c0b6b3}\label{classHighWaterStrategy_a2a74cff12c8d52bb2498266275c0b6b3}} 
+\index{HighWaterStrategy@{HighWaterStrategy}!getStrategyName@{getStrategyName}}
+\index{getStrategyName@{getStrategyName}!HighWaterStrategy@{HighWaterStrategy}}
+\doxysubsubsection{\texorpdfstring{getStrategyName()}{getStrategyName()}}
+{\footnotesize\ttfamily std\+::string High\+Water\+Strategy\+::get\+Strategy\+Name (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Gets the name of this watering strategy. 
+
+\begin{DoxyReturn}{Returns}
+String representing the strategy name. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classWaterStrategy_a4117055fdba821e6d2773beef61cb1f0}{Water\+Strategy}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{HighWaterStrategy_8h}{High\+Water\+Strategy.\+h}}\item 
+High\+Water\+Strategy.\+cpp\end{DoxyCompactItemize}

@@ -1,0 +1,99 @@
+\hypertarget{classFertilizerStrategy}{}\doxysection{Fertilizer\+Strategy Class Reference}
+\label{classFertilizerStrategy}\index{FertilizerStrategy@{FertilizerStrategy}}
+
+
+Abstract base for fertilizer behavior strategies.  
+
+
+
+
+{\ttfamily \#include $<$Fertilizer\+Strategy.\+h$>$}
+
+
+
+Inheritance diagram for Fertilizer\+Strategy\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=300pt]{classFertilizerStrategy__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Fertilizer\+Strategy\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=245pt]{classFertilizerStrategy__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual void \mbox{\hyperlink{classFertilizerStrategy_a6c2088db603760eb61fc1fa7549a2a57}{apply\+Fertilizer}} (\mbox{\hyperlink{classPlant}{Plant}} $\ast$p)=0
+\begin{DoxyCompactList}\small\item\em Applies the fertilizer strategy to a plant. This is a pure virtual function that must be implemented by concrete subclasses. \end{DoxyCompactList}\item 
+virtual std\+::string \mbox{\hyperlink{classFertilizerStrategy_a716d0a4861d471361e9750d718447359}{get\+Strategy\+Name}} () const =0
+\begin{DoxyCompactList}\small\item\em Gets the name of the fertilizer strategy. This is a pure virtual function that must be implemented by concrete subclasses. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classPlant}{Plant}} $\ast$ \mbox{\hyperlink{classFertilizerStrategy_a622a051b9c16ce499a7851816823ebd7}{current\+Plant}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Abstract base for fertilizer behavior strategies. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classFertilizerStrategy_a6c2088db603760eb61fc1fa7549a2a57}\label{classFertilizerStrategy_a6c2088db603760eb61fc1fa7549a2a57}} 
+\index{FertilizerStrategy@{FertilizerStrategy}!applyFertilizer@{applyFertilizer}}
+\index{applyFertilizer@{applyFertilizer}!FertilizerStrategy@{FertilizerStrategy}}
+\doxysubsubsection{\texorpdfstring{applyFertilizer()}{applyFertilizer()}}
+{\footnotesize\ttfamily virtual void Fertilizer\+Strategy\+::apply\+Fertilizer (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classPlant}{Plant}} $\ast$}]{p }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Applies the fertilizer strategy to a plant. This is a pure virtual function that must be implemented by concrete subclasses. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p} & The plant to apply the fertilizer strategy to. \\
+\hline
+\end{DoxyParams}
+
+
+Implemented in \mbox{\hyperlink{classOrganicFertilizer_ab9b325fb3e578f4672c965cf4b0de7b6}{Organic\+Fertilizer}}, and \mbox{\hyperlink{classInorganicFertilizer_a1b6476b5f8390d256f765f6acece89ca}{Inorganic\+Fertilizer}}.
+
+\mbox{\Hypertarget{classFertilizerStrategy_a716d0a4861d471361e9750d718447359}\label{classFertilizerStrategy_a716d0a4861d471361e9750d718447359}} 
+\index{FertilizerStrategy@{FertilizerStrategy}!getStrategyName@{getStrategyName}}
+\index{getStrategyName@{getStrategyName}!FertilizerStrategy@{FertilizerStrategy}}
+\doxysubsubsection{\texorpdfstring{getStrategyName()}{getStrategyName()}}
+{\footnotesize\ttfamily virtual std\+::string Fertilizer\+Strategy\+::get\+Strategy\+Name (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Gets the name of the fertilizer strategy. This is a pure virtual function that must be implemented by concrete subclasses. 
+
+\begin{DoxyReturn}{Returns}
+The name of the fertilizer strategy. 
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{classOrganicFertilizer_a74b03aef5b15ab1bd3d2ff4401454c58}{Organic\+Fertilizer}}, and \mbox{\hyperlink{classInorganicFertilizer_a353d3fae65e72a2ca26a9ace5cc702d6}{Inorganic\+Fertilizer}}.
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classFertilizerStrategy_a622a051b9c16ce499a7851816823ebd7}\label{classFertilizerStrategy_a622a051b9c16ce499a7851816823ebd7}} 
+\index{FertilizerStrategy@{FertilizerStrategy}!currentPlant@{currentPlant}}
+\index{currentPlant@{currentPlant}!FertilizerStrategy@{FertilizerStrategy}}
+\doxysubsubsection{\texorpdfstring{currentPlant}{currentPlant}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classPlant}{Plant}}$\ast$ Fertilizer\+Strategy\+::current\+Plant\hspace{0.3cm}{\ttfamily [protected]}}
+
+Pointer to the plant being fertilized. 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{FertilizerStrategy_8h}{Fertilizer\+Strategy.\+h}}\end{DoxyCompactItemize}

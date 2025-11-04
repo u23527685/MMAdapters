@@ -1,0 +1,88 @@
+\hypertarget{classManagerfactory}{}\doxysection{Managerfactory Class Reference}
+\label{classManagerfactory}\index{Managerfactory@{Managerfactory}}
+
+
+Inheritance diagram for Managerfactory\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=174pt]{classManagerfactory__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Managerfactory\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=174pt]{classManagerfactory__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classManagerfactory_a06cba8f66de5814738ff37049e2e9da7}\label{classManagerfactory_a06cba8f66de5814738ff37049e2e9da7}} 
+\mbox{\hyperlink{classManagerfactory_a06cba8f66de5814738ff37049e2e9da7}{Managerfactory}} ()
+\begin{DoxyCompactList}\small\item\em Default constructor. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classManagerfactory_a6177cd6f24d4b18d67ab7b1694758d26}\label{classManagerfactory_a6177cd6f24d4b18d67ab7b1694758d26}} 
+\mbox{\hyperlink{classManagerfactory_a6177cd6f24d4b18d67ab7b1694758d26}{$\sim$\+Managerfactory}} ()
+\begin{DoxyCompactList}\small\item\em Virtual destructor. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classFloorStaff}{Floor\+Staff}} $\ast$ \mbox{\hyperlink{classManagerfactory_ae5cd18b21bd458fa87da48bb70bca752}{create\+Floor\+Staff}} (std\+::string name) override
+\begin{DoxyCompactList}\small\item\em Create a \mbox{\hyperlink{classFloorManager}{Floor\+Manager}} instance. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classSalesStaff}{Sales\+Staff}} $\ast$ \mbox{\hyperlink{classManagerfactory_a90ffac28940f8ca1e1469ebb18a0384e}{create\+Sales\+Staff}} (std\+::string name) override
+\begin{DoxyCompactList}\small\item\em Create a \mbox{\hyperlink{classSalesManager}{Sales\+Manager}} instance. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classManagerfactory_ae5cd18b21bd458fa87da48bb70bca752}\label{classManagerfactory_ae5cd18b21bd458fa87da48bb70bca752}} 
+\index{Managerfactory@{Managerfactory}!createFloorStaff@{createFloorStaff}}
+\index{createFloorStaff@{createFloorStaff}!Managerfactory@{Managerfactory}}
+\doxysubsubsection{\texorpdfstring{createFloorStaff()}{createFloorStaff()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classFloorStaff}{Floor\+Staff}} $\ast$ Managerfactory\+::create\+Floor\+Staff (\begin{DoxyParamCaption}\item[{std\+::string}]{name }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Create a \mbox{\hyperlink{classFloorManager}{Floor\+Manager}} instance. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & The name of the manager to create \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Pointer to new \mbox{\hyperlink{classFloorManager}{Floor\+Manager}} (caller owns memory) 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classStaffFactory_a128bd18447bc7d4710ec461c53ea5251}{Staff\+Factory}}.
+
+\mbox{\Hypertarget{classManagerfactory_a90ffac28940f8ca1e1469ebb18a0384e}\label{classManagerfactory_a90ffac28940f8ca1e1469ebb18a0384e}} 
+\index{Managerfactory@{Managerfactory}!createSalesStaff@{createSalesStaff}}
+\index{createSalesStaff@{createSalesStaff}!Managerfactory@{Managerfactory}}
+\doxysubsubsection{\texorpdfstring{createSalesStaff()}{createSalesStaff()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classSalesStaff}{Sales\+Staff}} $\ast$ Managerfactory\+::create\+Sales\+Staff (\begin{DoxyParamCaption}\item[{std\+::string}]{name }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Create a \mbox{\hyperlink{classSalesManager}{Sales\+Manager}} instance. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & The name of the manager to create \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Pointer to new \mbox{\hyperlink{classSalesManager}{Sales\+Manager}} (caller owns memory) 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classStaffFactory_a499590db3e68fb2069814a46c7e2abdc}{Staff\+Factory}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{ManagerFactory_8h}{Manager\+Factory.\+h}}\item 
+Manager\+Factory.\+cpp\end{DoxyCompactItemize}

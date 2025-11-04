@@ -1,0 +1,118 @@
+\hypertarget{classFloorManager}{}\doxysection{Floor\+Manager Class Reference}
+\label{classFloorManager}\index{FloorManager@{FloorManager}}
+
+
+Manages floor staff and handles high-\/level queries.  
+
+
+
+
+{\ttfamily \#include $<$Floor\+Manager.\+h$>$}
+
+
+
+Inheritance diagram for Floor\+Manager\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=186pt]{classFloorManager__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Floor\+Manager\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=186pt]{classFloorManager__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classFloorManager_aee045bad74ccc5db7f09e6646740cc5e}{Floor\+Manager}} (std\+::string name)
+\begin{DoxyCompactList}\small\item\em Construct a floor manager with given name. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classFloorManager_a86e480a43757a658d7772e6e7397a172}\label{classFloorManager_a86e480a43757a658d7772e6e7397a172}} 
+virtual \mbox{\hyperlink{classFloorManager_a86e480a43757a658d7772e6e7397a172}{$\sim$\+Floor\+Manager}} ()
+\begin{DoxyCompactList}\small\item\em Virtual destructor. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classFloorManager_a5052b579c3a7c14f63eab88de2077b47}{staff\+Can\+Handle}} (std\+::string type) override
+\begin{DoxyCompactList}\small\item\em Determine whether this staff member can handle queries of the given type. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classFloorManager_a308d7f6d740a5c6ec868f60239afb109}{reply}} (\mbox{\hyperlink{classQuery}{Query}} $\ast$query) override
+\begin{DoxyCompactList}\small\item\em Produce a reply for the provided \mbox{\hyperlink{classQuery}{Query}}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Manages floor staff and handles high-\/level queries. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classFloorManager_aee045bad74ccc5db7f09e6646740cc5e}\label{classFloorManager_aee045bad74ccc5db7f09e6646740cc5e}} 
+\index{FloorManager@{FloorManager}!FloorManager@{FloorManager}}
+\index{FloorManager@{FloorManager}!FloorManager@{FloorManager}}
+\doxysubsubsection{\texorpdfstring{FloorManager()}{FloorManager()}}
+{\footnotesize\ttfamily Floor\+Manager\+::\+Floor\+Manager (\begin{DoxyParamCaption}\item[{std\+::string}]{name }\end{DoxyParamCaption})}
+
+
+
+Construct a floor manager with given name. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & The manager\textquotesingle{}s name \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classFloorManager_a308d7f6d740a5c6ec868f60239afb109}\label{classFloorManager_a308d7f6d740a5c6ec868f60239afb109}} 
+\index{FloorManager@{FloorManager}!reply@{reply}}
+\index{reply@{reply}!FloorManager@{FloorManager}}
+\doxysubsubsection{\texorpdfstring{reply()}{reply()}}
+{\footnotesize\ttfamily void Floor\+Manager\+::reply (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classQuery}{Query}} $\ast$}]{query }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Produce a reply for the provided \mbox{\hyperlink{classQuery}{Query}}. 
+
+Called when staff\+Can\+Handle(query-\/$>$get\+Type()) returns true. Implementations should output or otherwise process the \mbox{\hyperlink{classQuery}{Query}} and may forward it if further escalation is required.
+
+
+\begin{DoxyParams}{Parameters}
+{\em query} & Pointer to the \mbox{\hyperlink{classQuery}{Query}} to reply to (non-\/owning). \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{classFloorStaff_aa8225994cca34b75a87cea28c01f530e}{Floor\+Staff}}.
+
+\mbox{\Hypertarget{classFloorManager_a5052b579c3a7c14f63eab88de2077b47}\label{classFloorManager_a5052b579c3a7c14f63eab88de2077b47}} 
+\index{FloorManager@{FloorManager}!staffCanHandle@{staffCanHandle}}
+\index{staffCanHandle@{staffCanHandle}!FloorManager@{FloorManager}}
+\doxysubsubsection{\texorpdfstring{staffCanHandle()}{staffCanHandle()}}
+{\footnotesize\ttfamily bool Floor\+Manager\+::staff\+Can\+Handle (\begin{DoxyParamCaption}\item[{std\+::string}]{type }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Determine whether this staff member can handle queries of the given type. 
+
+Implementations should return true for supported \mbox{\hyperlink{classQuery}{Query}} types (e.\+g. \char`\"{}\+INFO\char`\"{}, \char`\"{}\+STOCK\char`\"{}, \char`\"{}\+CARE ROUTINE\char`\"{}) and false otherwise.
+
+
+\begin{DoxyParams}{Parameters}
+{\em type} & The \mbox{\hyperlink{classQuery}{Query}} type string. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if this staff member can handle the type, false otherwise. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classFloorStaff_ab5e3329546b265f51b86e7be7e333a89}{Floor\+Staff}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{FloorManager_8h}{Floor\+Manager.\+h}}\item 
+Floor\+Manager.\+cpp\end{DoxyCompactItemize}

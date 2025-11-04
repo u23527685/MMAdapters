@@ -1,0 +1,119 @@
+\hypertarget{classMatureState}{}\doxysection{Mature\+State Class Reference}
+\label{classMatureState}\index{MatureState@{MatureState}}
+
+
+Represents a thriving stage in the plant’s life cycle.  
+
+
+
+
+{\ttfamily \#include $<$Mature\+State.\+h$>$}
+
+
+
+Inheritance diagram for Mature\+State\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=157pt]{classMatureState__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Mature\+State\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=157pt]{classMatureState__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classMatureState_a244b86ad8ac71c2d3c69bc115af75bda}{apply\+Care}} (\mbox{\hyperlink{classPlantLifeCycle}{Plant\+Life\+Cycle}} $\ast$context, \mbox{\hyperlink{classPlant}{Plant}} $\ast$plant, \mbox{\hyperlink{classPlantCareRoutine}{Plant\+Care\+Routine}} $\ast$routine) override
+\begin{DoxyCompactList}\small\item\em Applies care to the plant in this state. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classMatureState_a57b9003f3e4c3f16590b6127e0370852}{evaluate}} (\mbox{\hyperlink{classPlantLifeCycle}{Plant\+Life\+Cycle}} $\ast$context, \mbox{\hyperlink{classPlant}{Plant}} $\ast$plant) override
+\begin{DoxyCompactList}\small\item\em Evaluates the plant\textquotesingle{}s condition and transitions to another state if necessary. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{classMatureState_a2eb39985d1da26a31b863c6e04dda937}{get\+Name}} () const override
+\begin{DoxyCompactList}\small\item\em Gets the name of this state. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classMatureState_aa3a8fee8cb339e5b41923516668ba9a9}\label{classMatureState_aa3a8fee8cb339e5b41923516668ba9a9}} 
+\mbox{\hyperlink{classPlantState}{Plant\+State}} $\ast$ {\bfseries clone} () const override
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Represents a thriving stage in the plant’s life cycle. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classMatureState_a244b86ad8ac71c2d3c69bc115af75bda}\label{classMatureState_a244b86ad8ac71c2d3c69bc115af75bda}} 
+\index{MatureState@{MatureState}!applyCare@{applyCare}}
+\index{applyCare@{applyCare}!MatureState@{MatureState}}
+\doxysubsubsection{\texorpdfstring{applyCare()}{applyCare()}}
+{\footnotesize\ttfamily void Mature\+State\+::apply\+Care (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classPlantLifeCycle}{Plant\+Life\+Cycle}} $\ast$}]{context,  }\item[{\mbox{\hyperlink{classPlant}{Plant}} $\ast$}]{plant,  }\item[{\mbox{\hyperlink{classPlantCareRoutine}{Plant\+Care\+Routine}} $\ast$}]{routine }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Applies care to the plant in this state. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em context} & The plant\textquotesingle{}s life cycle context. \\
+\hline
+{\em plant} & The plant object being cared for. \\
+\hline
+{\em routine} & The care routine to apply. \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{classPlantState_a7b559b59a64faf46ccdd329b7bbe0da2}{Plant\+State}}.
+
+\mbox{\Hypertarget{classMatureState_a57b9003f3e4c3f16590b6127e0370852}\label{classMatureState_a57b9003f3e4c3f16590b6127e0370852}} 
+\index{MatureState@{MatureState}!evaluate@{evaluate}}
+\index{evaluate@{evaluate}!MatureState@{MatureState}}
+\doxysubsubsection{\texorpdfstring{evaluate()}{evaluate()}}
+{\footnotesize\ttfamily bool Mature\+State\+::evaluate (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classPlantLifeCycle}{Plant\+Life\+Cycle}} $\ast$}]{context,  }\item[{\mbox{\hyperlink{classPlant}{Plant}} $\ast$}]{plant }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Evaluates the plant\textquotesingle{}s condition and transitions to another state if necessary. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em context} & The plant\textquotesingle{}s life cycle context. \\
+\hline
+{\em plant} & The plant object being evaluated. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if the plant remains in this state, false otherwise. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classPlantState_ae67b11c881de6e8036a8a0467d5358f2}{Plant\+State}}.
+
+\mbox{\Hypertarget{classMatureState_a2eb39985d1da26a31b863c6e04dda937}\label{classMatureState_a2eb39985d1da26a31b863c6e04dda937}} 
+\index{MatureState@{MatureState}!getName@{getName}}
+\index{getName@{getName}!MatureState@{MatureState}}
+\doxysubsubsection{\texorpdfstring{getName()}{getName()}}
+{\footnotesize\ttfamily std\+::string Mature\+State\+::get\+Name (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Gets the name of this state. 
+
+\begin{DoxyReturn}{Returns}
+The name of this state. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classPlantState_a73210ce999094374a7a38e8afde9b937}{Plant\+State}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{MatureState_8h}{Mature\+State.\+h}}\item 
+Mature\+State.\+cpp\end{DoxyCompactItemize}

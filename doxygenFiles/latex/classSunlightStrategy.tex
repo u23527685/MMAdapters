@@ -1,0 +1,87 @@
+\hypertarget{classSunlightStrategy}{}\doxysection{Sunlight\+Strategy Class Reference}
+\label{classSunlightStrategy}\index{SunlightStrategy@{SunlightStrategy}}
+
+
+Inheritance diagram for Sunlight\+Strategy\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classSunlightStrategy__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Sunlight\+Strategy\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=246pt]{classSunlightStrategy__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual void \mbox{\hyperlink{classSunlightStrategy_a748a138b0ac64c383d39ee519f55ce8a}{apply\+Sunlight}} (\mbox{\hyperlink{classPlant}{Plant}} $\ast$p)=0
+\begin{DoxyCompactList}\small\item\em Applies sun to a plant according to the strategy. This method must be implemented by concrete strategy classes. \end{DoxyCompactList}\item 
+virtual std\+::string \mbox{\hyperlink{classSunlightStrategy_ae95a57b42c00f0bc465cc27bae20d735}{get\+Strategy\+Name}} () const =0
+\begin{DoxyCompactList}\small\item\em Gets the name of the sunlight strategy. This method must be implemented by concrete strategy classes. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classPlant}{Plant}} $\ast$ \mbox{\hyperlink{classSunlightStrategy_a56ebaae37c8718776bed61cf49635d7a}{current\+Plant}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classSunlightStrategy_a748a138b0ac64c383d39ee519f55ce8a}\label{classSunlightStrategy_a748a138b0ac64c383d39ee519f55ce8a}} 
+\index{SunlightStrategy@{SunlightStrategy}!applySunlight@{applySunlight}}
+\index{applySunlight@{applySunlight}!SunlightStrategy@{SunlightStrategy}}
+\doxysubsubsection{\texorpdfstring{applySunlight()}{applySunlight()}}
+{\footnotesize\ttfamily virtual void Sunlight\+Strategy\+::apply\+Sunlight (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classPlant}{Plant}} $\ast$}]{p }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Applies sun to a plant according to the strategy. This method must be implemented by concrete strategy classes. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p} & The plant to be put in the sun. \\
+\hline
+\end{DoxyParams}
+
+
+Implemented in \mbox{\hyperlink{classShadeStrategy_a66697a3df66fd6d9389c36b1cee18455}{Shade\+Strategy}}, \mbox{\hyperlink{classPartialSunStrategy_ae40ea386f93e964bc5a0b3f75b5ede24}{Partial\+Sun\+Strategy}}, and \mbox{\hyperlink{classFullSunStrategy_a736d5282feac41fa823bdf820ba38d04}{Full\+Sun\+Strategy}}.
+
+\mbox{\Hypertarget{classSunlightStrategy_ae95a57b42c00f0bc465cc27bae20d735}\label{classSunlightStrategy_ae95a57b42c00f0bc465cc27bae20d735}} 
+\index{SunlightStrategy@{SunlightStrategy}!getStrategyName@{getStrategyName}}
+\index{getStrategyName@{getStrategyName}!SunlightStrategy@{SunlightStrategy}}
+\doxysubsubsection{\texorpdfstring{getStrategyName()}{getStrategyName()}}
+{\footnotesize\ttfamily virtual std\+::string Sunlight\+Strategy\+::get\+Strategy\+Name (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Gets the name of the sunlight strategy. This method must be implemented by concrete strategy classes. 
+
+\begin{DoxyReturn}{Returns}
+The name of the sun strategy. 
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{classShadeStrategy_a1c507f5246cde70eecab71ac858490c9}{Shade\+Strategy}}, \mbox{\hyperlink{classPartialSunStrategy_a93e46a3a461293aba8d20534347bb9f1}{Partial\+Sun\+Strategy}}, and \mbox{\hyperlink{classFullSunStrategy_a47f3f6b8c28c4a1243916da59c44f49f}{Full\+Sun\+Strategy}}.
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classSunlightStrategy_a56ebaae37c8718776bed61cf49635d7a}\label{classSunlightStrategy_a56ebaae37c8718776bed61cf49635d7a}} 
+\index{SunlightStrategy@{SunlightStrategy}!currentPlant@{currentPlant}}
+\index{currentPlant@{currentPlant}!SunlightStrategy@{SunlightStrategy}}
+\doxysubsubsection{\texorpdfstring{currentPlant}{currentPlant}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classPlant}{Plant}}$\ast$ Sunlight\+Strategy\+::current\+Plant\hspace{0.3cm}{\ttfamily [protected]}}
+
+Pointer to the plant currently exposed to sunlight. 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{SunlightStrategy_8h}{Sunlight\+Strategy.\+h}}\end{DoxyCompactItemize}

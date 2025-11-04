@@ -1,0 +1,18 @@
+<map id="SalesEmployee.h" name="SalesEmployee.h">
+<area shape="rect" id="node1" title="Defines a regular employee in the sales department." alt="" coords="246,5,381,32"/>
+<area shape="rect" id="node2" href="$SalesStaff_8h.html" title="Abstract base class for staff in the sales department." alt="" coords="368,80,467,107"/>
+<area shape="rect" id="node11" title=" " alt="" coords="145,453,207,480"/>
+<area shape="rect" id="node3" href="$Staff_8h.html" title="Abstract base class for staff members and lifecycle observers." alt="" coords="488,155,552,181"/>
+<area shape="rect" id="node4" href="$PLantLifeCycle_8h_source.html" title=" " alt="" coords="455,304,585,331"/>
+<area shape="rect" id="node7" href="$PlantCareRoutine_8h.html" title="Defines the abstract interface for plant care routines." alt="" coords="525,528,672,555"/>
+<area shape="rect" id="node8" title=" " alt="" coords="147,603,205,629"/>
+<area shape="rect" id="node9" title=" " alt="" coords="779,603,859,629"/>
+<area shape="rect" id="node13" href="$LifeCycleObserver_8h.html" title="Abstract base class for observers monitoring plant life cycle changes." alt="" coords="747,379,899,405"/>
+<area shape="rect" id="node15" href="$Query_8h.html" title="Represents a query within the plant management system." alt="" coords="307,229,378,256"/>
+<area shape="rect" id="node5" href="$Plant_8h.html" title="Abstract base class representing a plant in the nursery system." alt="" coords="348,379,415,405"/>
+<area shape="rect" id="node6" href="$PlantState_8h.html" title="Defines the abstract interface for plant life cycle states." alt="" coords="469,453,571,480"/>
+<area shape="rect" id="node10" title=" " alt="" coords="560,603,637,629"/>
+<area shape="rect" id="node12" title=" " alt="" coords="283,453,343,480"/>
+<area shape="rect" id="node14" title=" " alt="" coords="759,453,886,480"/>
+<area shape="rect" id="node16" href="$Builder_8h.html" title="Defines the Builder interface for constructing Query objects." alt="" coords="265,304,343,331"/>
+</map>

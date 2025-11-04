@@ -1,0 +1,92 @@
+\hypertarget{classStaffFactory}{}\doxysection{Staff\+Factory Class Reference}
+\label{classStaffFactory}\index{StaffFactory@{StaffFactory}}
+
+
+Abstract base factory for creating different types of staff members.  
+
+
+
+
+{\ttfamily \#include $<$Staff\+Factory.\+h$>$}
+
+
+
+Inheritance diagram for Staff\+Factory\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=294pt]{classStaffFactory__inherit__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classStaffFactory_a7dd7536ef1ee6a0e25eee96bf8c0a582}\label{classStaffFactory_a7dd7536ef1ee6a0e25eee96bf8c0a582}} 
+\mbox{\hyperlink{classStaffFactory_a7dd7536ef1ee6a0e25eee96bf8c0a582}{Staff\+Factory}} ()
+\begin{DoxyCompactList}\small\item\em Default constructor. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classStaffFactory_a7d695c7decd8653abd9c462967cea35a}\label{classStaffFactory_a7d695c7decd8653abd9c462967cea35a}} 
+virtual \mbox{\hyperlink{classStaffFactory_a7d695c7decd8653abd9c462967cea35a}{$\sim$\+Staff\+Factory}} ()
+\begin{DoxyCompactList}\small\item\em Virtual destructor. \end{DoxyCompactList}\item 
+virtual \mbox{\hyperlink{classFloorStaff}{Floor\+Staff}} $\ast$ \mbox{\hyperlink{classStaffFactory_a128bd18447bc7d4710ec461c53ea5251}{create\+Floor\+Staff}} (std\+::string name)=0
+\begin{DoxyCompactList}\small\item\em Create a floor staff member. \end{DoxyCompactList}\item 
+virtual \mbox{\hyperlink{classSalesStaff}{Sales\+Staff}} $\ast$ \mbox{\hyperlink{classStaffFactory_a499590db3e68fb2069814a46c7e2abdc}{create\+Sales\+Staff}} (std\+::string name)=0
+\begin{DoxyCompactList}\small\item\em Create a sales staff member. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Abstract base factory for creating different types of staff members. 
+
+This abstract factory defines the interface for creating floor and sales staff members. Concrete factories implement these methods to create specific staff types (employees or managers). 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classStaffFactory_a128bd18447bc7d4710ec461c53ea5251}\label{classStaffFactory_a128bd18447bc7d4710ec461c53ea5251}} 
+\index{StaffFactory@{StaffFactory}!createFloorStaff@{createFloorStaff}}
+\index{createFloorStaff@{createFloorStaff}!StaffFactory@{StaffFactory}}
+\doxysubsubsection{\texorpdfstring{createFloorStaff()}{createFloorStaff()}}
+{\footnotesize\ttfamily virtual \mbox{\hyperlink{classFloorStaff}{Floor\+Staff}}$\ast$ Staff\+Factory\+::create\+Floor\+Staff (\begin{DoxyParamCaption}\item[{std\+::string}]{name }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Create a floor staff member. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & The name of the staff member to create \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Pointer to the created \mbox{\hyperlink{classFloorStaff}{Floor\+Staff}} (caller owns memory) 
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{classManagerfactory_ae5cd18b21bd458fa87da48bb70bca752}{Managerfactory}}, and \mbox{\hyperlink{classEmployeeFactory_a259f60a55845baed88044603a078578c}{Employee\+Factory}}.
+
+\mbox{\Hypertarget{classStaffFactory_a499590db3e68fb2069814a46c7e2abdc}\label{classStaffFactory_a499590db3e68fb2069814a46c7e2abdc}} 
+\index{StaffFactory@{StaffFactory}!createSalesStaff@{createSalesStaff}}
+\index{createSalesStaff@{createSalesStaff}!StaffFactory@{StaffFactory}}
+\doxysubsubsection{\texorpdfstring{createSalesStaff()}{createSalesStaff()}}
+{\footnotesize\ttfamily virtual \mbox{\hyperlink{classSalesStaff}{Sales\+Staff}}$\ast$ Staff\+Factory\+::create\+Sales\+Staff (\begin{DoxyParamCaption}\item[{std\+::string}]{name }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Create a sales staff member. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & The name of the staff member to create \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Pointer to the created \mbox{\hyperlink{classSalesStaff}{Sales\+Staff}} (caller owns memory) 
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{classManagerfactory_a90ffac28940f8ca1e1469ebb18a0384e}{Managerfactory}}, and \mbox{\hyperlink{classEmployeeFactory_a6f66e01307352b5a67011227f8f0cd20}{Employee\+Factory}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{StaffFactory_8h}{Staff\+Factory.\+h}}\item 
+Staff\+Factory.\+cpp\end{DoxyCompactItemize}

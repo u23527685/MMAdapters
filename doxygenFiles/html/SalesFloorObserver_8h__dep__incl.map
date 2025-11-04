@@ -1,0 +1,4 @@
+<map id="SalesFloorObserver.h" name="SalesFloorObserver.h">
+<area shape="rect" id="node1" title="Defines the SalesFloorObserver class for inventory updates." alt="" coords="5,5,165,32"/>
+<area shape="rect" id="node2" href="$InventoryProxy_8h.html" title="Proxy class controlling access to plant inventory operations." alt="" coords="20,80,151,107"/>
+</map>

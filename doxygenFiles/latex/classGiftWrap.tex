@@ -1,0 +1,107 @@
+\hypertarget{classGiftWrap}{}\doxysection{Gift\+Wrap Class Reference}
+\label{classGiftWrap}\index{GiftWrap@{GiftWrap}}
+
+
+Concrete decorator that adds gift wrapping to a \mbox{\hyperlink{classPlant}{Plant}}.  
+
+
+
+
+{\ttfamily \#include $<$Gift\+Wrap.\+h$>$}
+
+
+
+Inheritance diagram for Gift\+Wrap\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=169pt]{classGiftWrap__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Gift\+Wrap\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classGiftWrap__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classGiftWrap_a4b9bd84ff35494bde36098605818a254}{Gift\+Wrap}} (\mbox{\hyperlink{classPlant}{Plant}} $\ast$\mbox{\hyperlink{classPlantDecorator_a4bccb32a57f66208bcf9fe4d22d7cd61}{plant}})
+\begin{DoxyCompactList}\small\item\em Construct a \mbox{\hyperlink{classGiftWrap}{Gift\+Wrap}} decorator for the given \mbox{\hyperlink{classPlant}{Plant}}. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{classGiftWrap_a7f49a468f2398bd3899ca865c74fd951}{get\+Description}} () const override
+\begin{DoxyCompactList}\small\item\em Get the plant\textquotesingle{}s description including gift wrap details. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{classGiftWrap_aa5f04604263f66689b1dfd44b08fafcb}{get\+Price}} () const override
+\begin{DoxyCompactList}\small\item\em Get the plant\textquotesingle{}s price including gift wrap cost. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Detailed Description}
+Concrete decorator that adds gift wrapping to a \mbox{\hyperlink{classPlant}{Plant}}. 
+
+Enhances the plant\textquotesingle{}s presentation, making it suitable for gifting. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classGiftWrap_a4b9bd84ff35494bde36098605818a254}\label{classGiftWrap_a4b9bd84ff35494bde36098605818a254}} 
+\index{GiftWrap@{GiftWrap}!GiftWrap@{GiftWrap}}
+\index{GiftWrap@{GiftWrap}!GiftWrap@{GiftWrap}}
+\doxysubsubsection{\texorpdfstring{GiftWrap()}{GiftWrap()}}
+{\footnotesize\ttfamily Gift\+Wrap\+::\+Gift\+Wrap (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classPlant}{Plant}} $\ast$}]{plant }\end{DoxyParamCaption})}
+
+
+
+Construct a \mbox{\hyperlink{classGiftWrap}{Gift\+Wrap}} decorator for the given \mbox{\hyperlink{classPlant}{Plant}}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em plant} & Non-\/owning pointer to the \mbox{\hyperlink{classPlant}{Plant}} being decorated. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classGiftWrap_a7f49a468f2398bd3899ca865c74fd951}\label{classGiftWrap_a7f49a468f2398bd3899ca865c74fd951}} 
+\index{GiftWrap@{GiftWrap}!getDescription@{getDescription}}
+\index{getDescription@{getDescription}!GiftWrap@{GiftWrap}}
+\doxysubsubsection{\texorpdfstring{getDescription()}{getDescription()}}
+{\footnotesize\ttfamily std\+::string Gift\+Wrap\+::get\+Description (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Get the plant\textquotesingle{}s description including gift wrap details. 
+
+\begin{DoxyReturn}{Returns}
+Enhanced description string. 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classPlantDecorator_acf88b5442b12cad9d1943e35545d0f4d}{Plant\+Decorator}}.
+
+\mbox{\Hypertarget{classGiftWrap_aa5f04604263f66689b1dfd44b08fafcb}\label{classGiftWrap_aa5f04604263f66689b1dfd44b08fafcb}} 
+\index{GiftWrap@{GiftWrap}!getPrice@{getPrice}}
+\index{getPrice@{getPrice}!GiftWrap@{GiftWrap}}
+\doxysubsubsection{\texorpdfstring{getPrice()}{getPrice()}}
+{\footnotesize\ttfamily double Gift\+Wrap\+::get\+Price (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Get the plant\textquotesingle{}s price including gift wrap cost. 
+
+\begin{DoxyReturn}{Returns}
+Combined price as a double. 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classPlantDecorator_ac22e9f31ab48a99b7ca285e9239b91ab}{Plant\+Decorator}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{GiftWrap_8h}{Gift\+Wrap.\+h}}\item 
+Gift\+Wrap.\+cpp\end{DoxyCompactItemize}

@@ -1,0 +1,5 @@
+<map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
+<area shape="rect" id="node1" href="$classPlantFactory.html" title="Abstract base class for plant creation factories." alt="" coords="5,31,108,57"/>
+<area shape="rect" id="node2" href="$classFlowerFactory.html" title="Concrete factory for creating flower&#45;type Plants." alt="" coords="156,5,269,32"/>
+<area shape="rect" id="node3" href="$classTreeFactory.html" title="Concrete factory for creating tree plants." alt="" coords="165,56,261,83"/>
+</map>

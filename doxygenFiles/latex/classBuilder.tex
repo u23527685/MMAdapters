@@ -1,0 +1,172 @@
+\hypertarget{classBuilder}{}\doxysection{Builder Class Reference}
+\label{classBuilder}\index{Builder@{Builder}}
+
+
+Abstract builder for constructing \mbox{\hyperlink{classQuery}{Query}} objects.  
+
+
+
+
+{\ttfamily \#include $<$Builder.\+h$>$}
+
+
+
+Inheritance diagram for Builder\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=304pt]{classBuilder__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Builder\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classBuilder__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual void \mbox{\hyperlink{classBuilder_a48f67a2baa9fd50fa54aa46db891eefc}{set\+Type}} (std\+::string \mbox{\hyperlink{classBuilder_a6541a067a21e09a23099dd882bed9639}{type}})=0
+\begin{DoxyCompactList}\small\item\em Set the query type/category. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classBuilder_a99f6a7648dd2e2b3a765ddcd1e92e04b}{set\+Question}} (std\+::string \mbox{\hyperlink{classBuilder_afc60247660d2a02f1dd44d331c851045}{question}})=0
+\begin{DoxyCompactList}\small\item\em Set the explicit question text for the \mbox{\hyperlink{classQuery}{Query}}. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classBuilder_aef33f773fe3d65e0c6273f843150ab9a}{set\+Item}} (\mbox{\hyperlink{classPlant}{Plant}} $\ast$\mbox{\hyperlink{classBuilder_a2366e89f49c467f9e9aa9c37eaa3e740}{item}})=0
+\begin{DoxyCompactList}\small\item\em Set the \mbox{\hyperlink{classPlant}{Plant}} item targeted by the \mbox{\hyperlink{classQuery}{Query}}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classQuery}{Query}} $\ast$ \mbox{\hyperlink{classBuilder_a40487a51f900b98aa3f7898e8a6c26c4}{build}} ()
+\begin{DoxyCompactList}\small\item\em Construct a \mbox{\hyperlink{classQuery}{Query}} from the builder\textquotesingle{}s current state. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classBuilder_af8e018e77879c6136e6dabbd5eab0634}\label{classBuilder_af8e018e77879c6136e6dabbd5eab0634}} 
+\mbox{\hyperlink{classBuilder_af8e018e77879c6136e6dabbd5eab0634}{Builder}} ()
+\begin{DoxyCompactList}\small\item\em Default constructor initializes members to safe defaults. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classPlant}{Plant}} $\ast$ \mbox{\hyperlink{classBuilder_a2366e89f49c467f9e9aa9c37eaa3e740}{item}} =nullptr
+\item 
+std\+::string \mbox{\hyperlink{classBuilder_a6541a067a21e09a23099dd882bed9639}{type}} =\char`\"{}\char`\"{}
+\item 
+std\+::string \mbox{\hyperlink{classBuilder_afc60247660d2a02f1dd44d331c851045}{question}} =\char`\"{}\char`\"{}
+\end{DoxyCompactItemize}
+\doxysubsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classBuilder_a0de80064a367adf51ab09f7a9b6de05a}\label{classBuilder_a0de80064a367adf51ab09f7a9b6de05a}} 
+class {\bfseries Query}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Abstract builder for constructing \mbox{\hyperlink{classQuery}{Query}} objects. 
+
+Provides setters for configuring type, question, and target \mbox{\hyperlink{classPlant}{Plant}} items. Concrete subclasses customize the construction process. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classBuilder_a40487a51f900b98aa3f7898e8a6c26c4}\label{classBuilder_a40487a51f900b98aa3f7898e8a6c26c4}} 
+\index{Builder@{Builder}!build@{build}}
+\index{build@{build}!Builder@{Builder}}
+\doxysubsubsection{\texorpdfstring{build()}{build()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classQuery}{Query}} $\ast$ Builder\+::build (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Construct a \mbox{\hyperlink{classQuery}{Query}} from the builder\textquotesingle{}s current state. 
+
+Build a \mbox{\hyperlink{classQuery}{Query}} using this builder\textquotesingle{}s state.
+
+\begin{DoxyReturn}{Returns}
+Newly allocated \mbox{\hyperlink{classQuery}{Query}} instance (caller owns).
+\end{DoxyReturn}
+The \mbox{\hyperlink{classQuery}{Query}} constructor reads the \mbox{\hyperlink{classBuilder}{Builder}}\textquotesingle{}s protected members to initialize itself. The returned \mbox{\hyperlink{classQuery}{Query}} is dynamically allocated and must be deleted by the caller.
+
+\begin{DoxyReturn}{Returns}
+Pointer to a newly allocated \mbox{\hyperlink{classQuery}{Query}}. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classBuilder_aef33f773fe3d65e0c6273f843150ab9a}\label{classBuilder_aef33f773fe3d65e0c6273f843150ab9a}} 
+\index{Builder@{Builder}!setItem@{setItem}}
+\index{setItem@{setItem}!Builder@{Builder}}
+\doxysubsubsection{\texorpdfstring{setItem()}{setItem()}}
+{\footnotesize\ttfamily virtual void Builder\+::set\+Item (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classPlant}{Plant}} $\ast$}]{item }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Set the \mbox{\hyperlink{classPlant}{Plant}} item targeted by the \mbox{\hyperlink{classQuery}{Query}}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em item} & Non-\/owning pointer to the \mbox{\hyperlink{classPlant}{Plant}}. \\
+\hline
+\end{DoxyParams}
+
+
+Implemented in \mbox{\hyperlink{classMiscQueryBuilder_adf40896fcf35678e439bf04ac82cba73}{Misc\+Query\+Builder}}, and \mbox{\hyperlink{classItemQueryBuilder_a30b03c162d489b82ff9c89b19e742a23}{Item\+Query\+Builder}}.
+
+\mbox{\Hypertarget{classBuilder_a99f6a7648dd2e2b3a765ddcd1e92e04b}\label{classBuilder_a99f6a7648dd2e2b3a765ddcd1e92e04b}} 
+\index{Builder@{Builder}!setQuestion@{setQuestion}}
+\index{setQuestion@{setQuestion}!Builder@{Builder}}
+\doxysubsubsection{\texorpdfstring{setQuestion()}{setQuestion()}}
+{\footnotesize\ttfamily virtual void Builder\+::set\+Question (\begin{DoxyParamCaption}\item[{std\+::string}]{question }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Set the explicit question text for the \mbox{\hyperlink{classQuery}{Query}}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em question} & Question text to include in the \mbox{\hyperlink{classQuery}{Query}}. \\
+\hline
+\end{DoxyParams}
+
+
+Implemented in \mbox{\hyperlink{classMiscQueryBuilder_aa10949e21255f413d39ec7101b54bae3}{Misc\+Query\+Builder}}, and \mbox{\hyperlink{classItemQueryBuilder_a806dc882b77f8e987c8ba37e73988b92}{Item\+Query\+Builder}}.
+
+\mbox{\Hypertarget{classBuilder_a48f67a2baa9fd50fa54aa46db891eefc}\label{classBuilder_a48f67a2baa9fd50fa54aa46db891eefc}} 
+\index{Builder@{Builder}!setType@{setType}}
+\index{setType@{setType}!Builder@{Builder}}
+\doxysubsubsection{\texorpdfstring{setType()}{setType()}}
+{\footnotesize\ttfamily virtual void Builder\+::set\+Type (\begin{DoxyParamCaption}\item[{std\+::string}]{type }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Set the query type/category. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em type} & String describing the type (e.\+g. \char`\"{}\+INFO\char`\"{}, \char`\"{}\+CARE ROUTINE\char`\"{}, \char`\"{}\+STOCK\char`\"{}). \\
+\hline
+\end{DoxyParams}
+
+
+Implemented in \mbox{\hyperlink{classMiscQueryBuilder_a4732d2295c716fcc2646dd3f3c195316}{Misc\+Query\+Builder}}, and \mbox{\hyperlink{classItemQueryBuilder_acc97291ce87541b39e875c4ea54c9840}{Item\+Query\+Builder}}.
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classBuilder_a2366e89f49c467f9e9aa9c37eaa3e740}\label{classBuilder_a2366e89f49c467f9e9aa9c37eaa3e740}} 
+\index{Builder@{Builder}!item@{item}}
+\index{item@{item}!Builder@{Builder}}
+\doxysubsubsection{\texorpdfstring{item}{item}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classPlant}{Plant}}$\ast$ Builder\+::item =nullptr\hspace{0.3cm}{\ttfamily [protected]}}
+
+optional target item for item-\/specific queries \mbox{\Hypertarget{classBuilder_afc60247660d2a02f1dd44d331c851045}\label{classBuilder_afc60247660d2a02f1dd44d331c851045}} 
+\index{Builder@{Builder}!question@{question}}
+\index{question@{question}!Builder@{Builder}}
+\doxysubsubsection{\texorpdfstring{question}{question}}
+{\footnotesize\ttfamily std\+::string Builder\+::question =\char`\"{}\char`\"{}\hspace{0.3cm}{\ttfamily [protected]}}
+
+optional explicit question text \mbox{\Hypertarget{classBuilder_a6541a067a21e09a23099dd882bed9639}\label{classBuilder_a6541a067a21e09a23099dd882bed9639}} 
+\index{Builder@{Builder}!type@{type}}
+\index{type@{type}!Builder@{Builder}}
+\doxysubsubsection{\texorpdfstring{type}{type}}
+{\footnotesize\ttfamily std\+::string Builder\+::type =\char`\"{}\char`\"{}\hspace{0.3cm}{\ttfamily [protected]}}
+
+type/category of query (e.\+g. \char`\"{}\+INFO\char`\"{}, \char`\"{}\+STOCK\char`\"{}) 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{Builder_8h}{Builder.\+h}}\item 
+\mbox{\hyperlink{Builder_8cpp}{Builder.\+cpp}}\end{DoxyCompactItemize}

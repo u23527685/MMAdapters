@@ -1,0 +1,4 @@
+<map id="EWalletPaymentStrategy" name="EWalletPaymentStrategy">
+<area shape="rect" id="node1" title="Implements a payment method using an e&#45;wallet ID." alt="" coords="5,80,188,107"/>
+<area shape="rect" id="node2" href="$classPaymentStrategy.html" title="Abstract strategy for processing payments." alt="" coords="29,5,164,32"/>
+</map>

@@ -1,0 +1,11 @@
+<map id="StockCommand.h" name="StockCommand.h">
+<area shape="rect" id="node1" title="Abstract base class for stock management commands." alt="" coords="133,5,271,32"/>
+<area shape="rect" id="node2" href="$AddStock_8h_source.html" title=" " alt="" coords="205,155,300,181"/>
+<area shape="rect" id="node4" href="$PlantStock_8h.html" title="Invoker for executing stock&#45;related commands." alt="" coords="116,229,219,256"/>
+<area shape="rect" id="node5" href="$PlantInventory_8h.html" title="Manages plant inventory using Singleton and Observer patterns." alt="" coords="287,80,413,107"/>
+<area shape="rect" id="node7" href="$RemoveStock_8h.html" title="Defines the RemoveStock command for decreasing inventory." alt="" coords="5,155,129,181"/>
+<area shape="rect" id="node3" href="$GreenhouseUnitTest_8h_source.html" title=" " alt="" coords="129,304,294,331"/>
+<area shape="rect" id="node6" href="$InventoryProxy_8h.html" title="Proxy class controlling access to plant inventory operations." alt="" coords="605,229,735,256"/>
+<area shape="rect" id="node8" href="$SalesFloorObserver_8h.html" title="Defines the SalesFloorObserver class for inventory updates." alt="" coords="623,155,783,181"/>
+<area shape="rect" id="node9" href="$StaffObserver_8h.html" title="Observer class for tracking inventory relevant to staff." alt="" coords="375,155,498,181"/>
+</map>

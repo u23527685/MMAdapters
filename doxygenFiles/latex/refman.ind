@@ -1,0 +1,725 @@
+\begin{theindex}
+
+  \item {$\sim$Staff}
+    \subitem {Staff}, \hyperpage{138}
+  \item {$\sim$StockCommand}
+    \subitem {StockCommand}, \hyperpage{145}
+
+  \indexspace
+
+  \item {addDecoration}
+    \subitem {Transaction}, \hyperpage{153}
+  \item {addSnapshot}
+    \subitem {TransactionHistory}, \hyperpage{157}
+  \item {AddStock}, \hyperpage{11}
+    \subitem {AddStock}, \hyperpage{12}
+    \subitem {execute}, \hyperpage{12}
+  \item {addStock}
+    \subitem {InventoryProxy}, \hyperpage{59}
+    \subitem {PlantInventory}, \hyperpage{101}
+    \subitem {PlantStock}, \hyperpage{107}
+  \item {addTransaction}
+    \subitem {Order}, \hyperpage{80}
+  \item {applyCare}
+    \subitem {DistressedState}, \hyperpage{28}
+    \subitem {MatureState}, \hyperpage{71}
+    \subitem {PlantState}, \hyperpage{105}
+    \subitem {SeedlingState}, \hyperpage{128}
+    \subitem {SeedState}, \hyperpage{131}
+    \subitem {WitheredState}, \hyperpage{167}
+  \item {applyFertilizer}
+    \subitem {FertilizerStrategy}, \hyperpage{37}
+    \subitem {InorganicFertilizer}, \hyperpage{56}
+    \subitem {OrganicFertilizer}, \hyperpage{82}
+  \item {applySunlight}
+    \subitem {FullSunStrategy}, \hyperpage{49}
+    \subitem {PartialSunStrategy}, \hyperpage{84}
+    \subitem {ShadeStrategy}, \hyperpage{134}
+    \subitem {SunlightStrategy}, \hyperpage{147}
+  \item {applyWater}
+    \subitem {HighWaterStrategy}, \hyperpage{54}
+    \subitem {LowWaterStrategy}, \hyperpage{65}
+    \subitem {MediumWaterStrategy}, \hyperpage{74}
+    \subitem {WaterStrategy}, \hyperpage{165}
+  \item {AskQuery}, \hyperpage{13}
+    \subitem {careRoutine}, \hyperpage{13}
+    \subitem {describe}, \hyperpage{14}
+  \item {AskQuery.cpp}, \hyperpage{169}
+  \item {AskQuery.h}, \hyperpage{170}
+  \item {attach}
+    \subitem {Plant}, \hyperpage{89}
+    \subitem {PlantInventory}, \hyperpage{101}
+  \item {attachStaff}
+    \subitem {SalesFloorObserver}, \hyperpage{119}
+
+  \indexspace
+
+  \item {BasePlant}, \hyperpage{15}
+    \subitem {getDescription}, \hyperpage{16}
+    \subitem {getPrice}, \hyperpage{16}
+  \item {build}
+    \subitem {Builder}, \hyperpage{18}
+  \item {Builder}, \hyperpage{17}
+    \subitem {build}, \hyperpage{18}
+    \subitem {item}, \hyperpage{19}
+    \subitem {question}, \hyperpage{19}
+    \subitem {setItem}, \hyperpage{18}
+    \subitem {setQuestion}, \hyperpage{19}
+    \subitem {setType}, \hyperpage{19}
+    \subitem {type}, \hyperpage{19}
+  \item {Builder.cpp}, \hyperpage{171}
+  \item {Builder.h}, \hyperpage{172}
+  \item {buyPlant}
+    \subitem {InventoryProxy}, \hyperpage{59}
+
+  \indexspace
+
+  \item {careRoutine}
+    \subitem {AskQuery}, \hyperpage{13}
+  \item {clone}
+    \subitem {DistressedState}, \hyperpage{28}
+    \subitem {Transaction}, \hyperpage{154}
+    \subitem {WitheredState}, \hyperpage{167}
+  \item {createFloorStaff}
+    \subitem {EmployeeFactory}, \hyperpage{32}
+    \subitem {Managerfactory}, \hyperpage{66}, \hyperpage{69}
+    \subitem {StaffFactory}, \hyperpage{141}
+  \item {createPlant}
+    \subitem {FlowerFactory}, \hyperpage{47}
+    \subitem {PlantFactory}, \hyperpage{99}
+    \subitem {TreeFactory}, \hyperpage{161}
+  \item {createSalesStaff}
+    \subitem {EmployeeFactory}, \hyperpage{33}
+    \subitem {Managerfactory}, \hyperpage{68, 69}
+    \subitem {StaffFactory}, \hyperpage{142}
+  \item {createSnapshot}
+    \subitem {Transaction}, \hyperpage{154}
+  \item {CreditCardPaymentStrategy}, \hyperpage{20}
+    \subitem {CreditCardPaymentStrategy}, \hyperpage{21}
+    \subitem {getName}, \hyperpage{21}
+    \subitem {pay}, \hyperpage{21}
+  \item {CreditCardPaymentStrategy.h}, \hyperpage{173}
+  \item {currentPlant}
+    \subitem {FertilizerStrategy}, \hyperpage{37}
+    \subitem {SunlightStrategy}, \hyperpage{147}
+  \item {Customer}, \hyperpage{22}
+    \subitem {Customer}, \hyperpage{23}
+    \subitem {getName}, \hyperpage{23}
+    \subitem {makeQuery}, \hyperpage{23}
+    \subitem {placeOrder}, \hyperpage{23}
+    \subitem {setName}, \hyperpage{24}
+  \item {Customer.h}, \hyperpage{174}
+
+  \indexspace
+
+  \item {DecorativePot}, \hyperpage{24}
+    \subitem {DecorativePot}, \hyperpage{26}
+    \subitem {getDescription}, \hyperpage{26}
+    \subitem {getPrice}, \hyperpage{26}
+  \item {DecorativePot.h}, \hyperpage{174}
+  \item {describe}
+    \subitem {AskQuery}, \hyperpage{14}
+  \item {detach}
+    \subitem {Plant}, \hyperpage{89}
+    \subitem {PlantInventory}, \hyperpage{101}
+  \item {detachStaff}
+    \subitem {SalesFloorObserver}, \hyperpage{120}
+  \item {DistressedState}, \hyperpage{27}
+    \subitem {applyCare}, \hyperpage{28}
+    \subitem {clone}, \hyperpage{28}
+    \subitem {evaluate}, \hyperpage{28}
+    \subitem {getName}, \hyperpage{29}
+  \item {DistressedState.h}, \hyperpage{175}
+
+  \indexspace
+
+  \item {EFTPaymentStrategy}, \hyperpage{29}
+    \subitem {EFTPaymentStrategy}, \hyperpage{30}
+    \subitem {getName}, \hyperpage{31}
+    \subitem {pay}, \hyperpage{31}
+  \item {EFTPaymentStrategy.h}, \hyperpage{177}
+  \item {EmployeeFactory}, \hyperpage{31}
+    \subitem {createFloorStaff}, \hyperpage{32}
+    \subitem {createSalesStaff}, \hyperpage{33}
+  \item {EmployeeFactory.h}, \hyperpage{177}
+  \item {evaluate}
+    \subitem {DistressedState}, \hyperpage{28}
+    \subitem {MatureState}, \hyperpage{72}
+    \subitem {PlantState}, \hyperpage{106}
+    \subitem {SeedlingState}, \hyperpage{129}
+    \subitem {SeedState}, \hyperpage{131}
+    \subitem {WitheredState}, \hyperpage{167}
+  \item {EWalletPaymentStrategy}, \hyperpage{33}
+    \subitem {EWalletPaymentStrategy}, \hyperpage{34}
+    \subitem {getName}, \hyperpage{35}
+    \subitem {pay}, \hyperpage{35}
+  \item {EWalletPaymentStrategy.h}, \hyperpage{178}
+  \item {execute}
+    \subitem {AddStock}, \hyperpage{12}
+    \subitem {RemoveStock}, \hyperpage{113}
+    \subitem {StockCommand}, \hyperpage{145}
+  \item {executeCommand}
+    \subitem {PlantInventory}, \hyperpage{102}
+
+  \indexspace
+
+  \item {FertilizerStrategy}, \hyperpage{36}
+    \subitem {applyFertilizer}, \hyperpage{37}
+    \subitem {currentPlant}, \hyperpage{37}
+    \subitem {getStrategyName}, \hyperpage{37}
+  \item {FertilizerStrategy.h}, \hyperpage{179}
+  \item {Fertilizing}
+    \subitem {Sunny}, \hyperpage{149}
+    \subitem {Temperate}, \hyperpage{151}
+    \subitem {Tropical}, \hyperpage{163}
+  \item {findPlantIndex}
+    \subitem {PlantInventory}, \hyperpage{102}
+  \item {FloorEmployee}, \hyperpage{38}
+    \subitem {FloorEmployee}, \hyperpage{39}
+    \subitem {reply}, \hyperpage{40}
+    \subitem {staffCanHandle}, \hyperpage{40}
+  \item {FloorEmployee.h}, \hyperpage{181}
+  \item {FloorManager}, \hyperpage{41}
+    \subitem {FloorManager}, \hyperpage{42}
+    \subitem {reply}, \hyperpage{42}
+    \subitem {staffCanHandle}, \hyperpage{43}
+  \item {FloorManager.h}, \hyperpage{181}
+  \item {FloorStaff}, \hyperpage{43}
+    \subitem {FloorStaff}, \hyperpage{45}
+    \subitem {handleQuery}, \hyperpage{45}
+    \subitem {reply}, \hyperpage{45}
+    \subitem {staffCanHandle}, \hyperpage{46}
+  \item {FloorStaff.h}, \hyperpage{182}
+  \item {FlowerFactory}, \hyperpage{46}
+    \subitem {createPlant}, \hyperpage{47}
+  \item {FlowerFactory.h}, \hyperpage{184}
+  \item {FullSunStrategy}, \hyperpage{48}
+    \subitem {applySunlight}, \hyperpage{49}
+    \subitem {getStrategyName}, \hyperpage{50}
+  \item {FullSunStrategy.h}, \hyperpage{185}
+
+  \indexspace
+
+  \item {getAmount}
+    \subitem {Transaction}, \hyperpage{154}
+    \subitem {TransactionSnapshot}, \hyperpage{159}
+  \item {getAvailableItems}
+    \subitem {SalesFloorObserver}, \hyperpage{120}
+  \item {getCategory}
+    \subitem {Plant}, \hyperpage{89}
+  \item {getColor}
+    \subitem {Plant}, \hyperpage{89}
+  \item {getCurrentNutrients}
+    \subitem {Plant}, \hyperpage{89}
+  \item {getCurrentSunlight}
+    \subitem {Plant}, \hyperpage{90}
+  \item {getCurrentWater}
+    \subitem {Plant}, \hyperpage{90}
+  \item {getCustomer}
+    \subitem {Order}, \hyperpage{80}
+  \item {getDecorations}
+    \subitem {Transaction}, \hyperpage{154}
+    \subitem {TransactionSnapshot}, \hyperpage{159}
+  \item {getDescription}
+    \subitem {BasePlant}, \hyperpage{16}
+    \subitem {DecorativePot}, \hyperpage{26}
+    \subitem {GiftWrap}, \hyperpage{52}
+    \subitem {Plant}, \hyperpage{90}
+  \item {getGrowthProgress}
+    \subitem {Plant}, \hyperpage{90}
+  \item {getHistorySize}
+    \subitem {TransactionHistory}, \hyperpage{157}
+  \item {getInstance}
+    \subitem {PlantInventory}, \hyperpage{102}
+  \item {getInventoryReference}
+    \subitem {PlantInventory}, \hyperpage{103}
+  \item {getInventoryView}
+    \subitem {PlantInventory}, \hyperpage{103}
+  \item {getItem}
+    \subitem {Query}, \hyperpage{110}
+  \item {getMaxNutrients}
+    \subitem {Plant}, \hyperpage{91}
+  \item {getMaxSunlight}
+    \subitem {Plant}, \hyperpage{91}
+  \item {getMaxWater}
+    \subitem {Plant}, \hyperpage{91}
+  \item {getMinNutrients}
+    \subitem {Plant}, \hyperpage{91}
+  \item {getMinSunlight}
+    \subitem {Plant}, \hyperpage{92}
+  \item {getMinWater}
+    \subitem {Plant}, \hyperpage{92}
+  \item {getName}
+    \subitem {CreditCardPaymentStrategy}, \hyperpage{21}
+    \subitem {Customer}, \hyperpage{23}
+    \subitem {DistressedState}, \hyperpage{29}
+    \subitem {EFTPaymentStrategy}, \hyperpage{31}
+    \subitem {EWalletPaymentStrategy}, \hyperpage{35}
+    \subitem {MatureState}, \hyperpage{72}
+    \subitem {PaymentStrategy}, \hyperpage{85}
+    \subitem {Plant}, \hyperpage{92}
+    \subitem {PlantState}, \hyperpage{106}
+    \subitem {SeedlingState}, \hyperpage{129}
+    \subitem {SeedState}, \hyperpage{131}
+    \subitem {Staff}, \hyperpage{138}
+    \subitem {WitheredState}, \hyperpage{168}
+  \item {getNext}
+    \subitem {Staff}, \hyperpage{138}
+  \item {getNotificationHistory}
+    \subitem {SalesFloorObserver}, \hyperpage{120}
+  \item {getOrderId}
+    \subitem {Order}, \hyperpage{80}
+  \item {getOrderNum}
+    \subitem {TransactionSnapshot}, \hyperpage{159}
+  \item {getPaymentMethod}
+    \subitem {Transaction}, \hyperpage{155}
+  \item {getPlantQuantity}
+    \subitem {SalesFloorObserver}, \hyperpage{120}
+  \item {getPrice}
+    \subitem {BasePlant}, \hyperpage{16}
+    \subitem {DecorativePot}, \hyperpage{26}
+    \subitem {GiftWrap}, \hyperpage{52}
+    \subitem {Plant}, \hyperpage{92}
+  \item {getQuantity}
+    \subitem {PlantInventory}, \hyperpage{103}
+    \subitem {Transaction}, \hyperpage{155}
+    \subitem {TransactionSnapshot}, \hyperpage{159}
+  \item {getQuestion}
+    \subitem {Query}, \hyperpage{111}
+  \item {getSnapshot}
+    \subitem {TransactionHistory}, \hyperpage{157}
+  \item {getState}
+    \subitem {Plant}, \hyperpage{93}
+  \item {getStatus}
+    \subitem {Order}, \hyperpage{80}
+  \item {getStock}
+    \subitem {Staff}, \hyperpage{138}
+  \item {getStrategyName}
+    \subitem {FertilizerStrategy}, \hyperpage{37}
+    \subitem {FullSunStrategy}, \hyperpage{50}
+    \subitem {HighWaterStrategy}, \hyperpage{54}
+    \subitem {InorganicFertilizer}, \hyperpage{56}
+    \subitem {LowWaterStrategy}, \hyperpage{65}
+    \subitem {MediumWaterStrategy}, \hyperpage{74}
+    \subitem {OrganicFertilizer}, \hyperpage{82}
+    \subitem {PartialSunStrategy}, \hyperpage{84}
+    \subitem {ShadeStrategy}, \hyperpage{134}
+    \subitem {SunlightStrategy}, \hyperpage{147}
+    \subitem {WaterStrategy}, \hyperpage{165}
+  \item {getTransactionId}
+    \subitem {Transaction}, \hyperpage{155}
+  \item {getType}
+    \subitem {Query}, \hyperpage{111}
+  \item {GiftWrap}, \hyperpage{50}
+    \subitem {getDescription}, \hyperpage{52}
+    \subitem {getPrice}, \hyperpage{52}
+    \subitem {GiftWrap}, \hyperpage{52}
+  \item {GiftWrap.h}, \hyperpage{186}
+  \item {GreenhouseUnitTest}, \hyperpage{53}
+
+  \indexspace
+
+  \item {handleQuery}
+    \subitem {FloorStaff}, \hyperpage{45}
+    \subitem {SalesStaff}, \hyperpage{126}
+    \subitem {Staff}, \hyperpage{139}
+  \item {HighWaterStrategy}, \hyperpage{53}
+    \subitem {applyWater}, \hyperpage{54}
+    \subitem {getStrategyName}, \hyperpage{54}
+  \item {HighWaterStrategy.h}, \hyperpage{187}
+
+  \indexspace
+
+  \item {InorganicFertilizer}, \hyperpage{55}
+    \subitem {applyFertilizer}, \hyperpage{56}
+    \subitem {getStrategyName}, \hyperpage{56}
+  \item {InorganicFertilizer.h}, \hyperpage{188}
+  \item {InventoryObserver}, \hyperpage{57}
+    \subitem {InventoryObserver}, \hyperpage{58}
+  \item {InventoryObserver.h}, \hyperpage{189}
+  \item {InventoryProxy}, \hyperpage{58}
+    \subitem {addStock}, \hyperpage{59}
+    \subitem {buyPlant}, \hyperpage{59}
+    \subitem {InventoryProxy}, \hyperpage{59}
+    \subitem {removeStock}, \hyperpage{60}
+  \item {InventoryProxy.h}, \hyperpage{190}
+  \item {isHealthy}
+    \subitem {Staff}, \hyperpage{139}
+  \item {isPlantAvailable}
+    \subitem {SalesFloorObserver}, \hyperpage{121}
+  \item {item}
+    \subitem {Builder}, \hyperpage{19}
+  \item {ItemQueryBuilder}, \hyperpage{60}
+    \subitem {setItem}, \hyperpage{61}
+    \subitem {setQuestion}, \hyperpage{62}
+    \subitem {setType}, \hyperpage{62}
+  \item {ItemQueryBuilder.cpp}, \hyperpage{192}
+  \item {ItemQueryBuilder.h}, \hyperpage{192}
+
+  \indexspace
+
+  \item {LifeCycleObserver}, \hyperpage{62}
+    \subitem {update}, \hyperpage{63}
+  \item {LifeCycleObserver.h}, \hyperpage{194}
+  \item {LowWaterStrategy}, \hyperpage{64}
+    \subitem {applyWater}, \hyperpage{65}
+    \subitem {getStrategyName}, \hyperpage{65}
+  \item {LowWaterStrategy.h}, \hyperpage{195}
+
+  \indexspace
+
+  \item {makeQuery}
+    \subitem {Customer}, \hyperpage{23}
+  \item {Managerfactory}, \hyperpage{66}, \hyperpage{68}
+    \subitem {createFloorStaff}, \hyperpage{66}, \hyperpage{69}
+    \subitem {createSalesStaff}, \hyperpage{68, 69}
+  \item {ManagerFactory.h}, \hyperpage{196}
+  \item {MatureState}, \hyperpage{70}
+    \subitem {applyCare}, \hyperpage{71}
+    \subitem {evaluate}, \hyperpage{72}
+    \subitem {getName}, \hyperpage{72}
+  \item {MatureState.h}, \hyperpage{197}
+  \item {MediumWaterStrategy}, \hyperpage{73}
+    \subitem {applyWater}, \hyperpage{74}
+    \subitem {getStrategyName}, \hyperpage{74}
+  \item {MediumWaterStrategy.h}, \hyperpage{198}
+  \item {MiscQueryBuilder}, \hyperpage{75}
+    \subitem {setItem}, \hyperpage{76}
+    \subitem {setQuestion}, \hyperpage{76}
+    \subitem {setType}, \hyperpage{77}
+  \item {MiscQueryBuilder.cpp}, \hyperpage{199}
+  \item {MiscQueryBuilder.h}, \hyperpage{199}
+
+  \indexspace
+
+  \item {notifyStaff}
+    \subitem {SalesFloorObserver}, \hyperpage{121}
+
+  \indexspace
+
+  \item {Oak}, \hyperpage{77}
+    \subitem {Oak}, \hyperpage{78}
+  \item {Oak.h}, \hyperpage{201}
+  \item {Order}, \hyperpage{79}
+    \subitem {addTransaction}, \hyperpage{80}
+    \subitem {getCustomer}, \hyperpage{80}
+    \subitem {getOrderId}, \hyperpage{80}
+    \subitem {getStatus}, \hyperpage{80}
+    \subitem {Order}, \hyperpage{79}
+  \item {Order.h}, \hyperpage{202}
+  \item {OrganicFertilizer}, \hyperpage{81}
+    \subitem {applyFertilizer}, \hyperpage{82}
+    \subitem {getStrategyName}, \hyperpage{82}
+  \item {OrganicFertilizer.h}, \hyperpage{203}
+
+  \indexspace
+
+  \item {PartialSunStrategy}, \hyperpage{83}
+    \subitem {applySunlight}, \hyperpage{84}
+    \subitem {getStrategyName}, \hyperpage{84}
+  \item {PartialSunStrategy.h}, \hyperpage{204}
+  \item {pay}
+    \subitem {CreditCardPaymentStrategy}, \hyperpage{21}
+    \subitem {EFTPaymentStrategy}, \hyperpage{31}
+    \subitem {EWalletPaymentStrategy}, \hyperpage{35}
+    \subitem {PaymentStrategy}, \hyperpage{85}
+  \item {PaymentStrategy}, \hyperpage{85}
+    \subitem {getName}, \hyperpage{85}
+    \subitem {pay}, \hyperpage{85}
+  \item {PaymentStrategy.h}, \hyperpage{206}
+  \item {placeOrder}
+    \subitem {Customer}, \hyperpage{23}
+  \item {Plant}, \hyperpage{86}
+    \subitem {attach}, \hyperpage{89}
+    \subitem {detach}, \hyperpage{89}
+    \subitem {getCategory}, \hyperpage{89}
+    \subitem {getColor}, \hyperpage{89}
+    \subitem {getCurrentNutrients}, \hyperpage{89}
+    \subitem {getCurrentSunlight}, \hyperpage{90}
+    \subitem {getCurrentWater}, \hyperpage{90}
+    \subitem {getDescription}, \hyperpage{90}
+    \subitem {getGrowthProgress}, \hyperpage{90}
+    \subitem {getMaxNutrients}, \hyperpage{91}
+    \subitem {getMaxSunlight}, \hyperpage{91}
+    \subitem {getMaxWater}, \hyperpage{91}
+    \subitem {getMinNutrients}, \hyperpage{91}
+    \subitem {getMinSunlight}, \hyperpage{92}
+    \subitem {getMinWater}, \hyperpage{92}
+    \subitem {getName}, \hyperpage{92}
+    \subitem {getPrice}, \hyperpage{92}
+    \subitem {getState}, \hyperpage{93}
+    \subitem {Plant}, \hyperpage{88}
+    \subitem {setCategory}, \hyperpage{93}
+    \subitem {setColor}, \hyperpage{93}
+    \subitem {setCurrentNutrients}, \hyperpage{94}
+    \subitem {setCurrentSunlight}, \hyperpage{94}
+    \subitem {setCurrentWater}, \hyperpage{94}
+    \subitem {setGrowthProgress}, \hyperpage{94}
+    \subitem {setMaxNutrients}, \hyperpage{95}
+    \subitem {setMaxSunlight}, \hyperpage{95}
+    \subitem {setMaxWater}, \hyperpage{95}
+    \subitem {setState}, \hyperpage{96}
+  \item {Plant.h}, \hyperpage{207}
+  \item {PlantCare}
+    \subitem {PlantCareRoutine}, \hyperpage{97}
+  \item {PlantCareRoutine}, \hyperpage{96}
+    \subitem {PlantCare}, \hyperpage{97}
+  \item {PlantCareRoutine.h}, \hyperpage{208}
+  \item {PlantDecorator}, \hyperpage{97}
+  \item {PlantDecorator.h}, \hyperpage{209}
+  \item {PlantFactory}, \hyperpage{99}
+    \subitem {createPlant}, \hyperpage{99}
+  \item {PlantFactory.h}, \hyperpage{210}
+  \item {PlantInventory}, \hyperpage{100}
+    \subitem {addStock}, \hyperpage{101}
+    \subitem {attach}, \hyperpage{101}
+    \subitem {detach}, \hyperpage{101}
+    \subitem {executeCommand}, \hyperpage{102}
+    \subitem {findPlantIndex}, \hyperpage{102}
+    \subitem {getInstance}, \hyperpage{102}
+    \subitem {getInventoryReference}, \hyperpage{103}
+    \subitem {getInventoryView}, \hyperpage{103}
+    \subitem {getQuantity}, \hyperpage{103}
+    \subitem {removeStock}, \hyperpage{104}
+  \item {PlantInventory.h}, \hyperpage{211}
+  \item {PlantLifeCycle}, \hyperpage{104}
+  \item {PlantState}, \hyperpage{105}
+    \subitem {applyCare}, \hyperpage{105}
+    \subitem {evaluate}, \hyperpage{106}
+    \subitem {getName}, \hyperpage{106}
+  \item {PlantState.h}, \hyperpage{213}
+  \item {PlantStock}, \hyperpage{107}
+    \subitem {addStock}, \hyperpage{107}
+    \subitem {PlantStock}, \hyperpage{107}
+    \subitem {removeStock}, \hyperpage{109}
+  \item {PlantStock.h}, \hyperpage{214}
+
+  \indexspace
+
+  \item {Query}, \hyperpage{109}
+    \subitem {getItem}, \hyperpage{110}
+    \subitem {getQuestion}, \hyperpage{111}
+    \subitem {getType}, \hyperpage{111}
+    \subitem {Query}, \hyperpage{110}
+  \item {Query.h}, \hyperpage{215}
+  \item {question}
+    \subitem {Builder}, \hyperpage{19}
+
+  \indexspace
+
+  \item {RemoveStock}, \hyperpage{112}
+    \subitem {execute}, \hyperpage{113}
+    \subitem {RemoveStock}, \hyperpage{113}
+  \item {removeStock}
+    \subitem {InventoryProxy}, \hyperpage{60}
+    \subitem {PlantInventory}, \hyperpage{104}
+    \subitem {PlantStock}, \hyperpage{109}
+  \item {RemoveStock.h}, \hyperpage{216}
+  \item {reply}
+    \subitem {FloorEmployee}, \hyperpage{40}
+    \subitem {FloorManager}, \hyperpage{42}
+    \subitem {FloorStaff}, \hyperpage{45}
+    \subitem {SalesEmployee}, \hyperpage{117}
+    \subitem {SalesManager}, \hyperpage{123}
+    \subitem {SalesStaff}, \hyperpage{127}
+  \item {restoreSnapshot}
+    \subitem {Transaction}, \hyperpage{155}
+  \item {Rose}, \hyperpage{114}
+    \subitem {Rose}, \hyperpage{115}
+  \item {Rose.h}, \hyperpage{218}
+
+  \indexspace
+
+  \item {SalesEmployee}, \hyperpage{115}
+    \subitem {reply}, \hyperpage{117}
+    \subitem {SalesEmployee}, \hyperpage{116}
+    \subitem {staffCanHandle}, \hyperpage{117}
+  \item {SalesEmployee.h}, \hyperpage{219}
+  \item {SalesFloorObserver}, \hyperpage{118}
+    \subitem {attachStaff}, \hyperpage{119}
+    \subitem {detachStaff}, \hyperpage{120}
+    \subitem {getAvailableItems}, \hyperpage{120}
+    \subitem {getNotificationHistory}, \hyperpage{120}
+    \subitem {getPlantQuantity}, \hyperpage{120}
+    \subitem {isPlantAvailable}, \hyperpage{121}
+    \subitem {notifyStaff}, \hyperpage{121}
+    \subitem {SalesFloorObserver}, \hyperpage{119}
+  \item {SalesFloorObserver.h}, \hyperpage{220}
+  \item {SalesManager}, \hyperpage{121}
+    \subitem {reply}, \hyperpage{123}
+    \subitem {SalesManager}, \hyperpage{123}
+    \subitem {staffCanHandle}, \hyperpage{124}
+  \item {SalesManager.h}, \hyperpage{222}
+  \item {SalesStaff}, \hyperpage{124}
+    \subitem {handleQuery}, \hyperpage{126}
+    \subitem {reply}, \hyperpage{127}
+    \subitem {SalesStaff}, \hyperpage{126}
+    \subitem {staffCanHandle}, \hyperpage{127}
+  \item {SalesStaff.h}, \hyperpage{223}
+  \item {SeedlingState}, \hyperpage{127}
+    \subitem {applyCare}, \hyperpage{128}
+    \subitem {evaluate}, \hyperpage{129}
+    \subitem {getName}, \hyperpage{129}
+  \item {SeedlingState.h}, \hyperpage{224}
+  \item {SeedState}, \hyperpage{130}
+    \subitem {applyCare}, \hyperpage{131}
+    \subitem {evaluate}, \hyperpage{131}
+    \subitem {getName}, \hyperpage{131}
+  \item {SeedState.h}, \hyperpage{225}
+  \item {setCategory}
+    \subitem {Plant}, \hyperpage{93}
+  \item {setColor}
+    \subitem {Plant}, \hyperpage{93}
+  \item {setCurrentNutrients}
+    \subitem {Plant}, \hyperpage{94}
+  \item {setCurrentSunlight}
+    \subitem {Plant}, \hyperpage{94}
+  \item {setCurrentWater}
+    \subitem {Plant}, \hyperpage{94}
+  \item {setGrowthProgress}
+    \subitem {Plant}, \hyperpage{94}
+  \item {setItem}
+    \subitem {Builder}, \hyperpage{18}
+    \subitem {ItemQueryBuilder}, \hyperpage{61}
+    \subitem {MiscQueryBuilder}, \hyperpage{76}
+  \item {setMaxNutrients}
+    \subitem {Plant}, \hyperpage{95}
+  \item {setMaxSunlight}
+    \subitem {Plant}, \hyperpage{95}
+  \item {setMaxWater}
+    \subitem {Plant}, \hyperpage{95}
+  \item {setName}
+    \subitem {Customer}, \hyperpage{24}
+  \item {setNext}
+    \subitem {Staff}, \hyperpage{140}
+  \item {setPaymentStrategy}
+    \subitem {Transaction}, \hyperpage{156}
+  \item {setQuestion}
+    \subitem {Builder}, \hyperpage{19}
+    \subitem {ItemQueryBuilder}, \hyperpage{62}
+    \subitem {MiscQueryBuilder}, \hyperpage{76}
+  \item {setState}
+    \subitem {Plant}, \hyperpage{96}
+  \item {setTransaction}
+    \subitem {Transaction}, \hyperpage{156}
+  \item {setType}
+    \subitem {Builder}, \hyperpage{19}
+    \subitem {ItemQueryBuilder}, \hyperpage{62}
+    \subitem {MiscQueryBuilder}, \hyperpage{77}
+  \item {Shade}, \hyperpage{132}
+  \item {Shade.h}, \hyperpage{226}
+  \item {ShadeStrategy}, \hyperpage{133}
+    \subitem {applySunlight}, \hyperpage{134}
+    \subitem {getStrategyName}, \hyperpage{134}
+  \item {ShadeStrategy.h}, \hyperpage{227}
+  \item {SpecialArrangement}, \hyperpage{135}
+  \item {SpecialArrangement.h}, \hyperpage{228}
+  \item {Staff}, \hyperpage{136}
+    \subitem {$\sim$Staff}, \hyperpage{138}
+    \subitem {getName}, \hyperpage{138}
+    \subitem {getNext}, \hyperpage{138}
+    \subitem {getStock}, \hyperpage{138}
+    \subitem {handleQuery}, \hyperpage{139}
+    \subitem {isHealthy}, \hyperpage{139}
+    \subitem {setNext}, \hyperpage{140}
+    \subitem {Staff}, \hyperpage{138}
+  \item {Staff.h}, \hyperpage{229}
+  \item {staffCanHandle}
+    \subitem {FloorEmployee}, \hyperpage{40}
+    \subitem {FloorManager}, \hyperpage{43}
+    \subitem {FloorStaff}, \hyperpage{46}
+    \subitem {SalesEmployee}, \hyperpage{117}
+    \subitem {SalesManager}, \hyperpage{124}
+    \subitem {SalesStaff}, \hyperpage{127}
+  \item {StaffFactory}, \hyperpage{140}
+    \subitem {createFloorStaff}, \hyperpage{141}
+    \subitem {createSalesStaff}, \hyperpage{142}
+  \item {StaffFactory.h}, \hyperpage{230}
+  \item {StaffObserver}, \hyperpage{142}
+    \subitem {StaffObserver}, \hyperpage{144}
+  \item {StaffObserver.h}, \hyperpage{231}
+  \item {StockCommand}, \hyperpage{144}
+    \subitem {$\sim$StockCommand}, \hyperpage{145}
+    \subitem {execute}, \hyperpage{145}
+  \item {StockCommand.h}, \hyperpage{232}
+  \item {Sunlight}
+    \subitem {Sunny}, \hyperpage{149}
+    \subitem {Temperate}, \hyperpage{151}
+    \subitem {Tropical}, \hyperpage{163}
+  \item {SunlightStrategy}, \hyperpage{146}
+    \subitem {applySunlight}, \hyperpage{147}
+    \subitem {currentPlant}, \hyperpage{147}
+    \subitem {getStrategyName}, \hyperpage{147}
+  \item {SunlightStrategy.h}, \hyperpage{233}
+  \item {Sunny}, \hyperpage{148}
+    \subitem {Fertilizing}, \hyperpage{149}
+    \subitem {Sunlight}, \hyperpage{149}
+    \subitem {Watering}, \hyperpage{149}
+  \item {Sunny.h}, \hyperpage{234}
+
+  \indexspace
+
+  \item {Temperate}, \hyperpage{150}
+    \subitem {Fertilizing}, \hyperpage{151}
+    \subitem {Sunlight}, \hyperpage{151}
+    \subitem {Watering}, \hyperpage{152}
+  \item {Temperate.h}, \hyperpage{235}
+  \item {Transaction}, \hyperpage{152}
+    \subitem {addDecoration}, \hyperpage{153}
+    \subitem {clone}, \hyperpage{154}
+    \subitem {createSnapshot}, \hyperpage{154}
+    \subitem {getAmount}, \hyperpage{154}
+    \subitem {getDecorations}, \hyperpage{154}
+    \subitem {getPaymentMethod}, \hyperpage{155}
+    \subitem {getQuantity}, \hyperpage{155}
+    \subitem {getTransactionId}, \hyperpage{155}
+    \subitem {restoreSnapshot}, \hyperpage{155}
+    \subitem {setPaymentStrategy}, \hyperpage{156}
+    \subitem {setTransaction}, \hyperpage{156}
+    \subitem {Transaction}, \hyperpage{153}
+  \item {Transaction.h}, \hyperpage{236}
+  \item {TransactionHistory}, \hyperpage{156}
+    \subitem {addSnapshot}, \hyperpage{157}
+    \subitem {getHistorySize}, \hyperpage{157}
+    \subitem {getSnapshot}, \hyperpage{157}
+  \item {TransactionHistory.h}, \hyperpage{237}
+  \item {TransactionSnapshot}, \hyperpage{158}
+    \subitem {getAmount}, \hyperpage{159}
+    \subitem {getDecorations}, \hyperpage{159}
+    \subitem {getOrderNum}, \hyperpage{159}
+    \subitem {getQuantity}, \hyperpage{159}
+    \subitem {TransactionSnapshot}, \hyperpage{158}
+  \item {TransactionSnapshot.h}, \hyperpage{238}
+  \item {TreeFactory}, \hyperpage{160}
+    \subitem {createPlant}, \hyperpage{161}
+  \item {TreeFactory.h}, \hyperpage{239}
+  \item {Tropical}, \hyperpage{161}
+    \subitem {Fertilizing}, \hyperpage{163}
+    \subitem {Sunlight}, \hyperpage{163}
+    \subitem {Watering}, \hyperpage{163}
+  \item {Tropical.h}, \hyperpage{240}
+  \item {type}
+    \subitem {Builder}, \hyperpage{19}
+
+  \indexspace
+
+  \item {update}
+    \subitem {LifeCycleObserver}, \hyperpage{63}
+
+  \indexspace
+
+  \item {Watering}
+    \subitem {Sunny}, \hyperpage{149}
+    \subitem {Temperate}, \hyperpage{152}
+    \subitem {Tropical}, \hyperpage{163}
+  \item {WaterStrategy}, \hyperpage{164}
+    \subitem {applyWater}, \hyperpage{165}
+    \subitem {getStrategyName}, \hyperpage{165}
+  \item {WitheredState}, \hyperpage{166}
+    \subitem {applyCare}, \hyperpage{167}
+    \subitem {clone}, \hyperpage{167}
+    \subitem {evaluate}, \hyperpage{167}
+    \subitem {getName}, \hyperpage{168}
+  \item {WitheredState.h}, \hyperpage{241}
+
+\end{theindex}

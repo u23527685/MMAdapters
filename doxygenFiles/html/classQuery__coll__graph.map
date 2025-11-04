@@ -1,0 +1,6 @@
+<map id="Query" name="Query">
+<area shape="rect" id="node1" title="Encapsulates a query object constructed by a Builder." alt="" coords="5,95,67,121"/>
+<area shape="rect" id="node2" href="$classPlant.html" title="Abstract representation of a plant with care and lifecycle management." alt="" coords="189,5,243,32"/>
+<area shape="rect" id="node3" href="$classFertilizerStrategy.html" title="Abstract base for fertilizer behavior strategies." alt="" coords="131,95,266,121"/>
+<area shape="rect" id="node4" href="$classSunlightStrategy.html" title=" " alt="" coords="313,95,444,121"/>
+</map>

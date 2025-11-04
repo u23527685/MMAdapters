@@ -1,0 +1,65 @@
+\hypertarget{classPlantLifeCycle}{}\doxysection{Plant\+Life\+Cycle Class Reference}
+\label{classPlantLifeCycle}\index{PlantLifeCycle@{PlantLifeCycle}}
+
+
+Manages the state and observers for a plant’s life cycle.  
+
+
+
+
+{\ttfamily \#include $<$PLant\+Life\+Cycle.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classPlantLifeCycle_aa586c8ef68237fb2faf71adb52804b64}\label{classPlantLifeCycle_aa586c8ef68237fb2faf71adb52804b64}} 
+{\bfseries Plant\+Life\+Cycle} (\mbox{\hyperlink{classPlant}{Plant}} $\ast$plant, std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classPlantState}{Plant\+State}} $>$initial\+State, std\+::string name)
+\item 
+\mbox{\Hypertarget{classPlantLifeCycle_af5109f5cd84bda58ae2e5b2296b51046}\label{classPlantLifeCycle_af5109f5cd84bda58ae2e5b2296b51046}} 
+std\+::string {\bfseries get\+State} ()
+\item 
+\mbox{\Hypertarget{classPlantLifeCycle_a6f8e44210f7969be80e231bb00b1eea8}\label{classPlantLifeCycle_a6f8e44210f7969be80e231bb00b1eea8}} 
+\mbox{\hyperlink{classPlantState}{Plant\+State}} $\ast$ {\bfseries get\+State\+Obj} () const
+\item 
+\mbox{\Hypertarget{classPlantLifeCycle_a4b6e15c53e44dd33cac16571996a72c7}\label{classPlantLifeCycle_a4b6e15c53e44dd33cac16571996a72c7}} 
+void {\bfseries set\+State} (std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classPlantState}{Plant\+State}} $>$ state)
+\item 
+\mbox{\Hypertarget{classPlantLifeCycle_aa154e3f123634d0817ab39c0bad1394a}\label{classPlantLifeCycle_aa154e3f123634d0817ab39c0bad1394a}} 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classPlantState}{Plant\+State}} $>$ {\bfseries release\+State} ()
+\item 
+\mbox{\Hypertarget{classPlantLifeCycle_a614a3f0232ea63dd39590030e143824d}\label{classPlantLifeCycle_a614a3f0232ea63dd39590030e143824d}} 
+void {\bfseries attach} (\mbox{\hyperlink{classLifeCycleObserver}{Life\+Cycle\+Observer}} $\ast$ol)
+\item 
+\mbox{\Hypertarget{classPlantLifeCycle_a509ab9c9857ddab032ccec8d049840ef}\label{classPlantLifeCycle_a509ab9c9857ddab032ccec8d049840ef}} 
+void {\bfseries detach} (\mbox{\hyperlink{classLifeCycleObserver}{Life\+Cycle\+Observer}} $\ast$ol)
+\item 
+\mbox{\Hypertarget{classPlantLifeCycle_ab93a8e283b84b9a687b0d6429a2d96ae}\label{classPlantLifeCycle_ab93a8e283b84b9a687b0d6429a2d96ae}} 
+void {\bfseries notify} ()
+\item 
+\mbox{\Hypertarget{classPlantLifeCycle_a3ea16ae5e04ca8d9398fcde73458037d}\label{classPlantLifeCycle_a3ea16ae5e04ca8d9398fcde73458037d}} 
+void {\bfseries simulate\+Time\+Passing} ()
+\item 
+\mbox{\Hypertarget{classPlantLifeCycle_a6501a7e60d7040c63c7ced2f0b647bb9}\label{classPlantLifeCycle_a6501a7e60d7040c63c7ced2f0b647bb9}} 
+bool {\bfseries update\+Plant} ()
+\item 
+\mbox{\Hypertarget{classPlantLifeCycle_a6a669ac66f61055dee8fab9398028b88}\label{classPlantLifeCycle_a6a669ac66f61055dee8fab9398028b88}} 
+\mbox{\hyperlink{classPlant}{Plant}} $\ast$ {\bfseries get\+Plant} ()
+\item 
+\mbox{\Hypertarget{classPlantLifeCycle_a1194178939102180baa82a6d6ce3501e}\label{classPlantLifeCycle_a1194178939102180baa82a6d6ce3501e}} 
+std\+::string {\bfseries get\+Name} ()
+\item 
+\mbox{\Hypertarget{classPlantLifeCycle_aab895438ca441c110e4834d7746fb902}\label{classPlantLifeCycle_aab895438ca441c110e4834d7746fb902}} 
+std\+::vector$<$ \mbox{\hyperlink{classLifeCycleObserver}{Life\+Cycle\+Observer}} $\ast$ $>$\+::iterator {\bfseries observers\+Begin} ()
+\item 
+\mbox{\Hypertarget{classPlantLifeCycle_a2ffcad4a659518e419745924b0f59435}\label{classPlantLifeCycle_a2ffcad4a659518e419745924b0f59435}} 
+std\+::vector$<$ \mbox{\hyperlink{classLifeCycleObserver}{Life\+Cycle\+Observer}} $\ast$ $>$\+::iterator {\bfseries observers\+End} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Manages the state and observers for a plant’s life cycle. 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+PLant\+Life\+Cycle.\+h\item 
+Plant\+Life\+Cycle.\+cpp\end{DoxyCompactItemize}

@@ -1,0 +1,5 @@
+<map id="StaffFactory.h" name="StaffFactory.h">
+<area shape="rect" id="node1" title="Abstract factory for creating staff members." alt="" coords="104,5,213,32"/>
+<area shape="rect" id="node2" href="$EmployeeFactory_8h.html" title="Concrete factory for creating regular employees." alt="" coords="5,80,149,107"/>
+<area shape="rect" id="node3" href="$ManagerFactory_8h.html" title="Defines the factory for creating manager&#45;level staff." alt="" coords="173,80,309,107"/>
+</map>

@@ -1,0 +1,4 @@
+<map id="WitheredState" name="WitheredState">
+<area shape="rect" id="node1" title="Represents the final state of a plant&#39;s life cycle, where it has withered and died...." alt="" coords="5,80,120,107"/>
+<area shape="rect" id="node2" href="$classPlantState.html" title="Abstract base class representing a state in a plant&#39;s life cycle." alt="" coords="18,5,107,32"/>
+</map>

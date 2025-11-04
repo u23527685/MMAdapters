@@ -1,0 +1,91 @@
+\hypertarget{classAddStock}{}\doxysection{Add\+Stock Class Reference}
+\label{classAddStock}\index{AddStock@{AddStock}}
+
+
+Concrete command for adding plant stock to inventory.  
+
+
+
+
+{\ttfamily \#include $<$Add\+Stock.\+h$>$}
+
+
+
+Inheritance diagram for Add\+Stock\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=174pt]{classAddStock__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Add\+Stock\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=174pt]{classAddStock__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classAddStock_acb207cfd97558183e263e419c189939d}{Add\+Stock}} (\mbox{\hyperlink{classPlant}{Plant}} $\ast$plant, int quantity\+To\+Add, \mbox{\hyperlink{classPlantInventory}{Plant\+Inventory}} $\ast$target\+Inventory)
+\begin{DoxyCompactList}\small\item\em Constructs an \mbox{\hyperlink{classAddStock}{Add\+Stock}} command. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classAddStock_ab5849e14bede9c9b41d17c75e8a526b0}{execute}} () override
+\begin{DoxyCompactList}\small\item\em Executes the add stock command. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Concrete command for adding plant stock to inventory. 
+
+This class implements the Command pattern to add a specified quantity of plants to the target inventory. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classAddStock_acb207cfd97558183e263e419c189939d}\label{classAddStock_acb207cfd97558183e263e419c189939d}} 
+\index{AddStock@{AddStock}!AddStock@{AddStock}}
+\index{AddStock@{AddStock}!AddStock@{AddStock}}
+\doxysubsubsection{\texorpdfstring{AddStock()}{AddStock()}}
+{\footnotesize\ttfamily Add\+Stock\+::\+Add\+Stock (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classPlant}{Plant}} $\ast$}]{plant,  }\item[{int}]{quantity\+To\+Add,  }\item[{\mbox{\hyperlink{classPlantInventory}{Plant\+Inventory}} $\ast$}]{target\+Inventory }\end{DoxyParamCaption})}
+
+
+
+Constructs an \mbox{\hyperlink{classAddStock}{Add\+Stock}} command. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em plant} & \mbox{\hyperlink{classPlant}{Plant}} to add \\
+\hline
+{\em quantity\+To\+Add} & Quantity to add \\
+\hline
+{\em target\+Inventory} & Inventory to add to \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classAddStock_ab5849e14bede9c9b41d17c75e8a526b0}\label{classAddStock_ab5849e14bede9c9b41d17c75e8a526b0}} 
+\index{AddStock@{AddStock}!execute@{execute}}
+\index{execute@{execute}!AddStock@{AddStock}}
+\doxysubsubsection{\texorpdfstring{execute()}{execute()}}
+{\footnotesize\ttfamily bool Add\+Stock\+::execute (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Executes the add stock command. 
+
+\begin{DoxyReturn}{Returns}
+true if successful, false otherwise 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classStockCommand_a8a7d34b5b29be7959f3d5166b05b83aa}{Stock\+Command}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Add\+Stock.\+h\item 
+Add\+Stock.\+cpp\end{DoxyCompactItemize}

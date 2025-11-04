@@ -1,0 +1,6 @@
+<map id="ShadeStrategy" name="ShadeStrategy">
+<area shape="rect" id="node1" title="SunlightStrategy implementation for shade." alt="" coords="5,95,123,121"/>
+<area shape="rect" id="node2" href="$classSunlightStrategy.html" title=" " alt="" coords="43,5,173,32"/>
+<area shape="rect" id="node3" href="$classPlant.html" title="Abstract representation of a plant with care and lifecycle management." alt="" coords="185,95,239,121"/>
+<area shape="rect" id="node4" href="$classFertilizerStrategy.html" title="Abstract base for fertilizer behavior strategies." alt="" coords="145,184,279,211"/>
+</map>

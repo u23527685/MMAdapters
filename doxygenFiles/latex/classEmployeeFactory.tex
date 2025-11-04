@@ -1,0 +1,100 @@
+\hypertarget{classEmployeeFactory}{}\doxysection{Employee\+Factory Class Reference}
+\label{classEmployeeFactory}\index{EmployeeFactory@{EmployeeFactory}}
+
+
+Factory responsible for creating regular staff members.  
+
+
+
+
+{\ttfamily \#include $<$Employee\+Factory.\+h$>$}
+
+
+
+Inheritance diagram for Employee\+Factory\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=181pt]{classEmployeeFactory__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Employee\+Factory\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=181pt]{classEmployeeFactory__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classEmployeeFactory_a2d3fbee8c5507ed96417a5d8d1e7b095}\label{classEmployeeFactory_a2d3fbee8c5507ed96417a5d8d1e7b095}} 
+\mbox{\hyperlink{classEmployeeFactory_a2d3fbee8c5507ed96417a5d8d1e7b095}{Employee\+Factory}} ()
+\begin{DoxyCompactList}\small\item\em Default constructor. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classEmployeeFactory_a67ab95a311272225b8b5227412823b56}\label{classEmployeeFactory_a67ab95a311272225b8b5227412823b56}} 
+\mbox{\hyperlink{classEmployeeFactory_a67ab95a311272225b8b5227412823b56}{$\sim$\+Employee\+Factory}} ()
+\begin{DoxyCompactList}\small\item\em Virtual destructor. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classFloorStaff}{Floor\+Staff}} $\ast$ \mbox{\hyperlink{classEmployeeFactory_a259f60a55845baed88044603a078578c}{create\+Floor\+Staff}} (std\+::string name) override
+\begin{DoxyCompactList}\small\item\em Create a \mbox{\hyperlink{classFloorEmployee}{Floor\+Employee}} instance. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classSalesStaff}{Sales\+Staff}} $\ast$ \mbox{\hyperlink{classEmployeeFactory_a6f66e01307352b5a67011227f8f0cd20}{create\+Sales\+Staff}} (std\+::string name) override
+\begin{DoxyCompactList}\small\item\em Create a \mbox{\hyperlink{classSalesEmployee}{Sales\+Employee}} instance. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Factory responsible for creating regular staff members. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classEmployeeFactory_a259f60a55845baed88044603a078578c}\label{classEmployeeFactory_a259f60a55845baed88044603a078578c}} 
+\index{EmployeeFactory@{EmployeeFactory}!createFloorStaff@{createFloorStaff}}
+\index{createFloorStaff@{createFloorStaff}!EmployeeFactory@{EmployeeFactory}}
+\doxysubsubsection{\texorpdfstring{createFloorStaff()}{createFloorStaff()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classFloorStaff}{Floor\+Staff}} $\ast$ Employee\+Factory\+::create\+Floor\+Staff (\begin{DoxyParamCaption}\item[{std\+::string}]{name }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Create a \mbox{\hyperlink{classFloorEmployee}{Floor\+Employee}} instance. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & The name of the employee to create \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Pointer to new \mbox{\hyperlink{classFloorEmployee}{Floor\+Employee}} (caller owns memory) 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classStaffFactory_a128bd18447bc7d4710ec461c53ea5251}{Staff\+Factory}}.
+
+\mbox{\Hypertarget{classEmployeeFactory_a6f66e01307352b5a67011227f8f0cd20}\label{classEmployeeFactory_a6f66e01307352b5a67011227f8f0cd20}} 
+\index{EmployeeFactory@{EmployeeFactory}!createSalesStaff@{createSalesStaff}}
+\index{createSalesStaff@{createSalesStaff}!EmployeeFactory@{EmployeeFactory}}
+\doxysubsubsection{\texorpdfstring{createSalesStaff()}{createSalesStaff()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classSalesStaff}{Sales\+Staff}} $\ast$ Employee\+Factory\+::create\+Sales\+Staff (\begin{DoxyParamCaption}\item[{std\+::string}]{name }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Create a \mbox{\hyperlink{classSalesEmployee}{Sales\+Employee}} instance. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & The name of the employee to create \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Pointer to new \mbox{\hyperlink{classSalesEmployee}{Sales\+Employee}} (caller owns memory) 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classStaffFactory_a499590db3e68fb2069814a46c7e2abdc}{Staff\+Factory}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{EmployeeFactory_8h}{Employee\+Factory.\+h}}\item 
+Employee\+Factory.\+cpp\end{DoxyCompactItemize}

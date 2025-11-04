@@ -1,0 +1,562 @@
+\hypertarget{classPlant}{}\doxysection{Plant Class Reference}
+\label{classPlant}\index{Plant@{Plant}}
+
+
+Abstract representation of a plant with care and lifecycle management.  
+
+
+
+
+{\ttfamily \#include $<$Plant.\+h$>$}
+
+
+
+Inheritance diagram for Plant\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classPlant__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Plant\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classPlant__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classPlant_aeebba67fbf33e3087e9035f41289a83a}\label{classPlant_aeebba67fbf33e3087e9035f41289a83a}} 
+\mbox{\hyperlink{classPlant_aeebba67fbf33e3087e9035f41289a83a}{Plant}} ()
+\begin{DoxyCompactList}\small\item\em Default constructor. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classPlant_a91910008dfda243fcdc512afaefac146}{Plant}} (double price, std\+::string description)
+\begin{DoxyCompactList}\small\item\em Parameterized constructor. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classPlant_ac98a2280b1909e9b110411e228be031e}\label{classPlant_ac98a2280b1909e9b110411e228be031e}} 
+void \mbox{\hyperlink{classPlant_ac98a2280b1909e9b110411e228be031e}{apply\+Care}} ()
+\begin{DoxyCompactList}\small\item\em Applies care routines to the plant. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classPlant_ac672df918d9dd4a5e8634d368c2d25af}{set\+State}} (std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classPlantState}{Plant\+State}} $>$ s)
+\begin{DoxyCompactList}\small\item\em Sets the state of the plant. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classPlantState}{Plant\+State}} $\ast$ \mbox{\hyperlink{classPlant_a981bb969db2eaa64d43265a98aebcf6f}{get\+State}} ()
+\begin{DoxyCompactList}\small\item\em Gets the current state of the plant. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classPlant_af46d670ddb19f7dba2cb80f41fd33270}{attach}} (\mbox{\hyperlink{classLifeCycleObserver}{Life\+Cycle\+Observer}} $\ast$o)
+\begin{DoxyCompactList}\small\item\em Attaches a lifecycle observer to the plant. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classPlant_ab6ed48a6e25740088ffb02c52b2ded5c}{detach}} (\mbox{\hyperlink{classLifeCycleObserver}{Life\+Cycle\+Observer}} $\ast$o)
+\begin{DoxyCompactList}\small\item\em Detaches a lifecycle observer from the plant. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classPlant_a63898fadee601a158eee6a6fb629bd3b}\label{classPlant_a63898fadee601a158eee6a6fb629bd3b}} 
+void \mbox{\hyperlink{classPlant_a63898fadee601a158eee6a6fb629bd3b}{notify}} ()
+\begin{DoxyCompactList}\small\item\em Notifies all attached observers of changes. \end{DoxyCompactList}\item 
+virtual std\+::string \mbox{\hyperlink{classPlant_adbb5257a630ce83510fa3e2dc683cd26}{get\+Description}} () const
+\begin{DoxyCompactList}\small\item\em Gets the plant description. \end{DoxyCompactList}\item 
+virtual double \mbox{\hyperlink{classPlant_a1a6e78e58443899921fb32f1622dc0bc}{get\+Price}} () const
+\begin{DoxyCompactList}\small\item\em Gets the plant price. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classPlant_a7dee5e00e58cf6af0377e94a6528668e}{set\+Color}} (const std\+::string \&color)
+\begin{DoxyCompactList}\small\item\em Sets the color of the plant. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{classPlant_a61aee2bf742d65933f5419d3361f2a5f}{get\+Color}} () const
+\begin{DoxyCompactList}\small\item\em Gets the plant color. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{classPlant_a82082cb94c0204c40a1ac28e9b559a46}{get\+Name}} ()
+\begin{DoxyCompactList}\small\item\em Gets the plant name. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classPlant_aadb0f8e533b67690e136654e5a6263df}{get\+Max\+Water}} ()
+\begin{DoxyCompactList}\small\item\em Gets the maximum water capacity. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classPlant_a321fc8dc3de73b66439abc90854913f1}{set\+Max\+Water}} (int mW)
+\begin{DoxyCompactList}\small\item\em Sets the maximum water capacity. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classPlant_ab819c0f20ffab65045e043a10615f2e7}{get\+Current\+Water}} ()
+\begin{DoxyCompactList}\small\item\em Gets the current water level. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classPlant_a7988cdc1d25d3d0300df19300249b35e}{set\+Current\+Water}} (int cW)
+\begin{DoxyCompactList}\small\item\em Sets the current water level. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classPlant_a8baa117d9ac6b08445c2c98e3c89213a}{get\+Current\+Nutrients}} ()
+\begin{DoxyCompactList}\small\item\em Gets the current nutrient level. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classPlant_aca26bb8ceb6402fb0be477bee03e1d57}{set\+Current\+Nutrients}} (int cN)
+\begin{DoxyCompactList}\small\item\em Sets the current nutrient level. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classPlant_a41319aee1a9899a2ca22669245446578}{get\+Max\+Nutrients}} ()
+\begin{DoxyCompactList}\small\item\em Gets the maximum nutrient capacity. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classPlant_aea0fc6d8357908e6ee88c1cebeb457a4}{set\+Max\+Nutrients}} (int mN)
+\begin{DoxyCompactList}\small\item\em Sets the maximum nutrient capacity. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classPlant_afe9ee5e2566168895c09edee085ee8ce}{get\+Current\+Sunlight}} ()
+\begin{DoxyCompactList}\small\item\em Gets the current sunlight level. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classPlant_a0f0364f4d42308470cc7705802380687}{set\+Current\+Sunlight}} (int mL)
+\begin{DoxyCompactList}\small\item\em Sets the current sunlight level. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classPlant_a1b6b4f7c6aceb5d26276165e773dedb0}{get\+Max\+Sunlight}} ()
+\begin{DoxyCompactList}\small\item\em Gets the maximum sunlight capacity. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classPlant_ab9448286df1bd96773509ac83dcaeb0e}{set\+Max\+Sunlight}} (int mL)
+\begin{DoxyCompactList}\small\item\em Sets the maximum sunlight capacity. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classPlant_a1c66142a3d148c60204c1647eaa7ef8a}{get\+Min\+Water}} () const
+\begin{DoxyCompactList}\small\item\em Gets the minimum water requirement. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classPlant_ac503e99fe4d7250426b6d5d9899c42e0}{get\+Min\+Sunlight}} () const
+\begin{DoxyCompactList}\small\item\em Gets the minimum sunlight requirement. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classPlant_a2902d8a41320d5f825e68505a8396505}{get\+Min\+Nutrients}} () const
+\begin{DoxyCompactList}\small\item\em Gets the minimum nutrient requirement. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{classPlant_a8e262b883b9b6ee5951203089ddf0294}{get\+Category}} ()
+\begin{DoxyCompactList}\small\item\em Gets the plant category. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classPlant_ad8563f5400fa2502e809b43696920536}{set\+Category}} (const std\+::string \&c)
+\begin{DoxyCompactList}\small\item\em Sets the plant category. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classPlant_ab0bc8260d0e6f829583694493f7c388a}{get\+Growth\+Progress}} () const
+\begin{DoxyCompactList}\small\item\em Gets the current growth progress. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classPlant_a9dd216254e05e501475d713228a0f92f}{set\+Growth\+Progress}} (int gp)
+\begin{DoxyCompactList}\small\item\em Sets the growth progress. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classPlant_ae42c8e3233e45d41d241b0b3fa81ffa4}\label{classPlant_ae42c8e3233e45d41d241b0b3fa81ffa4}} 
+void \mbox{\hyperlink{classPlant_ae42c8e3233e45d41d241b0b3fa81ffa4}{increase\+Growth\+Progress}} ()
+\begin{DoxyCompactList}\small\item\em Increments the growth progress by 1. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classPlant_a071d1ad48969842e3b32b05705f5ae49}\label{classPlant_a071d1ad48969842e3b32b05705f5ae49}} 
+Watering\+Strategy $\ast$ {\bfseries water\+Strategy}
+\item 
+\mbox{\Hypertarget{classPlant_a1dec50827d0242d6a3025b6c1aedd59e}\label{classPlant_a1dec50827d0242d6a3025b6c1aedd59e}} 
+\mbox{\hyperlink{classSunlightStrategy}{Sunlight\+Strategy}} $\ast$ {\bfseries sunlight\+Strategy}
+\item 
+\mbox{\Hypertarget{classPlant_aa9929130116d8d65729c37bc566c9ef6}\label{classPlant_aa9929130116d8d65729c37bc566c9ef6}} 
+\mbox{\hyperlink{classFertilizerStrategy}{Fertilizer\+Strategy}} $\ast$ {\bfseries fertilizer\+Strategy}
+\item 
+\mbox{\Hypertarget{classPlant_a0b6d91a0079fdb6dae437cc3a9aaead9}\label{classPlant_a0b6d91a0079fdb6dae437cc3a9aaead9}} 
+std\+::vector$<$ \mbox{\hyperlink{classLifeCycleObserver}{Life\+Cycle\+Observer}} $\ast$ $>$ {\bfseries observer\+List}
+\item 
+\mbox{\Hypertarget{classPlant_a4156d84507f9c705524484cfa86f783e}\label{classPlant_a4156d84507f9c705524484cfa86f783e}} 
+std\+::string {\bfseries category}
+\item 
+\mbox{\Hypertarget{classPlant_af47850d75e45a08455aea320bf2afbcc}\label{classPlant_af47850d75e45a08455aea320bf2afbcc}} 
+std\+::string {\bfseries description}
+\item 
+\mbox{\Hypertarget{classPlant_ab761ff9eeb8f9c68fbe8d22ec2fbb09e}\label{classPlant_ab761ff9eeb8f9c68fbe8d22ec2fbb09e}} 
+double {\bfseries price}
+\item 
+\mbox{\Hypertarget{classPlant_adf69cefbbb96dbd0f1ab08a1d9acc9c1}\label{classPlant_adf69cefbbb96dbd0f1ab08a1d9acc9c1}} 
+std\+::string {\bfseries color}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Abstract representation of a plant with care and lifecycle management. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classPlant_a91910008dfda243fcdc512afaefac146}\label{classPlant_a91910008dfda243fcdc512afaefac146}} 
+\index{Plant@{Plant}!Plant@{Plant}}
+\index{Plant@{Plant}!Plant@{Plant}}
+\doxysubsubsection{\texorpdfstring{Plant()}{Plant()}}
+{\footnotesize\ttfamily Plant\+::\+Plant (\begin{DoxyParamCaption}\item[{double}]{price,  }\item[{std\+::string}]{description }\end{DoxyParamCaption})}
+
+
+
+Parameterized constructor. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em price} & The price of the plant \\
+\hline
+{\em description} & Description of the plant \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classPlant_af46d670ddb19f7dba2cb80f41fd33270}\label{classPlant_af46d670ddb19f7dba2cb80f41fd33270}} 
+\index{Plant@{Plant}!attach@{attach}}
+\index{attach@{attach}!Plant@{Plant}}
+\doxysubsubsection{\texorpdfstring{attach()}{attach()}}
+{\footnotesize\ttfamily void Plant\+::attach (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classLifeCycleObserver}{Life\+Cycle\+Observer}} $\ast$}]{o }\end{DoxyParamCaption})}
+
+
+
+Attaches a lifecycle observer to the plant. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em o} & Observer to attach \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classPlant_ab6ed48a6e25740088ffb02c52b2ded5c}\label{classPlant_ab6ed48a6e25740088ffb02c52b2ded5c}} 
+\index{Plant@{Plant}!detach@{detach}}
+\index{detach@{detach}!Plant@{Plant}}
+\doxysubsubsection{\texorpdfstring{detach()}{detach()}}
+{\footnotesize\ttfamily void Plant\+::detach (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classLifeCycleObserver}{Life\+Cycle\+Observer}} $\ast$}]{o }\end{DoxyParamCaption})}
+
+
+
+Detaches a lifecycle observer from the plant. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em o} & Observer to detach \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classPlant_a8e262b883b9b6ee5951203089ddf0294}\label{classPlant_a8e262b883b9b6ee5951203089ddf0294}} 
+\index{Plant@{Plant}!getCategory@{getCategory}}
+\index{getCategory@{getCategory}!Plant@{Plant}}
+\doxysubsubsection{\texorpdfstring{getCategory()}{getCategory()}}
+{\footnotesize\ttfamily std\+::string Plant\+::get\+Category (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Gets the plant category. 
+
+\begin{DoxyReturn}{Returns}
+Category string 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classPlant_a61aee2bf742d65933f5419d3361f2a5f}\label{classPlant_a61aee2bf742d65933f5419d3361f2a5f}} 
+\index{Plant@{Plant}!getColor@{getColor}}
+\index{getColor@{getColor}!Plant@{Plant}}
+\doxysubsubsection{\texorpdfstring{getColor()}{getColor()}}
+{\footnotesize\ttfamily std\+::string Plant\+::get\+Color (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Gets the plant color. 
+
+\begin{DoxyReturn}{Returns}
+Color string 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classPlant_a8baa117d9ac6b08445c2c98e3c89213a}\label{classPlant_a8baa117d9ac6b08445c2c98e3c89213a}} 
+\index{Plant@{Plant}!getCurrentNutrients@{getCurrentNutrients}}
+\index{getCurrentNutrients@{getCurrentNutrients}!Plant@{Plant}}
+\doxysubsubsection{\texorpdfstring{getCurrentNutrients()}{getCurrentNutrients()}}
+{\footnotesize\ttfamily int Plant\+::get\+Current\+Nutrients (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Gets the current nutrient level. 
+
+\begin{DoxyReturn}{Returns}
+Current nutrient value 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classPlant_afe9ee5e2566168895c09edee085ee8ce}\label{classPlant_afe9ee5e2566168895c09edee085ee8ce}} 
+\index{Plant@{Plant}!getCurrentSunlight@{getCurrentSunlight}}
+\index{getCurrentSunlight@{getCurrentSunlight}!Plant@{Plant}}
+\doxysubsubsection{\texorpdfstring{getCurrentSunlight()}{getCurrentSunlight()}}
+{\footnotesize\ttfamily int Plant\+::get\+Current\+Sunlight (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Gets the current sunlight level. 
+
+\begin{DoxyReturn}{Returns}
+Current sunlight value 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classPlant_ab819c0f20ffab65045e043a10615f2e7}\label{classPlant_ab819c0f20ffab65045e043a10615f2e7}} 
+\index{Plant@{Plant}!getCurrentWater@{getCurrentWater}}
+\index{getCurrentWater@{getCurrentWater}!Plant@{Plant}}
+\doxysubsubsection{\texorpdfstring{getCurrentWater()}{getCurrentWater()}}
+{\footnotesize\ttfamily int Plant\+::get\+Current\+Water (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Gets the current water level. 
+
+\begin{DoxyReturn}{Returns}
+Current water value 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classPlant_adbb5257a630ce83510fa3e2dc683cd26}\label{classPlant_adbb5257a630ce83510fa3e2dc683cd26}} 
+\index{Plant@{Plant}!getDescription@{getDescription}}
+\index{getDescription@{getDescription}!Plant@{Plant}}
+\doxysubsubsection{\texorpdfstring{getDescription()}{getDescription()}}
+{\footnotesize\ttfamily std\+::string Plant\+::get\+Description (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Gets the plant description. 
+
+\begin{DoxyReturn}{Returns}
+Description string 
+\end{DoxyReturn}
+
+
+Reimplemented in \mbox{\hyperlink{classSpecialArrangement_a122c1efbf583ce3a3d963f2bd5a493de}{Special\+Arrangement}}, \mbox{\hyperlink{classPlantDecorator_acf88b5442b12cad9d1943e35545d0f4d}{Plant\+Decorator}}, \mbox{\hyperlink{classGiftWrap_a7f49a468f2398bd3899ca865c74fd951}{Gift\+Wrap}}, \mbox{\hyperlink{classDecorativePot_a087283c8a8f65279030f453db6fa955a}{Decorative\+Pot}}, and \mbox{\hyperlink{classBasePlant_aa45feb9fcbcc5ff45416ff24b445ebba}{Base\+Plant}}.
+
+\mbox{\Hypertarget{classPlant_ab0bc8260d0e6f829583694493f7c388a}\label{classPlant_ab0bc8260d0e6f829583694493f7c388a}} 
+\index{Plant@{Plant}!getGrowthProgress@{getGrowthProgress}}
+\index{getGrowthProgress@{getGrowthProgress}!Plant@{Plant}}
+\doxysubsubsection{\texorpdfstring{getGrowthProgress()}{getGrowthProgress()}}
+{\footnotesize\ttfamily int Plant\+::get\+Growth\+Progress (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Gets the current growth progress. 
+
+\begin{DoxyReturn}{Returns}
+Growth progress value 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classPlant_a41319aee1a9899a2ca22669245446578}\label{classPlant_a41319aee1a9899a2ca22669245446578}} 
+\index{Plant@{Plant}!getMaxNutrients@{getMaxNutrients}}
+\index{getMaxNutrients@{getMaxNutrients}!Plant@{Plant}}
+\doxysubsubsection{\texorpdfstring{getMaxNutrients()}{getMaxNutrients()}}
+{\footnotesize\ttfamily int Plant\+::get\+Max\+Nutrients (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Gets the maximum nutrient capacity. 
+
+\begin{DoxyReturn}{Returns}
+Maximum nutrient value 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classPlant_a1b6b4f7c6aceb5d26276165e773dedb0}\label{classPlant_a1b6b4f7c6aceb5d26276165e773dedb0}} 
+\index{Plant@{Plant}!getMaxSunlight@{getMaxSunlight}}
+\index{getMaxSunlight@{getMaxSunlight}!Plant@{Plant}}
+\doxysubsubsection{\texorpdfstring{getMaxSunlight()}{getMaxSunlight()}}
+{\footnotesize\ttfamily int Plant\+::get\+Max\+Sunlight (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Gets the maximum sunlight capacity. 
+
+\begin{DoxyReturn}{Returns}
+Maximum sunlight value 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classPlant_aadb0f8e533b67690e136654e5a6263df}\label{classPlant_aadb0f8e533b67690e136654e5a6263df}} 
+\index{Plant@{Plant}!getMaxWater@{getMaxWater}}
+\index{getMaxWater@{getMaxWater}!Plant@{Plant}}
+\doxysubsubsection{\texorpdfstring{getMaxWater()}{getMaxWater()}}
+{\footnotesize\ttfamily int Plant\+::get\+Max\+Water (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Gets the maximum water capacity. 
+
+\begin{DoxyReturn}{Returns}
+Maximum water value 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classPlant_a2902d8a41320d5f825e68505a8396505}\label{classPlant_a2902d8a41320d5f825e68505a8396505}} 
+\index{Plant@{Plant}!getMinNutrients@{getMinNutrients}}
+\index{getMinNutrients@{getMinNutrients}!Plant@{Plant}}
+\doxysubsubsection{\texorpdfstring{getMinNutrients()}{getMinNutrients()}}
+{\footnotesize\ttfamily int Plant\+::get\+Min\+Nutrients (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Gets the minimum nutrient requirement. 
+
+\begin{DoxyReturn}{Returns}
+Minimum nutrient value 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classPlant_ac503e99fe4d7250426b6d5d9899c42e0}\label{classPlant_ac503e99fe4d7250426b6d5d9899c42e0}} 
+\index{Plant@{Plant}!getMinSunlight@{getMinSunlight}}
+\index{getMinSunlight@{getMinSunlight}!Plant@{Plant}}
+\doxysubsubsection{\texorpdfstring{getMinSunlight()}{getMinSunlight()}}
+{\footnotesize\ttfamily int Plant\+::get\+Min\+Sunlight (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Gets the minimum sunlight requirement. 
+
+\begin{DoxyReturn}{Returns}
+Minimum sunlight value 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classPlant_a1c66142a3d148c60204c1647eaa7ef8a}\label{classPlant_a1c66142a3d148c60204c1647eaa7ef8a}} 
+\index{Plant@{Plant}!getMinWater@{getMinWater}}
+\index{getMinWater@{getMinWater}!Plant@{Plant}}
+\doxysubsubsection{\texorpdfstring{getMinWater()}{getMinWater()}}
+{\footnotesize\ttfamily int Plant\+::get\+Min\+Water (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Gets the minimum water requirement. 
+
+\begin{DoxyReturn}{Returns}
+Minimum water value 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classPlant_a82082cb94c0204c40a1ac28e9b559a46}\label{classPlant_a82082cb94c0204c40a1ac28e9b559a46}} 
+\index{Plant@{Plant}!getName@{getName}}
+\index{getName@{getName}!Plant@{Plant}}
+\doxysubsubsection{\texorpdfstring{getName()}{getName()}}
+{\footnotesize\ttfamily std\+::string Plant\+::get\+Name (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Gets the plant name. 
+
+\begin{DoxyReturn}{Returns}
+Name string 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classPlant_a1a6e78e58443899921fb32f1622dc0bc}\label{classPlant_a1a6e78e58443899921fb32f1622dc0bc}} 
+\index{Plant@{Plant}!getPrice@{getPrice}}
+\index{getPrice@{getPrice}!Plant@{Plant}}
+\doxysubsubsection{\texorpdfstring{getPrice()}{getPrice()}}
+{\footnotesize\ttfamily double Plant\+::get\+Price (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Gets the plant price. 
+
+\begin{DoxyReturn}{Returns}
+Price value 
+\end{DoxyReturn}
+
+
+Reimplemented in \mbox{\hyperlink{classSpecialArrangement_a645f5fbd8a6e48b560966577e6fecdb5}{Special\+Arrangement}}, \mbox{\hyperlink{classPlantDecorator_ac22e9f31ab48a99b7ca285e9239b91ab}{Plant\+Decorator}}, \mbox{\hyperlink{classGiftWrap_aa5f04604263f66689b1dfd44b08fafcb}{Gift\+Wrap}}, \mbox{\hyperlink{classDecorativePot_a050ca852b32d2082a2622fe5524ab260}{Decorative\+Pot}}, and \mbox{\hyperlink{classBasePlant_a847c4e8542ae86bf190e41928d58689d}{Base\+Plant}}.
+
+\mbox{\Hypertarget{classPlant_a981bb969db2eaa64d43265a98aebcf6f}\label{classPlant_a981bb969db2eaa64d43265a98aebcf6f}} 
+\index{Plant@{Plant}!getState@{getState}}
+\index{getState@{getState}!Plant@{Plant}}
+\doxysubsubsection{\texorpdfstring{getState()}{getState()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classPlantState}{Plant\+State}}$\ast$ Plant\+::get\+State (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Gets the current state of the plant. 
+
+\begin{DoxyReturn}{Returns}
+Pointer to the current \mbox{\hyperlink{classPlantState}{Plant\+State}} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classPlant_ad8563f5400fa2502e809b43696920536}\label{classPlant_ad8563f5400fa2502e809b43696920536}} 
+\index{Plant@{Plant}!setCategory@{setCategory}}
+\index{setCategory@{setCategory}!Plant@{Plant}}
+\doxysubsubsection{\texorpdfstring{setCategory()}{setCategory()}}
+{\footnotesize\ttfamily void Plant\+::set\+Category (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{c }\end{DoxyParamCaption})}
+
+
+
+Sets the plant category. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em c} & Category string \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classPlant_a7dee5e00e58cf6af0377e94a6528668e}\label{classPlant_a7dee5e00e58cf6af0377e94a6528668e}} 
+\index{Plant@{Plant}!setColor@{setColor}}
+\index{setColor@{setColor}!Plant@{Plant}}
+\doxysubsubsection{\texorpdfstring{setColor()}{setColor()}}
+{\footnotesize\ttfamily bool Plant\+::set\+Color (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{color }\end{DoxyParamCaption})}
+
+
+
+Sets the color of the plant. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em color} & Color to set \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if successful 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classPlant_aca26bb8ceb6402fb0be477bee03e1d57}\label{classPlant_aca26bb8ceb6402fb0be477bee03e1d57}} 
+\index{Plant@{Plant}!setCurrentNutrients@{setCurrentNutrients}}
+\index{setCurrentNutrients@{setCurrentNutrients}!Plant@{Plant}}
+\doxysubsubsection{\texorpdfstring{setCurrentNutrients()}{setCurrentNutrients()}}
+{\footnotesize\ttfamily void Plant\+::set\+Current\+Nutrients (\begin{DoxyParamCaption}\item[{int}]{cN }\end{DoxyParamCaption})}
+
+
+
+Sets the current nutrient level. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em cN} & Current nutrient value (capped at max) \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classPlant_a0f0364f4d42308470cc7705802380687}\label{classPlant_a0f0364f4d42308470cc7705802380687}} 
+\index{Plant@{Plant}!setCurrentSunlight@{setCurrentSunlight}}
+\index{setCurrentSunlight@{setCurrentSunlight}!Plant@{Plant}}
+\doxysubsubsection{\texorpdfstring{setCurrentSunlight()}{setCurrentSunlight()}}
+{\footnotesize\ttfamily void Plant\+::set\+Current\+Sunlight (\begin{DoxyParamCaption}\item[{int}]{mL }\end{DoxyParamCaption})}
+
+
+
+Sets the current sunlight level. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em mL} & Current sunlight value (capped at max) \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classPlant_a7988cdc1d25d3d0300df19300249b35e}\label{classPlant_a7988cdc1d25d3d0300df19300249b35e}} 
+\index{Plant@{Plant}!setCurrentWater@{setCurrentWater}}
+\index{setCurrentWater@{setCurrentWater}!Plant@{Plant}}
+\doxysubsubsection{\texorpdfstring{setCurrentWater()}{setCurrentWater()}}
+{\footnotesize\ttfamily void Plant\+::set\+Current\+Water (\begin{DoxyParamCaption}\item[{int}]{cW }\end{DoxyParamCaption})}
+
+
+
+Sets the current water level. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em cW} & Current water value (capped at max) \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classPlant_a9dd216254e05e501475d713228a0f92f}\label{classPlant_a9dd216254e05e501475d713228a0f92f}} 
+\index{Plant@{Plant}!setGrowthProgress@{setGrowthProgress}}
+\index{setGrowthProgress@{setGrowthProgress}!Plant@{Plant}}
+\doxysubsubsection{\texorpdfstring{setGrowthProgress()}{setGrowthProgress()}}
+{\footnotesize\ttfamily void Plant\+::set\+Growth\+Progress (\begin{DoxyParamCaption}\item[{int}]{gp }\end{DoxyParamCaption})}
+
+
+
+Sets the growth progress. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em gp} & Growth progress value \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classPlant_aea0fc6d8357908e6ee88c1cebeb457a4}\label{classPlant_aea0fc6d8357908e6ee88c1cebeb457a4}} 
+\index{Plant@{Plant}!setMaxNutrients@{setMaxNutrients}}
+\index{setMaxNutrients@{setMaxNutrients}!Plant@{Plant}}
+\doxysubsubsection{\texorpdfstring{setMaxNutrients()}{setMaxNutrients()}}
+{\footnotesize\ttfamily void Plant\+::set\+Max\+Nutrients (\begin{DoxyParamCaption}\item[{int}]{mN }\end{DoxyParamCaption})}
+
+
+
+Sets the maximum nutrient capacity. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em mN} & Maximum nutrient value \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classPlant_ab9448286df1bd96773509ac83dcaeb0e}\label{classPlant_ab9448286df1bd96773509ac83dcaeb0e}} 
+\index{Plant@{Plant}!setMaxSunlight@{setMaxSunlight}}
+\index{setMaxSunlight@{setMaxSunlight}!Plant@{Plant}}
+\doxysubsubsection{\texorpdfstring{setMaxSunlight()}{setMaxSunlight()}}
+{\footnotesize\ttfamily void Plant\+::set\+Max\+Sunlight (\begin{DoxyParamCaption}\item[{int}]{mL }\end{DoxyParamCaption})}
+
+
+
+Sets the maximum sunlight capacity. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em mL} & Maximum sunlight value \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classPlant_a321fc8dc3de73b66439abc90854913f1}\label{classPlant_a321fc8dc3de73b66439abc90854913f1}} 
+\index{Plant@{Plant}!setMaxWater@{setMaxWater}}
+\index{setMaxWater@{setMaxWater}!Plant@{Plant}}
+\doxysubsubsection{\texorpdfstring{setMaxWater()}{setMaxWater()}}
+{\footnotesize\ttfamily void Plant\+::set\+Max\+Water (\begin{DoxyParamCaption}\item[{int}]{mW }\end{DoxyParamCaption})}
+
+
+
+Sets the maximum water capacity. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em mW} & Maximum water value \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classPlant_ac672df918d9dd4a5e8634d368c2d25af}\label{classPlant_ac672df918d9dd4a5e8634d368c2d25af}} 
+\index{Plant@{Plant}!setState@{setState}}
+\index{setState@{setState}!Plant@{Plant}}
+\doxysubsubsection{\texorpdfstring{setState()}{setState()}}
+{\footnotesize\ttfamily void Plant\+::set\+State (\begin{DoxyParamCaption}\item[{std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classPlantState}{Plant\+State}} $>$}]{s }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Sets the state of the plant. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em s} & New state to set \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{Plant_8h}{Plant.\+h}}\item 
+Plant.\+cpp\end{DoxyCompactItemize}

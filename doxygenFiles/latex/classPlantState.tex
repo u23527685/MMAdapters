@@ -1,0 +1,108 @@
+\hypertarget{classPlantState}{}\doxysection{Plant\+State Class Reference}
+\label{classPlantState}\index{PlantState@{PlantState}}
+
+
+Abstract base class representing a state in a plant\textquotesingle{}s life cycle.  
+
+
+
+
+{\ttfamily \#include $<$Plant\+State.\+h$>$}
+
+
+
+Inheritance diagram for Plant\+State\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classPlantState__inherit__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual void \mbox{\hyperlink{classPlantState_a7b559b59a64faf46ccdd329b7bbe0da2}{apply\+Care}} (\mbox{\hyperlink{classPlantLifeCycle}{Plant\+Life\+Cycle}} $\ast$context, \mbox{\hyperlink{classPlant}{Plant}} $\ast$plant, \mbox{\hyperlink{classPlantCareRoutine}{Plant\+Care\+Routine}} $\ast$routine)=0
+\begin{DoxyCompactList}\small\item\em Applies care to the plant in this state. \end{DoxyCompactList}\item 
+virtual bool \mbox{\hyperlink{classPlantState_ae67b11c881de6e8036a8a0467d5358f2}{evaluate}} (\mbox{\hyperlink{classPlantLifeCycle}{Plant\+Life\+Cycle}} $\ast$context, \mbox{\hyperlink{classPlant}{Plant}} $\ast$plant)=0
+\begin{DoxyCompactList}\small\item\em Evaluates the plant\textquotesingle{}s condition and transitions to another state if necessary. \end{DoxyCompactList}\item 
+virtual std\+::string \mbox{\hyperlink{classPlantState_a73210ce999094374a7a38e8afde9b937}{get\+Name}} () const =0
+\begin{DoxyCompactList}\small\item\em Gets the name of this state. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classPlantState_af517f7e4a0524a4f4e98461e22451c81}\label{classPlantState_af517f7e4a0524a4f4e98461e22451c81}} 
+virtual \mbox{\hyperlink{classPlantState}{Plant\+State}} $\ast$ {\bfseries clone} () const =0
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Abstract base class representing a state in a plant\textquotesingle{}s life cycle. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classPlantState_a7b559b59a64faf46ccdd329b7bbe0da2}\label{classPlantState_a7b559b59a64faf46ccdd329b7bbe0da2}} 
+\index{PlantState@{PlantState}!applyCare@{applyCare}}
+\index{applyCare@{applyCare}!PlantState@{PlantState}}
+\doxysubsubsection{\texorpdfstring{applyCare()}{applyCare()}}
+{\footnotesize\ttfamily virtual void Plant\+State\+::apply\+Care (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classPlantLifeCycle}{Plant\+Life\+Cycle}} $\ast$}]{context,  }\item[{\mbox{\hyperlink{classPlant}{Plant}} $\ast$}]{plant,  }\item[{\mbox{\hyperlink{classPlantCareRoutine}{Plant\+Care\+Routine}} $\ast$}]{routine }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Applies care to the plant in this state. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em context} & The plant\textquotesingle{}s life cycle context. \\
+\hline
+{\em plant} & The plant object being cared for. \\
+\hline
+{\em routine} & The care routine to apply. \\
+\hline
+\end{DoxyParams}
+
+
+Implemented in \mbox{\hyperlink{classWitheredState_a52c39fbfc1ab14d4cfd43509a7ede493}{Withered\+State}}, \mbox{\hyperlink{classSeedState_aef5e404a3b493226d952b3b9804072b4}{Seed\+State}}, \mbox{\hyperlink{classSeedlingState_a0f318286e07d13bb6af2213892d3922c}{Seedling\+State}}, \mbox{\hyperlink{classMatureState_a244b86ad8ac71c2d3c69bc115af75bda}{Mature\+State}}, and \mbox{\hyperlink{classDistressedState_acdf3818e6be376b1f425863b10c99998}{Distressed\+State}}.
+
+\mbox{\Hypertarget{classPlantState_ae67b11c881de6e8036a8a0467d5358f2}\label{classPlantState_ae67b11c881de6e8036a8a0467d5358f2}} 
+\index{PlantState@{PlantState}!evaluate@{evaluate}}
+\index{evaluate@{evaluate}!PlantState@{PlantState}}
+\doxysubsubsection{\texorpdfstring{evaluate()}{evaluate()}}
+{\footnotesize\ttfamily virtual bool Plant\+State\+::evaluate (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classPlantLifeCycle}{Plant\+Life\+Cycle}} $\ast$}]{context,  }\item[{\mbox{\hyperlink{classPlant}{Plant}} $\ast$}]{plant }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Evaluates the plant\textquotesingle{}s condition and transitions to another state if necessary. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em context} & The plant\textquotesingle{}s life cycle context. \\
+\hline
+{\em plant} & The plant object being evaluated. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if the plant remains in this state, false otherwise. 
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{classWitheredState_a1d4d197179e42599d31e85f340a0603b}{Withered\+State}}, \mbox{\hyperlink{classSeedState_a7facfbd4e73e965adc285a562c5a4b04}{Seed\+State}}, \mbox{\hyperlink{classSeedlingState_a4d3e1283995e6180c0e7c23c1409c2bc}{Seedling\+State}}, \mbox{\hyperlink{classMatureState_a57b9003f3e4c3f16590b6127e0370852}{Mature\+State}}, and \mbox{\hyperlink{classDistressedState_aed0555ae052769b9861d4a00f0f40e34}{Distressed\+State}}.
+
+\mbox{\Hypertarget{classPlantState_a73210ce999094374a7a38e8afde9b937}\label{classPlantState_a73210ce999094374a7a38e8afde9b937}} 
+\index{PlantState@{PlantState}!getName@{getName}}
+\index{getName@{getName}!PlantState@{PlantState}}
+\doxysubsubsection{\texorpdfstring{getName()}{getName()}}
+{\footnotesize\ttfamily virtual std\+::string Plant\+State\+::get\+Name (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Gets the name of this state. 
+
+\begin{DoxyReturn}{Returns}
+The name of this state. 
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{classWitheredState_a1f023392369a7c0a086eb5cc8334488b}{Withered\+State}}, \mbox{\hyperlink{classSeedState_afbc53134b2c6bd4430cfe5ae503ab981}{Seed\+State}}, \mbox{\hyperlink{classSeedlingState_aec1f0c3a1a95e280c9cf898276f67f64}{Seedling\+State}}, \mbox{\hyperlink{classMatureState_a2eb39985d1da26a31b863c6e04dda937}{Mature\+State}}, and \mbox{\hyperlink{classDistressedState_a39509641bab5b565e90e55daeeee7832}{Distressed\+State}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{PlantState_8h}{Plant\+State.\+h}}\end{DoxyCompactItemize}

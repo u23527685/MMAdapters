@@ -1,0 +1,5 @@
+<map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
+<area shape="rect" id="node1" href="$classInventoryObserver.html" title="Abstract base class for observers of inventory changes." alt="" coords="5,31,148,57"/>
+<area shape="rect" id="node2" href="$classSalesFloorObserver.html" title="Observes the PlantInventory and updates the sales floor display." alt="" coords="196,5,345,32"/>
+<area shape="rect" id="node3" href="$classStaffObserver.html" title="Concrete observer that tracks inventory for staff." alt="" coords="215,56,326,83"/>
+</map>

@@ -1,0 +1,7 @@
+<map id="PlantDecorator" name="PlantDecorator">
+<area shape="rect" id="node1" title="Abstract decorator for dynamically extending Plant behavior." alt="" coords="125,80,243,107"/>
+<area shape="rect" id="node3" href="$classDecorativePot.html" title="Concrete decorator that adds a decorative pot to a Plant." alt="" coords="5,155,120,181"/>
+<area shape="rect" id="node4" href="$classGiftWrap.html" title="Concrete decorator that adds gift wrapping to a Plant." alt="" coords="145,155,223,181"/>
+<area shape="rect" id="node5" href="$classSpecialArrangement.html" title="Concrete decorator that adds a special arrangement to a plant." alt="" coords="248,155,403,181"/>
+<area shape="rect" id="node2" href="$classPlant.html" title="Abstract representation of a plant with care and lifecycle management." alt="" coords="157,5,211,32"/>
+</map>

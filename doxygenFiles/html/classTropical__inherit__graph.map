@@ -1,0 +1,4 @@
+<map id="Tropical" name="Tropical">
+<area shape="rect" id="node1" title="Represents the plant care routine for tropical plants." alt="" coords="37,80,109,107"/>
+<area shape="rect" id="node2" href="$classPlantCareRoutine.html" title="Abstract base class defining a plant care routine interface." alt="" coords="5,5,140,32"/>
+</map>

@@ -1,0 +1,5 @@
+<map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
+<area shape="rect" id="node1" href="$classStockCommand.html" title="Abstract base class for command pattern in stock management." alt="" coords="5,31,131,57"/>
+<area shape="rect" id="node2" href="$classAddStock.html" title="Concrete command for adding plant stock to inventory." alt="" coords="193,5,276,32"/>
+<area shape="rect" id="node3" href="$classRemoveStock.html" title="Concrete command that removes plant stock from the inventory." alt="" coords="179,56,291,83"/>
+</map>

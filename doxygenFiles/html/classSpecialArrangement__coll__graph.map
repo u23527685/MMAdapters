@@ -1,0 +1,7 @@
+<map id="SpecialArrangement" name="SpecialArrangement">
+<area shape="rect" id="node1" title="Concrete decorator that adds a special arrangement to a plant." alt="" coords="5,171,160,197"/>
+<area shape="rect" id="node2" href="$classPlantDecorator.html" title="Abstract decorator for dynamically extending Plant behavior." alt="" coords="23,95,142,121"/>
+<area shape="rect" id="node3" href="$classPlant.html" title="Abstract representation of a plant with care and lifecycle management." alt="" coords="202,5,257,32"/>
+<area shape="rect" id="node4" href="$classFertilizerStrategy.html" title="Abstract base for fertilizer behavior strategies." alt="" coords="203,95,338,121"/>
+<area shape="rect" id="node5" href="$classSunlightStrategy.html" title=" " alt="" coords="383,95,513,121"/>
+</map>

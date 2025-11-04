@@ -1,0 +1,89 @@
+\hypertarget{classRemoveStock}{}\doxysection{Remove\+Stock Class Reference}
+\label{classRemoveStock}\index{RemoveStock@{RemoveStock}}
+
+
+Concrete command that removes plant stock from the inventory.  
+
+
+
+
+{\ttfamily \#include $<$Remove\+Stock.\+h$>$}
+
+
+
+Inheritance diagram for Remove\+Stock\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=174pt]{classRemoveStock__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Remove\+Stock\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=174pt]{classRemoveStock__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classRemoveStock_a9bb17cc20bc3e41152c05ae4680c080a}{Remove\+Stock}} (\mbox{\hyperlink{classPlant}{Plant}} $\ast$plant, int quantity\+To\+Remove, \mbox{\hyperlink{classPlantInventory}{Plant\+Inventory}} $\ast$target\+Inventory)
+\begin{DoxyCompactList}\small\item\em Constructs a \mbox{\hyperlink{classRemoveStock}{Remove\+Stock}} command. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classRemoveStock_a1464483133d7ef00acd6932875888667}{execute}} () override
+\begin{DoxyCompactList}\small\item\em Executes the remove stock command. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Concrete command that removes plant stock from the inventory. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classRemoveStock_a9bb17cc20bc3e41152c05ae4680c080a}\label{classRemoveStock_a9bb17cc20bc3e41152c05ae4680c080a}} 
+\index{RemoveStock@{RemoveStock}!RemoveStock@{RemoveStock}}
+\index{RemoveStock@{RemoveStock}!RemoveStock@{RemoveStock}}
+\doxysubsubsection{\texorpdfstring{RemoveStock()}{RemoveStock()}}
+{\footnotesize\ttfamily Remove\+Stock\+::\+Remove\+Stock (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classPlant}{Plant}} $\ast$}]{plant,  }\item[{int}]{quantity\+To\+Remove,  }\item[{\mbox{\hyperlink{classPlantInventory}{Plant\+Inventory}} $\ast$}]{target\+Inventory }\end{DoxyParamCaption})}
+
+
+
+Constructs a \mbox{\hyperlink{classRemoveStock}{Remove\+Stock}} command. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em plant} & \mbox{\hyperlink{classPlant}{Plant}} to remove \\
+\hline
+{\em quantity\+To\+Remove} & Quantity to remove \\
+\hline
+{\em target\+Inventory} & Inventory to remove from \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classRemoveStock_a1464483133d7ef00acd6932875888667}\label{classRemoveStock_a1464483133d7ef00acd6932875888667}} 
+\index{RemoveStock@{RemoveStock}!execute@{execute}}
+\index{execute@{execute}!RemoveStock@{RemoveStock}}
+\doxysubsubsection{\texorpdfstring{execute()}{execute()}}
+{\footnotesize\ttfamily bool Remove\+Stock\+::execute (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Executes the remove stock command. 
+
+\begin{DoxyReturn}{Returns}
+true if successful, false otherwise 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classStockCommand_a8a7d34b5b29be7959f3d5166b05b83aa}{Stock\+Command}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{RemoveStock_8h}{Remove\+Stock.\+h}}\item 
+Remove\+Stock.\+cpp\end{DoxyCompactItemize}

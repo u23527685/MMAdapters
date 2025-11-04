@@ -1,0 +1,10 @@
+<map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
+<area shape="rect" id="node1" href="$classLifeCycleObserver.html" title="Observer interface for plant life cycle changes." alt="" coords="5,81,147,108"/>
+<area shape="rect" id="node2" href="$classStaff.html" title="Base class representing a staff member and lifecycle observer." alt="" coords="195,81,247,108"/>
+<area shape="rect" id="node3" href="$classFloorStaff.html" title="Base class for all floor staff types." alt="" coords="295,56,381,83"/>
+<area shape="rect" id="node6" href="$classSalesStaff.html" title="Abstract base class for staff members in the sales department." alt="" coords="295,107,381,133"/>
+<area shape="rect" id="node4" href="$classFloorEmployee.html" title="Regular employee handling on&#45;floor customer queries." alt="" coords="431,5,551,32"/>
+<area shape="rect" id="node5" href="$classFloorManager.html" title="Manages floor staff and handles high&#45;level queries." alt="" coords="435,56,547,83"/>
+<area shape="rect" id="node7" href="$classSalesEmployee.html" title="Concrete class representing a regular sales employee." alt="" coords="429,107,552,133"/>
+<area shape="rect" id="node8" href="$classSalesManager.html" title="Represents a manager in the sales department." alt="" coords="433,157,548,184"/>
+</map>

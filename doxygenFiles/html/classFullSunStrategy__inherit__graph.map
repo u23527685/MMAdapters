@@ -1,0 +1,4 @@
+<map id="FullSunStrategy" name="FullSunStrategy">
+<area shape="rect" id="node1" title="Strategy for applying full sunlight to a Plant." alt="" coords="9,80,133,107"/>
+<area shape="rect" id="node2" href="$classSunlightStrategy.html" title=" " alt="" coords="5,5,136,32"/>
+</map>

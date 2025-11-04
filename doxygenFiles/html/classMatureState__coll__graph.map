@@ -1,0 +1,4 @@
+<map id="MatureState" name="MatureState">
+<area shape="rect" id="node1" title="Represents a thriving stage in the plant’s life cycle." alt="" coords="5,80,108,107"/>
+<area shape="rect" id="node2" href="$classPlantState.html" title="Abstract base class representing a state in a plant&#39;s life cycle." alt="" coords="12,5,101,32"/>
+</map>

@@ -1,0 +1,6 @@
+<map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
+<area shape="rect" id="node1" href="$classPaymentStrategy.html" title="Abstract strategy for processing payments." alt="" coords="5,56,140,83"/>
+<area shape="rect" id="node2" href="$classCreditCardPaymentStrategy.html" title="Payment strategy implementation using credit card information." alt="" coords="188,5,391,32"/>
+<area shape="rect" id="node3" href="$classEFTPaymentStrategy.html" title="Payment strategy implementation for EFT transactions." alt="" coords="211,56,368,83"/>
+<area shape="rect" id="node4" href="$classEWalletPaymentStrategy.html" title="Implements a payment method using an e&#45;wallet ID." alt="" coords="198,107,381,133"/>
+</map>

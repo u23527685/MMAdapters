@@ -1,0 +1,9 @@
+<map id="PaymentStrategy.h" name="PaymentStrategy.h">
+<area shape="rect" id="node1" title="Abstract interface for various payment strategies." alt="" coords="356,5,500,32"/>
+<area shape="rect" id="node2" href="$CreditCardPaymentStrategy_8h.html" title="Concrete payment strategy using credit card transactions." alt="" coords="5,80,219,107"/>
+<area shape="rect" id="node3" href="$EFTPaymentStrategy_8h.html" title="Concrete payment strategy using Electronic Funds Transfer (EFT)." alt="" coords="243,80,410,107"/>
+<area shape="rect" id="node4" href="$EWalletPaymentStrategy_8h.html" title="Concrete payment strategy using a digital e&#45;wallet." alt="" coords="434,80,627,107"/>
+<area shape="rect" id="node5" href="$Transaction_8h.html" title="Represents a customer transaction and payment." alt="" coords="651,80,759,107"/>
+<area shape="rect" id="node6" href="$Order_8h.html" title="Represents a customer&#39;s order containing multiple transactions." alt="" coords="671,155,740,181"/>
+<area shape="rect" id="node7" href="$Customer_8h.html" title="Represents a Customer who can place orders and make staff queries." alt="" coords="657,229,753,256"/>
+</map>

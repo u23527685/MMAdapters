@@ -1,0 +1,116 @@
+\hypertarget{classTemperate}{}\doxysection{Temperate Class Reference}
+\label{classTemperate}\index{Temperate@{Temperate}}
+
+
+Implements plant care routine for temperate climate plants.  
+
+
+
+
+{\ttfamily \#include $<$Temperate.\+h$>$}
+
+
+
+Inheritance diagram for Temperate\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=181pt]{classTemperate__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Temperate\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=181pt]{classTemperate__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classTemperate_af443e10a7b3462f35deef333ed6a4acf}\label{classTemperate_af443e10a7b3462f35deef333ed6a4acf}} 
+\mbox{\hyperlink{classTemperate_af443e10a7b3462f35deef333ed6a4acf}{Temperate}} ()
+\begin{DoxyCompactList}\small\item\em Constructs a \mbox{\hyperlink{classTemperate}{Temperate}} care routine with balanced strategies. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classTemperate_a0842137b8955e8cad504d4a3e02498f6}{Fertilizing}} (\mbox{\hyperlink{classPlant}{Plant}} $\ast$p) override
+\begin{DoxyCompactList}\small\item\em Applies fertilizer suitable for temperate plants. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classTemperate_a1346814ca84bedea953a45cf9fcf7b8a}{Watering}} (\mbox{\hyperlink{classPlant}{Plant}} $\ast$p) override
+\begin{DoxyCompactList}\small\item\em Applies watering strategy suitable for temperate plants. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classTemperate_a30f300f22d35d544e84fd5b88860069a}{Sunlight}} (\mbox{\hyperlink{classPlant}{Plant}} $\ast$p) override
+\begin{DoxyCompactList}\small\item\em Applies sunlight exposure for temperate conditions. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classTemperate_a5b08226571f551840b107b22ee609dcb}\label{classTemperate_a5b08226571f551840b107b22ee609dcb}} 
+void \mbox{\hyperlink{classTemperate_a5b08226571f551840b107b22ee609dcb}{print\+Care\+Routine}} () override
+\begin{DoxyCompactList}\small\item\em Displays the care routine summary for temperate plants. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Detailed Description}
+Implements plant care routine for temperate climate plants. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classTemperate_a0842137b8955e8cad504d4a3e02498f6}\label{classTemperate_a0842137b8955e8cad504d4a3e02498f6}} 
+\index{Temperate@{Temperate}!Fertilizing@{Fertilizing}}
+\index{Fertilizing@{Fertilizing}!Temperate@{Temperate}}
+\doxysubsubsection{\texorpdfstring{Fertilizing()}{Fertilizing()}}
+{\footnotesize\ttfamily void Temperate\+::\+Fertilizing (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classPlant}{Plant}} $\ast$}]{p }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Applies fertilizer suitable for temperate plants. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p} & Pointer to the plant to fertilize. \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{classPlantCareRoutine_ac546c8ef2165fbe6e2f4f1bc2737d117}{Plant\+Care\+Routine}}.
+
+\mbox{\Hypertarget{classTemperate_a30f300f22d35d544e84fd5b88860069a}\label{classTemperate_a30f300f22d35d544e84fd5b88860069a}} 
+\index{Temperate@{Temperate}!Sunlight@{Sunlight}}
+\index{Sunlight@{Sunlight}!Temperate@{Temperate}}
+\doxysubsubsection{\texorpdfstring{Sunlight()}{Sunlight()}}
+{\footnotesize\ttfamily void Temperate\+::\+Sunlight (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classPlant}{Plant}} $\ast$}]{p }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Applies sunlight exposure for temperate conditions. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p} & Pointer to the plant to expose to sunlight. \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{classPlantCareRoutine_abf826a7dc95427eb394da5cb14312bed}{Plant\+Care\+Routine}}.
+
+\mbox{\Hypertarget{classTemperate_a1346814ca84bedea953a45cf9fcf7b8a}\label{classTemperate_a1346814ca84bedea953a45cf9fcf7b8a}} 
+\index{Temperate@{Temperate}!Watering@{Watering}}
+\index{Watering@{Watering}!Temperate@{Temperate}}
+\doxysubsubsection{\texorpdfstring{Watering()}{Watering()}}
+{\footnotesize\ttfamily void Temperate\+::\+Watering (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classPlant}{Plant}} $\ast$}]{p }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Applies watering strategy suitable for temperate plants. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p} & Pointer to the plant to water. \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{classPlantCareRoutine_a6bd5afa007b27b76ec8d16db80b804ba}{Plant\+Care\+Routine}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{Temperate_8h}{Temperate.\+h}}\item 
+Temperate.\+cpp\end{DoxyCompactItemize}

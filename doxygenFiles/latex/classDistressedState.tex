@@ -1,0 +1,137 @@
+\hypertarget{classDistressedState}{}\doxysection{Distressed\+State Class Reference}
+\label{classDistressedState}\index{DistressedState@{DistressedState}}
+
+
+Concrete state representing a plant in distress.  
+
+
+
+
+{\ttfamily \#include $<$Distressed\+State.\+h$>$}
+
+
+
+Inheritance diagram for Distressed\+State\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=174pt]{classDistressedState__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Distressed\+State\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=174pt]{classDistressedState__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classDistressedState_acdf3818e6be376b1f425863b10c99998}{apply\+Care}} (\mbox{\hyperlink{classPlantLifeCycle}{Plant\+Life\+Cycle}} $\ast$context, \mbox{\hyperlink{classPlant}{Plant}} $\ast$plant, \mbox{\hyperlink{classPlantCareRoutine}{Plant\+Care\+Routine}} $\ast$routine) override
+\begin{DoxyCompactList}\small\item\em Apply care to a distressed plant. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classDistressedState_aed0555ae052769b9861d4a00f0f40e34}{evaluate}} (\mbox{\hyperlink{classPlantLifeCycle}{Plant\+Life\+Cycle}} $\ast$context, \mbox{\hyperlink{classPlant}{Plant}} $\ast$plant) override
+\begin{DoxyCompactList}\small\item\em Evaluate whether the plant remains in distress or recovers. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{classDistressedState_a39509641bab5b565e90e55daeeee7832}{get\+Name}} () const override
+\begin{DoxyCompactList}\small\item\em Retrieve the name of this state. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classPlantState}{Plant\+State}} $\ast$ \mbox{\hyperlink{classDistressedState_a07ba74ff5eb3334a0ca0dd158e7d66c8}{clone}} () const override
+\begin{DoxyCompactList}\small\item\em Create a deep copy of this state. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Concrete state representing a plant in distress. 
+
+In this state, the plant exhibits poor health. Applying the correct care routine may allow it to recover to a normal or thriving state. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classDistressedState_acdf3818e6be376b1f425863b10c99998}\label{classDistressedState_acdf3818e6be376b1f425863b10c99998}} 
+\index{DistressedState@{DistressedState}!applyCare@{applyCare}}
+\index{applyCare@{applyCare}!DistressedState@{DistressedState}}
+\doxysubsubsection{\texorpdfstring{applyCare()}{applyCare()}}
+{\footnotesize\ttfamily void Distressed\+State\+::apply\+Care (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classPlantLifeCycle}{Plant\+Life\+Cycle}} $\ast$}]{context,  }\item[{\mbox{\hyperlink{classPlant}{Plant}} $\ast$}]{plant,  }\item[{\mbox{\hyperlink{classPlantCareRoutine}{Plant\+Care\+Routine}} $\ast$}]{routine }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Apply care to a distressed plant. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em context} & The lifecycle context controlling state transitions. \\
+\hline
+{\em plant} & Pointer to the affected plant. \\
+\hline
+{\em routine} & The care routine being applied. \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{classPlantState_a7b559b59a64faf46ccdd329b7bbe0da2}{Plant\+State}}.
+
+\mbox{\Hypertarget{classDistressedState_a07ba74ff5eb3334a0ca0dd158e7d66c8}\label{classDistressedState_a07ba74ff5eb3334a0ca0dd158e7d66c8}} 
+\index{DistressedState@{DistressedState}!clone@{clone}}
+\index{clone@{clone}!DistressedState@{DistressedState}}
+\doxysubsubsection{\texorpdfstring{clone()}{clone()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classPlantState}{Plant\+State}} $\ast$ Distressed\+State\+::clone (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Create a deep copy of this state. 
+
+\begin{DoxyReturn}{Returns}
+New \mbox{\hyperlink{classDistressedState}{Distressed\+State}} instance. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classPlantState}{Plant\+State}}.
+
+\mbox{\Hypertarget{classDistressedState_aed0555ae052769b9861d4a00f0f40e34}\label{classDistressedState_aed0555ae052769b9861d4a00f0f40e34}} 
+\index{DistressedState@{DistressedState}!evaluate@{evaluate}}
+\index{evaluate@{evaluate}!DistressedState@{DistressedState}}
+\doxysubsubsection{\texorpdfstring{evaluate()}{evaluate()}}
+{\footnotesize\ttfamily bool Distressed\+State\+::evaluate (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classPlantLifeCycle}{Plant\+Life\+Cycle}} $\ast$}]{context,  }\item[{\mbox{\hyperlink{classPlant}{Plant}} $\ast$}]{plant }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Evaluate whether the plant remains in distress or recovers. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em context} & The lifecycle context. \\
+\hline
+{\em plant} & Pointer to the plant being evaluated. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if state change occurs, otherwise false. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classPlantState_ae67b11c881de6e8036a8a0467d5358f2}{Plant\+State}}.
+
+\mbox{\Hypertarget{classDistressedState_a39509641bab5b565e90e55daeeee7832}\label{classDistressedState_a39509641bab5b565e90e55daeeee7832}} 
+\index{DistressedState@{DistressedState}!getName@{getName}}
+\index{getName@{getName}!DistressedState@{DistressedState}}
+\doxysubsubsection{\texorpdfstring{getName()}{getName()}}
+{\footnotesize\ttfamily std\+::string Distressed\+State\+::get\+Name (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Retrieve the name of this state. 
+
+\begin{DoxyReturn}{Returns}
+String \char`\"{}\+Distressed\char`\"{}. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classPlantState_a73210ce999094374a7a38e8afde9b937}{Plant\+State}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{DistressedState_8h}{Distressed\+State.\+h}}\item 
+Distressed\+State.\+cpp\end{DoxyCompactItemize}

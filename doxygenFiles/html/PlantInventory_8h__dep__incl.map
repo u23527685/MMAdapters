@@ -1,0 +1,10 @@
+<map id="PlantInventory.h" name="PlantInventory.h">
+<area shape="rect" id="node1" title="Manages plant inventory using Singleton and Observer patterns." alt="" coords="213,5,340,32"/>
+<area shape="rect" id="node2" href="$AddStock_8h_source.html" title=" " alt="" coords="229,80,324,107"/>
+<area shape="rect" id="node3" href="$GreenhouseUnitTest_8h_source.html" title=" " alt="" coords="58,229,223,256"/>
+<area shape="rect" id="node4" href="$PlantStock_8h.html" title="Invoker for executing stock&#45;related commands." alt="" coords="132,155,235,181"/>
+<area shape="rect" id="node5" href="$InventoryProxy_8h.html" title="Proxy class controlling access to plant inventory operations." alt="" coords="422,155,553,181"/>
+<area shape="rect" id="node6" href="$RemoveStock_8h.html" title="Defines the RemoveStock command for decreasing inventory." alt="" coords="29,80,153,107"/>
+<area shape="rect" id="node7" href="$SalesFloorObserver_8h.html" title="Defines the SalesFloorObserver class for inventory updates." alt="" coords="349,80,509,107"/>
+<area shape="rect" id="node8" href="$StaffObserver_8h.html" title="Observer class for tracking inventory relevant to staff." alt="" coords="583,80,706,107"/>
+</map>

@@ -1,0 +1,110 @@
+\hypertarget{classEWalletPaymentStrategy}{}\doxysection{EWallet\+Payment\+Strategy Class Reference}
+\label{classEWalletPaymentStrategy}\index{EWalletPaymentStrategy@{EWalletPaymentStrategy}}
+
+
+Implements a payment method using an e-\/wallet ID.  
+
+
+
+
+{\ttfamily \#include $<$EWallet\+Payment\+Strategy.\+h$>$}
+
+
+
+Inheritance diagram for EWallet\+Payment\+Strategy\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=217pt]{classEWalletPaymentStrategy__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for EWallet\+Payment\+Strategy\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=217pt]{classEWalletPaymentStrategy__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classEWalletPaymentStrategy_a8ae2ea659ccb6dc629de615191be7deb}{EWallet\+Payment\+Strategy}} (const std\+::string \&wallet\+ID)
+\begin{DoxyCompactList}\small\item\em Construct an \mbox{\hyperlink{classEWalletPaymentStrategy}{EWallet\+Payment\+Strategy}}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classEWalletPaymentStrategy_a968531d4a60c1f8070233e87aa39fa69}{pay}} (double amount, const std\+::string \&order\+Num) const override
+\begin{DoxyCompactList}\small\item\em Execute payment using the specified e-\/wallet. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{classEWalletPaymentStrategy_a38eadf2babbd15f55ae879def3175885}{get\+Name}} () const override
+\begin{DoxyCompactList}\small\item\em Retrieve the strategy\textquotesingle{}s display name. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Implements a payment method using an e-\/wallet ID. 
+
+Processes payments through digital wallet services. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classEWalletPaymentStrategy_a8ae2ea659ccb6dc629de615191be7deb}\label{classEWalletPaymentStrategy_a8ae2ea659ccb6dc629de615191be7deb}} 
+\index{EWalletPaymentStrategy@{EWalletPaymentStrategy}!EWalletPaymentStrategy@{EWalletPaymentStrategy}}
+\index{EWalletPaymentStrategy@{EWalletPaymentStrategy}!EWalletPaymentStrategy@{EWalletPaymentStrategy}}
+\doxysubsubsection{\texorpdfstring{EWalletPaymentStrategy()}{EWalletPaymentStrategy()}}
+{\footnotesize\ttfamily EWallet\+Payment\+Strategy\+::\+EWallet\+Payment\+Strategy (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{wallet\+ID }\end{DoxyParamCaption})}
+
+
+
+Construct an \mbox{\hyperlink{classEWalletPaymentStrategy}{EWallet\+Payment\+Strategy}}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em wallet\+ID} & Identifier of the wallet to charge. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classEWalletPaymentStrategy_a38eadf2babbd15f55ae879def3175885}\label{classEWalletPaymentStrategy_a38eadf2babbd15f55ae879def3175885}} 
+\index{EWalletPaymentStrategy@{EWalletPaymentStrategy}!getName@{getName}}
+\index{getName@{getName}!EWalletPaymentStrategy@{EWalletPaymentStrategy}}
+\doxysubsubsection{\texorpdfstring{getName()}{getName()}}
+{\footnotesize\ttfamily std\+::string EWallet\+Payment\+Strategy\+::get\+Name (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Retrieve the strategy\textquotesingle{}s display name. 
+
+\begin{DoxyReturn}{Returns}
+\char`\"{}\+E-\/\+Wallet Payment\char`\"{}. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classPaymentStrategy_a01cc0ce75dab09e6ad06015213f12cf6}{Payment\+Strategy}}.
+
+\mbox{\Hypertarget{classEWalletPaymentStrategy_a968531d4a60c1f8070233e87aa39fa69}\label{classEWalletPaymentStrategy_a968531d4a60c1f8070233e87aa39fa69}} 
+\index{EWalletPaymentStrategy@{EWalletPaymentStrategy}!pay@{pay}}
+\index{pay@{pay}!EWalletPaymentStrategy@{EWalletPaymentStrategy}}
+\doxysubsubsection{\texorpdfstring{pay()}{pay()}}
+{\footnotesize\ttfamily void EWallet\+Payment\+Strategy\+::pay (\begin{DoxyParamCaption}\item[{double}]{amount,  }\item[{const std\+::string \&}]{order\+Num }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Execute payment using the specified e-\/wallet. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em amount} & Amount to deduct. \\
+\hline
+{\em order\+Num} & The order number linked to the payment. \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{classPaymentStrategy_ab2aa48fb2342c4fca4af0a5279ea048b}{Payment\+Strategy}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{EWalletPaymentStrategy_8h}{EWallet\+Payment\+Strategy.\+h}}\item 
+EWallet\+Payment\+Strategy.\+cpp\end{DoxyCompactItemize}

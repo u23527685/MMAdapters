@@ -1,0 +1,58 @@
+\hypertarget{classLifeCycleObserver}{}\doxysection{Life\+Cycle\+Observer Class Reference}
+\label{classLifeCycleObserver}\index{LifeCycleObserver@{LifeCycleObserver}}
+
+
+Observer interface for plant life cycle changes.  
+
+
+
+
+{\ttfamily \#include $<$Life\+Cycle\+Observer.\+h$>$}
+
+
+
+Inheritance diagram for Life\+Cycle\+Observer\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classLifeCycleObserver__inherit__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual void \mbox{\hyperlink{classLifeCycleObserver_aad160579baa9f2668b8639b047894da8}{update}} (\mbox{\hyperlink{classPlantLifeCycle}{Plant\+Life\+Cycle}} $\ast$p)
+\begin{DoxyCompactList}\small\item\em Called when the observed plant\textquotesingle{}s life cycle changes. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classLifeCycleObserver_acc5ff572eff7a1a94964df38d80dd88e}\label{classLifeCycleObserver_acc5ff572eff7a1a94964df38d80dd88e}} 
+virtual \mbox{\hyperlink{classLifeCycleObserver_acc5ff572eff7a1a94964df38d80dd88e}{$\sim$\+Life\+Cycle\+Observer}} ()=default
+\begin{DoxyCompactList}\small\item\em Virtual destructor for proper cleanup. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Observer interface for plant life cycle changes. 
+
+Implement this interface to receive notifications when a plant\textquotesingle{}s life cycle state changes. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classLifeCycleObserver_aad160579baa9f2668b8639b047894da8}\label{classLifeCycleObserver_aad160579baa9f2668b8639b047894da8}} 
+\index{LifeCycleObserver@{LifeCycleObserver}!update@{update}}
+\index{update@{update}!LifeCycleObserver@{LifeCycleObserver}}
+\doxysubsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily void Life\+Cycle\+Observer\+::update (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classPlantLifeCycle}{Plant\+Life\+Cycle}} $\ast$}]{p }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Called when the observed plant\textquotesingle{}s life cycle changes. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p} & Pointer to the \mbox{\hyperlink{classPlantLifeCycle}{Plant\+Life\+Cycle}} that changed. \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{LifeCycleObserver_8h}{Life\+Cycle\+Observer.\+h}}\item 
+Life\+Cycle\+Observer.\+cpp\end{DoxyCompactItemize}

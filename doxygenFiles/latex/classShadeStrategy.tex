@@ -1,0 +1,90 @@
+\hypertarget{classShadeStrategy}{}\doxysection{Shade\+Strategy Class Reference}
+\label{classShadeStrategy}\index{ShadeStrategy@{ShadeStrategy}}
+
+
+\mbox{\hyperlink{classSunlightStrategy}{Sunlight\+Strategy}} implementation for shade.  
+
+
+
+
+{\ttfamily \#include $<$Shade\+Strategy.\+h$>$}
+
+
+
+Inheritance diagram for Shade\+Strategy\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=178pt]{classShadeStrategy__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Shade\+Strategy\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=342pt]{classShadeStrategy__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classShadeStrategy_a66697a3df66fd6d9389c36b1cee18455}{apply\+Sunlight}} (\mbox{\hyperlink{classPlant}{Plant}} $\ast$p) override
+\begin{DoxyCompactList}\small\item\em Applies the shade sunlight strategy to a plant. This method applies the shade sunlight strategy to the given plant by reducing its sunlight exposure. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{classShadeStrategy_a1c507f5246cde70eecab71ac858490c9}{get\+Strategy\+Name}} () const override
+\begin{DoxyCompactList}\small\item\em Gets the name of the sunlight strategy. This method must be implemented by concrete strategy classes. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Detailed Description}
+\mbox{\hyperlink{classSunlightStrategy}{Sunlight\+Strategy}} implementation for shade. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classShadeStrategy_a66697a3df66fd6d9389c36b1cee18455}\label{classShadeStrategy_a66697a3df66fd6d9389c36b1cee18455}} 
+\index{ShadeStrategy@{ShadeStrategy}!applySunlight@{applySunlight}}
+\index{applySunlight@{applySunlight}!ShadeStrategy@{ShadeStrategy}}
+\doxysubsubsection{\texorpdfstring{applySunlight()}{applySunlight()}}
+{\footnotesize\ttfamily void Shade\+Strategy\+::apply\+Sunlight (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classPlant}{Plant}} $\ast$}]{p }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Applies the shade sunlight strategy to a plant. This method applies the shade sunlight strategy to the given plant by reducing its sunlight exposure. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p} & The plant to apply the shade sunlight strategy to. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+The current implementation does not modify the plant\textquotesingle{}s sunlight level, as the set\+Current\+Sunlight call adds 0 to the current value. 
+\end{DoxyNote}
+
+
+Implements \mbox{\hyperlink{classSunlightStrategy_a748a138b0ac64c383d39ee519f55ce8a}{Sunlight\+Strategy}}.
+
+\mbox{\Hypertarget{classShadeStrategy_a1c507f5246cde70eecab71ac858490c9}\label{classShadeStrategy_a1c507f5246cde70eecab71ac858490c9}} 
+\index{ShadeStrategy@{ShadeStrategy}!getStrategyName@{getStrategyName}}
+\index{getStrategyName@{getStrategyName}!ShadeStrategy@{ShadeStrategy}}
+\doxysubsubsection{\texorpdfstring{getStrategyName()}{getStrategyName()}}
+{\footnotesize\ttfamily std\+::string Shade\+Strategy\+::get\+Strategy\+Name (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Gets the name of the sunlight strategy. This method must be implemented by concrete strategy classes. 
+
+\begin{DoxyReturn}{Returns}
+The name of the sun strategy. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classSunlightStrategy_ae95a57b42c00f0bc465cc27bae20d735}{Sunlight\+Strategy}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{ShadeStrategy_8h}{Shade\+Strategy.\+h}}\item 
+Shade\+Strategy.\+cpp\end{DoxyCompactItemize}

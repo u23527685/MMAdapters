@@ -1,0 +1,95 @@
+\hypertarget{classMediumWaterStrategy}{}\doxysection{Medium\+Water\+Strategy Class Reference}
+\label{classMediumWaterStrategy}\index{MediumWaterStrategy@{MediumWaterStrategy}}
+
+
+Strategy for moderately watering plants.  
+
+
+
+
+{\ttfamily \#include $<$Medium\+Water\+Strategy.\+h$>$}
+
+
+
+Inheritance diagram for Medium\+Water\+Strategy\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=206pt]{classMediumWaterStrategy__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Medium\+Water\+Strategy\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classMediumWaterStrategy__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classMediumWaterStrategy_ad66818a3bef5f4754904c75e881b17b7}{apply\+Water}} (\mbox{\hyperlink{classPlant}{Plant}} $\ast$p) override
+\begin{DoxyCompactList}\small\item\em Applies the medium water strategy to the plant. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{classMediumWaterStrategy_af7656bcce826ff22238ca4a83eaaae2f}{get\+Strategy\+Name}} () const override
+\begin{DoxyCompactList}\small\item\em Gets the name of this watering strategy. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Detailed Description}
+Strategy for moderately watering plants. 
+
+Applies a 50ml water increase and prevents overflow beyond maximum capacity. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classMediumWaterStrategy_ad66818a3bef5f4754904c75e881b17b7}\label{classMediumWaterStrategy_ad66818a3bef5f4754904c75e881b17b7}} 
+\index{MediumWaterStrategy@{MediumWaterStrategy}!applyWater@{applyWater}}
+\index{applyWater@{applyWater}!MediumWaterStrategy@{MediumWaterStrategy}}
+\doxysubsubsection{\texorpdfstring{applyWater()}{applyWater()}}
+{\footnotesize\ttfamily void Medium\+Water\+Strategy\+::apply\+Water (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classPlant}{Plant}} $\ast$}]{p }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Applies the medium water strategy to the plant. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p} & The plant to water. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+Increases the plant’s water level by 50ml. 
+\end{DoxyNote}
+\begin{DoxyWarning}{Warning}
+Caps the water level at the maximum allowed value. 
+\end{DoxyWarning}
+
+
+Implements \mbox{\hyperlink{classWaterStrategy_a68a777faa9840b21a68b5c7388f644c9}{Water\+Strategy}}.
+
+\mbox{\Hypertarget{classMediumWaterStrategy_af7656bcce826ff22238ca4a83eaaae2f}\label{classMediumWaterStrategy_af7656bcce826ff22238ca4a83eaaae2f}} 
+\index{MediumWaterStrategy@{MediumWaterStrategy}!getStrategyName@{getStrategyName}}
+\index{getStrategyName@{getStrategyName}!MediumWaterStrategy@{MediumWaterStrategy}}
+\doxysubsubsection{\texorpdfstring{getStrategyName()}{getStrategyName()}}
+{\footnotesize\ttfamily std\+::string Medium\+Water\+Strategy\+::get\+Strategy\+Name (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Gets the name of this watering strategy. 
+
+\begin{DoxyReturn}{Returns}
+A string with the strategy’s name. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classWaterStrategy_a4117055fdba821e6d2773beef61cb1f0}{Water\+Strategy}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{MediumWaterStrategy_8h}{Medium\+Water\+Strategy.\+h}}\item 
+Medium\+Water\+Strategy.\+cpp\end{DoxyCompactItemize}

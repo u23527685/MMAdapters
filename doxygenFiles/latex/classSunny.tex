@@ -1,0 +1,118 @@
+\hypertarget{classSunny}{}\doxysection{Sunny Class Reference}
+\label{classSunny}\index{Sunny@{Sunny}}
+
+
+Implements the care routine for sun-\/loving plants.  
+
+
+
+
+{\ttfamily \#include $<$Sunny.\+h$>$}
+
+
+
+Inheritance diagram for Sunny\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=181pt]{classSunny__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Sunny\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=181pt]{classSunny__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classSunny_a7f849e14ad8e3da056638135729f293d}\label{classSunny_a7f849e14ad8e3da056638135729f293d}} 
+\mbox{\hyperlink{classSunny_a7f849e14ad8e3da056638135729f293d}{Sunny}} ()
+\begin{DoxyCompactList}\small\item\em Constructs a \mbox{\hyperlink{classSunny}{Sunny}} care routine with appropriate strategies. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classSunny_acba5e991e878cd3003b3d021e52584ab}{Fertilizing}} (\mbox{\hyperlink{classPlant}{Plant}} $\ast$p) override
+\begin{DoxyCompactList}\small\item\em Applies fertilizing strategy for sunny plants. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classSunny_a8060ec6d96baa26bf7ea91c4edac4d17}{Watering}} (\mbox{\hyperlink{classPlant}{Plant}} $\ast$p) override
+\begin{DoxyCompactList}\small\item\em Applies watering strategy for sunny plants. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classSunny_ab39aafb0462ef602be61b2c95d9e7a35}{Sunlight}} (\mbox{\hyperlink{classPlant}{Plant}} $\ast$p) override
+\begin{DoxyCompactList}\small\item\em Applies sunlight strategy for sunny plants. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classSunny_a791d97157abbd3593830ac9d78a051da}\label{classSunny_a791d97157abbd3593830ac9d78a051da}} 
+void \mbox{\hyperlink{classSunny_a791d97157abbd3593830ac9d78a051da}{print\+Care\+Routine}} () override
+\begin{DoxyCompactList}\small\item\em Prints the care routine details for debugging or display. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Detailed Description}
+Implements the care routine for sun-\/loving plants. 
+
+Provides high sunlight exposure, moderate watering, and rich fertilizing patterns. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classSunny_acba5e991e878cd3003b3d021e52584ab}\label{classSunny_acba5e991e878cd3003b3d021e52584ab}} 
+\index{Sunny@{Sunny}!Fertilizing@{Fertilizing}}
+\index{Fertilizing@{Fertilizing}!Sunny@{Sunny}}
+\doxysubsubsection{\texorpdfstring{Fertilizing()}{Fertilizing()}}
+{\footnotesize\ttfamily void Sunny\+::\+Fertilizing (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classPlant}{Plant}} $\ast$}]{p }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Applies fertilizing strategy for sunny plants. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p} & Pointer to the plant to fertilize. \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{classPlantCareRoutine_ac546c8ef2165fbe6e2f4f1bc2737d117}{Plant\+Care\+Routine}}.
+
+\mbox{\Hypertarget{classSunny_ab39aafb0462ef602be61b2c95d9e7a35}\label{classSunny_ab39aafb0462ef602be61b2c95d9e7a35}} 
+\index{Sunny@{Sunny}!Sunlight@{Sunlight}}
+\index{Sunlight@{Sunlight}!Sunny@{Sunny}}
+\doxysubsubsection{\texorpdfstring{Sunlight()}{Sunlight()}}
+{\footnotesize\ttfamily void Sunny\+::\+Sunlight (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classPlant}{Plant}} $\ast$}]{p }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Applies sunlight strategy for sunny plants. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p} & Pointer to the plant to expose to sunlight. \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{classPlantCareRoutine_abf826a7dc95427eb394da5cb14312bed}{Plant\+Care\+Routine}}.
+
+\mbox{\Hypertarget{classSunny_a8060ec6d96baa26bf7ea91c4edac4d17}\label{classSunny_a8060ec6d96baa26bf7ea91c4edac4d17}} 
+\index{Sunny@{Sunny}!Watering@{Watering}}
+\index{Watering@{Watering}!Sunny@{Sunny}}
+\doxysubsubsection{\texorpdfstring{Watering()}{Watering()}}
+{\footnotesize\ttfamily void Sunny\+::\+Watering (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classPlant}{Plant}} $\ast$}]{p }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Applies watering strategy for sunny plants. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p} & Pointer to the plant to water. \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{classPlantCareRoutine_a6bd5afa007b27b76ec8d16db80b804ba}{Plant\+Care\+Routine}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{Sunny_8h}{Sunny.\+h}}\item 
+Sunny.\+cpp\end{DoxyCompactItemize}

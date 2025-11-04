@@ -1,0 +1,599 @@
+\@ifundefined {etoctocstyle}{\let \etoc@startlocaltoc \@gobble \let \etoc@settocdepth \@gobble \let \etoc@depthtag \@gobble \let \etoc@setlocaltop \@gobble }{}
+\contentsline {chapter}{\numberline {1}Hierarchical Index}{1}{chapter.1}%
+\contentsline {section}{\numberline {1.1}Class Hierarchy}{1}{section.1.1}%
+\contentsline {chapter}{\numberline {2}Class Index}{3}{chapter.2}%
+\contentsline {section}{\numberline {2.1}Class List}{3}{section.2.1}%
+\contentsline {chapter}{\numberline {3}File Index}{7}{chapter.3}%
+\contentsline {section}{\numberline {3.1}File List}{7}{section.3.1}%
+\contentsline {chapter}{\numberline {4}Class Documentation}{11}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Add\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Stock Class Reference}{11}{section.4.1}%
+\contentsline {subsection}{\numberline {4.1.1}Detailed Description}{12}{subsection.4.1.1}%
+\contentsline {subsection}{\numberline {4.1.2}Constructor \& Destructor Documentation}{12}{subsection.4.1.2}%
+\contentsline {subsubsection}{\numberline {4.1.2.1}AddStock()}{12}{subsubsection.4.1.2.1}%
+\contentsline {subsection}{\numberline {4.1.3}Member Function Documentation}{12}{subsection.4.1.3}%
+\contentsline {subsubsection}{\numberline {4.1.3.1}execute()}{12}{subsubsection.4.1.3.1}%
+\contentsline {section}{\numberline {4.2}Ask\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Query Class Reference}{13}{section.4.2}%
+\contentsline {subsection}{\numberline {4.2.1}Detailed Description}{13}{subsection.4.2.1}%
+\contentsline {subsection}{\numberline {4.2.2}Member Function Documentation}{13}{subsection.4.2.2}%
+\contentsline {subsubsection}{\numberline {4.2.2.1}careRoutine()}{13}{subsubsection.4.2.2.1}%
+\contentsline {subsubsection}{\numberline {4.2.2.2}describe()}{14}{subsubsection.4.2.2.2}%
+\contentsline {section}{\numberline {4.3}Base\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Plant Class Reference}{15}{section.4.3}%
+\contentsline {subsection}{\numberline {4.3.1}Member Function Documentation}{16}{subsection.4.3.1}%
+\contentsline {subsubsection}{\numberline {4.3.1.1}getDescription()}{16}{subsubsection.4.3.1.1}%
+\contentsline {subsubsection}{\numberline {4.3.1.2}getPrice()}{16}{subsubsection.4.3.1.2}%
+\contentsline {section}{\numberline {4.4}Builder Class Reference}{17}{section.4.4}%
+\contentsline {subsection}{\numberline {4.4.1}Detailed Description}{18}{subsection.4.4.1}%
+\contentsline {subsection}{\numberline {4.4.2}Member Function Documentation}{18}{subsection.4.4.2}%
+\contentsline {subsubsection}{\numberline {4.4.2.1}build()}{18}{subsubsection.4.4.2.1}%
+\contentsline {subsubsection}{\numberline {4.4.2.2}setItem()}{18}{subsubsection.4.4.2.2}%
+\contentsline {subsubsection}{\numberline {4.4.2.3}setQuestion()}{19}{subsubsection.4.4.2.3}%
+\contentsline {subsubsection}{\numberline {4.4.2.4}setType()}{19}{subsubsection.4.4.2.4}%
+\contentsline {subsection}{\numberline {4.4.3}Member Data Documentation}{19}{subsection.4.4.3}%
+\contentsline {subsubsection}{\numberline {4.4.3.1}item}{19}{subsubsection.4.4.3.1}%
+\contentsline {subsubsection}{\numberline {4.4.3.2}question}{19}{subsubsection.4.4.3.2}%
+\contentsline {subsubsection}{\numberline {4.4.3.3}type}{20}{subsubsection.4.4.3.3}%
+\contentsline {section}{\numberline {4.5}Credit\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Card\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Payment\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Strategy Class Reference}{20}{section.4.5}%
+\contentsline {subsection}{\numberline {4.5.1}Detailed Description}{21}{subsection.4.5.1}%
+\contentsline {subsection}{\numberline {4.5.2}Constructor \& Destructor Documentation}{21}{subsection.4.5.2}%
+\contentsline {subsubsection}{\numberline {4.5.2.1}CreditCardPaymentStrategy()}{21}{subsubsection.4.5.2.1}%
+\contentsline {subsection}{\numberline {4.5.3}Member Function Documentation}{21}{subsection.4.5.3}%
+\contentsline {subsubsection}{\numberline {4.5.3.1}getName()}{21}{subsubsection.4.5.3.1}%
+\contentsline {subsubsection}{\numberline {4.5.3.2}pay()}{22}{subsubsection.4.5.3.2}%
+\contentsline {section}{\numberline {4.6}Customer Class Reference}{22}{section.4.6}%
+\contentsline {subsection}{\numberline {4.6.1}Detailed Description}{22}{subsection.4.6.1}%
+\contentsline {subsection}{\numberline {4.6.2}Constructor \& Destructor Documentation}{23}{subsection.4.6.2}%
+\contentsline {subsubsection}{\numberline {4.6.2.1}Customer()}{23}{subsubsection.4.6.2.1}%
+\contentsline {subsection}{\numberline {4.6.3}Member Function Documentation}{23}{subsection.4.6.3}%
+\contentsline {subsubsection}{\numberline {4.6.3.1}getName()}{23}{subsubsection.4.6.3.1}%
+\contentsline {subsubsection}{\numberline {4.6.3.2}makeQuery()}{23}{subsubsection.4.6.3.2}%
+\contentsline {subsubsection}{\numberline {4.6.3.3}placeOrder()}{24}{subsubsection.4.6.3.3}%
+\contentsline {subsubsection}{\numberline {4.6.3.4}setName()}{24}{subsubsection.4.6.3.4}%
+\contentsline {section}{\numberline {4.7}Decorative\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Pot Class Reference}{24}{section.4.7}%
+\contentsline {subsection}{\numberline {4.7.1}Detailed Description}{25}{subsection.4.7.1}%
+\contentsline {subsection}{\numberline {4.7.2}Constructor \& Destructor Documentation}{26}{subsection.4.7.2}%
+\contentsline {subsubsection}{\numberline {4.7.2.1}DecorativePot()}{26}{subsubsection.4.7.2.1}%
+\contentsline {subsection}{\numberline {4.7.3}Member Function Documentation}{26}{subsection.4.7.3}%
+\contentsline {subsubsection}{\numberline {4.7.3.1}getDescription()}{26}{subsubsection.4.7.3.1}%
+\contentsline {subsubsection}{\numberline {4.7.3.2}getPrice()}{26}{subsubsection.4.7.3.2}%
+\contentsline {section}{\numberline {4.8}Distressed\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}State Class Reference}{27}{section.4.8}%
+\contentsline {subsection}{\numberline {4.8.1}Detailed Description}{28}{subsection.4.8.1}%
+\contentsline {subsection}{\numberline {4.8.2}Member Function Documentation}{28}{subsection.4.8.2}%
+\contentsline {subsubsection}{\numberline {4.8.2.1}applyCare()}{28}{subsubsection.4.8.2.1}%
+\contentsline {subsubsection}{\numberline {4.8.2.2}clone()}{28}{subsubsection.4.8.2.2}%
+\contentsline {subsubsection}{\numberline {4.8.2.3}evaluate()}{28}{subsubsection.4.8.2.3}%
+\contentsline {subsubsection}{\numberline {4.8.2.4}getName()}{29}{subsubsection.4.8.2.4}%
+\contentsline {section}{\numberline {4.9}EFTPayment\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Strategy Class Reference}{29}{section.4.9}%
+\contentsline {subsection}{\numberline {4.9.1}Detailed Description}{30}{subsection.4.9.1}%
+\contentsline {subsection}{\numberline {4.9.2}Constructor \& Destructor Documentation}{30}{subsection.4.9.2}%
+\contentsline {subsubsection}{\numberline {4.9.2.1}EFTPaymentStrategy()}{30}{subsubsection.4.9.2.1}%
+\contentsline {subsection}{\numberline {4.9.3}Member Function Documentation}{31}{subsection.4.9.3}%
+\contentsline {subsubsection}{\numberline {4.9.3.1}getName()}{31}{subsubsection.4.9.3.1}%
+\contentsline {subsubsection}{\numberline {4.9.3.2}pay()}{31}{subsubsection.4.9.3.2}%
+\contentsline {section}{\numberline {4.10}Employee\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Factory Class Reference}{31}{section.4.10}%
+\contentsline {subsection}{\numberline {4.10.1}Detailed Description}{32}{subsection.4.10.1}%
+\contentsline {subsection}{\numberline {4.10.2}Member Function Documentation}{32}{subsection.4.10.2}%
+\contentsline {subsubsection}{\numberline {4.10.2.1}createFloorStaff()}{33}{subsubsection.4.10.2.1}%
+\contentsline {subsubsection}{\numberline {4.10.2.2}createSalesStaff()}{33}{subsubsection.4.10.2.2}%
+\contentsline {section}{\numberline {4.11}EWallet\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Payment\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Strategy Class Reference}{33}{section.4.11}%
+\contentsline {subsection}{\numberline {4.11.1}Detailed Description}{34}{subsection.4.11.1}%
+\contentsline {subsection}{\numberline {4.11.2}Constructor \& Destructor Documentation}{34}{subsection.4.11.2}%
+\contentsline {subsubsection}{\numberline {4.11.2.1}EWalletPaymentStrategy()}{35}{subsubsection.4.11.2.1}%
+\contentsline {subsection}{\numberline {4.11.3}Member Function Documentation}{35}{subsection.4.11.3}%
+\contentsline {subsubsection}{\numberline {4.11.3.1}getName()}{35}{subsubsection.4.11.3.1}%
+\contentsline {subsubsection}{\numberline {4.11.3.2}pay()}{35}{subsubsection.4.11.3.2}%
+\contentsline {section}{\numberline {4.12}Fertilizer\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Strategy Class Reference}{36}{section.4.12}%
+\contentsline {subsection}{\numberline {4.12.1}Detailed Description}{37}{subsection.4.12.1}%
+\contentsline {subsection}{\numberline {4.12.2}Member Function Documentation}{37}{subsection.4.12.2}%
+\contentsline {subsubsection}{\numberline {4.12.2.1}applyFertilizer()}{37}{subsubsection.4.12.2.1}%
+\contentsline {subsubsection}{\numberline {4.12.2.2}getStrategyName()}{37}{subsubsection.4.12.2.2}%
+\contentsline {subsection}{\numberline {4.12.3}Member Data Documentation}{37}{subsection.4.12.3}%
+\contentsline {subsubsection}{\numberline {4.12.3.1}currentPlant}{38}{subsubsection.4.12.3.1}%
+\contentsline {section}{\numberline {4.13}Floor\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Employee Class Reference}{38}{section.4.13}%
+\contentsline {subsection}{\numberline {4.13.1}Detailed Description}{39}{subsection.4.13.1}%
+\contentsline {subsection}{\numberline {4.13.2}Constructor \& Destructor Documentation}{39}{subsection.4.13.2}%
+\contentsline {subsubsection}{\numberline {4.13.2.1}FloorEmployee()}{39}{subsubsection.4.13.2.1}%
+\contentsline {subsection}{\numberline {4.13.3}Member Function Documentation}{40}{subsection.4.13.3}%
+\contentsline {subsubsection}{\numberline {4.13.3.1}reply()}{40}{subsubsection.4.13.3.1}%
+\contentsline {subsubsection}{\numberline {4.13.3.2}staffCanHandle()}{40}{subsubsection.4.13.3.2}%
+\contentsline {section}{\numberline {4.14}Floor\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Manager Class Reference}{41}{section.4.14}%
+\contentsline {subsection}{\numberline {4.14.1}Detailed Description}{42}{subsection.4.14.1}%
+\contentsline {subsection}{\numberline {4.14.2}Constructor \& Destructor Documentation}{42}{subsection.4.14.2}%
+\contentsline {subsubsection}{\numberline {4.14.2.1}FloorManager()}{42}{subsubsection.4.14.2.1}%
+\contentsline {subsection}{\numberline {4.14.3}Member Function Documentation}{42}{subsection.4.14.3}%
+\contentsline {subsubsection}{\numberline {4.14.3.1}reply()}{42}{subsubsection.4.14.3.1}%
+\contentsline {subsubsection}{\numberline {4.14.3.2}staffCanHandle()}{43}{subsubsection.4.14.3.2}%
+\contentsline {section}{\numberline {4.15}Floor\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Staff Class Reference}{43}{section.4.15}%
+\contentsline {subsection}{\numberline {4.15.1}Detailed Description}{45}{subsection.4.15.1}%
+\contentsline {subsection}{\numberline {4.15.2}Constructor \& Destructor Documentation}{45}{subsection.4.15.2}%
+\contentsline {subsubsection}{\numberline {4.15.2.1}FloorStaff()}{45}{subsubsection.4.15.2.1}%
+\contentsline {subsection}{\numberline {4.15.3}Member Function Documentation}{45}{subsection.4.15.3}%
+\contentsline {subsubsection}{\numberline {4.15.3.1}handleQuery()}{45}{subsubsection.4.15.3.1}%
+\contentsline {subsubsection}{\numberline {4.15.3.2}reply()}{46}{subsubsection.4.15.3.2}%
+\contentsline {subsubsection}{\numberline {4.15.3.3}staffCanHandle()}{46}{subsubsection.4.15.3.3}%
+\contentsline {section}{\numberline {4.16}Flower\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Factory Class Reference}{46}{section.4.16}%
+\contentsline {subsection}{\numberline {4.16.1}Detailed Description}{47}{subsection.4.16.1}%
+\contentsline {subsection}{\numberline {4.16.2}Member Function Documentation}{47}{subsection.4.16.2}%
+\contentsline {subsubsection}{\numberline {4.16.2.1}createPlant()}{47}{subsubsection.4.16.2.1}%
+\contentsline {section}{\numberline {4.17}Full\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Sun\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Strategy Class Reference}{48}{section.4.17}%
+\contentsline {subsection}{\numberline {4.17.1}Detailed Description}{49}{subsection.4.17.1}%
+\contentsline {subsection}{\numberline {4.17.2}Member Function Documentation}{49}{subsection.4.17.2}%
+\contentsline {subsubsection}{\numberline {4.17.2.1}applySunlight()}{49}{subsubsection.4.17.2.1}%
+\contentsline {subsubsection}{\numberline {4.17.2.2}getStrategyName()}{50}{subsubsection.4.17.2.2}%
+\contentsline {section}{\numberline {4.18}Gift\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Wrap Class Reference}{50}{section.4.18}%
+\contentsline {subsection}{\numberline {4.18.1}Detailed Description}{51}{subsection.4.18.1}%
+\contentsline {subsection}{\numberline {4.18.2}Constructor \& Destructor Documentation}{52}{subsection.4.18.2}%
+\contentsline {subsubsection}{\numberline {4.18.2.1}GiftWrap()}{52}{subsubsection.4.18.2.1}%
+\contentsline {subsection}{\numberline {4.18.3}Member Function Documentation}{52}{subsection.4.18.3}%
+\contentsline {subsubsection}{\numberline {4.18.3.1}getDescription()}{52}{subsubsection.4.18.3.1}%
+\contentsline {subsubsection}{\numberline {4.18.3.2}getPrice()}{52}{subsubsection.4.18.3.2}%
+\contentsline {section}{\numberline {4.19}Greenhouse\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Unit\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Test Class Reference}{53}{section.4.19}%
+\contentsline {subsection}{\numberline {4.19.1}Detailed Description}{53}{subsection.4.19.1}%
+\contentsline {section}{\numberline {4.20}High\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Water\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Strategy Class Reference}{53}{section.4.20}%
+\contentsline {subsection}{\numberline {4.20.1}Detailed Description}{54}{subsection.4.20.1}%
+\contentsline {subsection}{\numberline {4.20.2}Member Function Documentation}{54}{subsection.4.20.2}%
+\contentsline {subsubsection}{\numberline {4.20.2.1}applyWater()}{54}{subsubsection.4.20.2.1}%
+\contentsline {subsubsection}{\numberline {4.20.2.2}getStrategyName()}{54}{subsubsection.4.20.2.2}%
+\contentsline {section}{\numberline {4.21}Inorganic\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Fertilizer Class Reference}{55}{section.4.21}%
+\contentsline {subsection}{\numberline {4.21.1}Detailed Description}{56}{subsection.4.21.1}%
+\contentsline {subsection}{\numberline {4.21.2}Member Function Documentation}{56}{subsection.4.21.2}%
+\contentsline {subsubsection}{\numberline {4.21.2.1}applyFertilizer()}{56}{subsubsection.4.21.2.1}%
+\contentsline {subsubsection}{\numberline {4.21.2.2}getStrategyName()}{56}{subsubsection.4.21.2.2}%
+\contentsline {section}{\numberline {4.22}Inventory\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Observer Class Reference}{57}{section.4.22}%
+\contentsline {subsection}{\numberline {4.22.1}Detailed Description}{58}{subsection.4.22.1}%
+\contentsline {subsection}{\numberline {4.22.2}Constructor \& Destructor Documentation}{58}{subsection.4.22.2}%
+\contentsline {subsubsection}{\numberline {4.22.2.1}InventoryObserver()}{58}{subsubsection.4.22.2.1}%
+\contentsline {section}{\numberline {4.23}Inventory\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Proxy Class Reference}{58}{section.4.23}%
+\contentsline {subsection}{\numberline {4.23.1}Detailed Description}{59}{subsection.4.23.1}%
+\contentsline {subsection}{\numberline {4.23.2}Constructor \& Destructor Documentation}{59}{subsection.4.23.2}%
+\contentsline {subsubsection}{\numberline {4.23.2.1}InventoryProxy()}{59}{subsubsection.4.23.2.1}%
+\contentsline {subsection}{\numberline {4.23.3}Member Function Documentation}{59}{subsection.4.23.3}%
+\contentsline {subsubsection}{\numberline {4.23.3.1}addStock()}{59}{subsubsection.4.23.3.1}%
+\contentsline {subsubsection}{\numberline {4.23.3.2}buyPlant()}{59}{subsubsection.4.23.3.2}%
+\contentsline {subsubsection}{\numberline {4.23.3.3}removeStock()}{60}{subsubsection.4.23.3.3}%
+\contentsline {section}{\numberline {4.24}Item\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Query\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Builder Class Reference}{60}{section.4.24}%
+\contentsline {subsection}{\numberline {4.24.1}Detailed Description}{61}{subsection.4.24.1}%
+\contentsline {subsection}{\numberline {4.24.2}Member Function Documentation}{61}{subsection.4.24.2}%
+\contentsline {subsubsection}{\numberline {4.24.2.1}setItem()}{61}{subsubsection.4.24.2.1}%
+\contentsline {subsubsection}{\numberline {4.24.2.2}setQuestion()}{62}{subsubsection.4.24.2.2}%
+\contentsline {subsubsection}{\numberline {4.24.2.3}setType()}{62}{subsubsection.4.24.2.3}%
+\contentsline {section}{\numberline {4.25}Life\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Cycle\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Observer Class Reference}{62}{section.4.25}%
+\contentsline {subsection}{\numberline {4.25.1}Detailed Description}{63}{subsection.4.25.1}%
+\contentsline {subsection}{\numberline {4.25.2}Member Function Documentation}{63}{subsection.4.25.2}%
+\contentsline {subsubsection}{\numberline {4.25.2.1}update()}{63}{subsubsection.4.25.2.1}%
+\contentsline {section}{\numberline {4.26}Low\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Water\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Strategy Class Reference}{64}{section.4.26}%
+\contentsline {subsection}{\numberline {4.26.1}Detailed Description}{65}{subsection.4.26.1}%
+\contentsline {subsection}{\numberline {4.26.2}Member Function Documentation}{65}{subsection.4.26.2}%
+\contentsline {subsubsection}{\numberline {4.26.2.1}applyWater()}{65}{subsubsection.4.26.2.1}%
+\contentsline {subsubsection}{\numberline {4.26.2.2}getStrategyName()}{65}{subsubsection.4.26.2.2}%
+\contentsline {section}{\numberline {4.27}Managerfactory Class Reference}{66}{section.4.27}%
+\contentsline {subsection}{\numberline {4.27.1}Member Function Documentation}{66}{subsection.4.27.1}%
+\contentsline {subsubsection}{\numberline {4.27.1.1}createFloorStaff()}{67}{subsubsection.4.27.1.1}%
+\contentsline {subsubsection}{\numberline {4.27.1.2}createSalesStaff()}{68}{subsubsection.4.27.1.2}%
+\contentsline {section}{\numberline {4.28}Managerfactory Class Reference}{68}{section.4.28}%
+\contentsline {subsection}{\numberline {4.28.1}Member Function Documentation}{69}{subsection.4.28.1}%
+\contentsline {subsubsection}{\numberline {4.28.1.1}createFloorStaff()}{69}{subsubsection.4.28.1.1}%
+\contentsline {subsubsection}{\numberline {4.28.1.2}createSalesStaff()}{70}{subsubsection.4.28.1.2}%
+\contentsline {section}{\numberline {4.29}Mature\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}State Class Reference}{70}{section.4.29}%
+\contentsline {subsection}{\numberline {4.29.1}Detailed Description}{71}{subsection.4.29.1}%
+\contentsline {subsection}{\numberline {4.29.2}Member Function Documentation}{71}{subsection.4.29.2}%
+\contentsline {subsubsection}{\numberline {4.29.2.1}applyCare()}{71}{subsubsection.4.29.2.1}%
+\contentsline {subsubsection}{\numberline {4.29.2.2}evaluate()}{72}{subsubsection.4.29.2.2}%
+\contentsline {subsubsection}{\numberline {4.29.2.3}getName()}{72}{subsubsection.4.29.2.3}%
+\contentsline {section}{\numberline {4.30}Medium\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Water\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Strategy Class Reference}{73}{section.4.30}%
+\contentsline {subsection}{\numberline {4.30.1}Detailed Description}{73}{subsection.4.30.1}%
+\contentsline {subsection}{\numberline {4.30.2}Member Function Documentation}{74}{subsection.4.30.2}%
+\contentsline {subsubsection}{\numberline {4.30.2.1}applyWater()}{74}{subsubsection.4.30.2.1}%
+\contentsline {subsubsection}{\numberline {4.30.2.2}getStrategyName()}{74}{subsubsection.4.30.2.2}%
+\contentsline {section}{\numberline {4.31}Misc\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Query\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Builder Class Reference}{75}{section.4.31}%
+\contentsline {subsection}{\numberline {4.31.1}Detailed Description}{76}{subsection.4.31.1}%
+\contentsline {subsection}{\numberline {4.31.2}Member Function Documentation}{76}{subsection.4.31.2}%
+\contentsline {subsubsection}{\numberline {4.31.2.1}setItem()}{76}{subsubsection.4.31.2.1}%
+\contentsline {subsubsection}{\numberline {4.31.2.2}setQuestion()}{76}{subsubsection.4.31.2.2}%
+\contentsline {subsubsection}{\numberline {4.31.2.3}setType()}{77}{subsubsection.4.31.2.3}%
+\contentsline {section}{\numberline {4.32}Oak Class Reference}{77}{section.4.32}%
+\contentsline {subsection}{\numberline {4.32.1}Detailed Description}{78}{subsection.4.32.1}%
+\contentsline {subsection}{\numberline {4.32.2}Constructor \& Destructor Documentation}{78}{subsection.4.32.2}%
+\contentsline {subsubsection}{\numberline {4.32.2.1}Oak()}{78}{subsubsection.4.32.2.1}%
+\contentsline {section}{\numberline {4.33}Order Class Reference}{79}{section.4.33}%
+\contentsline {subsection}{\numberline {4.33.1}Detailed Description}{79}{subsection.4.33.1}%
+\contentsline {subsection}{\numberline {4.33.2}Constructor \& Destructor Documentation}{79}{subsection.4.33.2}%
+\contentsline {subsubsection}{\numberline {4.33.2.1}Order()}{79}{subsubsection.4.33.2.1}%
+\contentsline {subsection}{\numberline {4.33.3}Member Function Documentation}{80}{subsection.4.33.3}%
+\contentsline {subsubsection}{\numberline {4.33.3.1}addTransaction()}{80}{subsubsection.4.33.3.1}%
+\contentsline {subsubsection}{\numberline {4.33.3.2}getCustomer()}{80}{subsubsection.4.33.3.2}%
+\contentsline {subsubsection}{\numberline {4.33.3.3}getOrderId()}{80}{subsubsection.4.33.3.3}%
+\contentsline {subsubsection}{\numberline {4.33.3.4}getStatus()}{80}{subsubsection.4.33.3.4}%
+\contentsline {section}{\numberline {4.34}Organic\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Fertilizer Class Reference}{81}{section.4.34}%
+\contentsline {subsection}{\numberline {4.34.1}Detailed Description}{82}{subsection.4.34.1}%
+\contentsline {subsection}{\numberline {4.34.2}Member Function Documentation}{82}{subsection.4.34.2}%
+\contentsline {subsubsection}{\numberline {4.34.2.1}applyFertilizer()}{82}{subsubsection.4.34.2.1}%
+\contentsline {subsubsection}{\numberline {4.34.2.2}getStrategyName()}{82}{subsubsection.4.34.2.2}%
+\contentsline {section}{\numberline {4.35}Partial\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Sun\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Strategy Class Reference}{83}{section.4.35}%
+\contentsline {subsection}{\numberline {4.35.1}Detailed Description}{84}{subsection.4.35.1}%
+\contentsline {subsection}{\numberline {4.35.2}Member Function Documentation}{84}{subsection.4.35.2}%
+\contentsline {subsubsection}{\numberline {4.35.2.1}applySunlight()}{84}{subsubsection.4.35.2.1}%
+\contentsline {subsubsection}{\numberline {4.35.2.2}getStrategyName()}{84}{subsubsection.4.35.2.2}%
+\contentsline {section}{\numberline {4.36}Payment\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Strategy Class Reference}{85}{section.4.36}%
+\contentsline {subsection}{\numberline {4.36.1}Detailed Description}{85}{subsection.4.36.1}%
+\contentsline {subsection}{\numberline {4.36.2}Member Function Documentation}{85}{subsection.4.36.2}%
+\contentsline {subsubsection}{\numberline {4.36.2.1}getName()}{85}{subsubsection.4.36.2.1}%
+\contentsline {subsubsection}{\numberline {4.36.2.2}pay()}{85}{subsubsection.4.36.2.2}%
+\contentsline {section}{\numberline {4.37}Plant Class Reference}{86}{section.4.37}%
+\contentsline {subsection}{\numberline {4.37.1}Detailed Description}{88}{subsection.4.37.1}%
+\contentsline {subsection}{\numberline {4.37.2}Constructor \& Destructor Documentation}{88}{subsection.4.37.2}%
+\contentsline {subsubsection}{\numberline {4.37.2.1}Plant()}{88}{subsubsection.4.37.2.1}%
+\contentsline {subsection}{\numberline {4.37.3}Member Function Documentation}{89}{subsection.4.37.3}%
+\contentsline {subsubsection}{\numberline {4.37.3.1}attach()}{89}{subsubsection.4.37.3.1}%
+\contentsline {subsubsection}{\numberline {4.37.3.2}detach()}{89}{subsubsection.4.37.3.2}%
+\contentsline {subsubsection}{\numberline {4.37.3.3}getCategory()}{89}{subsubsection.4.37.3.3}%
+\contentsline {subsubsection}{\numberline {4.37.3.4}getColor()}{89}{subsubsection.4.37.3.4}%
+\contentsline {subsubsection}{\numberline {4.37.3.5}getCurrentNutrients()}{90}{subsubsection.4.37.3.5}%
+\contentsline {subsubsection}{\numberline {4.37.3.6}getCurrentSunlight()}{90}{subsubsection.4.37.3.6}%
+\contentsline {subsubsection}{\numberline {4.37.3.7}getCurrentWater()}{90}{subsubsection.4.37.3.7}%
+\contentsline {subsubsection}{\numberline {4.37.3.8}getDescription()}{90}{subsubsection.4.37.3.8}%
+\contentsline {subsubsection}{\numberline {4.37.3.9}getGrowthProgress()}{91}{subsubsection.4.37.3.9}%
+\contentsline {subsubsection}{\numberline {4.37.3.10}getMaxNutrients()}{91}{subsubsection.4.37.3.10}%
+\contentsline {subsubsection}{\numberline {4.37.3.11}getMaxSunlight()}{91}{subsubsection.4.37.3.11}%
+\contentsline {subsubsection}{\numberline {4.37.3.12}getMaxWater()}{91}{subsubsection.4.37.3.12}%
+\contentsline {subsubsection}{\numberline {4.37.3.13}getMinNutrients()}{92}{subsubsection.4.37.3.13}%
+\contentsline {subsubsection}{\numberline {4.37.3.14}getMinSunlight()}{92}{subsubsection.4.37.3.14}%
+\contentsline {subsubsection}{\numberline {4.37.3.15}getMinWater()}{92}{subsubsection.4.37.3.15}%
+\contentsline {subsubsection}{\numberline {4.37.3.16}getName()}{92}{subsubsection.4.37.3.16}%
+\contentsline {subsubsection}{\numberline {4.37.3.17}getPrice()}{93}{subsubsection.4.37.3.17}%
+\contentsline {subsubsection}{\numberline {4.37.3.18}getState()}{93}{subsubsection.4.37.3.18}%
+\contentsline {subsubsection}{\numberline {4.37.3.19}setCategory()}{93}{subsubsection.4.37.3.19}%
+\contentsline {subsubsection}{\numberline {4.37.3.20}setColor()}{93}{subsubsection.4.37.3.20}%
+\contentsline {subsubsection}{\numberline {4.37.3.21}setCurrentNutrients()}{94}{subsubsection.4.37.3.21}%
+\contentsline {subsubsection}{\numberline {4.37.3.22}setCurrentSunlight()}{94}{subsubsection.4.37.3.22}%
+\contentsline {subsubsection}{\numberline {4.37.3.23}setCurrentWater()}{94}{subsubsection.4.37.3.23}%
+\contentsline {subsubsection}{\numberline {4.37.3.24}setGrowthProgress()}{94}{subsubsection.4.37.3.24}%
+\contentsline {subsubsection}{\numberline {4.37.3.25}setMaxNutrients()}{95}{subsubsection.4.37.3.25}%
+\contentsline {subsubsection}{\numberline {4.37.3.26}setMaxSunlight()}{95}{subsubsection.4.37.3.26}%
+\contentsline {subsubsection}{\numberline {4.37.3.27}setMaxWater()}{95}{subsubsection.4.37.3.27}%
+\contentsline {subsubsection}{\numberline {4.37.3.28}setState()}{96}{subsubsection.4.37.3.28}%
+\contentsline {section}{\numberline {4.38}Plant\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Care\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Routine Class Reference}{96}{section.4.38}%
+\contentsline {subsection}{\numberline {4.38.1}Detailed Description}{97}{subsection.4.38.1}%
+\contentsline {subsection}{\numberline {4.38.2}Member Function Documentation}{97}{subsection.4.38.2}%
+\contentsline {subsubsection}{\numberline {4.38.2.1}PlantCare()}{97}{subsubsection.4.38.2.1}%
+\contentsline {section}{\numberline {4.39}Plant\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Decorator Class Reference}{97}{section.4.39}%
+\contentsline {subsection}{\numberline {4.39.1}Detailed Description}{98}{subsection.4.39.1}%
+\contentsline {section}{\numberline {4.40}Plant\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Factory Class Reference}{99}{section.4.40}%
+\contentsline {subsection}{\numberline {4.40.1}Detailed Description}{99}{subsection.4.40.1}%
+\contentsline {subsection}{\numberline {4.40.2}Member Function Documentation}{99}{subsection.4.40.2}%
+\contentsline {subsubsection}{\numberline {4.40.2.1}createPlant()}{99}{subsubsection.4.40.2.1}%
+\contentsline {section}{\numberline {4.41}Plant\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Inventory Class Reference}{100}{section.4.41}%
+\contentsline {subsection}{\numberline {4.41.1}Detailed Description}{101}{subsection.4.41.1}%
+\contentsline {subsection}{\numberline {4.41.2}Member Function Documentation}{101}{subsection.4.41.2}%
+\contentsline {subsubsection}{\numberline {4.41.2.1}addStock()}{101}{subsubsection.4.41.2.1}%
+\contentsline {subsubsection}{\numberline {4.41.2.2}attach()}{101}{subsubsection.4.41.2.2}%
+\contentsline {subsubsection}{\numberline {4.41.2.3}detach()}{101}{subsubsection.4.41.2.3}%
+\contentsline {subsubsection}{\numberline {4.41.2.4}executeCommand()}{102}{subsubsection.4.41.2.4}%
+\contentsline {subsubsection}{\numberline {4.41.2.5}findPlantIndex()}{102}{subsubsection.4.41.2.5}%
+\contentsline {subsubsection}{\numberline {4.41.2.6}getInstance()}{103}{subsubsection.4.41.2.6}%
+\contentsline {subsubsection}{\numberline {4.41.2.7}getInventoryReference()}{103}{subsubsection.4.41.2.7}%
+\contentsline {subsubsection}{\numberline {4.41.2.8}getInventoryView()}{103}{subsubsection.4.41.2.8}%
+\contentsline {subsubsection}{\numberline {4.41.2.9}getQuantity()}{103}{subsubsection.4.41.2.9}%
+\contentsline {subsubsection}{\numberline {4.41.2.10}removeStock()}{104}{subsubsection.4.41.2.10}%
+\contentsline {section}{\numberline {4.42}Plant\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Life\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Cycle Class Reference}{104}{section.4.42}%
+\contentsline {subsection}{\numberline {4.42.1}Detailed Description}{105}{subsection.4.42.1}%
+\contentsline {section}{\numberline {4.43}Plant\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}State Class Reference}{105}{section.4.43}%
+\contentsline {subsection}{\numberline {4.43.1}Detailed Description}{105}{subsection.4.43.1}%
+\contentsline {subsection}{\numberline {4.43.2}Member Function Documentation}{105}{subsection.4.43.2}%
+\contentsline {subsubsection}{\numberline {4.43.2.1}applyCare()}{105}{subsubsection.4.43.2.1}%
+\contentsline {subsubsection}{\numberline {4.43.2.2}evaluate()}{106}{subsubsection.4.43.2.2}%
+\contentsline {subsubsection}{\numberline {4.43.2.3}getName()}{106}{subsubsection.4.43.2.3}%
+\contentsline {section}{\numberline {4.44}Plant\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Stock Class Reference}{107}{section.4.44}%
+\contentsline {subsection}{\numberline {4.44.1}Detailed Description}{107}{subsection.4.44.1}%
+\contentsline {subsection}{\numberline {4.44.2}Constructor \& Destructor Documentation}{107}{subsection.4.44.2}%
+\contentsline {subsubsection}{\numberline {4.44.2.1}PlantStock()}{107}{subsubsection.4.44.2.1}%
+\contentsline {subsection}{\numberline {4.44.3}Member Function Documentation}{107}{subsection.4.44.3}%
+\contentsline {subsubsection}{\numberline {4.44.3.1}addStock()}{107}{subsubsection.4.44.3.1}%
+\contentsline {subsubsection}{\numberline {4.44.3.2}removeStock()}{109}{subsubsection.4.44.3.2}%
+\contentsline {section}{\numberline {4.45}Query Class Reference}{109}{section.4.45}%
+\contentsline {subsection}{\numberline {4.45.1}Detailed Description}{110}{subsection.4.45.1}%
+\contentsline {subsection}{\numberline {4.45.2}Constructor \& Destructor Documentation}{110}{subsection.4.45.2}%
+\contentsline {subsubsection}{\numberline {4.45.2.1}Query()}{110}{subsubsection.4.45.2.1}%
+\contentsline {subsection}{\numberline {4.45.3}Member Function Documentation}{110}{subsection.4.45.3}%
+\contentsline {subsubsection}{\numberline {4.45.3.1}getItem()}{111}{subsubsection.4.45.3.1}%
+\contentsline {subsubsection}{\numberline {4.45.3.2}getQuestion()}{111}{subsubsection.4.45.3.2}%
+\contentsline {subsubsection}{\numberline {4.45.3.3}getType()}{111}{subsubsection.4.45.3.3}%
+\contentsline {section}{\numberline {4.46}Remove\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Stock Class Reference}{112}{section.4.46}%
+\contentsline {subsection}{\numberline {4.46.1}Detailed Description}{112}{subsection.4.46.1}%
+\contentsline {subsection}{\numberline {4.46.2}Constructor \& Destructor Documentation}{113}{subsection.4.46.2}%
+\contentsline {subsubsection}{\numberline {4.46.2.1}RemoveStock()}{113}{subsubsection.4.46.2.1}%
+\contentsline {subsection}{\numberline {4.46.3}Member Function Documentation}{113}{subsection.4.46.3}%
+\contentsline {subsubsection}{\numberline {4.46.3.1}execute()}{113}{subsubsection.4.46.3.1}%
+\contentsline {section}{\numberline {4.47}Rose Class Reference}{114}{section.4.47}%
+\contentsline {subsection}{\numberline {4.47.1}Detailed Description}{114}{subsection.4.47.1}%
+\contentsline {subsection}{\numberline {4.47.2}Constructor \& Destructor Documentation}{115}{subsection.4.47.2}%
+\contentsline {subsubsection}{\numberline {4.47.2.1}Rose()}{115}{subsubsection.4.47.2.1}%
+\contentsline {section}{\numberline {4.48}Sales\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Employee Class Reference}{115}{section.4.48}%
+\contentsline {subsection}{\numberline {4.48.1}Detailed Description}{116}{subsection.4.48.1}%
+\contentsline {subsection}{\numberline {4.48.2}Constructor \& Destructor Documentation}{116}{subsection.4.48.2}%
+\contentsline {subsubsection}{\numberline {4.48.2.1}SalesEmployee()}{116}{subsubsection.4.48.2.1}%
+\contentsline {subsection}{\numberline {4.48.3}Member Function Documentation}{117}{subsection.4.48.3}%
+\contentsline {subsubsection}{\numberline {4.48.3.1}reply()}{117}{subsubsection.4.48.3.1}%
+\contentsline {subsubsection}{\numberline {4.48.3.2}staffCanHandle()}{117}{subsubsection.4.48.3.2}%
+\contentsline {section}{\numberline {4.49}Sales\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Floor\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Observer Class Reference}{118}{section.4.49}%
+\contentsline {subsection}{\numberline {4.49.1}Detailed Description}{119}{subsection.4.49.1}%
+\contentsline {subsection}{\numberline {4.49.2}Constructor \& Destructor Documentation}{119}{subsection.4.49.2}%
+\contentsline {subsubsection}{\numberline {4.49.2.1}SalesFloorObserver()}{119}{subsubsection.4.49.2.1}%
+\contentsline {subsection}{\numberline {4.49.3}Member Function Documentation}{119}{subsection.4.49.3}%
+\contentsline {subsubsection}{\numberline {4.49.3.1}attachStaff()}{119}{subsubsection.4.49.3.1}%
+\contentsline {subsubsection}{\numberline {4.49.3.2}detachStaff()}{120}{subsubsection.4.49.3.2}%
+\contentsline {subsubsection}{\numberline {4.49.3.3}getAvailableItems()}{120}{subsubsection.4.49.3.3}%
+\contentsline {subsubsection}{\numberline {4.49.3.4}getNotificationHistory()}{120}{subsubsection.4.49.3.4}%
+\contentsline {subsubsection}{\numberline {4.49.3.5}getPlantQuantity()}{120}{subsubsection.4.49.3.5}%
+\contentsline {subsubsection}{\numberline {4.49.3.6}isPlantAvailable()}{121}{subsubsection.4.49.3.6}%
+\contentsline {subsubsection}{\numberline {4.49.3.7}notifyStaff()}{121}{subsubsection.4.49.3.7}%
+\contentsline {section}{\numberline {4.50}Sales\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Manager Class Reference}{121}{section.4.50}%
+\contentsline {subsection}{\numberline {4.50.1}Detailed Description}{123}{subsection.4.50.1}%
+\contentsline {subsection}{\numberline {4.50.2}Constructor \& Destructor Documentation}{123}{subsection.4.50.2}%
+\contentsline {subsubsection}{\numberline {4.50.2.1}SalesManager()}{123}{subsubsection.4.50.2.1}%
+\contentsline {subsection}{\numberline {4.50.3}Member Function Documentation}{123}{subsection.4.50.3}%
+\contentsline {subsubsection}{\numberline {4.50.3.1}reply()}{123}{subsubsection.4.50.3.1}%
+\contentsline {subsubsection}{\numberline {4.50.3.2}staffCanHandle()}{124}{subsubsection.4.50.3.2}%
+\contentsline {section}{\numberline {4.51}Sales\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Staff Class Reference}{124}{section.4.51}%
+\contentsline {subsection}{\numberline {4.51.1}Detailed Description}{126}{subsection.4.51.1}%
+\contentsline {subsection}{\numberline {4.51.2}Constructor \& Destructor Documentation}{126}{subsection.4.51.2}%
+\contentsline {subsubsection}{\numberline {4.51.2.1}SalesStaff()}{126}{subsubsection.4.51.2.1}%
+\contentsline {subsection}{\numberline {4.51.3}Member Function Documentation}{126}{subsection.4.51.3}%
+\contentsline {subsubsection}{\numberline {4.51.3.1}handleQuery()}{126}{subsubsection.4.51.3.1}%
+\contentsline {subsubsection}{\numberline {4.51.3.2}reply()}{127}{subsubsection.4.51.3.2}%
+\contentsline {subsubsection}{\numberline {4.51.3.3}staffCanHandle()}{127}{subsubsection.4.51.3.3}%
+\contentsline {section}{\numberline {4.52}Seedling\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}State Class Reference}{127}{section.4.52}%
+\contentsline {subsection}{\numberline {4.52.1}Detailed Description}{128}{subsection.4.52.1}%
+\contentsline {subsection}{\numberline {4.52.2}Member Function Documentation}{128}{subsection.4.52.2}%
+\contentsline {subsubsection}{\numberline {4.52.2.1}applyCare()}{129}{subsubsection.4.52.2.1}%
+\contentsline {subsubsection}{\numberline {4.52.2.2}evaluate()}{129}{subsubsection.4.52.2.2}%
+\contentsline {subsubsection}{\numberline {4.52.2.3}getName()}{129}{subsubsection.4.52.2.3}%
+\contentsline {section}{\numberline {4.53}Seed\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}State Class Reference}{130}{section.4.53}%
+\contentsline {subsection}{\numberline {4.53.1}Detailed Description}{130}{subsection.4.53.1}%
+\contentsline {subsection}{\numberline {4.53.2}Member Function Documentation}{131}{subsection.4.53.2}%
+\contentsline {subsubsection}{\numberline {4.53.2.1}applyCare()}{131}{subsubsection.4.53.2.1}%
+\contentsline {subsubsection}{\numberline {4.53.2.2}evaluate()}{131}{subsubsection.4.53.2.2}%
+\contentsline {subsubsection}{\numberline {4.53.2.3}getName()}{131}{subsubsection.4.53.2.3}%
+\contentsline {section}{\numberline {4.54}Shade Class Reference}{132}{section.4.54}%
+\contentsline {section}{\numberline {4.55}Shade\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Strategy Class Reference}{133}{section.4.55}%
+\contentsline {subsection}{\numberline {4.55.1}Detailed Description}{134}{subsection.4.55.1}%
+\contentsline {subsection}{\numberline {4.55.2}Member Function Documentation}{134}{subsection.4.55.2}%
+\contentsline {subsubsection}{\numberline {4.55.2.1}applySunlight()}{134}{subsubsection.4.55.2.1}%
+\contentsline {subsubsection}{\numberline {4.55.2.2}getStrategyName()}{134}{subsubsection.4.55.2.2}%
+\contentsline {section}{\numberline {4.56}Special\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Arrangement Class Reference}{135}{section.4.56}%
+\contentsline {subsection}{\numberline {4.56.1}Detailed Description}{136}{subsection.4.56.1}%
+\contentsline {section}{\numberline {4.57}Staff Class Reference}{136}{section.4.57}%
+\contentsline {subsection}{\numberline {4.57.1}Detailed Description}{137}{subsection.4.57.1}%
+\contentsline {subsection}{\numberline {4.57.2}Constructor \& Destructor Documentation}{138}{subsection.4.57.2}%
+\contentsline {subsubsection}{\numberline {4.57.2.1}Staff()}{138}{subsubsection.4.57.2.1}%
+\contentsline {subsubsection}{\numberline {4.57.2.2}$\sim $Staff()}{138}{subsubsection.4.57.2.2}%
+\contentsline {subsection}{\numberline {4.57.3}Member Function Documentation}{138}{subsection.4.57.3}%
+\contentsline {subsubsection}{\numberline {4.57.3.1}getName()}{138}{subsubsection.4.57.3.1}%
+\contentsline {subsubsection}{\numberline {4.57.3.2}getNext()}{138}{subsubsection.4.57.3.2}%
+\contentsline {subsubsection}{\numberline {4.57.3.3}getStock()}{139}{subsubsection.4.57.3.3}%
+\contentsline {subsubsection}{\numberline {4.57.3.4}handleQuery()}{139}{subsubsection.4.57.3.4}%
+\contentsline {subsubsection}{\numberline {4.57.3.5}isHealthy()}{139}{subsubsection.4.57.3.5}%
+\contentsline {subsubsection}{\numberline {4.57.3.6}setNext()}{140}{subsubsection.4.57.3.6}%
+\contentsline {section}{\numberline {4.58}Staff\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Factory Class Reference}{140}{section.4.58}%
+\contentsline {subsection}{\numberline {4.58.1}Detailed Description}{141}{subsection.4.58.1}%
+\contentsline {subsection}{\numberline {4.58.2}Member Function Documentation}{141}{subsection.4.58.2}%
+\contentsline {subsubsection}{\numberline {4.58.2.1}createFloorStaff()}{141}{subsubsection.4.58.2.1}%
+\contentsline {subsubsection}{\numberline {4.58.2.2}createSalesStaff()}{142}{subsubsection.4.58.2.2}%
+\contentsline {section}{\numberline {4.59}Staff\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Observer Class Reference}{142}{section.4.59}%
+\contentsline {subsection}{\numberline {4.59.1}Detailed Description}{143}{subsection.4.59.1}%
+\contentsline {subsection}{\numberline {4.59.2}Constructor \& Destructor Documentation}{144}{subsection.4.59.2}%
+\contentsline {subsubsection}{\numberline {4.59.2.1}StaffObserver()}{144}{subsubsection.4.59.2.1}%
+\contentsline {section}{\numberline {4.60}Stock\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Command Class Reference}{144}{section.4.60}%
+\contentsline {subsection}{\numberline {4.60.1}Detailed Description}{145}{subsection.4.60.1}%
+\contentsline {subsection}{\numberline {4.60.2}Constructor \& Destructor Documentation}{145}{subsection.4.60.2}%
+\contentsline {subsubsection}{\numberline {4.60.2.1}$\sim $StockCommand()}{145}{subsubsection.4.60.2.1}%
+\contentsline {subsection}{\numberline {4.60.3}Member Function Documentation}{145}{subsection.4.60.3}%
+\contentsline {subsubsection}{\numberline {4.60.3.1}execute()}{145}{subsubsection.4.60.3.1}%
+\contentsline {section}{\numberline {4.61}Sunlight\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Strategy Class Reference}{146}{section.4.61}%
+\contentsline {subsection}{\numberline {4.61.1}Member Function Documentation}{147}{subsection.4.61.1}%
+\contentsline {subsubsection}{\numberline {4.61.1.1}applySunlight()}{147}{subsubsection.4.61.1.1}%
+\contentsline {subsubsection}{\numberline {4.61.1.2}getStrategyName()}{147}{subsubsection.4.61.1.2}%
+\contentsline {subsection}{\numberline {4.61.2}Member Data Documentation}{147}{subsection.4.61.2}%
+\contentsline {subsubsection}{\numberline {4.61.2.1}currentPlant}{147}{subsubsection.4.61.2.1}%
+\contentsline {section}{\numberline {4.62}Sunny Class Reference}{148}{section.4.62}%
+\contentsline {subsection}{\numberline {4.62.1}Detailed Description}{149}{subsection.4.62.1}%
+\contentsline {subsection}{\numberline {4.62.2}Member Function Documentation}{149}{subsection.4.62.2}%
+\contentsline {subsubsection}{\numberline {4.62.2.1}Fertilizing()}{149}{subsubsection.4.62.2.1}%
+\contentsline {subsubsection}{\numberline {4.62.2.2}Sunlight()}{149}{subsubsection.4.62.2.2}%
+\contentsline {subsubsection}{\numberline {4.62.2.3}Watering()}{149}{subsubsection.4.62.2.3}%
+\contentsline {section}{\numberline {4.63}Temperate Class Reference}{150}{section.4.63}%
+\contentsline {subsection}{\numberline {4.63.1}Detailed Description}{151}{subsection.4.63.1}%
+\contentsline {subsection}{\numberline {4.63.2}Member Function Documentation}{151}{subsection.4.63.2}%
+\contentsline {subsubsection}{\numberline {4.63.2.1}Fertilizing()}{151}{subsubsection.4.63.2.1}%
+\contentsline {subsubsection}{\numberline {4.63.2.2}Sunlight()}{151}{subsubsection.4.63.2.2}%
+\contentsline {subsubsection}{\numberline {4.63.2.3}Watering()}{152}{subsubsection.4.63.2.3}%
+\contentsline {section}{\numberline {4.64}Transaction Class Reference}{152}{section.4.64}%
+\contentsline {subsection}{\numberline {4.64.1}Detailed Description}{153}{subsection.4.64.1}%
+\contentsline {subsection}{\numberline {4.64.2}Constructor \& Destructor Documentation}{153}{subsection.4.64.2}%
+\contentsline {subsubsection}{\numberline {4.64.2.1}Transaction()}{153}{subsubsection.4.64.2.1}%
+\contentsline {subsection}{\numberline {4.64.3}Member Function Documentation}{153}{subsection.4.64.3}%
+\contentsline {subsubsection}{\numberline {4.64.3.1}addDecoration()}{153}{subsubsection.4.64.3.1}%
+\contentsline {subsubsection}{\numberline {4.64.3.2}clone()}{154}{subsubsection.4.64.3.2}%
+\contentsline {subsubsection}{\numberline {4.64.3.3}createSnapshot()}{154}{subsubsection.4.64.3.3}%
+\contentsline {subsubsection}{\numberline {4.64.3.4}getAmount()}{154}{subsubsection.4.64.3.4}%
+\contentsline {subsubsection}{\numberline {4.64.3.5}getDecorations()}{155}{subsubsection.4.64.3.5}%
+\contentsline {subsubsection}{\numberline {4.64.3.6}getPaymentMethod()}{155}{subsubsection.4.64.3.6}%
+\contentsline {subsubsection}{\numberline {4.64.3.7}getQuantity()}{155}{subsubsection.4.64.3.7}%
+\contentsline {subsubsection}{\numberline {4.64.3.8}getTransactionId()}{155}{subsubsection.4.64.3.8}%
+\contentsline {subsubsection}{\numberline {4.64.3.9}restoreSnapshot()}{155}{subsubsection.4.64.3.9}%
+\contentsline {subsubsection}{\numberline {4.64.3.10}setPaymentStrategy()}{156}{subsubsection.4.64.3.10}%
+\contentsline {subsubsection}{\numberline {4.64.3.11}setTransaction()}{156}{subsubsection.4.64.3.11}%
+\contentsline {section}{\numberline {4.65}Transaction\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}History Class Reference}{156}{section.4.65}%
+\contentsline {subsection}{\numberline {4.65.1}Detailed Description}{157}{subsection.4.65.1}%
+\contentsline {subsection}{\numberline {4.65.2}Member Function Documentation}{157}{subsection.4.65.2}%
+\contentsline {subsubsection}{\numberline {4.65.2.1}addSnapshot()}{157}{subsubsection.4.65.2.1}%
+\contentsline {subsubsection}{\numberline {4.65.2.2}getHistorySize()}{157}{subsubsection.4.65.2.2}%
+\contentsline {subsubsection}{\numberline {4.65.2.3}getSnapshot()}{157}{subsubsection.4.65.2.3}%
+\contentsline {section}{\numberline {4.66}Transaction\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Snapshot Class Reference}{158}{section.4.66}%
+\contentsline {subsection}{\numberline {4.66.1}Detailed Description}{158}{subsection.4.66.1}%
+\contentsline {subsection}{\numberline {4.66.2}Constructor \& Destructor Documentation}{158}{subsection.4.66.2}%
+\contentsline {subsubsection}{\numberline {4.66.2.1}TransactionSnapshot()}{158}{subsubsection.4.66.2.1}%
+\contentsline {subsection}{\numberline {4.66.3}Member Function Documentation}{159}{subsection.4.66.3}%
+\contentsline {subsubsection}{\numberline {4.66.3.1}getAmount()}{159}{subsubsection.4.66.3.1}%
+\contentsline {subsubsection}{\numberline {4.66.3.2}getDecorations()}{159}{subsubsection.4.66.3.2}%
+\contentsline {subsubsection}{\numberline {4.66.3.3}getOrderNum()}{159}{subsubsection.4.66.3.3}%
+\contentsline {subsubsection}{\numberline {4.66.3.4}getQuantity()}{160}{subsubsection.4.66.3.4}%
+\contentsline {section}{\numberline {4.67}Tree\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Factory Class Reference}{160}{section.4.67}%
+\contentsline {subsection}{\numberline {4.67.1}Detailed Description}{161}{subsection.4.67.1}%
+\contentsline {subsection}{\numberline {4.67.2}Member Function Documentation}{161}{subsection.4.67.2}%
+\contentsline {subsubsection}{\numberline {4.67.2.1}createPlant()}{161}{subsubsection.4.67.2.1}%
+\contentsline {section}{\numberline {4.68}Tropical Class Reference}{161}{section.4.68}%
+\contentsline {subsection}{\numberline {4.68.1}Detailed Description}{162}{subsection.4.68.1}%
+\contentsline {subsection}{\numberline {4.68.2}Member Function Documentation}{163}{subsection.4.68.2}%
+\contentsline {subsubsection}{\numberline {4.68.2.1}Fertilizing()}{163}{subsubsection.4.68.2.1}%
+\contentsline {subsubsection}{\numberline {4.68.2.2}Sunlight()}{163}{subsubsection.4.68.2.2}%
+\contentsline {subsubsection}{\numberline {4.68.2.3}Watering()}{163}{subsubsection.4.68.2.3}%
+\contentsline {section}{\numberline {4.69}Water\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Strategy Class Reference}{164}{section.4.69}%
+\contentsline {subsection}{\numberline {4.69.1}Detailed Description}{165}{subsection.4.69.1}%
+\contentsline {subsection}{\numberline {4.69.2}Member Function Documentation}{165}{subsection.4.69.2}%
+\contentsline {subsubsection}{\numberline {4.69.2.1}applyWater()}{165}{subsubsection.4.69.2.1}%
+\contentsline {subsubsection}{\numberline {4.69.2.2}getStrategyName()}{165}{subsubsection.4.69.2.2}%
+\contentsline {section}{\numberline {4.70}Withered\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}State Class Reference}{166}{section.4.70}%
+\contentsline {subsection}{\numberline {4.70.1}Detailed Description}{167}{subsection.4.70.1}%
+\contentsline {subsection}{\numberline {4.70.2}Member Function Documentation}{167}{subsection.4.70.2}%
+\contentsline {subsubsection}{\numberline {4.70.2.1}applyCare()}{167}{subsubsection.4.70.2.1}%
+\contentsline {subsubsection}{\numberline {4.70.2.2}clone()}{167}{subsubsection.4.70.2.2}%
+\contentsline {subsubsection}{\numberline {4.70.2.3}evaluate()}{167}{subsubsection.4.70.2.3}%
+\contentsline {subsubsection}{\numberline {4.70.2.4}getName()}{168}{subsubsection.4.70.2.4}%
+\contentsline {chapter}{\numberline {5}File Documentation}{169}{chapter.5}%
+\contentsline {section}{\numberline {5.1}Ask\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Query.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}cpp File Reference}{169}{section.5.1}%
+\contentsline {subsection}{\numberline {5.1.1}Detailed Description}{169}{subsection.5.1.1}%
+\contentsline {section}{\numberline {5.2}Ask\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Query.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h File Reference}{170}{section.5.2}%
+\contentsline {subsection}{\numberline {5.2.1}Detailed Description}{171}{subsection.5.2.1}%
+\contentsline {section}{\numberline {5.3}Builder.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}cpp File Reference}{171}{section.5.3}%
+\contentsline {subsection}{\numberline {5.3.1}Detailed Description}{171}{subsection.5.3.1}%
+\contentsline {section}{\numberline {5.4}Builder.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h File Reference}{172}{section.5.4}%
+\contentsline {subsection}{\numberline {5.4.1}Detailed Description}{173}{subsection.5.4.1}%
+\contentsline {section}{\numberline {5.5}Credit\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Card\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Payment\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Strategy.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h File Reference}{173}{section.5.5}%
+\contentsline {subsection}{\numberline {5.5.1}Detailed Description}{173}{subsection.5.5.1}%
+\contentsline {section}{\numberline {5.6}Customer.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h File Reference}{174}{section.5.6}%
+\contentsline {subsection}{\numberline {5.6.1}Detailed Description}{174}{subsection.5.6.1}%
+\contentsline {section}{\numberline {5.7}Decorative\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Pot.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h File Reference}{174}{section.5.7}%
+\contentsline {subsection}{\numberline {5.7.1}Detailed Description}{175}{subsection.5.7.1}%
+\contentsline {section}{\numberline {5.8}Distressed\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}State.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h File Reference}{175}{section.5.8}%
+\contentsline {subsection}{\numberline {5.8.1}Detailed Description}{176}{subsection.5.8.1}%
+\contentsline {section}{\numberline {5.9}EFTPayment\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Strategy.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h File Reference}{177}{section.5.9}%
+\contentsline {subsection}{\numberline {5.9.1}Detailed Description}{177}{subsection.5.9.1}%
+\contentsline {section}{\numberline {5.10}Employee\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Factory.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h File Reference}{177}{section.5.10}%
+\contentsline {subsection}{\numberline {5.10.1}Detailed Description}{178}{subsection.5.10.1}%
+\contentsline {section}{\numberline {5.11}EWallet\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Payment\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Strategy.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h File Reference}{178}{section.5.11}%
+\contentsline {subsection}{\numberline {5.11.1}Detailed Description}{179}{subsection.5.11.1}%
+\contentsline {section}{\numberline {5.12}Fertilizer\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Strategy.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h File Reference}{179}{section.5.12}%
+\contentsline {subsection}{\numberline {5.12.1}Detailed Description}{180}{subsection.5.12.1}%
+\contentsline {section}{\numberline {5.13}Floor\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Employee.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h File Reference}{181}{section.5.13}%
+\contentsline {subsection}{\numberline {5.13.1}Detailed Description}{181}{subsection.5.13.1}%
+\contentsline {section}{\numberline {5.14}Floor\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Manager.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h File Reference}{181}{section.5.14}%
+\contentsline {subsection}{\numberline {5.14.1}Detailed Description}{182}{subsection.5.14.1}%
+\contentsline {section}{\numberline {5.15}Floor\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Staff.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h File Reference}{182}{section.5.15}%
+\contentsline {subsection}{\numberline {5.15.1}Detailed Description}{183}{subsection.5.15.1}%
+\contentsline {section}{\numberline {5.16}Flower\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Factory.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h File Reference}{184}{section.5.16}%
+\contentsline {subsection}{\numberline {5.16.1}Detailed Description}{185}{subsection.5.16.1}%
+\contentsline {section}{\numberline {5.17}Full\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Sun\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Strategy.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h File Reference}{185}{section.5.17}%
+\contentsline {subsection}{\numberline {5.17.1}Detailed Description}{186}{subsection.5.17.1}%
+\contentsline {section}{\numberline {5.18}Gift\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Wrap.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h File Reference}{186}{section.5.18}%
+\contentsline {subsection}{\numberline {5.18.1}Detailed Description}{187}{subsection.5.18.1}%
+\contentsline {section}{\numberline {5.19}High\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Water\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Strategy.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h File Reference}{187}{section.5.19}%
+\contentsline {subsection}{\numberline {5.19.1}Detailed Description}{188}{subsection.5.19.1}%
+\contentsline {section}{\numberline {5.20}Inorganic\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Fertilizer.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h File Reference}{188}{section.5.20}%
+\contentsline {subsection}{\numberline {5.20.1}Detailed Description}{189}{subsection.5.20.1}%
+\contentsline {section}{\numberline {5.21}Inventory\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Observer.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h File Reference}{189}{section.5.21}%
+\contentsline {subsection}{\numberline {5.21.1}Detailed Description}{190}{subsection.5.21.1}%
+\contentsline {section}{\numberline {5.22}Inventory\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Proxy.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h File Reference}{190}{section.5.22}%
+\contentsline {subsection}{\numberline {5.22.1}Detailed Description}{191}{subsection.5.22.1}%
+\contentsline {section}{\numberline {5.23}Item\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Query\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Builder.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}cpp File Reference}{192}{section.5.23}%
+\contentsline {subsection}{\numberline {5.23.1}Detailed Description}{192}{subsection.5.23.1}%
+\contentsline {section}{\numberline {5.24}Item\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Query\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Builder.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h File Reference}{192}{section.5.24}%
+\contentsline {subsection}{\numberline {5.24.1}Detailed Description}{194}{subsection.5.24.1}%
+\contentsline {section}{\numberline {5.25}Life\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Cycle\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Observer.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h File Reference}{194}{section.5.25}%
+\contentsline {subsection}{\numberline {5.25.1}Detailed Description}{195}{subsection.5.25.1}%
+\contentsline {section}{\numberline {5.26}Low\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Water\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Strategy.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h File Reference}{195}{section.5.26}%
+\contentsline {subsection}{\numberline {5.26.1}Detailed Description}{196}{subsection.5.26.1}%
+\contentsline {section}{\numberline {5.27}Manager\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Factory.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h File Reference}{196}{section.5.27}%
+\contentsline {subsection}{\numberline {5.27.1}Detailed Description}{196}{subsection.5.27.1}%
+\contentsline {section}{\numberline {5.28}Mature\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}State.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h File Reference}{197}{section.5.28}%
+\contentsline {subsection}{\numberline {5.28.1}Detailed Description}{197}{subsection.5.28.1}%
+\contentsline {section}{\numberline {5.29}Medium\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Water\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Strategy.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h File Reference}{198}{section.5.29}%
+\contentsline {subsection}{\numberline {5.29.1}Detailed Description}{198}{subsection.5.29.1}%
+\contentsline {section}{\numberline {5.30}Misc\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Query\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Builder.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}cpp File Reference}{199}{section.5.30}%
+\contentsline {subsection}{\numberline {5.30.1}Detailed Description}{199}{subsection.5.30.1}%
+\contentsline {section}{\numberline {5.31}Misc\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Query\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Builder.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h File Reference}{199}{section.5.31}%
+\contentsline {subsection}{\numberline {5.31.1}Detailed Description}{201}{subsection.5.31.1}%
+\contentsline {section}{\numberline {5.32}Oak.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h File Reference}{201}{section.5.32}%
+\contentsline {subsection}{\numberline {5.32.1}Detailed Description}{202}{subsection.5.32.1}%
+\contentsline {section}{\numberline {5.33}Order.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h File Reference}{202}{section.5.33}%
+\contentsline {subsection}{\numberline {5.33.1}Detailed Description}{203}{subsection.5.33.1}%
+\contentsline {section}{\numberline {5.34}Organic\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Fertilizer.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h File Reference}{203}{section.5.34}%
+\contentsline {subsection}{\numberline {5.34.1}Detailed Description}{204}{subsection.5.34.1}%
+\contentsline {section}{\numberline {5.35}Partial\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Sun\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Strategy.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h File Reference}{204}{section.5.35}%
+\contentsline {subsection}{\numberline {5.35.1}Detailed Description}{205}{subsection.5.35.1}%
+\contentsline {section}{\numberline {5.36}Payment\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Strategy.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h File Reference}{206}{section.5.36}%
+\contentsline {subsection}{\numberline {5.36.1}Detailed Description}{206}{subsection.5.36.1}%
+\contentsline {section}{\numberline {5.37}Plant.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h File Reference}{207}{section.5.37}%
+\contentsline {subsection}{\numberline {5.37.1}Detailed Description}{207}{subsection.5.37.1}%
+\contentsline {section}{\numberline {5.38}Plant\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Care\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Routine.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h File Reference}{208}{section.5.38}%
+\contentsline {subsection}{\numberline {5.38.1}Detailed Description}{208}{subsection.5.38.1}%
+\contentsline {section}{\numberline {5.39}Plant\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Decorator.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h File Reference}{209}{section.5.39}%
+\contentsline {subsection}{\numberline {5.39.1}Detailed Description}{210}{subsection.5.39.1}%
+\contentsline {section}{\numberline {5.40}Plant\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Factory.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h File Reference}{210}{section.5.40}%
+\contentsline {subsection}{\numberline {5.40.1}Detailed Description}{211}{subsection.5.40.1}%
+\contentsline {section}{\numberline {5.41}Plant\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Inventory.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h File Reference}{211}{section.5.41}%
+\contentsline {subsection}{\numberline {5.41.1}Detailed Description}{212}{subsection.5.41.1}%
+\contentsline {section}{\numberline {5.42}Plant\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}State.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h File Reference}{213}{section.5.42}%
+\contentsline {subsection}{\numberline {5.42.1}Detailed Description}{213}{subsection.5.42.1}%
+\contentsline {section}{\numberline {5.43}Plant\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Stock.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h File Reference}{214}{section.5.43}%
+\contentsline {subsection}{\numberline {5.43.1}Detailed Description}{215}{subsection.5.43.1}%
+\contentsline {section}{\numberline {5.44}Query.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h File Reference}{215}{section.5.44}%
+\contentsline {subsection}{\numberline {5.44.1}Detailed Description}{216}{subsection.5.44.1}%
+\contentsline {section}{\numberline {5.45}Remove\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Stock.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h File Reference}{216}{section.5.45}%
+\contentsline {subsection}{\numberline {5.45.1}Detailed Description}{218}{subsection.5.45.1}%
+\contentsline {section}{\numberline {5.46}Rose.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h File Reference}{218}{section.5.46}%
+\contentsline {subsection}{\numberline {5.46.1}Detailed Description}{219}{subsection.5.46.1}%
+\contentsline {section}{\numberline {5.47}Sales\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Employee.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h File Reference}{219}{section.5.47}%
+\contentsline {subsection}{\numberline {5.47.1}Detailed Description}{220}{subsection.5.47.1}%
+\contentsline {section}{\numberline {5.48}Sales\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Floor\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Observer.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h File Reference}{220}{section.5.48}%
+\contentsline {subsection}{\numberline {5.48.1}Detailed Description}{221}{subsection.5.48.1}%
+\contentsline {section}{\numberline {5.49}Sales\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Manager.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h File Reference}{222}{section.5.49}%
+\contentsline {subsection}{\numberline {5.49.1}Detailed Description}{222}{subsection.5.49.1}%
+\contentsline {section}{\numberline {5.50}Sales\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Staff.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h File Reference}{223}{section.5.50}%
+\contentsline {subsection}{\numberline {5.50.1}Detailed Description}{224}{subsection.5.50.1}%
+\contentsline {section}{\numberline {5.51}Seedling\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}State.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h File Reference}{224}{section.5.51}%
+\contentsline {subsection}{\numberline {5.51.1}Detailed Description}{224}{subsection.5.51.1}%
+\contentsline {section}{\numberline {5.52}Seed\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}State.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h File Reference}{225}{section.5.52}%
+\contentsline {subsection}{\numberline {5.52.1}Detailed Description}{225}{subsection.5.52.1}%
+\contentsline {section}{\numberline {5.53}Shade.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h File Reference}{226}{section.5.53}%
+\contentsline {subsection}{\numberline {5.53.1}Detailed Description}{226}{subsection.5.53.1}%
+\contentsline {section}{\numberline {5.54}Shade\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Strategy.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h File Reference}{227}{section.5.54}%
+\contentsline {subsection}{\numberline {5.54.1}Detailed Description}{227}{subsection.5.54.1}%
+\contentsline {section}{\numberline {5.55}Special\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Arrangement.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h File Reference}{228}{section.5.55}%
+\contentsline {subsection}{\numberline {5.55.1}Detailed Description}{228}{subsection.5.55.1}%
+\contentsline {section}{\numberline {5.56}Staff.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h File Reference}{229}{section.5.56}%
+\contentsline {subsection}{\numberline {5.56.1}Detailed Description}{230}{subsection.5.56.1}%
+\contentsline {section}{\numberline {5.57}Staff\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Factory.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h File Reference}{230}{section.5.57}%
+\contentsline {subsection}{\numberline {5.57.1}Detailed Description}{231}{subsection.5.57.1}%
+\contentsline {section}{\numberline {5.58}Staff\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Observer.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h File Reference}{231}{section.5.58}%
+\contentsline {subsection}{\numberline {5.58.1}Detailed Description}{232}{subsection.5.58.1}%
+\contentsline {section}{\numberline {5.59}Stock\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Command.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h File Reference}{232}{section.5.59}%
+\contentsline {subsection}{\numberline {5.59.1}Detailed Description}{232}{subsection.5.59.1}%
+\contentsline {section}{\numberline {5.60}Sunlight\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Strategy.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h File Reference}{233}{section.5.60}%
+\contentsline {subsection}{\numberline {5.60.1}Detailed Description}{233}{subsection.5.60.1}%
+\contentsline {section}{\numberline {5.61}Sunny.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h File Reference}{234}{section.5.61}%
+\contentsline {subsection}{\numberline {5.61.1}Detailed Description}{234}{subsection.5.61.1}%
+\contentsline {section}{\numberline {5.62}Temperate.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h File Reference}{235}{section.5.62}%
+\contentsline {subsection}{\numberline {5.62.1}Detailed Description}{235}{subsection.5.62.1}%
+\contentsline {section}{\numberline {5.63}Transaction.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h File Reference}{236}{section.5.63}%
+\contentsline {subsection}{\numberline {5.63.1}Detailed Description}{237}{subsection.5.63.1}%
+\contentsline {section}{\numberline {5.64}Transaction\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}History.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h File Reference}{237}{section.5.64}%
+\contentsline {subsection}{\numberline {5.64.1}Detailed Description}{237}{subsection.5.64.1}%
+\contentsline {section}{\numberline {5.65}Transaction\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Snapshot.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h File Reference}{238}{section.5.65}%
+\contentsline {subsection}{\numberline {5.65.1}Detailed Description}{239}{subsection.5.65.1}%
+\contentsline {section}{\numberline {5.66}Tree\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Factory.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h File Reference}{239}{section.5.66}%
+\contentsline {subsection}{\numberline {5.66.1}Detailed Description}{240}{subsection.5.66.1}%
+\contentsline {section}{\numberline {5.67}Tropical.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h File Reference}{240}{section.5.67}%
+\contentsline {subsection}{\numberline {5.67.1}Detailed Description}{241}{subsection.5.67.1}%
+\contentsline {section}{\numberline {5.68}Withered\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}State.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h File Reference}{241}{section.5.68}%
+\contentsline {subsection}{\numberline {5.68.1}Detailed Description}{242}{subsection.5.68.1}%
+\contentsline {chapter}{Index}{243}{section*.376}%

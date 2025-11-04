@@ -1,0 +1,36 @@
+\hypertarget{InventoryProxy_8h}{}\doxysection{Inventory\+Proxy.\+h File Reference}
+\label{InventoryProxy_8h}\index{InventoryProxy.h@{InventoryProxy.h}}
+
+
+Proxy class controlling access to plant inventory operations.  
+
+
+{\ttfamily \#include \char`\"{}Plant\+Inventory.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Sales\+Floor\+Observer.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$stdexcept$>$}\newline
+{\ttfamily \#include $<$string$>$}\newline
+Include dependency graph for Inventory\+Proxy.\+h\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{InventoryProxy_8h__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classInventoryProxy}{Inventory\+Proxy}}
+\begin{DoxyCompactList}\small\item\em Acts as a proxy to manage plant inventory transactions. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Proxy class controlling access to plant inventory operations. 
+
+\mbox{\hyperlink{classInventoryProxy}{Inventory\+Proxy}} provides controlled access to \mbox{\hyperlink{classPlantInventory}{Plant\+Inventory}} functionality, acting as a protection proxy that can enforce business rules and access control. It coordinates with \mbox{\hyperlink{classSalesFloorObserver}{Sales\+Floor\+Observer}} to maintain consistency between inventory and sales floor displays.
+
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{classPlantInventory}{Plant\+Inventory}} 
+
+\mbox{\hyperlink{classSalesFloorObserver}{Sales\+Floor\+Observer}} 
+\end{DoxySeeAlso}

@@ -1,0 +1,109 @@
+\hypertarget{classInventoryProxy}{}\doxysection{Inventory\+Proxy Class Reference}
+\label{classInventoryProxy}\index{InventoryProxy@{InventoryProxy}}
+
+
+Acts as a proxy to manage plant inventory transactions.  
+
+
+
+
+{\ttfamily \#include $<$Inventory\+Proxy.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classInventoryProxy_a44d7323f58bd24a33c2e70e4a25811a0}{Inventory\+Proxy}} (\mbox{\hyperlink{classSalesFloorObserver}{Sales\+Floor\+Observer}} $\ast$observer)
+\begin{DoxyCompactList}\small\item\em Constructs an \mbox{\hyperlink{classInventoryProxy}{Inventory\+Proxy}} with sales floor observer. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classInventoryProxy_a3f385d05ce0060da263197bd0e0b7bae}{buy\+Plant}} (\mbox{\hyperlink{classPlant}{Plant}} $\ast$plant, int quantity)
+\begin{DoxyCompactList}\small\item\em Processes plant purchase transaction. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classInventoryProxy_a3b2f329ff57a0a54fe73403fb30e6d20}{add\+Stock}} (\mbox{\hyperlink{classPlant}{Plant}} $\ast$plant, int quantity)
+\begin{DoxyCompactList}\small\item\em Adds stock to inventory. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classInventoryProxy_a71a8d692efa10dcbadb588395613ef8e}{remove\+Stock}} (\mbox{\hyperlink{classPlant}{Plant}} $\ast$, int)
+\begin{DoxyCompactList}\small\item\em Removes stock from inventory. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classInventoryProxy_ac8276a428d9bc7d607d87d0a0855b68c}\label{classInventoryProxy_ac8276a428d9bc7d607d87d0a0855b68c}} 
+void \mbox{\hyperlink{classInventoryProxy_ac8276a428d9bc7d607d87d0a0855b68c}{display\+Available\+Plants}} () const
+\begin{DoxyCompactList}\small\item\em Displays currently available plants. Delegates to the sales floor observer for display. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Acts as a proxy to manage plant inventory transactions. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classInventoryProxy_a44d7323f58bd24a33c2e70e4a25811a0}\label{classInventoryProxy_a44d7323f58bd24a33c2e70e4a25811a0}} 
+\index{InventoryProxy@{InventoryProxy}!InventoryProxy@{InventoryProxy}}
+\index{InventoryProxy@{InventoryProxy}!InventoryProxy@{InventoryProxy}}
+\doxysubsubsection{\texorpdfstring{InventoryProxy()}{InventoryProxy()}}
+{\footnotesize\ttfamily Inventory\+Proxy\+::\+Inventory\+Proxy (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classSalesFloorObserver}{Sales\+Floor\+Observer}} $\ast$}]{observer }\end{DoxyParamCaption})}
+
+
+
+Constructs an \mbox{\hyperlink{classInventoryProxy}{Inventory\+Proxy}} with sales floor observer. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em observer} & Observer for sales floor updates. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classInventoryProxy_a3b2f329ff57a0a54fe73403fb30e6d20}\label{classInventoryProxy_a3b2f329ff57a0a54fe73403fb30e6d20}} 
+\index{InventoryProxy@{InventoryProxy}!addStock@{addStock}}
+\index{addStock@{addStock}!InventoryProxy@{InventoryProxy}}
+\doxysubsubsection{\texorpdfstring{addStock()}{addStock()}}
+{\footnotesize\ttfamily void Inventory\+Proxy\+::add\+Stock (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classPlant}{Plant}} $\ast$}]{plant,  }\item[{int}]{quantity }\end{DoxyParamCaption})}
+
+
+
+Adds stock to inventory. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em plant} & \mbox{\hyperlink{classPlant}{Plant}} type to add. \\
+\hline
+{\em quantity} & Number of plants to add. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classInventoryProxy_a3f385d05ce0060da263197bd0e0b7bae}\label{classInventoryProxy_a3f385d05ce0060da263197bd0e0b7bae}} 
+\index{InventoryProxy@{InventoryProxy}!buyPlant@{buyPlant}}
+\index{buyPlant@{buyPlant}!InventoryProxy@{InventoryProxy}}
+\doxysubsubsection{\texorpdfstring{buyPlant()}{buyPlant()}}
+{\footnotesize\ttfamily bool Inventory\+Proxy\+::buy\+Plant (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classPlant}{Plant}} $\ast$}]{plant,  }\item[{int}]{quantity }\end{DoxyParamCaption})}
+
+
+
+Processes plant purchase transaction. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em plant} & \mbox{\hyperlink{classPlant}{Plant}} to purchase. \\
+\hline
+{\em quantity} & Number of plants to purchase. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if purchase was successful, false otherwise. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classInventoryProxy_a71a8d692efa10dcbadb588395613ef8e}\label{classInventoryProxy_a71a8d692efa10dcbadb588395613ef8e}} 
+\index{InventoryProxy@{InventoryProxy}!removeStock@{removeStock}}
+\index{removeStock@{removeStock}!InventoryProxy@{InventoryProxy}}
+\doxysubsubsection{\texorpdfstring{removeStock()}{removeStock()}}
+{\footnotesize\ttfamily void Inventory\+Proxy\+::remove\+Stock (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classPlant}{Plant}} $\ast$}]{,  }\item[{int}]{ }\end{DoxyParamCaption})}
+
+
+
+Removes stock from inventory. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em plant} & \mbox{\hyperlink{classPlant}{Plant}} type to remove. \\
+\hline
+{\em quantity} & Number of plants to remove. \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{InventoryProxy_8h}{Inventory\+Proxy.\+h}}\item 
+Inventory\+Proxy.\+cpp\end{DoxyCompactItemize}

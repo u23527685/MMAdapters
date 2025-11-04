@@ -1,0 +1,4 @@
+<map id="Temperate" name="Temperate">
+<area shape="rect" id="node1" title="Implements plant care routine for temperate climate plants." alt="" coords="27,80,118,107"/>
+<area shape="rect" id="node2" href="$classPlantCareRoutine.html" title="Abstract base class defining a plant care routine interface." alt="" coords="5,5,140,32"/>
+</map>

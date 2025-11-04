@@ -1,0 +1,6 @@
+<map id="Rose" name="Rose">
+<area shape="rect" id="node1" title="Concrete implementation of the Plant class for roses." alt="" coords="5,95,60,121"/>
+<area shape="rect" id="node2" href="$classPlant.html" title="Abstract representation of a plant with care and lifecycle management." alt="" coords="164,5,219,32"/>
+<area shape="rect" id="node3" href="$classFertilizerStrategy.html" title="Abstract base for fertilizer behavior strategies." alt="" coords="111,95,245,121"/>
+<area shape="rect" id="node4" href="$classSunlightStrategy.html" title=" " alt="" coords="283,95,414,121"/>
+</map>

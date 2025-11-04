@@ -1,0 +1,71 @@
+\hypertarget{classPlantCareRoutine}{}\doxysection{Plant\+Care\+Routine Class Reference}
+\label{classPlantCareRoutine}\index{PlantCareRoutine@{PlantCareRoutine}}
+
+
+Abstract base class defining a plant care routine interface.  
+
+
+
+
+{\ttfamily \#include $<$Plant\+Care\+Routine.\+h$>$}
+
+
+
+Inheritance diagram for Plant\+Care\+Routine\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classPlantCareRoutine__inherit__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classPlantCareRoutine_ac546c8ef2165fbe6e2f4f1bc2737d117}\label{classPlantCareRoutine_ac546c8ef2165fbe6e2f4f1bc2737d117}} 
+virtual void \mbox{\hyperlink{classPlantCareRoutine_ac546c8ef2165fbe6e2f4f1bc2737d117}{Fertilizing}} (\mbox{\hyperlink{classPlant}{Plant}} $\ast$p)=0
+\begin{DoxyCompactList}\small\item\em Apply fertilization routine to a plant. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classPlantCareRoutine_a6bd5afa007b27b76ec8d16db80b804ba}\label{classPlantCareRoutine_a6bd5afa007b27b76ec8d16db80b804ba}} 
+virtual void \mbox{\hyperlink{classPlantCareRoutine_a6bd5afa007b27b76ec8d16db80b804ba}{Watering}} (\mbox{\hyperlink{classPlant}{Plant}} $\ast$p)=0
+\begin{DoxyCompactList}\small\item\em Apply watering routine to a plant. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classPlantCareRoutine_abf826a7dc95427eb394da5cb14312bed}\label{classPlantCareRoutine_abf826a7dc95427eb394da5cb14312bed}} 
+virtual void \mbox{\hyperlink{classPlantCareRoutine_abf826a7dc95427eb394da5cb14312bed}{Sunlight}} (\mbox{\hyperlink{classPlant}{Plant}} $\ast$p)=0
+\begin{DoxyCompactList}\small\item\em Apply sunlight exposure routine to a plant. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classPlantCareRoutine_a34a7035e098843c50c3291643f8ab685}\label{classPlantCareRoutine_a34a7035e098843c50c3291643f8ab685}} 
+virtual void \mbox{\hyperlink{classPlantCareRoutine_a34a7035e098843c50c3291643f8ab685}{print\+Care\+Routine}} ()=0
+\begin{DoxyCompactList}\small\item\em Print the details of the care routine. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classPlantCareRoutine}{Plant\+Care\+Routine}} $>$ \mbox{\hyperlink{classPlantCareRoutine_a5d08cc834f29e6da24cabd9e7caa7ef6}{Plant\+Care}} (\mbox{\hyperlink{classPlant}{Plant}} $\ast$p)
+\begin{DoxyCompactList}\small\item\em Factory method for creating care routines. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Abstract base class defining a plant care routine interface. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classPlantCareRoutine_a5d08cc834f29e6da24cabd9e7caa7ef6}\label{classPlantCareRoutine_a5d08cc834f29e6da24cabd9e7caa7ef6}} 
+\index{PlantCareRoutine@{PlantCareRoutine}!PlantCare@{PlantCare}}
+\index{PlantCare@{PlantCare}!PlantCareRoutine@{PlantCareRoutine}}
+\doxysubsubsection{\texorpdfstring{PlantCare()}{PlantCare()}}
+{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classPlantCareRoutine}{Plant\+Care\+Routine}} $>$ Plant\+Care\+Routine\+::\+Plant\+Care (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classPlant}{Plant}} $\ast$}]{p }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Factory method for creating care routines. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p} & Pointer to the plant needing care. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Unique pointer to a new \mbox{\hyperlink{classPlantCareRoutine}{Plant\+Care\+Routine}} instance. 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{PlantCareRoutine_8h}{Plant\+Care\+Routine.\+h}}\item 
+Plant\+Care\+Routine.\+cpp\end{DoxyCompactItemize}

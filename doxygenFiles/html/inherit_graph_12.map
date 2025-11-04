@@ -1,0 +1,7 @@
+<map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
+<area shape="rect" id="node1" href="$classPlantCareRoutine.html" title="Abstract base class defining a plant care routine interface." alt="" coords="5,81,140,108"/>
+<area shape="rect" id="node2" href="$classShade.html" title=" " alt="" coords="202,5,265,32"/>
+<area shape="rect" id="node3" href="$classSunny.html" title="Implements the care routine for sun&#45;loving plants." alt="" coords="202,56,265,83"/>
+<area shape="rect" id="node4" href="$classTemperate.html" title="Implements plant care routine for temperate climate plants." alt="" coords="188,107,279,133"/>
+<area shape="rect" id="node5" href="$classTropical.html" title="Represents the plant care routine for tropical plants." alt="" coords="197,157,269,184"/>
+</map>

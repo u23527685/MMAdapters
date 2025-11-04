@@ -1,0 +1,135 @@
+\hypertarget{classWitheredState}{}\doxysection{Withered\+State Class Reference}
+\label{classWitheredState}\index{WitheredState@{WitheredState}}
+
+
+Represents the final state of a plant\textquotesingle{}s life cycle, where it has withered and died. In this state, the plant is beyond recovery and will not respond to care.  
+
+
+
+
+{\ttfamily \#include $<$Withered\+State.\+h$>$}
+
+
+
+Inheritance diagram for Withered\+State\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=166pt]{classWitheredState__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Withered\+State\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=166pt]{classWitheredState__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classWitheredState_a52c39fbfc1ab14d4cfd43509a7ede493}{apply\+Care}} (\mbox{\hyperlink{classPlantLifeCycle}{Plant\+Life\+Cycle}} $\ast$context, \mbox{\hyperlink{classPlant}{Plant}} $\ast$plant, \mbox{\hyperlink{classPlantCareRoutine}{Plant\+Care\+Routine}} $\ast$routine) override
+\begin{DoxyCompactList}\small\item\em Attempts to apply care to a withered plant. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classWitheredState_a1d4d197179e42599d31e85f340a0603b}{evaluate}} (\mbox{\hyperlink{classPlantLifeCycle}{Plant\+Life\+Cycle}} $\ast$context, \mbox{\hyperlink{classPlant}{Plant}} $\ast$plant) override
+\begin{DoxyCompactList}\small\item\em Evaluates state transitions for a withered plant. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{classWitheredState_a1f023392369a7c0a086eb5cc8334488b}{get\+Name}} () const override
+\begin{DoxyCompactList}\small\item\em Retrieves the name of the current state. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classPlantState}{Plant\+State}} $\ast$ \mbox{\hyperlink{classWitheredState_ac335008b82bb2d5fe79f161f74285606}{clone}} () const override
+\begin{DoxyCompactList}\small\item\em Creates a clone of this state. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Represents the final state of a plant\textquotesingle{}s life cycle, where it has withered and died. In this state, the plant is beyond recovery and will not respond to care. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classWitheredState_a52c39fbfc1ab14d4cfd43509a7ede493}\label{classWitheredState_a52c39fbfc1ab14d4cfd43509a7ede493}} 
+\index{WitheredState@{WitheredState}!applyCare@{applyCare}}
+\index{applyCare@{applyCare}!WitheredState@{WitheredState}}
+\doxysubsubsection{\texorpdfstring{applyCare()}{applyCare()}}
+{\footnotesize\ttfamily void Withered\+State\+::apply\+Care (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classPlantLifeCycle}{Plant\+Life\+Cycle}} $\ast$}]{context,  }\item[{\mbox{\hyperlink{classPlant}{Plant}} $\ast$}]{plant,  }\item[{\mbox{\hyperlink{classPlantCareRoutine}{Plant\+Care\+Routine}} $\ast$}]{routine }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Attempts to apply care to a withered plant. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em context} & The plant life cycle context. \\
+\hline
+{\em plant} & The plant that is in the withered state. \\
+\hline
+{\em routine} & The care routine being attempted (has no effect). \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{classPlantState_a7b559b59a64faf46ccdd329b7bbe0da2}{Plant\+State}}.
+
+\mbox{\Hypertarget{classWitheredState_ac335008b82bb2d5fe79f161f74285606}\label{classWitheredState_ac335008b82bb2d5fe79f161f74285606}} 
+\index{WitheredState@{WitheredState}!clone@{clone}}
+\index{clone@{clone}!WitheredState@{WitheredState}}
+\doxysubsubsection{\texorpdfstring{clone()}{clone()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classPlantState}{Plant\+State}} $\ast$ Withered\+State\+::clone (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Creates a clone of this state. 
+
+\begin{DoxyReturn}{Returns}
+A pointer to a new \mbox{\hyperlink{classWitheredState}{Withered\+State}} object. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classPlantState}{Plant\+State}}.
+
+\mbox{\Hypertarget{classWitheredState_a1d4d197179e42599d31e85f340a0603b}\label{classWitheredState_a1d4d197179e42599d31e85f340a0603b}} 
+\index{WitheredState@{WitheredState}!evaluate@{evaluate}}
+\index{evaluate@{evaluate}!WitheredState@{WitheredState}}
+\doxysubsubsection{\texorpdfstring{evaluate()}{evaluate()}}
+{\footnotesize\ttfamily bool Withered\+State\+::evaluate (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classPlantLifeCycle}{Plant\+Life\+Cycle}} $\ast$}]{context,  }\item[{\mbox{\hyperlink{classPlant}{Plant}} $\ast$}]{plant }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Evaluates state transitions for a withered plant. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em context} & The life cycle managing the plant’s state. \\
+\hline
+{\em plant} & The plant being evaluated. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Always returns false, as withered plants cannot recover. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classPlantState_ae67b11c881de6e8036a8a0467d5358f2}{Plant\+State}}.
+
+\mbox{\Hypertarget{classWitheredState_a1f023392369a7c0a086eb5cc8334488b}\label{classWitheredState_a1f023392369a7c0a086eb5cc8334488b}} 
+\index{WitheredState@{WitheredState}!getName@{getName}}
+\index{getName@{getName}!WitheredState@{WitheredState}}
+\doxysubsubsection{\texorpdfstring{getName()}{getName()}}
+{\footnotesize\ttfamily std\+::string Withered\+State\+::get\+Name (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Retrieves the name of the current state. 
+
+\begin{DoxyReturn}{Returns}
+A string representing \char`\"{}\+Withered State\char`\"{}. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classPlantState_a73210ce999094374a7a38e8afde9b937}{Plant\+State}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{WitheredState_8h}{Withered\+State.\+h}}\item 
+Withered\+State.\+cpp\end{DoxyCompactItemize}

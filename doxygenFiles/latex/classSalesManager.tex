@@ -1,0 +1,121 @@
+\hypertarget{classSalesManager}{}\doxysection{Sales\+Manager Class Reference}
+\label{classSalesManager}\index{SalesManager@{SalesManager}}
+
+
+Represents a manager in the sales department.  
+
+
+
+
+{\ttfamily \#include $<$Sales\+Manager.\+h$>$}
+
+
+
+Inheritance diagram for Sales\+Manager\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=186pt]{classSalesManager__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Sales\+Manager\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=186pt]{classSalesManager__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classSalesManager_a8521d46cd31da5b117033016adc98ad4}{Sales\+Manager}} (std\+::string name)
+\begin{DoxyCompactList}\small\item\em Construct a sales manager with given name. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classSalesManager_a9964413ddbf6cc33d0a3ca4273d606e4}\label{classSalesManager_a9964413ddbf6cc33d0a3ca4273d606e4}} 
+virtual \mbox{\hyperlink{classSalesManager_a9964413ddbf6cc33d0a3ca4273d606e4}{$\sim$\+Sales\+Manager}} ()
+\begin{DoxyCompactList}\small\item\em Virtual destructor. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classSalesManager_aaadc1f84a352febc6a0aa7b724798e05}{staff\+Can\+Handle}} (std\+::string type) override
+\begin{DoxyCompactList}\small\item\em Check if this staff member can handle a query type. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classSalesManager_afc7877309cbe98ec9e0a051cdf237257}{reply}} (\mbox{\hyperlink{classQuery}{Query}} $\ast$query) override
+\begin{DoxyCompactList}\small\item\em Generate a reply for a query. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Represents a manager in the sales department. 
+
+Handles escalated sales queries and has additional authority for special deals and events.
+
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{classSalesStaff}{Sales\+Staff}} 
+\end{DoxySeeAlso}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classSalesManager_a8521d46cd31da5b117033016adc98ad4}\label{classSalesManager_a8521d46cd31da5b117033016adc98ad4}} 
+\index{SalesManager@{SalesManager}!SalesManager@{SalesManager}}
+\index{SalesManager@{SalesManager}!SalesManager@{SalesManager}}
+\doxysubsubsection{\texorpdfstring{SalesManager()}{SalesManager()}}
+{\footnotesize\ttfamily Sales\+Manager\+::\+Sales\+Manager (\begin{DoxyParamCaption}\item[{std\+::string}]{name }\end{DoxyParamCaption})}
+
+
+
+Construct a sales manager with given name. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & The manager\textquotesingle{}s name \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classSalesManager_afc7877309cbe98ec9e0a051cdf237257}\label{classSalesManager_afc7877309cbe98ec9e0a051cdf237257}} 
+\index{SalesManager@{SalesManager}!reply@{reply}}
+\index{reply@{reply}!SalesManager@{SalesManager}}
+\doxysubsubsection{\texorpdfstring{reply()}{reply()}}
+{\footnotesize\ttfamily void Sales\+Manager\+::reply (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classQuery}{Query}} $\ast$}]{query }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Generate a reply for a query. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em query} & The query to reply to (non-\/owning pointer) \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{classSalesStaff_a92cd5c2bc513506e76a212d27beb38b7}{Sales\+Staff}}.
+
+\mbox{\Hypertarget{classSalesManager_aaadc1f84a352febc6a0aa7b724798e05}\label{classSalesManager_aaadc1f84a352febc6a0aa7b724798e05}} 
+\index{SalesManager@{SalesManager}!staffCanHandle@{staffCanHandle}}
+\index{staffCanHandle@{staffCanHandle}!SalesManager@{SalesManager}}
+\doxysubsubsection{\texorpdfstring{staffCanHandle()}{staffCanHandle()}}
+{\footnotesize\ttfamily bool Sales\+Manager\+::staff\+Can\+Handle (\begin{DoxyParamCaption}\item[{std\+::string}]{type }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Check if this staff member can handle a query type. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em type} & The query type to check \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if the staff member can handle it, false otherwise 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classSalesStaff_ab03b86dc18015b583c549745e91dced2}{Sales\+Staff}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{SalesManager_8h}{Sales\+Manager.\+h}}\item 
+Sales\+Manager.\+cpp\end{DoxyCompactItemize}

@@ -1,0 +1,5 @@
+<map id="RemoveStock.h" name="RemoveStock.h">
+<area shape="rect" id="node1" title="Defines the RemoveStock command for decreasing inventory." alt="" coords="26,5,150,32"/>
+<area shape="rect" id="node2" href="$GreenhouseUnitTest_8h_source.html" title=" " alt="" coords="5,155,171,181"/>
+<area shape="rect" id="node3" href="$PlantStock_8h.html" title="Invoker for executing stock&#45;related commands." alt="" coords="82,80,185,107"/>
+</map>

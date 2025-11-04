@@ -1,0 +1,15 @@
+<map id="Staff.h" name="Staff.h">
+<area shape="rect" id="node1" title="Abstract base class for staff members and lifecycle observers." alt="" coords="318,5,382,32"/>
+<area shape="rect" id="node2" href="$Customer_8h.html" title="Represents a Customer who can place orders and make staff queries." alt="" coords="181,80,277,107"/>
+<area shape="rect" id="node3" href="$FloorStaff_8h.html" title="Abstract base class for floor&#45;level staff members." alt="" coords="301,80,399,107"/>
+<area shape="rect" id="node11" href="$SalesStaff_8h.html" title="Abstract base class for staff in the sales department." alt="" coords="514,80,613,107"/>
+<area shape="rect" id="node4" href="$AskQuery_8h.html" title="Director for creating different types of Query objects using builders." alt="" coords="13,155,108,181"/>
+<area shape="rect" id="node6" href="$FloorEmployee_8h.html" title="Concrete class representing a floor employee." alt="" coords="132,155,264,181"/>
+<area shape="rect" id="node7" href="$FloorManager_8h.html" title="Class representing the manager of floor operations." alt="" coords="289,155,411,181"/>
+<area shape="rect" id="node8" href="$StaffFactory_8h.html" title="Abstract factory for creating staff members." alt="" coords="435,155,545,181"/>
+<area shape="rect" id="node5" href="$AskQuery_8cpp.html" title="Implementation of AskQuery facade methods for Query creation." alt="" coords="5,229,116,256"/>
+<area shape="rect" id="node9" href="$EmployeeFactory_8h.html" title="Concrete factory for creating regular employees." alt="" coords="335,229,479,256"/>
+<area shape="rect" id="node10" href="$ManagerFactory_8h.html" title="Defines the factory for creating manager&#45;level staff." alt="" coords="503,229,639,256"/>
+<area shape="rect" id="node12" href="$SalesEmployee_8h.html" title="Defines a regular employee in the sales department." alt="" coords="569,155,704,181"/>
+<area shape="rect" id="node13" href="$SalesManager_8h.html" title="Defines the SalesManager class for the sales department." alt="" coords="729,155,854,181"/>
+</map>

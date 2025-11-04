@@ -1,0 +1,10 @@
+<map id="FloorStaff.h" name="FloorStaff.h">
+<area shape="rect" id="node1" title="Abstract base class for floor&#45;level staff members." alt="" coords="225,5,323,32"/>
+<area shape="rect" id="node2" href="$AskQuery_8h.html" title="Director for creating different types of Query objects using builders." alt="" coords="13,80,108,107"/>
+<area shape="rect" id="node4" href="$FloorEmployee_8h.html" title="Concrete class representing a floor employee." alt="" coords="132,80,264,107"/>
+<area shape="rect" id="node5" href="$FloorManager_8h.html" title="Class representing the manager of floor operations." alt="" coords="289,80,411,107"/>
+<area shape="rect" id="node6" href="$StaffFactory_8h.html" title="Abstract factory for creating staff members." alt="" coords="435,80,545,107"/>
+<area shape="rect" id="node3" href="$AskQuery_8cpp.html" title="Implementation of AskQuery facade methods for Query creation." alt="" coords="5,155,116,181"/>
+<area shape="rect" id="node7" href="$EmployeeFactory_8h.html" title="Concrete factory for creating regular employees." alt="" coords="335,155,479,181"/>
+<area shape="rect" id="node8" href="$ManagerFactory_8h.html" title="Defines the factory for creating manager&#45;level staff." alt="" coords="503,155,639,181"/>
+</map>

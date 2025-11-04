@@ -1,0 +1,92 @@
+\hypertarget{classPlantStock}{}\doxysection{Plant\+Stock Class Reference}
+\label{classPlantStock}\index{PlantStock@{PlantStock}}
+
+
+Acts as the Invoker in the Command pattern.  
+
+
+
+
+{\ttfamily \#include $<$Plant\+Stock.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classPlantStock_ac0d6648b8c084bd753dbedca748d4eff}{Plant\+Stock}} (\mbox{\hyperlink{classPlantInventory}{Plant\+Inventory}} $\ast$inventory)
+\begin{DoxyCompactList}\small\item\em Constructs a \mbox{\hyperlink{classPlantStock}{Plant\+Stock}} invoker. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classPlantStock_af6c87f67fbcbe098cfd3f57a856dc82f}{add\+Stock}} (\mbox{\hyperlink{classPlant}{Plant}} $\ast$plant, int quantity)
+\begin{DoxyCompactList}\small\item\em Adds stock to inventory via command. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classPlantStock_ab2c4b9a8d4c0ecc51df249f3b8cd96f1}{remove\+Stock}} (\mbox{\hyperlink{classPlant}{Plant}} $\ast$plant, int quantity)
+\begin{DoxyCompactList}\small\item\em Removes stock from inventory via command. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Acts as the Invoker in the Command pattern. 
+
+This class creates and executes stock commands for adding and removing plants from inventory. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classPlantStock_ac0d6648b8c084bd753dbedca748d4eff}\label{classPlantStock_ac0d6648b8c084bd753dbedca748d4eff}} 
+\index{PlantStock@{PlantStock}!PlantStock@{PlantStock}}
+\index{PlantStock@{PlantStock}!PlantStock@{PlantStock}}
+\doxysubsubsection{\texorpdfstring{PlantStock()}{PlantStock()}}
+{\footnotesize\ttfamily Plant\+Stock\+::\+Plant\+Stock (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classPlantInventory}{Plant\+Inventory}} $\ast$}]{inventory }\end{DoxyParamCaption})}
+
+
+
+Constructs a \mbox{\hyperlink{classPlantStock}{Plant\+Stock}} invoker. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em inventory} & Pointer to the inventory to manage \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classPlantStock_af6c87f67fbcbe098cfd3f57a856dc82f}\label{classPlantStock_af6c87f67fbcbe098cfd3f57a856dc82f}} 
+\index{PlantStock@{PlantStock}!addStock@{addStock}}
+\index{addStock@{addStock}!PlantStock@{PlantStock}}
+\doxysubsubsection{\texorpdfstring{addStock()}{addStock()}}
+{\footnotesize\ttfamily bool Plant\+Stock\+::add\+Stock (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classPlant}{Plant}} $\ast$}]{plant,  }\item[{int}]{quantity }\end{DoxyParamCaption})}
+
+
+
+Adds stock to inventory via command. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em plant} & \mbox{\hyperlink{classPlant}{Plant}} to add \\
+\hline
+{\em quantity} & Quantity to add \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if successful 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classPlantStock_ab2c4b9a8d4c0ecc51df249f3b8cd96f1}\label{classPlantStock_ab2c4b9a8d4c0ecc51df249f3b8cd96f1}} 
+\index{PlantStock@{PlantStock}!removeStock@{removeStock}}
+\index{removeStock@{removeStock}!PlantStock@{PlantStock}}
+\doxysubsubsection{\texorpdfstring{removeStock()}{removeStock()}}
+{\footnotesize\ttfamily bool Plant\+Stock\+::remove\+Stock (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classPlant}{Plant}} $\ast$}]{plant,  }\item[{int}]{quantity }\end{DoxyParamCaption})}
+
+
+
+Removes stock from inventory via command. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em plant} & \mbox{\hyperlink{classPlant}{Plant}} to remove \\
+\hline
+{\em quantity} & Quantity to remove \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if successful 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{PlantStock_8h}{Plant\+Stock.\+h}}\item 
+Plant\+Stock.\+cpp\end{DoxyCompactItemize}

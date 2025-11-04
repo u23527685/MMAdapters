@@ -1,0 +1,74 @@
+\hypertarget{classFlowerFactory}{}\doxysection{Flower\+Factory Class Reference}
+\label{classFlowerFactory}\index{FlowerFactory@{FlowerFactory}}
+
+
+Concrete factory for creating flower-\/type Plants.  
+
+
+
+
+{\ttfamily \#include $<$Flower\+Factory.\+h$>$}
+
+
+
+Inheritance diagram for Flower\+Factory\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=165pt]{classFlowerFactory__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Flower\+Factory\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=165pt]{classFlowerFactory__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classPlant}{Plant}} $\ast$ \mbox{\hyperlink{classFlowerFactory_a817af18799425fc6d604596c837672b0}{create\+Plant}} (std\+::string plant\+Type, double price) override
+\begin{DoxyCompactList}\small\item\em Create a flower plant of the specified type. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Concrete factory for creating flower-\/type Plants. 
+
+Generates \mbox{\hyperlink{classPlant}{Plant}} instances based on flower types requested by clients. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classFlowerFactory_a817af18799425fc6d604596c837672b0}\label{classFlowerFactory_a817af18799425fc6d604596c837672b0}} 
+\index{FlowerFactory@{FlowerFactory}!createPlant@{createPlant}}
+\index{createPlant@{createPlant}!FlowerFactory@{FlowerFactory}}
+\doxysubsubsection{\texorpdfstring{createPlant()}{createPlant()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classPlant}{Plant}} $\ast$ Flower\+Factory\+::create\+Plant (\begin{DoxyParamCaption}\item[{std\+::string}]{plant\+Type = {\ttfamily \char`\"{}Rose\char`\"{}},  }\item[{double}]{price = {\ttfamily 100} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Create a flower plant of the specified type. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em plant\+Type} & The type of flower to create (e.\+g., \char`\"{}\+Rose\char`\"{}). \\
+\hline
+{\em price} & The initial price of the flower. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Pointer to a newly created \mbox{\hyperlink{classPlant}{Plant}} instance. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classPlantFactory_abcdff8c5cf47bd6846e2c47589d1e0e9}{Plant\+Factory}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{FlowerFactory_8h}{Flower\+Factory.\+h}}\item 
+Flower\+Factory.\+cpp\end{DoxyCompactItemize}

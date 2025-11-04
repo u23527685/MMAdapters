@@ -1,0 +1,6 @@
+<map id="PlantDecorator" name="PlantDecorator">
+<area shape="rect" id="node1" title="Abstract decorator for dynamically extending Plant behavior." alt="" coords="5,95,124,121"/>
+<area shape="rect" id="node2" href="$classPlant.html" title="Abstract representation of a plant with care and lifecycle management." alt="" coords="184,5,239,32"/>
+<area shape="rect" id="node3" href="$classFertilizerStrategy.html" title="Abstract base for fertilizer behavior strategies." alt="" coords="185,95,320,121"/>
+<area shape="rect" id="node4" href="$classSunlightStrategy.html" title=" " alt="" coords="365,95,495,121"/>
+</map>

@@ -1,0 +1,5 @@
+<map id="SalesFloorObserver" name="SalesFloorObserver">
+<area shape="rect" id="node1" title="Observes the PlantInventory and updates the sales floor display." alt="" coords="5,171,155,197"/>
+<area shape="rect" id="node2" href="$classInventoryObserver.html" title="Abstract base class for observers of inventory changes." alt="" coords="9,95,151,121"/>
+<area shape="rect" id="node3" href="$classPlantInventory.html" title="Singleton class managing plant inventory and observers." alt="" coords="21,5,139,32"/>
+</map>

@@ -1,0 +1,6 @@
+<map id="InorganicFertilizer" name="InorganicFertilizer">
+<area shape="rect" id="node1" title="Strategy for applying inorganic fertilizers to a plant." alt="" coords="5,95,144,121"/>
+<area shape="rect" id="node2" href="$classFertilizerStrategy.html" title="Abstract base for fertilizer behavior strategies." alt="" coords="51,5,186,32"/>
+<area shape="rect" id="node3" href="$classPlant.html" title="Abstract representation of a plant with care and lifecycle management." alt="" coords="202,95,257,121"/>
+<area shape="rect" id="node4" href="$classSunlightStrategy.html" title=" " alt="" coords="164,184,295,211"/>
+</map>

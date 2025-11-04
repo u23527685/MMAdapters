@@ -1,0 +1,8 @@
+<map id="Order.h" name="Order.h">
+<area shape="rect" id="node1" title="Represents a customer&#39;s order containing multiple transactions." alt="" coords="183,5,253,32"/>
+<area shape="rect" id="node2" title=" " alt="" coords="305,229,363,256"/>
+<area shape="rect" id="node3" title=" " alt="" coords="5,229,68,256"/>
+<area shape="rect" id="node4" href="$Transaction_8h.html" title="Represents a customer transaction and payment." alt="" coords="164,80,272,107"/>
+<area shape="rect" id="node5" href="$TransactionSnapshot_8h.html" title="Defines the TransactionSnapshot class for storing details of a single order transaction." alt="" coords="74,155,242,181"/>
+<area shape="rect" id="node6" href="$PaymentStrategy_8h.html" title="Abstract interface for various payment strategies." alt="" coords="317,155,461,181"/>
+</map>

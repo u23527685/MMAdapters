@@ -1,0 +1,13 @@
+<map id="Plant.h" name="Plant.h">
+<area shape="rect" id="node1" title="Abstract base class representing a plant in the nursery system." alt="" coords="303,5,369,32"/>
+<area shape="rect" id="node2" href="$PlantState_8h.html" title="Defines the abstract interface for plant life cycle states." alt="" coords="285,80,387,107"/>
+<area shape="rect" id="node4" title=" " alt="" coords="5,229,64,256"/>
+<area shape="rect" id="node6" title=" " alt="" coords="192,229,269,256"/>
+<area shape="rect" id="node8" title=" " alt="" coords="470,229,533,256"/>
+<area shape="rect" id="node11" title=" " alt="" coords="513,80,573,107"/>
+<area shape="rect" id="node3" href="$PlantCareRoutine_8h.html" title="Defines the abstract interface for plant care routines." alt="" coords="64,155,211,181"/>
+<area shape="rect" id="node7" href="$PLantLifeCycle_8h_source.html" title=" " alt="" coords="285,155,416,181"/>
+<area shape="rect" id="node5" title=" " alt="" coords="88,229,168,256"/>
+<area shape="rect" id="node9" href="$LifeCycleObserver_8h.html" title="Abstract base class for observers monitoring plant life cycle changes." alt="" coords="293,229,445,256"/>
+<area shape="rect" id="node10" title=" " alt="" coords="306,304,433,331"/>
+</map>

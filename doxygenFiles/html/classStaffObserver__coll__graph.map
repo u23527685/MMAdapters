@@ -1,0 +1,5 @@
+<map id="StaffObserver" name="StaffObserver">
+<area shape="rect" id="node1" title="Concrete observer that tracks inventory for staff." alt="" coords="21,171,132,197"/>
+<area shape="rect" id="node2" href="$classInventoryObserver.html" title="Abstract base class for observers of inventory changes." alt="" coords="5,95,148,121"/>
+<area shape="rect" id="node3" href="$classPlantInventory.html" title="Singleton class managing plant inventory and observers." alt="" coords="18,5,135,32"/>
+</map>

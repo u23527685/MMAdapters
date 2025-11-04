@@ -1,0 +1,74 @@
+\hypertarget{classInventoryObserver}{}\doxysection{Inventory\+Observer Class Reference}
+\label{classInventoryObserver}\index{InventoryObserver@{InventoryObserver}}
+
+
+Abstract base class for observers of inventory changes.  
+
+
+
+
+{\ttfamily \#include $<$Inventory\+Observer.\+h$>$}
+
+
+
+Inheritance diagram for Inventory\+Observer\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=294pt]{classInventoryObserver__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Inventory\+Observer\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=187pt]{classInventoryObserver__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classInventoryObserver_aed220ec27f1e48e185117629d942eb24}{Inventory\+Observer}} (\mbox{\hyperlink{classPlantInventory}{Plant\+Inventory}} $\ast$\mbox{\hyperlink{classInventoryObserver_af5193213099e42f67ee3eee74604f1d7}{inventory}})
+\begin{DoxyCompactList}\small\item\em Constructs an observer and attaches to inventory. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classInventoryObserver_af4a7cc50df4bf18df9f2d611506fb835}\label{classInventoryObserver_af4a7cc50df4bf18df9f2d611506fb835}} 
+virtual void \mbox{\hyperlink{classInventoryObserver_af4a7cc50df4bf18df9f2d611506fb835}{update}} ()=0
+\begin{DoxyCompactList}\small\item\em Pure virtual method called when inventory changes. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classInventoryObserver_af5193213099e42f67ee3eee74604f1d7}\label{classInventoryObserver_af5193213099e42f67ee3eee74604f1d7}} 
+\mbox{\hyperlink{classPlantInventory}{Plant\+Inventory}} $\ast$ \mbox{\hyperlink{classInventoryObserver_af5193213099e42f67ee3eee74604f1d7}{inventory}}
+\begin{DoxyCompactList}\small\item\em Pointer to the observed plant inventory. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Abstract base class for observers of inventory changes. 
+
+This class implements the Observer, allowing objects to be notified when the plant inventory changes. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classInventoryObserver_aed220ec27f1e48e185117629d942eb24}\label{classInventoryObserver_aed220ec27f1e48e185117629d942eb24}} 
+\index{InventoryObserver@{InventoryObserver}!InventoryObserver@{InventoryObserver}}
+\index{InventoryObserver@{InventoryObserver}!InventoryObserver@{InventoryObserver}}
+\doxysubsubsection{\texorpdfstring{InventoryObserver()}{InventoryObserver()}}
+{\footnotesize\ttfamily Inventory\+Observer\+::\+Inventory\+Observer (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classPlantInventory}{Plant\+Inventory}} $\ast$}]{inventory }\end{DoxyParamCaption})}
+
+
+
+Constructs an observer and attaches to inventory. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em inventory} & Inventory to observe \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{InventoryObserver_8h}{Inventory\+Observer.\+h}}\item 
+Inventory\+Observer.\+cpp\end{DoxyCompactItemize}

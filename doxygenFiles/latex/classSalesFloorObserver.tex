@@ -1,0 +1,194 @@
+\hypertarget{classSalesFloorObserver}{}\doxysection{Sales\+Floor\+Observer Class Reference}
+\label{classSalesFloorObserver}\index{SalesFloorObserver@{SalesFloorObserver}}
+
+
+Observes the \mbox{\hyperlink{classPlantInventory}{Plant\+Inventory}} and updates the sales floor display.  
+
+
+
+
+{\ttfamily \#include $<$Sales\+Floor\+Observer.\+h$>$}
+
+
+
+Inheritance diagram for Sales\+Floor\+Observer\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=192pt]{classSalesFloorObserver__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Sales\+Floor\+Observer\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=192pt]{classSalesFloorObserver__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classSalesFloorObserver_a15f16d10cce2092f70bf3f650d9fb1c9}{Sales\+Floor\+Observer}} (\mbox{\hyperlink{classPlantInventory}{Plant\+Inventory}} $\ast$\mbox{\hyperlink{classInventoryObserver_af5193213099e42f67ee3eee74604f1d7}{inventory}})
+\begin{DoxyCompactList}\small\item\em Constructs a sales floor observer. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classSalesFloorObserver_a79fb64065cd2b40e4b925dbea7e77586}\label{classSalesFloorObserver_a79fb64065cd2b40e4b925dbea7e77586}} 
+void \mbox{\hyperlink{classSalesFloorObserver_a79fb64065cd2b40e4b925dbea7e77586}{update}} () override
+\begin{DoxyCompactList}\small\item\em Updates sales floor when inventory changes. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classSalesFloorObserver_a753fb71256a7d186d4c4a9cb73ce9880}\label{classSalesFloorObserver_a753fb71256a7d186d4c4a9cb73ce9880}} 
+void \mbox{\hyperlink{classSalesFloorObserver_a753fb71256a7d186d4c4a9cb73ce9880}{display\+Available\+Plants}} () const
+\begin{DoxyCompactList}\small\item\em Displays all available plants on sales floor. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classSalesFloorObserver_a178cc1edd12db37bd44c4ec3ebf26f10}{is\+Plant\+Available}} (\mbox{\hyperlink{classPlant}{Plant}} $\ast$plant) const
+\begin{DoxyCompactList}\small\item\em Checks if a plant is available. \end{DoxyCompactList}\item 
+const std\+::vector$<$ std\+::pair$<$ \mbox{\hyperlink{classPlant}{Plant}} $\ast$, int $>$ $>$ \& \mbox{\hyperlink{classSalesFloorObserver_ab0882e01caeb332f9616c8921b4a1b39}{get\+Available\+Items}} () const
+\begin{DoxyCompactList}\small\item\em Gets available items on sales floor. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classSalesFloorObserver_aeb4b35a1b7637e11278d9cd4b1aa79b9}{get\+Plant\+Quantity}} (\mbox{\hyperlink{classPlant}{Plant}} $\ast$plant) const
+\begin{DoxyCompactList}\small\item\em Gets quantity of a specific plant. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classSalesFloorObserver_aad0044b5da03bf721aeceef551156ac4}{attach\+Staff}} (\mbox{\hyperlink{classStaff}{Staff}} $\ast$staff)
+\begin{DoxyCompactList}\small\item\em Attaches a staff member for notifications. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classSalesFloorObserver_a0edb1ea239f7c904750f6c5dd52b1076}{detach\+Staff}} (\mbox{\hyperlink{classStaff}{Staff}} $\ast$staff)
+\begin{DoxyCompactList}\small\item\em Detaches a staff member from notifications. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classSalesFloorObserver_a6e128aa16a14c7f8572f03884a80b252}{notify\+Staff}} (const std\+::string \&message)
+\begin{DoxyCompactList}\small\item\em Notifies all staff members with a message. \end{DoxyCompactList}\item 
+const std\+::vector$<$ std\+::string $>$ \& \mbox{\hyperlink{classSalesFloorObserver_ab7a16d49b57bd179a34c427dc7f7df43}{get\+Notification\+History}} () const
+\begin{DoxyCompactList}\small\item\em Gets all past notifications. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Detailed Description}
+Observes the \mbox{\hyperlink{classPlantInventory}{Plant\+Inventory}} and updates the sales floor display. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classSalesFloorObserver_a15f16d10cce2092f70bf3f650d9fb1c9}\label{classSalesFloorObserver_a15f16d10cce2092f70bf3f650d9fb1c9}} 
+\index{SalesFloorObserver@{SalesFloorObserver}!SalesFloorObserver@{SalesFloorObserver}}
+\index{SalesFloorObserver@{SalesFloorObserver}!SalesFloorObserver@{SalesFloorObserver}}
+\doxysubsubsection{\texorpdfstring{SalesFloorObserver()}{SalesFloorObserver()}}
+{\footnotesize\ttfamily Sales\+Floor\+Observer\+::\+Sales\+Floor\+Observer (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classPlantInventory}{Plant\+Inventory}} $\ast$}]{inventory }\end{DoxyParamCaption})}
+
+
+
+Constructs a sales floor observer. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em inventory} & Inventory to observe \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classSalesFloorObserver_aad0044b5da03bf721aeceef551156ac4}\label{classSalesFloorObserver_aad0044b5da03bf721aeceef551156ac4}} 
+\index{SalesFloorObserver@{SalesFloorObserver}!attachStaff@{attachStaff}}
+\index{attachStaff@{attachStaff}!SalesFloorObserver@{SalesFloorObserver}}
+\doxysubsubsection{\texorpdfstring{attachStaff()}{attachStaff()}}
+{\footnotesize\ttfamily void Sales\+Floor\+Observer\+::attach\+Staff (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classStaff}{Staff}} $\ast$}]{staff }\end{DoxyParamCaption})}
+
+
+
+Attaches a staff member for notifications. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em staff} & \mbox{\hyperlink{classStaff}{Staff}} member to attach \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classSalesFloorObserver_a0edb1ea239f7c904750f6c5dd52b1076}\label{classSalesFloorObserver_a0edb1ea239f7c904750f6c5dd52b1076}} 
+\index{SalesFloorObserver@{SalesFloorObserver}!detachStaff@{detachStaff}}
+\index{detachStaff@{detachStaff}!SalesFloorObserver@{SalesFloorObserver}}
+\doxysubsubsection{\texorpdfstring{detachStaff()}{detachStaff()}}
+{\footnotesize\ttfamily void Sales\+Floor\+Observer\+::detach\+Staff (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classStaff}{Staff}} $\ast$}]{staff }\end{DoxyParamCaption})}
+
+
+
+Detaches a staff member from notifications. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em staff} & \mbox{\hyperlink{classStaff}{Staff}} member to detach \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classSalesFloorObserver_ab0882e01caeb332f9616c8921b4a1b39}\label{classSalesFloorObserver_ab0882e01caeb332f9616c8921b4a1b39}} 
+\index{SalesFloorObserver@{SalesFloorObserver}!getAvailableItems@{getAvailableItems}}
+\index{getAvailableItems@{getAvailableItems}!SalesFloorObserver@{SalesFloorObserver}}
+\doxysubsubsection{\texorpdfstring{getAvailableItems()}{getAvailableItems()}}
+{\footnotesize\ttfamily const std\+::vector$<$std\+::pair$<$\mbox{\hyperlink{classPlant}{Plant}}$\ast$, int$>$ $>$\& Sales\+Floor\+Observer\+::get\+Available\+Items (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Gets available items on sales floor. 
+
+\begin{DoxyReturn}{Returns}
+Const reference to available items 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classSalesFloorObserver_ab7a16d49b57bd179a34c427dc7f7df43}\label{classSalesFloorObserver_ab7a16d49b57bd179a34c427dc7f7df43}} 
+\index{SalesFloorObserver@{SalesFloorObserver}!getNotificationHistory@{getNotificationHistory}}
+\index{getNotificationHistory@{getNotificationHistory}!SalesFloorObserver@{SalesFloorObserver}}
+\doxysubsubsection{\texorpdfstring{getNotificationHistory()}{getNotificationHistory()}}
+{\footnotesize\ttfamily const std\+::vector$<$std\+::string$>$\& Sales\+Floor\+Observer\+::get\+Notification\+History (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Gets all past notifications. 
+
+\begin{DoxyReturn}{Returns}
+Const reference to notification history 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classSalesFloorObserver_aeb4b35a1b7637e11278d9cd4b1aa79b9}\label{classSalesFloorObserver_aeb4b35a1b7637e11278d9cd4b1aa79b9}} 
+\index{SalesFloorObserver@{SalesFloorObserver}!getPlantQuantity@{getPlantQuantity}}
+\index{getPlantQuantity@{getPlantQuantity}!SalesFloorObserver@{SalesFloorObserver}}
+\doxysubsubsection{\texorpdfstring{getPlantQuantity()}{getPlantQuantity()}}
+{\footnotesize\ttfamily int Sales\+Floor\+Observer\+::get\+Plant\+Quantity (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classPlant}{Plant}} $\ast$}]{plant }\end{DoxyParamCaption}) const}
+
+
+
+Gets quantity of a specific plant. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em plant} & \mbox{\hyperlink{classPlant}{Plant}} to query \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Quantity available 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classSalesFloorObserver_a178cc1edd12db37bd44c4ec3ebf26f10}\label{classSalesFloorObserver_a178cc1edd12db37bd44c4ec3ebf26f10}} 
+\index{SalesFloorObserver@{SalesFloorObserver}!isPlantAvailable@{isPlantAvailable}}
+\index{isPlantAvailable@{isPlantAvailable}!SalesFloorObserver@{SalesFloorObserver}}
+\doxysubsubsection{\texorpdfstring{isPlantAvailable()}{isPlantAvailable()}}
+{\footnotesize\ttfamily bool Sales\+Floor\+Observer\+::is\+Plant\+Available (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classPlant}{Plant}} $\ast$}]{plant }\end{DoxyParamCaption}) const}
+
+
+
+Checks if a plant is available. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em plant} & \mbox{\hyperlink{classPlant}{Plant}} to check \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if plant is available (quantity $>$ 0) 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classSalesFloorObserver_a6e128aa16a14c7f8572f03884a80b252}\label{classSalesFloorObserver_a6e128aa16a14c7f8572f03884a80b252}} 
+\index{SalesFloorObserver@{SalesFloorObserver}!notifyStaff@{notifyStaff}}
+\index{notifyStaff@{notifyStaff}!SalesFloorObserver@{SalesFloorObserver}}
+\doxysubsubsection{\texorpdfstring{notifyStaff()}{notifyStaff()}}
+{\footnotesize\ttfamily void Sales\+Floor\+Observer\+::notify\+Staff (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{message }\end{DoxyParamCaption})}
+
+
+
+Notifies all staff members with a message. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em message} & Message to send to staff \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{SalesFloorObserver_8h}{Sales\+Floor\+Observer.\+h}}\item 
+Sales\+Floor\+Observer.\+cpp\end{DoxyCompactItemize}

@@ -1,0 +1,7 @@
+<map id="TransactionSnapshot.h" name="TransactionSnapshot.h">
+<area shape="rect" id="node1" title="Defines the TransactionSnapshot class for storing details of a single order transaction." alt="" coords="53,5,221,32"/>
+<area shape="rect" id="node2" href="$Transaction_8h.html" title="Represents a customer transaction and payment." alt="" coords="5,80,113,107"/>
+<area shape="rect" id="node5" href="$TransactionHistory_8h.html" title="Maintains a record of transaction snapshots for order tracking and history retrieval." alt="" coords="137,80,291,107"/>
+<area shape="rect" id="node3" href="$Order_8h.html" title="Represents a customer&#39;s order containing multiple transactions." alt="" coords="25,155,94,181"/>
+<area shape="rect" id="node4" href="$Customer_8h.html" title="Represents a Customer who can place orders and make staff queries." alt="" coords="11,229,107,256"/>
+</map>

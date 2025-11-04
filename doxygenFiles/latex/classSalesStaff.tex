@@ -1,0 +1,142 @@
+\hypertarget{classSalesStaff}{}\doxysection{Sales\+Staff Class Reference}
+\label{classSalesStaff}\index{SalesStaff@{SalesStaff}}
+
+
+Abstract base class for staff members in the sales department.  
+
+
+
+
+{\ttfamily \#include $<$Sales\+Staff.\+h$>$}
+
+
+
+Inheritance diagram for Sales\+Staff\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=276pt]{classSalesStaff__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Sales\+Staff\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=186pt]{classSalesStaff__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classSalesStaff_ab65f5e3e126ca05ee4e06ed9a9ba53bc}{Sales\+Staff}} (std\+::string name)
+\begin{DoxyCompactList}\small\item\em Construct a sales staff member with given name. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classSalesStaff_ae4410fa77f49afda438c00f4992c3e48}\label{classSalesStaff_ae4410fa77f49afda438c00f4992c3e48}} 
+virtual \mbox{\hyperlink{classSalesStaff_ae4410fa77f49afda438c00f4992c3e48}{$\sim$\+Sales\+Staff}} ()
+\begin{DoxyCompactList}\small\item\em Virtual destructor. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classSalesStaff_a584d9a8a6268644cc1a44c97f6945ff5}{handle\+Query}} (\mbox{\hyperlink{classQuery}{Query}} $\ast$query) override
+\begin{DoxyCompactList}\small\item\em Handle an incoming query using chain of responsibility. \end{DoxyCompactList}\item 
+virtual bool \mbox{\hyperlink{classSalesStaff_ab03b86dc18015b583c549745e91dced2}{staff\+Can\+Handle}} (std\+::string type)=0
+\begin{DoxyCompactList}\small\item\em Check if this staff member can handle a query type. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classSalesStaff_a92cd5c2bc513506e76a212d27beb38b7}{reply}} (\mbox{\hyperlink{classQuery}{Query}} $\ast$query)=0
+\begin{DoxyCompactList}\small\item\em Generate a reply for a query. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Abstract base class for staff members in the sales department. 
+
+Provides common functionality for sales staff including query handling and response generation. Concrete classes must implement \mbox{\hyperlink{classSalesStaff_ab03b86dc18015b583c549745e91dced2}{staff\+Can\+Handle()}} to specify their responsibilities and \mbox{\hyperlink{classSalesStaff_a92cd5c2bc513506e76a212d27beb38b7}{reply()}} to handle queries.
+
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{classStaff}{Staff}} 
+\end{DoxySeeAlso}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classSalesStaff_ab65f5e3e126ca05ee4e06ed9a9ba53bc}\label{classSalesStaff_ab65f5e3e126ca05ee4e06ed9a9ba53bc}} 
+\index{SalesStaff@{SalesStaff}!SalesStaff@{SalesStaff}}
+\index{SalesStaff@{SalesStaff}!SalesStaff@{SalesStaff}}
+\doxysubsubsection{\texorpdfstring{SalesStaff()}{SalesStaff()}}
+{\footnotesize\ttfamily Sales\+Staff\+::\+Sales\+Staff (\begin{DoxyParamCaption}\item[{std\+::string}]{name }\end{DoxyParamCaption})}
+
+
+
+Construct a sales staff member with given name. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & The staff member\textquotesingle{}s name \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classSalesStaff_a584d9a8a6268644cc1a44c97f6945ff5}\label{classSalesStaff_a584d9a8a6268644cc1a44c97f6945ff5}} 
+\index{SalesStaff@{SalesStaff}!handleQuery@{handleQuery}}
+\index{handleQuery@{handleQuery}!SalesStaff@{SalesStaff}}
+\doxysubsubsection{\texorpdfstring{handleQuery()}{handleQuery()}}
+{\footnotesize\ttfamily void Sales\+Staff\+::handle\+Query (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classQuery}{Query}} $\ast$}]{query }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Handle an incoming query using chain of responsibility. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em query} & The query to handle (non-\/owning pointer) \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{classStaff_ad3a2fc2fa16b71fcbe2153111d69597b}{Staff}}.
+
+\mbox{\Hypertarget{classSalesStaff_a92cd5c2bc513506e76a212d27beb38b7}\label{classSalesStaff_a92cd5c2bc513506e76a212d27beb38b7}} 
+\index{SalesStaff@{SalesStaff}!reply@{reply}}
+\index{reply@{reply}!SalesStaff@{SalesStaff}}
+\doxysubsubsection{\texorpdfstring{reply()}{reply()}}
+{\footnotesize\ttfamily virtual void Sales\+Staff\+::reply (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classQuery}{Query}} $\ast$}]{query }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Generate a reply for a query. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em query} & The query to reply to (non-\/owning pointer) \\
+\hline
+\end{DoxyParams}
+
+
+Implemented in \mbox{\hyperlink{classSalesManager_afc7877309cbe98ec9e0a051cdf237257}{Sales\+Manager}}, and \mbox{\hyperlink{classSalesEmployee_a4e8d30f99406fb04f938b5e82e718a54}{Sales\+Employee}}.
+
+\mbox{\Hypertarget{classSalesStaff_ab03b86dc18015b583c549745e91dced2}\label{classSalesStaff_ab03b86dc18015b583c549745e91dced2}} 
+\index{SalesStaff@{SalesStaff}!staffCanHandle@{staffCanHandle}}
+\index{staffCanHandle@{staffCanHandle}!SalesStaff@{SalesStaff}}
+\doxysubsubsection{\texorpdfstring{staffCanHandle()}{staffCanHandle()}}
+{\footnotesize\ttfamily virtual bool Sales\+Staff\+::staff\+Can\+Handle (\begin{DoxyParamCaption}\item[{std\+::string}]{type }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Check if this staff member can handle a query type. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em type} & The query type to check \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if the staff member can handle it, false otherwise 
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{classSalesManager_aaadc1f84a352febc6a0aa7b724798e05}{Sales\+Manager}}, and \mbox{\hyperlink{classSalesEmployee_a3829734238893452ef5aeb538fd9f8a2}{Sales\+Employee}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{SalesStaff_8h}{Sales\+Staff.\+h}}\item 
+Sales\+Staff.\+cpp\end{DoxyCompactItemize}

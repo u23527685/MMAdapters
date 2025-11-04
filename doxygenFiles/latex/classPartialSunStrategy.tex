@@ -1,0 +1,89 @@
+\hypertarget{classPartialSunStrategy}{}\doxysection{Partial\+Sun\+Strategy Class Reference}
+\label{classPartialSunStrategy}\index{PartialSunStrategy@{PartialSunStrategy}}
+
+
+Strategy for applying partial sunlight to a plant.  
+
+
+
+
+{\ttfamily \#include $<$Partial\+Sun\+Strategy.\+h$>$}
+
+
+
+Inheritance diagram for Partial\+Sun\+Strategy\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=187pt]{classPartialSunStrategy__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Partial\+Sun\+Strategy\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classPartialSunStrategy__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classPartialSunStrategy_ae40ea386f93e964bc5a0b3f75b5ede24}{apply\+Sunlight}} (\mbox{\hyperlink{classPlant}{Plant}} $\ast$p) override
+\begin{DoxyCompactList}\small\item\em Applies the partial sun strategy to a plant. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{classPartialSunStrategy_a93e46a3a461293aba8d20534347bb9f1}{get\+Strategy\+Name}} () const override
+\begin{DoxyCompactList}\small\item\em Retrieves the strategy name. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Detailed Description}
+Strategy for applying partial sunlight to a plant. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classPartialSunStrategy_ae40ea386f93e964bc5a0b3f75b5ede24}\label{classPartialSunStrategy_ae40ea386f93e964bc5a0b3f75b5ede24}} 
+\index{PartialSunStrategy@{PartialSunStrategy}!applySunlight@{applySunlight}}
+\index{applySunlight@{applySunlight}!PartialSunStrategy@{PartialSunStrategy}}
+\doxysubsubsection{\texorpdfstring{applySunlight()}{applySunlight()}}
+{\footnotesize\ttfamily void Partial\+Sun\+Strategy\+::apply\+Sunlight (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classPlant}{Plant}} $\ast$}]{p }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Applies the partial sun strategy to a plant. 
+
+Increases sunlight by 40\% of the plant’s maximum capacity. Caps at the maximum sunlight threshold.
+
+
+\begin{DoxyParams}{Parameters}
+{\em p} & Pointer to the plant receiving sunlight. \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{classSunlightStrategy_a748a138b0ac64c383d39ee519f55ce8a}{Sunlight\+Strategy}}.
+
+\mbox{\Hypertarget{classPartialSunStrategy_a93e46a3a461293aba8d20534347bb9f1}\label{classPartialSunStrategy_a93e46a3a461293aba8d20534347bb9f1}} 
+\index{PartialSunStrategy@{PartialSunStrategy}!getStrategyName@{getStrategyName}}
+\index{getStrategyName@{getStrategyName}!PartialSunStrategy@{PartialSunStrategy}}
+\doxysubsubsection{\texorpdfstring{getStrategyName()}{getStrategyName()}}
+{\footnotesize\ttfamily std\+::string Partial\+Sun\+Strategy\+::get\+Strategy\+Name (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Retrieves the strategy name. 
+
+\begin{DoxyReturn}{Returns}
+String representing the strategy type. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classSunlightStrategy_ae95a57b42c00f0bc465cc27bae20d735}{Sunlight\+Strategy}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{PartialSunStrategy_8h}{Partial\+Sun\+Strategy.\+h}}\item 
+Partial\+Sun\+Strategy.\+cpp\end{DoxyCompactItemize}

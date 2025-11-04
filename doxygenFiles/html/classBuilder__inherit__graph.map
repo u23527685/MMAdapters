@@ -1,0 +1,5 @@
+<map id="Builder" name="Builder">
+<area shape="rect" id="node1" title="Abstract builder for constructing Query objects." alt="" coords="120,5,188,32"/>
+<area shape="rect" id="node2" href="$classItemQueryBuilder.html" title="Builder class for constructing queries about specific plants." alt="" coords="5,80,143,107"/>
+<area shape="rect" id="node3" href="$classMiscQueryBuilder.html" title="Concrete builder for non&#45;item queries." alt="" coords="167,80,304,107"/>
+</map>

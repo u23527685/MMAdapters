@@ -1,0 +1,5 @@
+<map id="StockCommand" name="StockCommand">
+<area shape="rect" id="node1" title="Abstract base class for command pattern in stock management." alt="" coords="44,5,169,32"/>
+<area shape="rect" id="node2" href="$classAddStock.html" title="Concrete command for adding plant stock to inventory." alt="" coords="5,80,88,107"/>
+<area shape="rect" id="node3" href="$classRemoveStock.html" title="Concrete command that removes plant stock from the inventory." alt="" coords="112,80,224,107"/>
+</map>

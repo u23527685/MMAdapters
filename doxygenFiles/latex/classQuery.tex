@@ -1,0 +1,116 @@
+\hypertarget{classQuery}{}\doxysection{Query Class Reference}
+\label{classQuery}\index{Query@{Query}}
+
+
+Encapsulates a query object constructed by a \mbox{\hyperlink{classBuilder}{Builder}}.  
+
+
+
+
+{\ttfamily \#include $<$Query.\+h$>$}
+
+
+
+Collaboration diagram for Query\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classQuery__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classQuery_a3458379e754ef5cad064fc6f0924c08a}{Query}} (\mbox{\hyperlink{classBuilder}{Builder}} $\ast$builder)
+\begin{DoxyCompactList}\small\item\em Constructs a \mbox{\hyperlink{classQuery}{Query}} object from a \mbox{\hyperlink{classBuilder}{Builder}}. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{classQuery_a18248eaf1be972d925908ecf0ffa9afb}{get\+Type}} ()
+\begin{DoxyCompactList}\small\item\em Gets the type of query. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{classQuery_a65c8b185bd7b3d62e7e0b3bc060d454f}{get\+Question}} ()
+\begin{DoxyCompactList}\small\item\em Gets the question text. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classPlant}{Plant}} $\ast$ \mbox{\hyperlink{classQuery_af3a3db975a5730a4353d00200cd391e6}{get\+Item}} ()
+\begin{DoxyCompactList}\small\item\em Gets the plant item associated with the query. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classQuery_a3b9c243533681f606dd784934d03ab10}\label{classQuery_a3b9c243533681f606dd784934d03ab10}} 
+void \mbox{\hyperlink{classQuery_a3b9c243533681f606dd784934d03ab10}{print\+Query}} ()
+\begin{DoxyCompactList}\small\item\em Prints the query information to console. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classQuery_a93b2a0eeb0f910ce4d07adc9fafb41f2}\label{classQuery_a93b2a0eeb0f910ce4d07adc9fafb41f2}} 
+\mbox{\hyperlink{classPlant}{Plant}} $\ast$ \mbox{\hyperlink{classQuery_a93b2a0eeb0f910ce4d07adc9fafb41f2}{item}}
+\begin{DoxyCompactList}\small\item\em The plant associated with this query (optional) \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classQuery_a003fef852f65c49165308e53d747acf4}\label{classQuery_a003fef852f65c49165308e53d747acf4}} 
+std\+::string \mbox{\hyperlink{classQuery_a003fef852f65c49165308e53d747acf4}{type}}
+\begin{DoxyCompactList}\small\item\em Type of query (e.\+g., \char`\"{}\+STOCK\char`\"{}, \char`\"{}\+CARE\char`\"{}) \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classQuery_a7cf461d5b733f2c86252d62f453790b7}\label{classQuery_a7cf461d5b733f2c86252d62f453790b7}} 
+std\+::string \mbox{\hyperlink{classQuery_a7cf461d5b733f2c86252d62f453790b7}{question}}
+\begin{DoxyCompactList}\small\item\em The query text or question detail. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Encapsulates a query object constructed by a \mbox{\hyperlink{classBuilder}{Builder}}. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classQuery_a3458379e754ef5cad064fc6f0924c08a}\label{classQuery_a3458379e754ef5cad064fc6f0924c08a}} 
+\index{Query@{Query}!Query@{Query}}
+\index{Query@{Query}!Query@{Query}}
+\doxysubsubsection{\texorpdfstring{Query()}{Query()}}
+{\footnotesize\ttfamily Query\+::\+Query (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classBuilder}{Builder}} $\ast$}]{builder }\end{DoxyParamCaption})}
+
+
+
+Constructs a \mbox{\hyperlink{classQuery}{Query}} object from a \mbox{\hyperlink{classBuilder}{Builder}}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em builder} & Pointer to a \mbox{\hyperlink{classBuilder}{Builder}} used to initialize the \mbox{\hyperlink{classQuery}{Query}}. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classQuery_af3a3db975a5730a4353d00200cd391e6}\label{classQuery_af3a3db975a5730a4353d00200cd391e6}} 
+\index{Query@{Query}!getItem@{getItem}}
+\index{getItem@{getItem}!Query@{Query}}
+\doxysubsubsection{\texorpdfstring{getItem()}{getItem()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classPlant}{Plant}} $\ast$ Query\+::get\+Item (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Gets the plant item associated with the query. 
+
+\begin{DoxyReturn}{Returns}
+Pointer to the plant item. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classQuery_a65c8b185bd7b3d62e7e0b3bc060d454f}\label{classQuery_a65c8b185bd7b3d62e7e0b3bc060d454f}} 
+\index{Query@{Query}!getQuestion@{getQuestion}}
+\index{getQuestion@{getQuestion}!Query@{Query}}
+\doxysubsubsection{\texorpdfstring{getQuestion()}{getQuestion()}}
+{\footnotesize\ttfamily std\+::string Query\+::get\+Question (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Gets the question text. 
+
+\begin{DoxyReturn}{Returns}
+The query question. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classQuery_a18248eaf1be972d925908ecf0ffa9afb}\label{classQuery_a18248eaf1be972d925908ecf0ffa9afb}} 
+\index{Query@{Query}!getType@{getType}}
+\index{getType@{getType}!Query@{Query}}
+\doxysubsubsection{\texorpdfstring{getType()}{getType()}}
+{\footnotesize\ttfamily std\+::string Query\+::get\+Type (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Gets the type of query. 
+
+\begin{DoxyReturn}{Returns}
+The query type as a string. 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{Query_8h}{Query.\+h}}\item 
+Query.\+cpp\end{DoxyCompactItemize}

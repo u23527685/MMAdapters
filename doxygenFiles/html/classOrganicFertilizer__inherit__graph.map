@@ -1,0 +1,4 @@
+<map id="OrganicFertilizer" name="OrganicFertilizer">
+<area shape="rect" id="node1" title="Strategy for applying organic fertilizer to a plant." alt="" coords="8,80,137,107"/>
+<area shape="rect" id="node2" href="$classFertilizerStrategy.html" title="Abstract base for fertilizer behavior strategies." alt="" coords="5,5,140,32"/>
+</map>

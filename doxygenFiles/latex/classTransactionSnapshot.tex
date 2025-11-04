@@ -1,0 +1,114 @@
+\hypertarget{classTransactionSnapshot}{}\doxysection{Transaction\+Snapshot Class Reference}
+\label{classTransactionSnapshot}\index{TransactionSnapshot@{TransactionSnapshot}}
+
+
+Represents a snapshot of a completed transaction.  
+
+
+
+
+{\ttfamily \#include $<$Transaction\+Snapshot.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classTransactionSnapshot_aac5a12668ca3e43f5bd4aa0be489dfc7}{Transaction\+Snapshot}} (const std\+::string \&order\+Num, double amount, int quantity, const std\+::vector$<$ std\+::string $>$ \&decorations=\{\})
+\begin{DoxyCompactList}\small\item\em Constructs a new \mbox{\hyperlink{classTransactionSnapshot}{Transaction\+Snapshot}} object. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{classTransactionSnapshot_a8c2bd062ca858fb734bde6e55e92001f}{get\+Order\+Num}} () const
+\begin{DoxyCompactList}\small\item\em Retrieves the order number. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{classTransactionSnapshot_a6cd0804d69d35e2f245ce89f5766a7db}{get\+Amount}} () const
+\begin{DoxyCompactList}\small\item\em Retrieves the total transaction amount. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classTransactionSnapshot_ad8bb94f402f73e6cab04f0a0e97dd145}{get\+Quantity}} () const
+\begin{DoxyCompactList}\small\item\em Retrieves the quantity of items purchased. \end{DoxyCompactList}\item 
+const std\+::vector$<$ std\+::string $>$ \& \mbox{\hyperlink{classTransactionSnapshot_aca227b1ff7e5b7e6b1c6ac361cde5f32}{get\+Decorations}} () const
+\begin{DoxyCompactList}\small\item\em Retrieves the decorations associated with the transaction. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Represents a snapshot of a completed transaction. 
+
+Encapsulates details such as order number, transaction amount, quantity purchased, and applied decorations. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classTransactionSnapshot_aac5a12668ca3e43f5bd4aa0be489dfc7}\label{classTransactionSnapshot_aac5a12668ca3e43f5bd4aa0be489dfc7}} 
+\index{TransactionSnapshot@{TransactionSnapshot}!TransactionSnapshot@{TransactionSnapshot}}
+\index{TransactionSnapshot@{TransactionSnapshot}!TransactionSnapshot@{TransactionSnapshot}}
+\doxysubsubsection{\texorpdfstring{TransactionSnapshot()}{TransactionSnapshot()}}
+{\footnotesize\ttfamily Transaction\+Snapshot\+::\+Transaction\+Snapshot (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{order\+Num,  }\item[{double}]{amount,  }\item[{int}]{quantity,  }\item[{const std\+::vector$<$ std\+::string $>$ \&}]{decorations = {\ttfamily \{\}} }\end{DoxyParamCaption})}
+
+
+
+Constructs a new \mbox{\hyperlink{classTransactionSnapshot}{Transaction\+Snapshot}} object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em order\+Num} & The order number associated with the transaction. \\
+\hline
+{\em amount} & The total amount paid. \\
+\hline
+{\em quantity} & The quantity of items purchased. \\
+\hline
+{\em decorations} & A list of decorations applied (optional). \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classTransactionSnapshot_a6cd0804d69d35e2f245ce89f5766a7db}\label{classTransactionSnapshot_a6cd0804d69d35e2f245ce89f5766a7db}} 
+\index{TransactionSnapshot@{TransactionSnapshot}!getAmount@{getAmount}}
+\index{getAmount@{getAmount}!TransactionSnapshot@{TransactionSnapshot}}
+\doxysubsubsection{\texorpdfstring{getAmount()}{getAmount()}}
+{\footnotesize\ttfamily double Transaction\+Snapshot\+::get\+Amount (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Retrieves the total transaction amount. 
+
+\begin{DoxyReturn}{Returns}
+The amount paid for the order. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classTransactionSnapshot_aca227b1ff7e5b7e6b1c6ac361cde5f32}\label{classTransactionSnapshot_aca227b1ff7e5b7e6b1c6ac361cde5f32}} 
+\index{TransactionSnapshot@{TransactionSnapshot}!getDecorations@{getDecorations}}
+\index{getDecorations@{getDecorations}!TransactionSnapshot@{TransactionSnapshot}}
+\doxysubsubsection{\texorpdfstring{getDecorations()}{getDecorations()}}
+{\footnotesize\ttfamily const std\+::vector$<$ std\+::string $>$ \& Transaction\+Snapshot\+::get\+Decorations (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Retrieves the decorations associated with the transaction. 
+
+\begin{DoxyReturn}{Returns}
+A constant reference to the vector of decoration names. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classTransactionSnapshot_a8c2bd062ca858fb734bde6e55e92001f}\label{classTransactionSnapshot_a8c2bd062ca858fb734bde6e55e92001f}} 
+\index{TransactionSnapshot@{TransactionSnapshot}!getOrderNum@{getOrderNum}}
+\index{getOrderNum@{getOrderNum}!TransactionSnapshot@{TransactionSnapshot}}
+\doxysubsubsection{\texorpdfstring{getOrderNum()}{getOrderNum()}}
+{\footnotesize\ttfamily std\+::string Transaction\+Snapshot\+::get\+Order\+Num (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Retrieves the order number. 
+
+\begin{DoxyReturn}{Returns}
+The order number as a string. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classTransactionSnapshot_ad8bb94f402f73e6cab04f0a0e97dd145}\label{classTransactionSnapshot_ad8bb94f402f73e6cab04f0a0e97dd145}} 
+\index{TransactionSnapshot@{TransactionSnapshot}!getQuantity@{getQuantity}}
+\index{getQuantity@{getQuantity}!TransactionSnapshot@{TransactionSnapshot}}
+\doxysubsubsection{\texorpdfstring{getQuantity()}{getQuantity()}}
+{\footnotesize\ttfamily int Transaction\+Snapshot\+::get\+Quantity (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Retrieves the quantity of items purchased. 
+
+\begin{DoxyReturn}{Returns}
+The number of items in the order. 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{TransactionSnapshot_8h}{Transaction\+Snapshot.\+h}}\item 
+Transaction\+Snapshot.\+cpp\end{DoxyCompactItemize}

@@ -1,0 +1,107 @@
+\hypertarget{classDecorativePot}{}\doxysection{Decorative\+Pot Class Reference}
+\label{classDecorativePot}\index{DecorativePot@{DecorativePot}}
+
+
+Concrete decorator that adds a decorative pot to a \mbox{\hyperlink{classPlant}{Plant}}.  
+
+
+
+
+{\ttfamily \#include $<$Decorative\+Pot.\+h$>$}
+
+
+
+Inheritance diagram for Decorative\+Pot\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=169pt]{classDecorativePot__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Decorative\+Pot\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classDecorativePot__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classDecorativePot_a6a68c3a3772d7f1cb0fcd58fd7cab617}{Decorative\+Pot}} (\mbox{\hyperlink{classPlant}{Plant}} $\ast$\mbox{\hyperlink{classPlantDecorator_a4bccb32a57f66208bcf9fe4d22d7cd61}{plant}})
+\begin{DoxyCompactList}\small\item\em Construct a \mbox{\hyperlink{classDecorativePot}{Decorative\+Pot}} decorator for the given \mbox{\hyperlink{classPlant}{Plant}}. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{classDecorativePot_a087283c8a8f65279030f453db6fa955a}{get\+Description}} () const override
+\begin{DoxyCompactList}\small\item\em Get the description including decorative pot details. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{classDecorativePot_a050ca852b32d2082a2622fe5524ab260}{get\+Price}} () const override
+\begin{DoxyCompactList}\small\item\em Get the total price including the decorative pot. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Detailed Description}
+Concrete decorator that adds a decorative pot to a \mbox{\hyperlink{classPlant}{Plant}}. 
+
+Enhances the plant\textquotesingle{}s visual appeal and increases its price. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classDecorativePot_a6a68c3a3772d7f1cb0fcd58fd7cab617}\label{classDecorativePot_a6a68c3a3772d7f1cb0fcd58fd7cab617}} 
+\index{DecorativePot@{DecorativePot}!DecorativePot@{DecorativePot}}
+\index{DecorativePot@{DecorativePot}!DecorativePot@{DecorativePot}}
+\doxysubsubsection{\texorpdfstring{DecorativePot()}{DecorativePot()}}
+{\footnotesize\ttfamily Decorative\+Pot\+::\+Decorative\+Pot (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classPlant}{Plant}} $\ast$}]{plant }\end{DoxyParamCaption})}
+
+
+
+Construct a \mbox{\hyperlink{classDecorativePot}{Decorative\+Pot}} decorator for the given \mbox{\hyperlink{classPlant}{Plant}}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em plant} & Non-\/owning pointer to the \mbox{\hyperlink{classPlant}{Plant}} being decorated. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classDecorativePot_a087283c8a8f65279030f453db6fa955a}\label{classDecorativePot_a087283c8a8f65279030f453db6fa955a}} 
+\index{DecorativePot@{DecorativePot}!getDescription@{getDescription}}
+\index{getDescription@{getDescription}!DecorativePot@{DecorativePot}}
+\doxysubsubsection{\texorpdfstring{getDescription()}{getDescription()}}
+{\footnotesize\ttfamily std\+::string Decorative\+Pot\+::get\+Description (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Get the description including decorative pot details. 
+
+\begin{DoxyReturn}{Returns}
+Augmented description string. 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classPlantDecorator_acf88b5442b12cad9d1943e35545d0f4d}{Plant\+Decorator}}.
+
+\mbox{\Hypertarget{classDecorativePot_a050ca852b32d2082a2622fe5524ab260}\label{classDecorativePot_a050ca852b32d2082a2622fe5524ab260}} 
+\index{DecorativePot@{DecorativePot}!getPrice@{getPrice}}
+\index{getPrice@{getPrice}!DecorativePot@{DecorativePot}}
+\doxysubsubsection{\texorpdfstring{getPrice()}{getPrice()}}
+{\footnotesize\ttfamily double Decorative\+Pot\+::get\+Price (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Get the total price including the decorative pot. 
+
+\begin{DoxyReturn}{Returns}
+Combined price as a double. 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classPlantDecorator_ac22e9f31ab48a99b7ca285e9239b91ab}{Plant\+Decorator}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{DecorativePot_8h}{Decorative\+Pot.\+h}}\item 
+Decorative\+Pot.\+cpp\end{DoxyCompactItemize}

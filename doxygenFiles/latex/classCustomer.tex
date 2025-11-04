@@ -1,0 +1,122 @@
+\hypertarget{classCustomer}{}\doxysection{Customer Class Reference}
+\label{classCustomer}\index{Customer@{Customer}}
+
+
+Represents a store customer and their interactions.  
+
+
+
+
+{\ttfamily \#include $<$Customer.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classCustomer_abcc8fae9701e5ba9d7d6fe44498b34e3}\label{classCustomer_abcc8fae9701e5ba9d7d6fe44498b34e3}} 
+\mbox{\hyperlink{classCustomer_abcc8fae9701e5ba9d7d6fe44498b34e3}{Customer}} ()
+\begin{DoxyCompactList}\small\item\em Default constructor creates an unnamed customer. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classCustomer_a67d09c84165c175b046ecf3cd22dae54}{Customer}} (const std\+::string \&customer\+Name)
+\begin{DoxyCompactList}\small\item\em Construct a \mbox{\hyperlink{classCustomer}{Customer}} with a specific name. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{classCustomer_a54d175538cebde1559e82c644eba9f64}{get\+Name}} () const
+\begin{DoxyCompactList}\small\item\em Retrieve the customer\textquotesingle{}s name. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classCustomer_a98c2d548dc86e25c0ef1e17a6a3ac222}{set\+Name}} (const std\+::string \&customer\+Name)
+\begin{DoxyCompactList}\small\item\em Set or update the customer\textquotesingle{}s name. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classCustomer_a95ef074af1f45013df5791c1a57b0b81}{place\+Order}} (const \mbox{\hyperlink{classOrder}{Order}} \&order)
+\begin{DoxyCompactList}\small\item\em Add an order to the customer\textquotesingle{}s order history. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classCustomer_ae70f9566cdd6748a3c7caf6bd0c7cf60}\label{classCustomer_ae70f9566cdd6748a3c7caf6bd0c7cf60}} 
+void \mbox{\hyperlink{classCustomer_ae70f9566cdd6748a3c7caf6bd0c7cf60}{view\+Orders}} () const
+\begin{DoxyCompactList}\small\item\em Print a summary of all customer orders to the console. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classCustomer_a5e67c2b95b1459273e7df55fb7d22207}{make\+Query}} (\mbox{\hyperlink{classStaff}{Staff}} \&staff, \mbox{\hyperlink{classQuery}{Query}} $\ast$query\+Message) const
+\begin{DoxyCompactList}\small\item\em Submit a query message to a \mbox{\hyperlink{classStaff}{Staff}} member. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Represents a store customer and their interactions. 
+
+Stores customer data, handles order placement, and supports queries directed at staff members. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classCustomer_a67d09c84165c175b046ecf3cd22dae54}\label{classCustomer_a67d09c84165c175b046ecf3cd22dae54}} 
+\index{Customer@{Customer}!Customer@{Customer}}
+\index{Customer@{Customer}!Customer@{Customer}}
+\doxysubsubsection{\texorpdfstring{Customer()}{Customer()}}
+{\footnotesize\ttfamily Customer\+::\+Customer (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{customer\+Name }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
+
+
+
+Construct a \mbox{\hyperlink{classCustomer}{Customer}} with a specific name. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em customer\+Name} & The customer\textquotesingle{}s name. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classCustomer_a54d175538cebde1559e82c644eba9f64}\label{classCustomer_a54d175538cebde1559e82c644eba9f64}} 
+\index{Customer@{Customer}!getName@{getName}}
+\index{getName@{getName}!Customer@{Customer}}
+\doxysubsubsection{\texorpdfstring{getName()}{getName()}}
+{\footnotesize\ttfamily std\+::string Customer\+::get\+Name (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Retrieve the customer\textquotesingle{}s name. 
+
+\begin{DoxyReturn}{Returns}
+Name of the customer. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classCustomer_a5e67c2b95b1459273e7df55fb7d22207}\label{classCustomer_a5e67c2b95b1459273e7df55fb7d22207}} 
+\index{Customer@{Customer}!makeQuery@{makeQuery}}
+\index{makeQuery@{makeQuery}!Customer@{Customer}}
+\doxysubsubsection{\texorpdfstring{makeQuery()}{makeQuery()}}
+{\footnotesize\ttfamily void Customer\+::make\+Query (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classStaff}{Staff}} \&}]{staff,  }\item[{\mbox{\hyperlink{classQuery}{Query}} $\ast$}]{query\+Message }\end{DoxyParamCaption}) const}
+
+
+
+Submit a query message to a \mbox{\hyperlink{classStaff}{Staff}} member. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em staff} & Reference to the staff member receiving the query. \\
+\hline
+{\em query\+Message} & Pointer to the query message (caller owns). \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classCustomer_a95ef074af1f45013df5791c1a57b0b81}\label{classCustomer_a95ef074af1f45013df5791c1a57b0b81}} 
+\index{Customer@{Customer}!placeOrder@{placeOrder}}
+\index{placeOrder@{placeOrder}!Customer@{Customer}}
+\doxysubsubsection{\texorpdfstring{placeOrder()}{placeOrder()}}
+{\footnotesize\ttfamily void Customer\+::place\+Order (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classOrder}{Order}} \&}]{order }\end{DoxyParamCaption})}
+
+
+
+Add an order to the customer\textquotesingle{}s order history. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em order} & The order to add. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classCustomer_a98c2d548dc86e25c0ef1e17a6a3ac222}\label{classCustomer_a98c2d548dc86e25c0ef1e17a6a3ac222}} 
+\index{Customer@{Customer}!setName@{setName}}
+\index{setName@{setName}!Customer@{Customer}}
+\doxysubsubsection{\texorpdfstring{setName()}{setName()}}
+{\footnotesize\ttfamily void Customer\+::set\+Name (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{customer\+Name }\end{DoxyParamCaption})}
+
+
+
+Set or update the customer\textquotesingle{}s name. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em customer\+Name} & The new name to assign. \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{Customer_8h}{Customer.\+h}}\item 
+Customer.\+cpp\end{DoxyCompactItemize}

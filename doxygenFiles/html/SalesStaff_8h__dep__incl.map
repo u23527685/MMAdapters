@@ -1,0 +1,8 @@
+<map id="SalesStaff.h" name="SalesStaff.h">
+<area shape="rect" id="node1" title="Abstract base class for staff in the sales department." alt="" coords="178,5,277,32"/>
+<area shape="rect" id="node2" href="$SalesEmployee_8h.html" title="Defines a regular employee in the sales department." alt="" coords="5,80,140,107"/>
+<area shape="rect" id="node3" href="$SalesManager_8h.html" title="Defines the SalesManager class for the sales department." alt="" coords="165,80,290,107"/>
+<area shape="rect" id="node4" href="$StaffFactory_8h.html" title="Abstract factory for creating staff members." alt="" coords="314,80,423,107"/>
+<area shape="rect" id="node5" href="$EmployeeFactory_8h.html" title="Concrete factory for creating regular employees." alt="" coords="214,155,358,181"/>
+<area shape="rect" id="node6" href="$ManagerFactory_8h.html" title="Defines the factory for creating manager&#45;level staff." alt="" coords="382,155,518,181"/>
+</map>

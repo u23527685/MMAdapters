@@ -1,0 +1,126 @@
+\hypertarget{classMiscQueryBuilder}{}\doxysection{Misc\+Query\+Builder Class Reference}
+\label{classMiscQueryBuilder}\index{MiscQueryBuilder@{MiscQueryBuilder}}
+
+
+Concrete builder for non-\/item queries.  
+
+
+
+
+{\ttfamily \#include $<$Misc\+Query\+Builder.\+h$>$}
+
+
+
+Inheritance diagram for Misc\+Query\+Builder\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=183pt]{classMiscQueryBuilder__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Misc\+Query\+Builder\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classMiscQueryBuilder__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classMiscQueryBuilder_a4732d2295c716fcc2646dd3f3c195316}{set\+Type}} (std\+::string \mbox{\hyperlink{classBuilder_a6541a067a21e09a23099dd882bed9639}{type}}) override
+\begin{DoxyCompactList}\small\item\em Set the query type for the miscellaneous query. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classMiscQueryBuilder_aa10949e21255f413d39ec7101b54bae3}{set\+Question}} (std\+::string \mbox{\hyperlink{classBuilder_afc60247660d2a02f1dd44d331c851045}{question}}) override
+\begin{DoxyCompactList}\small\item\em Set the explicit question text. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classMiscQueryBuilder_adf40896fcf35678e439bf04ac82cba73}{set\+Item}} (\mbox{\hyperlink{classPlant}{Plant}} $\ast$\mbox{\hyperlink{classBuilder_a2366e89f49c467f9e9aa9c37eaa3e740}{item}}) override
+\begin{DoxyCompactList}\small\item\em set\+Item has no effect for \mbox{\hyperlink{classMiscQueryBuilder}{Misc\+Query\+Builder}}. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classMiscQueryBuilder_a33f60974683d25fa4b1bc30bb72132b9}\label{classMiscQueryBuilder_a33f60974683d25fa4b1bc30bb72132b9}} 
+\mbox{\hyperlink{classMiscQueryBuilder_a33f60974683d25fa4b1bc30bb72132b9}{Misc\+Query\+Builder}} ()
+\begin{DoxyCompactList}\small\item\em Constructs a new \mbox{\hyperlink{classMiscQueryBuilder}{Misc\+Query\+Builder}}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Detailed Description}
+Concrete builder for non-\/item queries. 
+
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{classBuilder}{Builder}}
+\end{DoxySeeAlso}
+Implements \mbox{\hyperlink{classBuilder}{Builder}} but ignores \mbox{\hyperlink{classMiscQueryBuilder_adf40896fcf35678e439bf04ac82cba73}{set\+Item()}} since it targets no specific \mbox{\hyperlink{classPlant}{Plant}}. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classMiscQueryBuilder_adf40896fcf35678e439bf04ac82cba73}\label{classMiscQueryBuilder_adf40896fcf35678e439bf04ac82cba73}} 
+\index{MiscQueryBuilder@{MiscQueryBuilder}!setItem@{setItem}}
+\index{setItem@{setItem}!MiscQueryBuilder@{MiscQueryBuilder}}
+\doxysubsubsection{\texorpdfstring{setItem()}{setItem()}}
+{\footnotesize\ttfamily void Misc\+Query\+Builder\+::set\+Item (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classPlant}{Plant}} $\ast$}]{item }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+set\+Item has no effect for \mbox{\hyperlink{classMiscQueryBuilder}{Misc\+Query\+Builder}}. 
+
+set\+Item is not supported for miscellaneous queries.
+
+
+\begin{DoxyParams}{Parameters}
+{\em item} & Ignored.\\
+\hline
+{\em item} & Ignored.\\
+\hline
+\end{DoxyParams}
+This implementation intentionally does not store the provided item. A diagnostic message is printed to stderr to aid debugging. 
+
+Implements \mbox{\hyperlink{classBuilder_aef33f773fe3d65e0c6273f843150ab9a}{Builder}}.
+
+\mbox{\Hypertarget{classMiscQueryBuilder_aa10949e21255f413d39ec7101b54bae3}\label{classMiscQueryBuilder_aa10949e21255f413d39ec7101b54bae3}} 
+\index{MiscQueryBuilder@{MiscQueryBuilder}!setQuestion@{setQuestion}}
+\index{setQuestion@{setQuestion}!MiscQueryBuilder@{MiscQueryBuilder}}
+\doxysubsubsection{\texorpdfstring{setQuestion()}{setQuestion()}}
+{\footnotesize\ttfamily void Misc\+Query\+Builder\+::set\+Question (\begin{DoxyParamCaption}\item[{std\+::string}]{question }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Set the explicit question text. 
+
+Set the explicit question text for the misc query.
+
+
+\begin{DoxyParams}{Parameters}
+{\em question} & Question string. \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{classBuilder_a99f6a7648dd2e2b3a765ddcd1e92e04b}{Builder}}.
+
+\mbox{\Hypertarget{classMiscQueryBuilder_a4732d2295c716fcc2646dd3f3c195316}\label{classMiscQueryBuilder_a4732d2295c716fcc2646dd3f3c195316}} 
+\index{MiscQueryBuilder@{MiscQueryBuilder}!setType@{setType}}
+\index{setType@{setType}!MiscQueryBuilder@{MiscQueryBuilder}}
+\doxysubsubsection{\texorpdfstring{setType()}{setType()}}
+{\footnotesize\ttfamily void Misc\+Query\+Builder\+::set\+Type (\begin{DoxyParamCaption}\item[{std\+::string}]{type }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Set the query type for the miscellaneous query. 
+
+Set the type/category for the misc query.
+
+
+\begin{DoxyParams}{Parameters}
+{\em type} & Type string (e.\+g. \char`\"{}\+STOCK\char`\"{}). \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{classBuilder_a48f67a2baa9fd50fa54aa46db891eefc}{Builder}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{MiscQueryBuilder_8h}{Misc\+Query\+Builder.\+h}}\item 
+\mbox{\hyperlink{MiscQueryBuilder_8cpp}{Misc\+Query\+Builder.\+cpp}}\end{DoxyCompactItemize}

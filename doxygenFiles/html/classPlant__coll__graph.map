@@ -1,0 +1,5 @@
+<map id="Plant" name="Plant">
+<area shape="rect" id="node1" title="Abstract representation of a plant with care and lifecycle management." alt="" coords="154,5,209,32"/>
+<area shape="rect" id="node2" href="$classFertilizerStrategy.html" title="Abstract base for fertilizer behavior strategies." alt="" coords="10,95,145,121"/>
+<area shape="rect" id="node3" href="$classSunlightStrategy.html" title=" " alt="" coords="220,95,351,121"/>
+</map>

@@ -1,0 +1,8 @@
+<map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
+<area shape="rect" id="node1" href="$classPlantState.html" title="Abstract base class representing a state in a plant&#39;s life cycle." alt="" coords="5,107,95,133"/>
+<area shape="rect" id="node2" href="$classDistressedState.html" title="Concrete state representing a plant in distress." alt="" coords="143,5,268,32"/>
+<area shape="rect" id="node3" href="$classMatureState.html" title="Represents a thriving stage in the plant’s life cycle." alt="" coords="154,56,257,83"/>
+<area shape="rect" id="node4" href="$classSeedState.html" title="Represents the initial state of a plant&#39;s life cycle, where it is a seed. In this state,..." alt="" coords="161,107,249,133"/>
+<area shape="rect" id="node5" href="$classSeedlingState.html" title="Represents the initial growth stage of a plant&#39;s life cycle. In this state, the plant is vulnerable a..." alt="" coords="149,157,261,184"/>
+<area shape="rect" id="node6" href="$classWitheredState.html" title="Represents the final state of a plant&#39;s life cycle, where it has withered and died...." alt="" coords="148,208,263,235"/>
+</map>

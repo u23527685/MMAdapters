@@ -1,0 +1,95 @@
+\hypertarget{classWaterStrategy}{}\doxysection{Water\+Strategy Class Reference}
+\label{classWaterStrategy}\index{WaterStrategy@{WaterStrategy}}
+
+
+Abstract base class for water strategies. This class defines the interface for water strategies, which determine how much water to apply to a plant. Concrete strategy classes should inherit from this class and implement the apply\+Water and get\+Strategy\+Name methods.  
+
+
+
+
+{\ttfamily \#include $<$Watering\+Strategy.\+h$>$}
+
+
+
+Inheritance diagram for Water\+Strategy\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classWaterStrategy__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Water\+Strategy\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classWaterStrategy__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual void \mbox{\hyperlink{classWaterStrategy_a68a777faa9840b21a68b5c7388f644c9}{apply\+Water}} (\mbox{\hyperlink{classPlant}{Plant}} $\ast$p)=0
+\begin{DoxyCompactList}\small\item\em Applies water to a plant according to the strategy. This method must be implemented by concrete strategy classes. \end{DoxyCompactList}\item 
+virtual std\+::string \mbox{\hyperlink{classWaterStrategy_a4117055fdba821e6d2773beef61cb1f0}{get\+Strategy\+Name}} () const =0
+\begin{DoxyCompactList}\small\item\em Gets the name of the water strategy. This method must be implemented by concrete strategy classes. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classWaterStrategy_a760cba67a245fe786f19ac9f8a6ac60f}\label{classWaterStrategy_a760cba67a245fe786f19ac9f8a6ac60f}} 
+\mbox{\hyperlink{classPlant}{Plant}} $\ast$ \mbox{\hyperlink{classWaterStrategy_a760cba67a245fe786f19ac9f8a6ac60f}{current\+Plant}}
+\begin{DoxyCompactList}\small\item\em The current plant being watered. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Abstract base class for water strategies. This class defines the interface for water strategies, which determine how much water to apply to a plant. Concrete strategy classes should inherit from this class and implement the apply\+Water and get\+Strategy\+Name methods. 
+
+Abstract base class for defining water strategies.
+
+This class defines the interface for all watering strategies, determining how much and how often a plant should be watered. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classWaterStrategy_a68a777faa9840b21a68b5c7388f644c9}\label{classWaterStrategy_a68a777faa9840b21a68b5c7388f644c9}} 
+\index{WaterStrategy@{WaterStrategy}!applyWater@{applyWater}}
+\index{applyWater@{applyWater}!WaterStrategy@{WaterStrategy}}
+\doxysubsubsection{\texorpdfstring{applyWater()}{applyWater()}}
+{\footnotesize\ttfamily virtual void Water\+Strategy\+::apply\+Water (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classPlant}{Plant}} $\ast$}]{p }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Applies water to a plant according to the strategy. This method must be implemented by concrete strategy classes. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p} & The plant to water. \\
+\hline
+\end{DoxyParams}
+
+
+Implemented in \mbox{\hyperlink{classMediumWaterStrategy_ad66818a3bef5f4754904c75e881b17b7}{Medium\+Water\+Strategy}}, \mbox{\hyperlink{classLowWaterStrategy_a274dfbccd13bceccf1ffb5d34cf4e820}{Low\+Water\+Strategy}}, and \mbox{\hyperlink{classHighWaterStrategy_a097221d44a1c28fe1328ae815f0d3125}{High\+Water\+Strategy}}.
+
+\mbox{\Hypertarget{classWaterStrategy_a4117055fdba821e6d2773beef61cb1f0}\label{classWaterStrategy_a4117055fdba821e6d2773beef61cb1f0}} 
+\index{WaterStrategy@{WaterStrategy}!getStrategyName@{getStrategyName}}
+\index{getStrategyName@{getStrategyName}!WaterStrategy@{WaterStrategy}}
+\doxysubsubsection{\texorpdfstring{getStrategyName()}{getStrategyName()}}
+{\footnotesize\ttfamily virtual std\+::string Water\+Strategy\+::get\+Strategy\+Name (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Gets the name of the water strategy. This method must be implemented by concrete strategy classes. 
+
+\begin{DoxyReturn}{Returns}
+The name of the water strategy. 
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{classMediumWaterStrategy_af7656bcce826ff22238ca4a83eaaae2f}{Medium\+Water\+Strategy}}, \mbox{\hyperlink{classLowWaterStrategy_a62bf734430f6802e96bd45b87531f69f}{Low\+Water\+Strategy}}, and \mbox{\hyperlink{classHighWaterStrategy_a2a74cff12c8d52bb2498266275c0b6b3}{High\+Water\+Strategy}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Watering\+Strategy.\+h\end{DoxyCompactItemize}

@@ -1,0 +1,118 @@
+\hypertarget{classTropical}{}\doxysection{Tropical Class Reference}
+\label{classTropical}\index{Tropical@{Tropical}}
+
+
+Represents the plant care routine for tropical plants.  
+
+
+
+
+{\ttfamily \#include $<$Tropical.\+h$>$}
+
+
+
+Inheritance diagram for Tropical\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=181pt]{classTropical__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Tropical\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=181pt]{classTropical__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classTropical_ae60ea2938dafd42c109d08490cccf833}\label{classTropical_ae60ea2938dafd42c109d08490cccf833}} 
+\mbox{\hyperlink{classTropical_ae60ea2938dafd42c109d08490cccf833}{Tropical}} ()
+\begin{DoxyCompactList}\small\item\em Constructs a \mbox{\hyperlink{classTropical}{Tropical}} care routine with appropriate strategies. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classTropical_a052062d263ea1dbdd65031f910daa752}{Fertilizing}} (\mbox{\hyperlink{classPlant}{Plant}} $\ast$p) override
+\begin{DoxyCompactList}\small\item\em Applies the fertilizing strategy to the plant. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classTropical_a53f6131307213c331b38112ba86aaab2}{Watering}} (\mbox{\hyperlink{classPlant}{Plant}} $\ast$p) override
+\begin{DoxyCompactList}\small\item\em Applies the watering strategy to the plant. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classTropical_ae185f9239e200af61e235e2b45ca92bd}{Sunlight}} (\mbox{\hyperlink{classPlant}{Plant}} $\ast$p) override
+\begin{DoxyCompactList}\small\item\em Applies the sunlight strategy to the plant. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classTropical_a3650d8082782e92e2217a2b4d3e7a588}\label{classTropical_a3650d8082782e92e2217a2b4d3e7a588}} 
+void \mbox{\hyperlink{classTropical_a3650d8082782e92e2217a2b4d3e7a588}{print\+Care\+Routine}} () override
+\begin{DoxyCompactList}\small\item\em Prints the current tropical care routine details. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Detailed Description}
+Represents the plant care routine for tropical plants. 
+
+This class provides specific care methods tailored for tropical plants, including fertilizing, watering, and sunlight exposure. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classTropical_a052062d263ea1dbdd65031f910daa752}\label{classTropical_a052062d263ea1dbdd65031f910daa752}} 
+\index{Tropical@{Tropical}!Fertilizing@{Fertilizing}}
+\index{Fertilizing@{Fertilizing}!Tropical@{Tropical}}
+\doxysubsubsection{\texorpdfstring{Fertilizing()}{Fertilizing()}}
+{\footnotesize\ttfamily void Tropical\+::\+Fertilizing (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classPlant}{Plant}} $\ast$}]{p }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Applies the fertilizing strategy to the plant. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p} & Pointer to the plant receiving fertilization. \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{classPlantCareRoutine_ac546c8ef2165fbe6e2f4f1bc2737d117}{Plant\+Care\+Routine}}.
+
+\mbox{\Hypertarget{classTropical_ae185f9239e200af61e235e2b45ca92bd}\label{classTropical_ae185f9239e200af61e235e2b45ca92bd}} 
+\index{Tropical@{Tropical}!Sunlight@{Sunlight}}
+\index{Sunlight@{Sunlight}!Tropical@{Tropical}}
+\doxysubsubsection{\texorpdfstring{Sunlight()}{Sunlight()}}
+{\footnotesize\ttfamily void Tropical\+::\+Sunlight (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classPlant}{Plant}} $\ast$}]{p }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Applies the sunlight strategy to the plant. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p} & Pointer to the plant receiving sunlight. \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{classPlantCareRoutine_abf826a7dc95427eb394da5cb14312bed}{Plant\+Care\+Routine}}.
+
+\mbox{\Hypertarget{classTropical_a53f6131307213c331b38112ba86aaab2}\label{classTropical_a53f6131307213c331b38112ba86aaab2}} 
+\index{Tropical@{Tropical}!Watering@{Watering}}
+\index{Watering@{Watering}!Tropical@{Tropical}}
+\doxysubsubsection{\texorpdfstring{Watering()}{Watering()}}
+{\footnotesize\ttfamily void Tropical\+::\+Watering (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classPlant}{Plant}} $\ast$}]{p }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Applies the watering strategy to the plant. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p} & Pointer to the plant being watered. \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{classPlantCareRoutine_a6bd5afa007b27b76ec8d16db80b804ba}{Plant\+Care\+Routine}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{Tropical_8h}{Tropical.\+h}}\item 
+Tropical.\+cpp\end{DoxyCompactItemize}

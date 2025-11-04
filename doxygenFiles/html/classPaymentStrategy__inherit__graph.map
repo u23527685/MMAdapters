@@ -1,0 +1,6 @@
+<map id="PaymentStrategy" name="PaymentStrategy">
+<area shape="rect" id="node1" title="Abstract strategy for processing payments." alt="" coords="243,5,378,32"/>
+<area shape="rect" id="node2" href="$classCreditCardPaymentStrategy.html" title="Payment strategy implementation using credit card information." alt="" coords="5,80,208,107"/>
+<area shape="rect" id="node3" href="$classEFTPaymentStrategy.html" title="Payment strategy implementation for EFT transactions." alt="" coords="232,80,389,107"/>
+<area shape="rect" id="node4" href="$classEWalletPaymentStrategy.html" title="Implements a payment method using an e&#45;wallet ID." alt="" coords="414,80,597,107"/>
+</map>

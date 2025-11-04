@@ -1,0 +1,92 @@
+\hypertarget{classAskQuery}{}\doxysection{Ask\+Query Class Reference}
+\label{classAskQuery}\index{AskQuery@{AskQuery}}
+
+
+Director class that simplifies \mbox{\hyperlink{classQuery}{Query}} object creation using builders.  
+
+
+
+
+{\ttfamily \#include $<$Ask\+Query.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classQuery}{Query}} $\ast$ \mbox{\hyperlink{classAskQuery_a94efd1cc71d65b9b77a27e28b0f1853e}{describe}} (\mbox{\hyperlink{classPlant}{Plant}} $\ast$item)
+\begin{DoxyCompactList}\small\item\em Creates a \mbox{\hyperlink{classQuery}{Query}} requesting description of a specific \mbox{\hyperlink{classPlant}{Plant}}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classQuery}{Query}} $\ast$ \mbox{\hyperlink{classAskQuery_ae59532ded7c33d7bd9f62a0258776510}{care\+Routine}} (\mbox{\hyperlink{classPlant}{Plant}} $\ast$item)
+\begin{DoxyCompactList}\small\item\em Creates a \mbox{\hyperlink{classQuery}{Query}} requesting care routine for a specific \mbox{\hyperlink{classPlant}{Plant}}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Director class that simplifies \mbox{\hyperlink{classQuery}{Query}} object creation using builders. 
+
+This class manages temporary \mbox{\hyperlink{classBuilder}{Builder}} instances to construct \mbox{\hyperlink{classQuery}{Query}} objects. It abstracts the builder selection and configuration process, providing simple methods for common query types. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classAskQuery_ae59532ded7c33d7bd9f62a0258776510}\label{classAskQuery_ae59532ded7c33d7bd9f62a0258776510}} 
+\index{AskQuery@{AskQuery}!careRoutine@{careRoutine}}
+\index{careRoutine@{careRoutine}!AskQuery@{AskQuery}}
+\doxysubsubsection{\texorpdfstring{careRoutine()}{careRoutine()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classQuery}{Query}} $\ast$ Ask\+Query\+::care\+Routine (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classPlant}{Plant}} $\ast$}]{item }\end{DoxyParamCaption})}
+
+
+
+Creates a \mbox{\hyperlink{classQuery}{Query}} requesting care routine for a specific \mbox{\hyperlink{classPlant}{Plant}}. 
+
+Creates a CARE ROUTINE \mbox{\hyperlink{classQuery}{Query}} for a specific \mbox{\hyperlink{classPlant}{Plant}}.
+
+
+\begin{DoxyParams}{Parameters}
+{\em item} & Pointer to the \mbox{\hyperlink{classPlant}{Plant}} to get care info for (non-\/owning) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Newly allocated \mbox{\hyperlink{classQuery}{Query}} object (caller takes ownership)
+\end{DoxyReturn}
+Uses \mbox{\hyperlink{classItemQueryBuilder}{Item\+Query\+Builder}} to create a CARE ROUTINE-\/type \mbox{\hyperlink{classQuery}{Query}} targeting the specified \mbox{\hyperlink{classPlant}{Plant}}.
+
+
+\begin{DoxyParams}{Parameters}
+{\em item} & Non-\/owning pointer to the \mbox{\hyperlink{classPlant}{Plant}} to get care info for \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Newly allocated \mbox{\hyperlink{classQuery}{Query}} pointer (caller must delete)
+\end{DoxyReturn}
+Creates and configures an \mbox{\hyperlink{classItemQueryBuilder}{Item\+Query\+Builder}} to construct a \mbox{\hyperlink{classQuery}{Query}} that requests care routine information for the specified \mbox{\hyperlink{classPlant}{Plant}}. The temporary builder is deleted after \mbox{\hyperlink{classQuery}{Query}} construction. \mbox{\Hypertarget{classAskQuery_a94efd1cc71d65b9b77a27e28b0f1853e}\label{classAskQuery_a94efd1cc71d65b9b77a27e28b0f1853e}} 
+\index{AskQuery@{AskQuery}!describe@{describe}}
+\index{describe@{describe}!AskQuery@{AskQuery}}
+\doxysubsubsection{\texorpdfstring{describe()}{describe()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classQuery}{Query}} $\ast$ Ask\+Query\+::describe (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classPlant}{Plant}} $\ast$}]{item }\end{DoxyParamCaption})}
+
+
+
+Creates a \mbox{\hyperlink{classQuery}{Query}} requesting description of a specific \mbox{\hyperlink{classPlant}{Plant}}. 
+
+Creates an INFO \mbox{\hyperlink{classQuery}{Query}} for a specific \mbox{\hyperlink{classPlant}{Plant}}.
+
+
+\begin{DoxyParams}{Parameters}
+{\em item} & Pointer to the \mbox{\hyperlink{classPlant}{Plant}} to describe (non-\/owning) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Newly allocated \mbox{\hyperlink{classQuery}{Query}} object (caller takes ownership)
+\end{DoxyReturn}
+Uses \mbox{\hyperlink{classItemQueryBuilder}{Item\+Query\+Builder}} to create an INFO-\/type \mbox{\hyperlink{classQuery}{Query}} targeting the specified \mbox{\hyperlink{classPlant}{Plant}}.
+
+
+\begin{DoxyParams}{Parameters}
+{\em item} & Non-\/owning pointer to the \mbox{\hyperlink{classPlant}{Plant}} to describe \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Newly allocated \mbox{\hyperlink{classQuery}{Query}} pointer (caller must delete)
+\end{DoxyReturn}
+Creates and configures an \mbox{\hyperlink{classItemQueryBuilder}{Item\+Query\+Builder}} to construct a \mbox{\hyperlink{classQuery}{Query}} that requests information about the specified \mbox{\hyperlink{classPlant}{Plant}}. The temporary builder is deleted after \mbox{\hyperlink{classQuery}{Query}} construction. 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{AskQuery_8h}{Ask\+Query.\+h}}\item 
+\mbox{\hyperlink{AskQuery_8cpp}{Ask\+Query.\+cpp}}\end{DoxyCompactItemize}

@@ -1,0 +1,89 @@
+\hypertarget{classOrganicFertilizer}{}\doxysection{Organic\+Fertilizer Class Reference}
+\label{classOrganicFertilizer}\index{OrganicFertilizer@{OrganicFertilizer}}
+
+
+Strategy for applying organic fertilizer to a plant.  
+
+
+
+
+{\ttfamily \#include $<$Organic\+Fertilizer.\+h$>$}
+
+
+
+Inheritance diagram for Organic\+Fertilizer\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=181pt]{classOrganicFertilizer__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Organic\+Fertilizer\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=348pt]{classOrganicFertilizer__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classOrganicFertilizer_ab9b325fb3e578f4672c965cf4b0de7b6}{apply\+Fertilizer}} (\mbox{\hyperlink{classPlant}{Plant}} $\ast$p) override
+\begin{DoxyCompactList}\small\item\em Applies the organic fertilizer strategy to a plant. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{classOrganicFertilizer_a74b03aef5b15ab1bd3d2ff4401454c58}{get\+Strategy\+Name}} () const override
+\begin{DoxyCompactList}\small\item\em Get the name of this strategy. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Detailed Description}
+Strategy for applying organic fertilizer to a plant. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classOrganicFertilizer_ab9b325fb3e578f4672c965cf4b0de7b6}\label{classOrganicFertilizer_ab9b325fb3e578f4672c965cf4b0de7b6}} 
+\index{OrganicFertilizer@{OrganicFertilizer}!applyFertilizer@{applyFertilizer}}
+\index{applyFertilizer@{applyFertilizer}!OrganicFertilizer@{OrganicFertilizer}}
+\doxysubsubsection{\texorpdfstring{applyFertilizer()}{applyFertilizer()}}
+{\footnotesize\ttfamily void Organic\+Fertilizer\+::apply\+Fertilizer (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classPlant}{Plant}} $\ast$}]{p }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Applies the organic fertilizer strategy to a plant. 
+
+Increases nutrient levels by 80 ppm, capped at the plant’s maximum limit. This promotes growth using natural compounds.
+
+
+\begin{DoxyParams}{Parameters}
+{\em p} & Pointer to the plant receiving the fertilizer. \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{classFertilizerStrategy_a6c2088db603760eb61fc1fa7549a2a57}{Fertilizer\+Strategy}}.
+
+\mbox{\Hypertarget{classOrganicFertilizer_a74b03aef5b15ab1bd3d2ff4401454c58}\label{classOrganicFertilizer_a74b03aef5b15ab1bd3d2ff4401454c58}} 
+\index{OrganicFertilizer@{OrganicFertilizer}!getStrategyName@{getStrategyName}}
+\index{getStrategyName@{getStrategyName}!OrganicFertilizer@{OrganicFertilizer}}
+\doxysubsubsection{\texorpdfstring{getStrategyName()}{getStrategyName()}}
+{\footnotesize\ttfamily std\+::string Organic\+Fertilizer\+::get\+Strategy\+Name (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Get the name of this strategy. 
+
+\begin{DoxyReturn}{Returns}
+String identifying the strategy type. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classFertilizerStrategy_a716d0a4861d471361e9750d718447359}{Fertilizer\+Strategy}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{OrganicFertilizer_8h}{Organic\+Fertilizer.\+h}}\item 
+Organic\+Fertilizer.\+cpp\end{DoxyCompactItemize}

@@ -1,0 +1,9 @@
+<map id="FertilizerStrategy.h" name="FertilizerStrategy.h">
+<area shape="rect" id="node1" title="Defines the abstract interface for plant fertilizer strategies." alt="" coords="358,5,502,32"/>
+<area shape="rect" id="node2" href="$InorganicFertilizer_8h.html" title="Concrete strategy for applying inorganic fertilizer to plants." alt="" coords="5,80,156,107"/>
+<area shape="rect" id="node3" href="$OrganicFertilizer_8h.html" title="Concrete fertilizer strategy using organic nutrients." alt="" coords="180,80,320,107"/>
+<area shape="rect" id="node4" href="$Shade_8h.html" title="Plant care routine implementing shade care." alt="" coords="345,80,419,107"/>
+<area shape="rect" id="node5" href="$Sunny_8h.html" title="Plant care routine for sunny conditions." alt="" coords="443,80,515,107"/>
+<area shape="rect" id="node6" href="$Temperate_8h.html" title="Plant care routine for temperate conditions." alt="" coords="540,80,643,107"/>
+<area shape="rect" id="node7" href="$Tropical_8h.html" title="Declares the Tropical care routine for tropical plant types." alt="" coords="667,80,751,107"/>
+</map>

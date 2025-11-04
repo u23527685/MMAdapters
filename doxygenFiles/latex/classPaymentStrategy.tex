@@ -1,0 +1,82 @@
+\hypertarget{classPaymentStrategy}{}\doxysection{Payment\+Strategy Class Reference}
+\label{classPaymentStrategy}\index{PaymentStrategy@{PaymentStrategy}}
+
+
+Abstract strategy for processing payments.  
+
+
+
+
+{\ttfamily \#include $<$Payment\+Strategy.\+h$>$}
+
+
+
+Inheritance diagram for Payment\+Strategy\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classPaymentStrategy__inherit__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classPaymentStrategy_a9a7c7120877688f5ec94423e80e859a6}\label{classPaymentStrategy_a9a7c7120877688f5ec94423e80e859a6}} 
+virtual \mbox{\hyperlink{classPaymentStrategy_a9a7c7120877688f5ec94423e80e859a6}{$\sim$\+Payment\+Strategy}} ()
+\begin{DoxyCompactList}\small\item\em Virtual destructor. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classPaymentStrategy_ab2aa48fb2342c4fca4af0a5279ea048b}{pay}} (double amount, const std\+::string \&order\+Num) const =0
+\begin{DoxyCompactList}\small\item\em Executes a payment operation. \end{DoxyCompactList}\item 
+virtual std\+::string \mbox{\hyperlink{classPaymentStrategy_a01cc0ce75dab09e6ad06015213f12cf6}{get\+Name}} () const =0
+\begin{DoxyCompactList}\small\item\em Retrieves the payment strategy name. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Abstract strategy for processing payments. 
+
+Provides a common interface for different payment types (EFT, E-\/\+Wallet, etc.). 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classPaymentStrategy_a01cc0ce75dab09e6ad06015213f12cf6}\label{classPaymentStrategy_a01cc0ce75dab09e6ad06015213f12cf6}} 
+\index{PaymentStrategy@{PaymentStrategy}!getName@{getName}}
+\index{getName@{getName}!PaymentStrategy@{PaymentStrategy}}
+\doxysubsubsection{\texorpdfstring{getName()}{getName()}}
+{\footnotesize\ttfamily virtual std\+::string Payment\+Strategy\+::get\+Name (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Retrieves the payment strategy name. 
+
+\begin{DoxyReturn}{Returns}
+String representing the payment method type. 
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{classEWalletPaymentStrategy_a38eadf2babbd15f55ae879def3175885}{EWallet\+Payment\+Strategy}}, \mbox{\hyperlink{classEFTPaymentStrategy_a99f6c254ef18c5d7ac9437a0f98dc766}{EFTPayment\+Strategy}}, and \mbox{\hyperlink{classCreditCardPaymentStrategy_a226530efc44f5c2337a50e77fa618997}{Credit\+Card\+Payment\+Strategy}}.
+
+\mbox{\Hypertarget{classPaymentStrategy_ab2aa48fb2342c4fca4af0a5279ea048b}\label{classPaymentStrategy_ab2aa48fb2342c4fca4af0a5279ea048b}} 
+\index{PaymentStrategy@{PaymentStrategy}!pay@{pay}}
+\index{pay@{pay}!PaymentStrategy@{PaymentStrategy}}
+\doxysubsubsection{\texorpdfstring{pay()}{pay()}}
+{\footnotesize\ttfamily virtual void Payment\+Strategy\+::pay (\begin{DoxyParamCaption}\item[{double}]{amount,  }\item[{const std\+::string \&}]{order\+Num }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Executes a payment operation. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em amount} & The payment amount. \\
+\hline
+{\em order\+Num} & The associated order identifier. \\
+\hline
+\end{DoxyParams}
+
+
+Implemented in \mbox{\hyperlink{classEWalletPaymentStrategy_a968531d4a60c1f8070233e87aa39fa69}{EWallet\+Payment\+Strategy}}, \mbox{\hyperlink{classEFTPaymentStrategy_abbd811553e951f7398d76e3274525620}{EFTPayment\+Strategy}}, and \mbox{\hyperlink{classCreditCardPaymentStrategy_a2524f14828dcd71b66364a7b7969bdfd}{Credit\+Card\+Payment\+Strategy}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{PaymentStrategy_8h}{Payment\+Strategy.\+h}}\end{DoxyCompactItemize}

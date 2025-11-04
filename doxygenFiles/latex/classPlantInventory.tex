@@ -1,0 +1,224 @@
+\hypertarget{classPlantInventory}{}\doxysection{Plant\+Inventory Class Reference}
+\label{classPlantInventory}\index{PlantInventory@{PlantInventory}}
+
+
+Singleton class managing plant inventory and observers.  
+
+
+
+
+{\ttfamily \#include $<$Plant\+Inventory.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{classPlantInventory_a88d89b6d12469342a46fbaebcfdbd0c4}{attach}} (\mbox{\hyperlink{classInventoryObserver}{Inventory\+Observer}} $\ast$observer)
+\begin{DoxyCompactList}\small\item\em Attaches an observer to the inventory. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classPlantInventory_afe82941ed004a21e04d389e1ae527508}{detach}} (\mbox{\hyperlink{classInventoryObserver}{Inventory\+Observer}} $\ast$observer)
+\begin{DoxyCompactList}\small\item\em Detaches an observer from the inventory. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classPlantInventory_a2b442864849a3eaa48f171786b771de2}\label{classPlantInventory_a2b442864849a3eaa48f171786b771de2}} 
+void \mbox{\hyperlink{classPlantInventory_a2b442864849a3eaa48f171786b771de2}{notify}} ()
+\begin{DoxyCompactList}\small\item\em Notifies all observers if changes are made. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classPlantInventory_ae1ed302eb3d6f0a57ba58d432470eb4d}\label{classPlantInventory_ae1ed302eb3d6f0a57ba58d432470eb4d}} 
+void \mbox{\hyperlink{classPlantInventory_ae1ed302eb3d6f0a57ba58d432470eb4d}{update\+Stock}} ()
+\begin{DoxyCompactList}\small\item\em Updates stock and notifies observers. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classPlantInventory_a3867b24ab64e8d5f486acac7d999787e}{add\+Stock}} (\mbox{\hyperlink{classPlant}{Plant}} $\ast$plant, int quantity)
+\begin{DoxyCompactList}\small\item\em Adds stock to inventory (creates and executes \mbox{\hyperlink{classAddStock}{Add\+Stock}} command) \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classPlantInventory_afd8e2e0bb685ef8e466780d259b8eccc}{remove\+Stock}} (\mbox{\hyperlink{classPlant}{Plant}} $\ast$plant, int quantity)
+\begin{DoxyCompactList}\small\item\em Removes stock from inventory (creates and executes \mbox{\hyperlink{classRemoveStock}{Remove\+Stock}} command) \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classPlantInventory_a096aa9d632da858c22701188ee4e055e}{execute\+Command}} (\mbox{\hyperlink{classStockCommand}{Stock\+Command}} $\ast$command)
+\begin{DoxyCompactList}\small\item\em Executes a stock command and removes it from memory. \end{DoxyCompactList}\item 
+std\+::vector$<$ std\+::pair$<$ \mbox{\hyperlink{classPlant}{Plant}} $\ast$, int $>$ $>$ \& \mbox{\hyperlink{classPlantInventory_ae76137681ef91233182ff673807fd3b2}{get\+Inventory\+Reference}} ()
+\begin{DoxyCompactList}\small\item\em Gets a reference to inventory items for command operations. \end{DoxyCompactList}\item 
+const std\+::vector$<$ std\+::pair$<$ \mbox{\hyperlink{classPlant}{Plant}} $\ast$, int $>$ $>$ \mbox{\hyperlink{classPlantInventory_a29a7241b4e41cb39c6265c39af203f04}{get\+Inventory\+View}} () const
+\begin{DoxyCompactList}\small\item\em Gets a copy (not reference) of inventory. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classPlantInventory_a2ed260287b280d1b71c7feaa0f200e22}{find\+Plant\+Index}} (\mbox{\hyperlink{classPlant}{Plant}} $\ast$plant) const
+\begin{DoxyCompactList}\small\item\em Finds inventory index for a given \mbox{\hyperlink{classPlant}{Plant}}. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classPlantInventory_a25bc1de2b6e8a81d8b2337fcd73c84ee}{get\+Quantity}} (\mbox{\hyperlink{classPlant}{Plant}} $\ast$plant) const
+\begin{DoxyCompactList}\small\item\em Gets the quantity of a specific plant in inventory. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{classPlantInventory}{Plant\+Inventory}} $\ast$ \mbox{\hyperlink{classPlantInventory_abf9e94a9a6f7d224e1263900f1d18211}{get\+Instance}} ()
+\begin{DoxyCompactList}\small\item\em Gets the singleton instance of \mbox{\hyperlink{classPlantInventory}{Plant\+Inventory}}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Singleton class managing plant inventory and observers. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classPlantInventory_a3867b24ab64e8d5f486acac7d999787e}\label{classPlantInventory_a3867b24ab64e8d5f486acac7d999787e}} 
+\index{PlantInventory@{PlantInventory}!addStock@{addStock}}
+\index{addStock@{addStock}!PlantInventory@{PlantInventory}}
+\doxysubsubsection{\texorpdfstring{addStock()}{addStock()}}
+{\footnotesize\ttfamily bool Plant\+Inventory\+::add\+Stock (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classPlant}{Plant}} $\ast$}]{plant,  }\item[{int}]{quantity }\end{DoxyParamCaption})}
+
+
+
+Adds stock to inventory (creates and executes \mbox{\hyperlink{classAddStock}{Add\+Stock}} command) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em plant} & \mbox{\hyperlink{classPlant}{Plant}} to add \\
+\hline
+{\em quantity} & Quantity to add \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if successful 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classPlantInventory_a88d89b6d12469342a46fbaebcfdbd0c4}\label{classPlantInventory_a88d89b6d12469342a46fbaebcfdbd0c4}} 
+\index{PlantInventory@{PlantInventory}!attach@{attach}}
+\index{attach@{attach}!PlantInventory@{PlantInventory}}
+\doxysubsubsection{\texorpdfstring{attach()}{attach()}}
+{\footnotesize\ttfamily bool Plant\+Inventory\+::attach (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classInventoryObserver}{Inventory\+Observer}} $\ast$}]{observer }\end{DoxyParamCaption})}
+
+
+
+Attaches an observer to the inventory. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em observer} & Observer to attach \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if successful 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classPlantInventory_afe82941ed004a21e04d389e1ae527508}\label{classPlantInventory_afe82941ed004a21e04d389e1ae527508}} 
+\index{PlantInventory@{PlantInventory}!detach@{detach}}
+\index{detach@{detach}!PlantInventory@{PlantInventory}}
+\doxysubsubsection{\texorpdfstring{detach()}{detach()}}
+{\footnotesize\ttfamily bool Plant\+Inventory\+::detach (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classInventoryObserver}{Inventory\+Observer}} $\ast$}]{observer }\end{DoxyParamCaption})}
+
+
+
+Detaches an observer from the inventory. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em observer} & Observer to detach \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if successful 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classPlantInventory_a096aa9d632da858c22701188ee4e055e}\label{classPlantInventory_a096aa9d632da858c22701188ee4e055e}} 
+\index{PlantInventory@{PlantInventory}!executeCommand@{executeCommand}}
+\index{executeCommand@{executeCommand}!PlantInventory@{PlantInventory}}
+\doxysubsubsection{\texorpdfstring{executeCommand()}{executeCommand()}}
+{\footnotesize\ttfamily bool Plant\+Inventory\+::execute\+Command (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classStockCommand}{Stock\+Command}} $\ast$}]{command }\end{DoxyParamCaption})}
+
+
+
+Executes a stock command and removes it from memory. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em command} & Command to execute \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if execution successful 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classPlantInventory_a2ed260287b280d1b71c7feaa0f200e22}\label{classPlantInventory_a2ed260287b280d1b71c7feaa0f200e22}} 
+\index{PlantInventory@{PlantInventory}!findPlantIndex@{findPlantIndex}}
+\index{findPlantIndex@{findPlantIndex}!PlantInventory@{PlantInventory}}
+\doxysubsubsection{\texorpdfstring{findPlantIndex()}{findPlantIndex()}}
+{\footnotesize\ttfamily int Plant\+Inventory\+::find\+Plant\+Index (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classPlant}{Plant}} $\ast$}]{plant }\end{DoxyParamCaption}) const}
+
+
+
+Finds inventory index for a given \mbox{\hyperlink{classPlant}{Plant}}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em plant} & \mbox{\hyperlink{classPlant}{Plant}} to find \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Index of plant in inventory, or -\/1 if not found 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classPlantInventory_abf9e94a9a6f7d224e1263900f1d18211}\label{classPlantInventory_abf9e94a9a6f7d224e1263900f1d18211}} 
+\index{PlantInventory@{PlantInventory}!getInstance@{getInstance}}
+\index{getInstance@{getInstance}!PlantInventory@{PlantInventory}}
+\doxysubsubsection{\texorpdfstring{getInstance()}{getInstance()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classPlantInventory}{Plant\+Inventory}} $\ast$ Plant\+Inventory\+::get\+Instance (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Gets the singleton instance of \mbox{\hyperlink{classPlantInventory}{Plant\+Inventory}}. 
+
+\begin{DoxyReturn}{Returns}
+Pointer to the singleton instance 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classPlantInventory_ae76137681ef91233182ff673807fd3b2}\label{classPlantInventory_ae76137681ef91233182ff673807fd3b2}} 
+\index{PlantInventory@{PlantInventory}!getInventoryReference@{getInventoryReference}}
+\index{getInventoryReference@{getInventoryReference}!PlantInventory@{PlantInventory}}
+\doxysubsubsection{\texorpdfstring{getInventoryReference()}{getInventoryReference()}}
+{\footnotesize\ttfamily std\+::vector$<$ std\+::pair$<$ \mbox{\hyperlink{classPlant}{Plant}} $\ast$, int $>$ $>$ \& Plant\+Inventory\+::get\+Inventory\+Reference (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Gets a reference to inventory items for command operations. 
+
+\begin{DoxyReturn}{Returns}
+Reference to inventory vector 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classPlantInventory_a29a7241b4e41cb39c6265c39af203f04}\label{classPlantInventory_a29a7241b4e41cb39c6265c39af203f04}} 
+\index{PlantInventory@{PlantInventory}!getInventoryView@{getInventoryView}}
+\index{getInventoryView@{getInventoryView}!PlantInventory@{PlantInventory}}
+\doxysubsubsection{\texorpdfstring{getInventoryView()}{getInventoryView()}}
+{\footnotesize\ttfamily const std\+::vector$<$ std\+::pair$<$ \mbox{\hyperlink{classPlant}{Plant}} $\ast$, int $>$ $>$ Plant\+Inventory\+::get\+Inventory\+View (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Gets a copy (not reference) of inventory. 
+
+\begin{DoxyReturn}{Returns}
+Copy of inventory vector 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classPlantInventory_a25bc1de2b6e8a81d8b2337fcd73c84ee}\label{classPlantInventory_a25bc1de2b6e8a81d8b2337fcd73c84ee}} 
+\index{PlantInventory@{PlantInventory}!getQuantity@{getQuantity}}
+\index{getQuantity@{getQuantity}!PlantInventory@{PlantInventory}}
+\doxysubsubsection{\texorpdfstring{getQuantity()}{getQuantity()}}
+{\footnotesize\ttfamily int Plant\+Inventory\+::get\+Quantity (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classPlant}{Plant}} $\ast$}]{plant }\end{DoxyParamCaption}) const}
+
+
+
+Gets the quantity of a specific plant in inventory. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em plant} & \mbox{\hyperlink{classPlant}{Plant}} to query \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Quantity of the plant, or 0 if not found 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classPlantInventory_afd8e2e0bb685ef8e466780d259b8eccc}\label{classPlantInventory_afd8e2e0bb685ef8e466780d259b8eccc}} 
+\index{PlantInventory@{PlantInventory}!removeStock@{removeStock}}
+\index{removeStock@{removeStock}!PlantInventory@{PlantInventory}}
+\doxysubsubsection{\texorpdfstring{removeStock()}{removeStock()}}
+{\footnotesize\ttfamily bool Plant\+Inventory\+::remove\+Stock (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classPlant}{Plant}} $\ast$}]{plant,  }\item[{int}]{quantity }\end{DoxyParamCaption})}
+
+
+
+Removes stock from inventory (creates and executes \mbox{\hyperlink{classRemoveStock}{Remove\+Stock}} command) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em plant} & \mbox{\hyperlink{classPlant}{Plant}} to remove \\
+\hline
+{\em quantity} & Quantity to remove \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if successful 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{PlantInventory_8h}{Plant\+Inventory.\+h}}\item 
+Plant\+Inventory.\+cpp\end{DoxyCompactItemize}

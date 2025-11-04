@@ -1,0 +1,10 @@
+<map id="SunlightStrategy.h" name="SunlightStrategy.h">
+<area shape="rect" id="node1" title="Abstract base class for sunlight strategies." alt="" coords="433,5,573,32"/>
+<area shape="rect" id="node2" href="$FullSunStrategy_8h.html" title="Concrete sunlight strategy applying full sunlight exposure to a plant." alt="" coords="5,80,140,107"/>
+<area shape="rect" id="node3" href="$PartialSunStrategy_8h.html" title="Concrete sunlight strategy providing moderate sunlight exposure." alt="" coords="165,80,317,107"/>
+<area shape="rect" id="node4" href="$Shade_8h.html" title="Plant care routine implementing shade care." alt="" coords="341,80,415,107"/>
+<area shape="rect" id="node5" href="$ShadeStrategy_8h.html" title="Sunlight strategy for shade conditions." alt="" coords="440,80,567,107"/>
+<area shape="rect" id="node6" href="$Sunny_8h.html" title="Plant care routine for sunny conditions." alt="" coords="591,80,663,107"/>
+<area shape="rect" id="node7" href="$Temperate_8h.html" title="Plant care routine for temperate conditions." alt="" coords="688,80,791,107"/>
+<area shape="rect" id="node8" href="$Tropical_8h.html" title="Declares the Tropical care routine for tropical plant types." alt="" coords="815,80,899,107"/>
+</map>

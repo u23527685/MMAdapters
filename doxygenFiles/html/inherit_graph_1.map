@@ -1,0 +1,5 @@
+<map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
+<area shape="rect" id="node1" href="$classBuilder.html" title="Abstract builder for constructing Query objects." alt="" coords="5,31,73,57"/>
+<area shape="rect" id="node2" href="$classItemQueryBuilder.html" title="Builder class for constructing queries about specific plants." alt="" coords="121,5,259,32"/>
+<area shape="rect" id="node3" href="$classMiscQueryBuilder.html" title="Concrete builder for non&#45;item queries." alt="" coords="121,56,259,83"/>
+</map>

@@ -1,0 +1,5 @@
+<map id="GiftWrap" name="GiftWrap">
+<area shape="rect" id="node1" title="Concrete decorator that adds gift wrapping to a Plant." alt="" coords="25,155,104,181"/>
+<area shape="rect" id="node2" href="$classPlantDecorator.html" title="Abstract decorator for dynamically extending Plant behavior." alt="" coords="5,80,124,107"/>
+<area shape="rect" id="node3" href="$classPlant.html" title="Abstract representation of a plant with care and lifecycle management." alt="" coords="37,5,92,32"/>
+</map>

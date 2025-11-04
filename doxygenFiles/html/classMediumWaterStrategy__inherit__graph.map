@@ -1,0 +1,4 @@
+<map id="MediumWaterStrategy" name="MediumWaterStrategy">
+<area shape="rect" id="node1" title="Strategy for moderately watering plants." alt="" coords="5,80,173,107"/>
+<area shape="rect" id="node2" href="$classWaterStrategy.html" title="Abstract base class for water strategies. This class defines the interface for water strategies,..." alt="" coords="32,5,147,32"/>
+</map>

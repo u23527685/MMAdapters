@@ -1,0 +1,4 @@
+<map id="Oak" name="Oak">
+<area shape="rect" id="node1" title="Represents an Oak tree plant." alt="" coords="9,80,57,107"/>
+<area shape="rect" id="node2" href="$classPlant.html" title="Abstract representation of a plant with care and lifecycle management." alt="" coords="5,5,60,32"/>
+</map>

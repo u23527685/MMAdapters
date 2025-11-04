@@ -1,0 +1,61 @@
+\hypertarget{classPlantFactory}{}\doxysection{Plant\+Factory Class Reference}
+\label{classPlantFactory}\index{PlantFactory@{PlantFactory}}
+
+
+Abstract base class for plant creation factories.  
+
+
+
+
+{\ttfamily \#include $<$Plant\+Factory.\+h$>$}
+
+
+
+Inheritance diagram for Plant\+Factory\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=256pt]{classPlantFactory__inherit__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual \mbox{\hyperlink{classPlant}{Plant}} $\ast$ \mbox{\hyperlink{classPlantFactory_abcdff8c5cf47bd6846e2c47589d1e0e9}{create\+Plant}} (std\+::string plant\+Type, double price)=0
+\begin{DoxyCompactList}\small\item\em Pure virtual method to create a plant. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Abstract base class for plant creation factories. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classPlantFactory_abcdff8c5cf47bd6846e2c47589d1e0e9}\label{classPlantFactory_abcdff8c5cf47bd6846e2c47589d1e0e9}} 
+\index{PlantFactory@{PlantFactory}!createPlant@{createPlant}}
+\index{createPlant@{createPlant}!PlantFactory@{PlantFactory}}
+\doxysubsubsection{\texorpdfstring{createPlant()}{createPlant()}}
+{\footnotesize\ttfamily virtual \mbox{\hyperlink{classPlant}{Plant}}$\ast$ Plant\+Factory\+::create\+Plant (\begin{DoxyParamCaption}\item[{std\+::string}]{plant\+Type,  }\item[{double}]{price }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Pure virtual method to create a plant. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em plant\+Type} & The type of plant to create \\
+\hline
+{\em price} & The price of the plant \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Pointer to the newly created \mbox{\hyperlink{classPlant}{Plant}} object 
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{classTreeFactory_a8c7b94167214c2b1bb2981cc78efdd18}{Tree\+Factory}}, and \mbox{\hyperlink{classFlowerFactory_a817af18799425fc6d604596c837672b0}{Flower\+Factory}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{PlantFactory_8h}{Plant\+Factory.\+h}}\end{DoxyCompactItemize}

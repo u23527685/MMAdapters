@@ -1,0 +1,5 @@
+<map id="PlantFactory" name="PlantFactory">
+<area shape="rect" id="node1" title="Abstract base class for plant creation factories." alt="" coords="75,5,177,32"/>
+<area shape="rect" id="node2" href="$classFlowerFactory.html" title="Concrete factory for creating flower&#45;type Plants." alt="" coords="5,80,119,107"/>
+<area shape="rect" id="node3" href="$classTreeFactory.html" title="Concrete factory for creating tree plants." alt="" coords="143,80,239,107"/>
+</map>

@@ -1,0 +1,5 @@
+<map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
+<area shape="rect" id="node1" href="$classFertilizerStrategy.html" title="Abstract base for fertilizer behavior strategies." alt="" coords="5,31,140,57"/>
+<area shape="rect" id="node2" href="$classInorganicFertilizer.html" title="Strategy for applying inorganic fertilizers to a plant." alt="" coords="188,5,327,32"/>
+<area shape="rect" id="node3" href="$classOrganicFertilizer.html" title="Strategy for applying organic fertilizer to a plant." alt="" coords="193,56,322,83"/>
+</map>

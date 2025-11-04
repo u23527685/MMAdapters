@@ -1,0 +1,110 @@
+\hypertarget{classCreditCardPaymentStrategy}{}\doxysection{Credit\+Card\+Payment\+Strategy Class Reference}
+\label{classCreditCardPaymentStrategy}\index{CreditCardPaymentStrategy@{CreditCardPaymentStrategy}}
+
+
+Payment strategy implementation using credit card information.  
+
+
+
+
+{\ttfamily \#include $<$Credit\+Card\+Payment\+Strategy.\+h$>$}
+
+
+
+Inheritance diagram for Credit\+Card\+Payment\+Strategy\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=232pt]{classCreditCardPaymentStrategy__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Credit\+Card\+Payment\+Strategy\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=232pt]{classCreditCardPaymentStrategy__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classCreditCardPaymentStrategy_a48807823fb4a507fd3e8ad533cccff67}{Credit\+Card\+Payment\+Strategy}} (const std\+::string \&card\+Number)
+\begin{DoxyCompactList}\small\item\em Construct a \mbox{\hyperlink{classCreditCardPaymentStrategy}{Credit\+Card\+Payment\+Strategy}}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classCreditCardPaymentStrategy_a2524f14828dcd71b66364a7b7969bdfd}{pay}} (double amount, const std\+::string \&order\+Num) const override
+\begin{DoxyCompactList}\small\item\em Execute a credit card payment. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{classCreditCardPaymentStrategy_a226530efc44f5c2337a50e77fa618997}{get\+Name}} () const override
+\begin{DoxyCompactList}\small\item\em Retrieves the payment strategy name. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Payment strategy implementation using credit card information. 
+
+Stores a card number and defines the logic to execute a payment using it. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classCreditCardPaymentStrategy_a48807823fb4a507fd3e8ad533cccff67}\label{classCreditCardPaymentStrategy_a48807823fb4a507fd3e8ad533cccff67}} 
+\index{CreditCardPaymentStrategy@{CreditCardPaymentStrategy}!CreditCardPaymentStrategy@{CreditCardPaymentStrategy}}
+\index{CreditCardPaymentStrategy@{CreditCardPaymentStrategy}!CreditCardPaymentStrategy@{CreditCardPaymentStrategy}}
+\doxysubsubsection{\texorpdfstring{CreditCardPaymentStrategy()}{CreditCardPaymentStrategy()}}
+{\footnotesize\ttfamily Credit\+Card\+Payment\+Strategy\+::\+Credit\+Card\+Payment\+Strategy (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{card\+Number }\end{DoxyParamCaption})}
+
+
+
+Construct a \mbox{\hyperlink{classCreditCardPaymentStrategy}{Credit\+Card\+Payment\+Strategy}}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em card\+Number} & The credit card number as a string. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classCreditCardPaymentStrategy_a226530efc44f5c2337a50e77fa618997}\label{classCreditCardPaymentStrategy_a226530efc44f5c2337a50e77fa618997}} 
+\index{CreditCardPaymentStrategy@{CreditCardPaymentStrategy}!getName@{getName}}
+\index{getName@{getName}!CreditCardPaymentStrategy@{CreditCardPaymentStrategy}}
+\doxysubsubsection{\texorpdfstring{getName()}{getName()}}
+{\footnotesize\ttfamily std\+::string Credit\+Card\+Payment\+Strategy\+::get\+Name (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Retrieves the payment strategy name. 
+
+\begin{DoxyReturn}{Returns}
+String representing the payment method type. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classPaymentStrategy_a01cc0ce75dab09e6ad06015213f12cf6}{Payment\+Strategy}}.
+
+\mbox{\Hypertarget{classCreditCardPaymentStrategy_a2524f14828dcd71b66364a7b7969bdfd}\label{classCreditCardPaymentStrategy_a2524f14828dcd71b66364a7b7969bdfd}} 
+\index{CreditCardPaymentStrategy@{CreditCardPaymentStrategy}!pay@{pay}}
+\index{pay@{pay}!CreditCardPaymentStrategy@{CreditCardPaymentStrategy}}
+\doxysubsubsection{\texorpdfstring{pay()}{pay()}}
+{\footnotesize\ttfamily void Credit\+Card\+Payment\+Strategy\+::pay (\begin{DoxyParamCaption}\item[{double}]{amount,  }\item[{const std\+::string \&}]{order\+Num }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Execute a credit card payment. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em amount} & The total amount to charge. \\
+\hline
+{\em order\+Num} & Identifier for the order being paid. \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{classPaymentStrategy_ab2aa48fb2342c4fca4af0a5279ea048b}{Payment\+Strategy}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{CreditCardPaymentStrategy_8h}{Credit\+Card\+Payment\+Strategy.\+h}}\item 
+Credit\+Card\+Payment\+Strategy.\+cpp\end{DoxyCompactItemize}
