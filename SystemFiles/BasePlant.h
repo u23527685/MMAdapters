@@ -1,19 +1,21 @@
 /**
  * @file BasePlant.h
- * @brief Defines the BasePlant class, a concrete implementation of the Plant interface.
+ * @brief Defines the BasePlant class, a concrete implementation of the Plant
+ * interface.
  */
 
 #ifndef BASEPLANT_H
 #define BASEPLANT_H
-#include <string>
 #include "Plant.h"
+#include <string>
 
 /**
  * @class BasePlant
  * @brief Represents a basic plant with a description and price.
  */
-class BasePlant: public Plant {
-    public:
+class BasePlant : public Plant
+{
+  public:
     /**
      * @brief Default constructor for BasePlant.
      */

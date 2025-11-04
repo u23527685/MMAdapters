@@ -7,12 +7,13 @@
  */
 
 #include "Builder.h"
-#include "Query.h" 
+#include "Query.h"
 
-Builder::Builder(){
-    item=nullptr;
-    type="";
-    question="";
+Builder::Builder()
+{
+    item = nullptr;
+    type = "";
+    question = "";
 }
 
 /**
@@ -24,6 +25,4 @@ Builder::Builder(){
  *
  * @return Pointer to a newly allocated Query.
  */
-Query* Builder::build(){
-    return new Query(this);
-}
+Query *Builder::build() { return new Query(this); }

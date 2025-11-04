@@ -8,18 +8,19 @@
 #include "Tropical.h"
 #include <iostream>
 
-#include "PartialSunStrategy.h"
-#include "OrganicFertilizer.h"
 #include "MediumWaterStrategy.h"
+#include "OrganicFertilizer.h"
+#include "PartialSunStrategy.h"
 
- /**
+/**
  * @brief Constructor for Tropical care routine
  * @details Initializes the strategies for water, sunlight, and fertilizer care
  *          using medium water, partial sun, and organic fertilizer strategies
  * @return None (constructor)
  * @author Jay
  */
-Tropical::Tropical(){
+Tropical::Tropical()
+{
     wS = std::make_unique<MediumWaterStrategy>();
     sS = std::make_unique<PartialSunStrategy>();
     fS = std::make_unique<OrganicFertilizer>();
@@ -32,9 +33,7 @@ Tropical::Tropical(){
  * @return void
  * @author Jay
  */
-void Tropical::Fertilizing(Plant* p){
-    fS->applyFertilizer(p);
-}
+void Tropical::Fertilizing(Plant *p) { fS->applyFertilizer(p); }
 
 /**
  * @brief Waters a tropical plant
@@ -43,9 +42,7 @@ void Tropical::Fertilizing(Plant* p){
  * @return void
  * @author Jay
  */
-void Tropical::Watering(Plant* p){
-    wS->applyWater(p);
-}
+void Tropical::Watering(Plant *p) { wS->applyWater(p); }
 
 /**
  * @brief Manages sunlight exposure for a tropical plant
@@ -54,9 +51,7 @@ void Tropical::Watering(Plant* p){
  * @return void
  * @author Jay
  */
-void Tropical::Sunlight(Plant* p){
-    sS->applySunlight(p);
-}
+void Tropical::Sunlight(Plant *p) { sS->applySunlight(p); }
 
 /**
  * @brief Prints the care routine details
@@ -64,7 +59,8 @@ void Tropical::Sunlight(Plant* p){
  * @return void
  * @author Jay
  */
-void Tropical::printCareRoutine(){
+void Tropical::printCareRoutine()
+{
     std::cout << "\n ================================================= \n";
     std::cout << "This plant uses: \n";
     std::cout << "-Medium Watering care strategy \n";

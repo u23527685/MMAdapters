@@ -6,34 +6,35 @@
  */
 
 #pragma once
+#include "PaymentStrategy.h"
+#include "TransactionSnapshot.h"
 #include <string>
 #include <vector>
-#include "TransactionSnapshot.h"
-#include "PaymentStrategy.h"
 
 /**
  * @class Transaction
  * @brief Class representing a transaction in the system
- * @details Manages transaction details, payment processing, and state management
+ * @details Manages transaction details, payment processing, and state
+ * management
  * @author Jerusha
  */
-class Transaction {
+class Transaction
+{
     std::string orderNum;
     double amount;
     int quantity;
-    PaymentStrategy* paymentMethod;
+    PaymentStrategy *paymentMethod;
     std::vector<std::string> decorations;
-     
 
-public:
-  /**
+  public:
+    /**
      * @brief Constructor for Transaction
      * @param orderNum The order number for the transaction
      * @param amount The monetary amount
      * @param quantity The quantity of items
      * @author Jerusha
      */
-    Transaction(const std::string& orderNum, double amount, int quantity);
+    Transaction(const std::string &orderNum, double amount, int quantity);
     /**
      * @brief Sets the transaction details
      * @param orderNum The order number
@@ -42,21 +43,22 @@ public:
      * @return void
      * @author Jerusha
      */
-    void setTransaction(const std::string& orderNum, double amount, int quantity);
-        /**
+    void setTransaction(const std::string &orderNum, double amount,
+                        int quantity);
+    /**
      * @brief Sets the payment strategy
      * @param method Pointer to the payment strategy to use
      * @return void
      * @author Jerusha
      */
-    void setPaymentStrategy(PaymentStrategy* method);
-        /**
+    void setPaymentStrategy(PaymentStrategy *method);
+    /**
      * @brief Processes the payment using the set strategy
      * @return void
      * @author Jerusha
      */
     void processPayment() const;
-        /**
+    /**
      * @brief Displays transaction details
      * @return void
      * @author Jerusha
@@ -95,14 +97,14 @@ public:
      * @return void
      * @author Jerusha
      */
-    void addDecoration(const std::string& decor);
+    void addDecoration(const std::string &decor);
 
     /**
      * @brief Gets the decorations associated with the transaction
      * @return const std::vector<std::string>& The vector of decorations
      * @author Jerusha
      */
-    const std::vector<std::string>& getDecorations() const;
+    const std::vector<std::string> &getDecorations() const;
 
     /**
      * @brief Creates a snapshot of the current transaction state
@@ -117,12 +119,12 @@ public:
      * @return void
      * @author Jerusha
      */
-    void restoreSnapshot(const TransactionSnapshot& snapshot);
+    void restoreSnapshot(const TransactionSnapshot &snapshot);
 
     /**
      * @brief Clones the current transaction
      * @return Transaction* A pointer to the cloned transaction
      * @author Jerusha
      */
-    Transaction* clone() const;
+    Transaction *clone() const;
 };

@@ -1,17 +1,19 @@
 #include "EmployeeFactory.h"
-#include "SalesEmployee.h"
 #include "FloorEmployee.h"
+#include "SalesEmployee.h"
 
-#include<string>
+#include <string>
 
-EmployeeFactory::EmployeeFactory():StaffFactory(){}
+EmployeeFactory::EmployeeFactory() : StaffFactory() {}
 
-EmployeeFactory::~EmployeeFactory(){}
+EmployeeFactory::~EmployeeFactory() {}
 
-FloorStaff* EmployeeFactory::createFloorStaff(std::string name){
+FloorStaff *EmployeeFactory::createFloorStaff(std::string name)
+{
     return new FloorEmployee(name);
 }
 
-SalesStaff* EmployeeFactory::createSalesStaff(std::string name){
+SalesStaff *EmployeeFactory::createSalesStaff(std::string name)
+{
     return new SalesEmployee(name);
 }

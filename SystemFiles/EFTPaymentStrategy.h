@@ -13,17 +13,18 @@
  * @brief Strategy for processing electronic funds transfer payments
  * @details Implements payment processing for bank account transfers
  */
-class EFTPaymentStrategy : public PaymentStrategy {
-private:
-    std::string accountNumber;    ///< Bank account number for transfers
+class EFTPaymentStrategy : public PaymentStrategy
+{
+  private:
+    std::string accountNumber; ///< Bank account number for transfers
 
-public:
+  public:
     /**
      * @brief Constructor for EFTPaymentStrategy
      * @param accountNumber The bank account number
      * @return None (constructor)
      */
-    EFTPaymentStrategy(const std::string& accountNumber);
+    EFTPaymentStrategy(const std::string &accountNumber);
 
     /**
      * @brief Process an EFT payment
@@ -31,7 +32,7 @@ public:
      * @param orderNum The order number for the transaction
      * @return void
      */
-    void pay(double amount, const std::string& orderNum) const override;
+    void pay(double amount, const std::string &orderNum) const override;
 
     /**
      * @brief Gets the payment method name

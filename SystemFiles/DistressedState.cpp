@@ -2,15 +2,19 @@
 #include <iostream>
 
 #include "MatureState.h"
+#include "Plant.h"
+#include "PlantCareRoutine.h"
+#include "PlantLifeCycle.h"
 #include "SeedlingState.h"
 #include "WitheredState.h"
-#include "Plant.h"
-#include "PlantLifeCycle.h"
-#include "PlantCareRoutine.h"
 
-void DistressedState::applyCare(PlantLifeCycle* context, Plant* plant, PlantCareRoutine* routine) {
-     if (!routine) {
-        std::cout << "Error: No care routine provided for " << plant->getName() << "\n";
+void DistressedState::applyCare(PlantLifeCycle *context, Plant *plant,
+                                PlantCareRoutine *routine)
+{
+    if (!routine)
+    {
+        std::cout << "Error: No care routine provided for " << plant->getName()
+                  << "\n";
         return;
     }
     routine->Watering(plant);
@@ -20,9 +24,10 @@ void DistressedState::applyCare(PlantLifeCycle* context, Plant* plant, PlantCare
     evaluate(context, plant);
 }
 
-bool DistressedState::evaluate(PlantLifeCycle* context, Plant* plant) {
+bool DistressedState::evaluate(PlantLifeCycle *context, Plant *plant)
+{
 
-double minW = plant->getMinWater();
+    double minW = plant->getMinWater();
     double minS = plant->getMinSunlight();
     double minN = plant->getMinNutrients();
     double curW = plant->getCurrentWater();
@@ -30,7 +35,8 @@ double minW = plant->getMinWater();
     double curN = plant->getCurrentNutrients();
 
     // If any dropped below min -> Withered
-    if (curW < minW || curS < minS || curN < minN) {
+    if (curW < minW || curS < minS || curN < minN)
+    {
         context->setState(std::make_unique<WitheredState>());
         return false;
     }
@@ -40,10 +46,15 @@ double minW = plant->getMinWater();
     double healthySThreshold = minS * 1.2;
     double healthyNThreshold = minN * 1.2;
 
-    if (curW >= healthyWThreshold && curS >= healthySThreshold && curN >= healthyNThreshold && plant->getGrowthProgress() >= 5) {
+    if (curW >= healthyWThreshold && curS >= healthySThreshold &&
+        curN >= healthyNThreshold && plant->getGrowthProgress() >= 5)
+    {
         context->setState(std::make_unique<MatureState>());
         return true;
-    } else if (curW >= healthyWThreshold && curS >= healthySThreshold && curN >= healthyNThreshold && plant->getGrowthProgress() < 5) {
+    }
+    else if (curW >= healthyWThreshold && curS >= healthySThreshold &&
+             curN >= healthyNThreshold && plant->getGrowthProgress() < 5)
+    {
         context->setState(std::make_unique<SeedlingState>());
         return true;
     }
@@ -52,12 +63,6 @@ double minW = plant->getMinWater();
     return false;
 }
 
-PlantState* DistressedState::clone() const  {
-    return new DistressedState();
-}
+PlantState *DistressedState::clone() const { return new DistressedState(); }
 
-
-std::string DistressedState::getName() const {
-    return "Distressed";
-}
-
+std::string DistressedState::getName() const { return "Distressed"; }

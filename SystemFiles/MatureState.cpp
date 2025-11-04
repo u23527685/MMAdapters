@@ -2,14 +2,18 @@
 #include <iostream>
 
 #include "DistressedState.h"
-#include "WitheredState.h"
 #include "Plant.h"
-#include "PlantLifeCycle.h"
 #include "PlantCareRoutine.h"
+#include "PlantLifeCycle.h"
+#include "WitheredState.h"
 
-void MatureState::applyCare(PlantLifeCycle* context, Plant* plant, PlantCareRoutine* routine) {
-    if (!routine) {
-        std::cout << "Error: No care routine provided for " << plant->getName() << "\n";
+void MatureState::applyCare(PlantLifeCycle *context, Plant *plant,
+                            PlantCareRoutine *routine)
+{
+    if (!routine)
+    {
+        std::cout << "Error: No care routine provided for " << plant->getName()
+                  << "\n";
         return;
     }
     routine->Watering(plant);
@@ -19,7 +23,8 @@ void MatureState::applyCare(PlantLifeCycle* context, Plant* plant, PlantCareRout
     evaluate(context, plant);
 }
 
-bool MatureState::evaluate(PlantLifeCycle* context, Plant* plant) {
+bool MatureState::evaluate(PlantLifeCycle *context, Plant *plant)
+{
     double minW = plant->getMinWater();
     double minS = plant->getMinSunlight();
     double minN = plant->getMinNutrients();
@@ -28,13 +33,15 @@ bool MatureState::evaluate(PlantLifeCycle* context, Plant* plant) {
     double curN = plant->getCurrentNutrients();
 
     // Withered if any resource < min
-    if (curW < minW || curS < minS || curN < minN) {
+    if (curW < minW || curS < minS || curN < minN)
+    {
         context->setState(std::make_unique<WitheredState>());
         return false;
     }
 
     // Distressed if any resource == min
-    if (curW == minW || curS == minS || curN == minN) {
+    if (curW == minW || curS == minS || curN == minN)
+    {
         context->setState(std::make_unique<DistressedState>());
         return false;
     }
@@ -46,19 +53,12 @@ bool MatureState::evaluate(PlantLifeCycle* context, Plant* plant) {
 
     bool wGood = (curW >= healthyWThreshold && curW <= plant->getMaxWater());
     bool sGood = (curS >= healthySThreshold && curS <= plant->getMaxSunlight());
-    bool nGood = (curN >= healthyNThreshold && curN <= plant->getMaxNutrients());
+    bool nGood =
+        (curN >= healthyNThreshold && curN <= plant->getMaxNutrients());
 
     return (wGood && sGood && nGood);
 }
 
-PlantState* MatureState::clone() const  {
-    return new MatureState();
-}
+PlantState *MatureState::clone() const { return new MatureState(); }
 
-std::string MatureState::getName() const {
-    return "Mature";
-}
-
-
-
-
+std::string MatureState::getName() const { return "Mature"; }

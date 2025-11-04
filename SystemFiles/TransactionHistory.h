@@ -14,21 +14,23 @@
 /**
  * @class TransactionHistory
  * @brief Class for managing transaction history
- * @details Maintains a collection of transaction snapshots and provides methods to access them
+ * @details Maintains a collection of transaction snapshots and provides methods
+ * to access them
  * @author Jerusha
  */
-class TransactionHistory {
-private:
-    std::vector<TransactionSnapshot> history;  
+class TransactionHistory
+{
+  private:
+    std::vector<TransactionSnapshot> history;
 
-public:
+  public:
     /**
      * @brief Adds a transaction snapshot to the history
      * @param snapshot The TransactionSnapshot to add
      * @return void
      * @author Jerusha
      */
-    void addSnapshot(const TransactionSnapshot& snapshot);
+    void addSnapshot(const TransactionSnapshot &snapshot);
 
     /**
      * @brief Retrieves a specific transaction snapshot from history

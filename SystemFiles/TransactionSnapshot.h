@@ -8,22 +8,22 @@
  * @date October 27, 2025
  */
 
-
- /**
+/**
  * @class TransactionSnapshot
  * @brief Class representing a snapshot of a transaction
- * @details Stores transaction details including order number, amount, quantity and decorations
+ * @details Stores transaction details including order number, amount, quantity
+ * and decorations
  * @author Jerusha
  */
-class TransactionSnapshot {
+class TransactionSnapshot
+{
     std::string orderNum;
     double amount;
     int quantity;
     std::vector<std::string> decorations; // added
 
-public:
-
-/**
+  public:
+    /**
      * @brief Constructor for TransactionSnapshot
      * @details Initializes a new transaction snapshot with given parameters
      * @param orderNum The order number for the transaction
@@ -32,15 +32,16 @@ public:
      * @param decorations Vector of decoration strings (optional)
      * @author Jerusha
      */
-    TransactionSnapshot(const std::string& orderNum, double amount, int quantity,
-                        const std::vector<std::string>& decorations = {});
- /**
+    TransactionSnapshot(const std::string &orderNum, double amount,
+                        int quantity,
+                        const std::vector<std::string> &decorations = {});
+    /**
      * @brief Gets the order number
      * @return std::string The order number of the transaction
      * @author Jerusha
      */
     std::string getOrderNum() const;
-     /**
+    /**
      * @brief Gets the transaction amount
      * @return double The monetary amount of the transaction
      * @author Jerusha
@@ -57,5 +58,5 @@ public:
      * @return const std::vector<std::string>& Vector of decoration strings
      * @author Jerusha
      */
-    const std::vector<std::string>& getDecorations() const; // added
+    const std::vector<std::string> &getDecorations() const; // added
 };
