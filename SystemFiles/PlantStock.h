@@ -1,3 +1,19 @@
+/**
+ * @file PlantStock.h
+ * @brief Invoker for executing stock-related commands.
+ *
+ * The PlantStock class creates and executes stock management
+ * commands such as adding or removing plants from inventory.
+ * Implements the Command pattern.
+ *
+ * @see StockCommand
+ * @see AddStock
+ * @see RemoveStock
+ * @see PlantInventory
+ *
+ * @author
+ * Isha Kalyan
+ */
 #ifndef PLANTSTOCK_H
 #define PLANTSTOCK_H
 #include "StockCommand.h"

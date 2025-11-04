@@ -1,3 +1,18 @@
+/**
+ * @file PlantLifeCycle.h
+ * @brief Represents the life cycle and state transitions of a plant.
+ *
+ * The PlantLifeCycle class manages plant growth states and applies
+ * observer notifications when state changes occur. Implements the
+ * State and Observer design patterns.
+ *
+ * @see PlantState
+ * @see LifeCycleObserver
+ * @see Plant
+ *
+ * @author
+ * Jay Lopes
+ */
 #ifndef PLANTLIFECYCLE_H
 #define PLANTLIFECYCLE_H
 #include "Plant.h"
@@ -10,6 +25,10 @@ class Plant;
 class PlantState;
 class LifeCycleObserver;
 
+/**
+ * @class PlantLifeCycle
+ * @brief Manages the state and observers for a plant’s life cycle.
+ */
 class PlantLifeCycle{
 private:
     std::unique_ptr<PlantState> currentState;

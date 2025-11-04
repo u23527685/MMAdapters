@@ -2,13 +2,14 @@
  * @file Staff.h
  * @brief Abstract base class for staff members and lifecycle observers.
  *
- * This header declares Staff, the common base for all personnel types in the
- * system. Staff inherits from LifeCycleObserver so that staff members can
- * observe plant lifecycle events and apply care routines. It also provides a
- * simple chain-of-responsibility mechanism by linking to a "next" staff
- * member for query escalation.
+ * Staff observes PlantLifeCycle events, applies care routines,
+ * and optionally participates in a chain-of-responsibility for
+ * query handling.
  *
  * @see LifeCycleObserver
+ * @see PlantCareRoutine
+ * @see Query
+ *
  */
 #ifndef STAFF_H
 #define STAFF_H

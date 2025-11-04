@@ -1,8 +1,13 @@
 /**
  * @file FloorManager.h
- * @brief Floor department manager implementation
+ * @brief Class representing the manager of floor operations.
+ *
+ * Handles advanced floor-related queries requiring managerial authority,
+ * such as stock and inventory control.
+ *
+ * @author 
+ * Okaile Gaesale
  */
-
 #ifndef FLOORMANAGER_H
 #define FLOORMANAGER_H
 
@@ -11,12 +16,7 @@
 
 /**
  * @class FloorManager
- * @brief Represents a manager of floor operations
- * 
- * Handles floor-related queries that require manager authority,
- * particularly inventory and stock-related matters.
- * 
- * @see FloorStaff
+ * @brief Manages floor staff and handles high-level queries.
  */
 class FloorManager : public FloorStaff {
     private:

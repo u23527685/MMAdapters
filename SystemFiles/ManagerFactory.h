@@ -1,8 +1,13 @@
 /**
  * @file ManagerFactory.h
- * @brief Concrete factory for creating managers
+ * @brief Defines the factory for creating manager-level staff.
+ *
+ * The ManagerFactory is responsible for instantiating FloorManager and
+ * SalesManager objects using the StaffFactory interface.
+ *
+ * @author 
+ * Okaile Gaesale
  */
-
 #ifndef MANAGERFACTORY_H
 #define MANAGERFACTORY_H
 
@@ -10,11 +15,7 @@
 
 /**
  * @class ManagerFactory
- * @brief Factory that creates floor and sales managers
- *
- * This concrete factory implements the StaffFactory interface to create
- * FloorManager and SalesManager instances.
- *
+ * @brief Factory for creating floor and sales managers.
  * @see StaffFactory
  */
 class Managerfactory : public StaffFactory {
@@ -44,4 +45,4 @@ class Managerfactory : public StaffFactory {
         SalesStaff* createSalesStaff(std::string name) override;
 };
 
-#endif // !MANAGERFACTORY_H
+#endif

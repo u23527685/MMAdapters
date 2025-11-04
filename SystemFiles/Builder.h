@@ -1,28 +1,28 @@
 /**
  * @file Builder.h
- * @brief  Builder interface for constructing Query objects.
+ * @brief Defines the Builder interface for constructing Query objects.
  *
- * Builder is the abstract base class used by concrete builders such as
- * ItemQueryBuilder and MiscQueryBuilder. It stores the common pieces of
- * state required to construct a Query (item, type, question) and exposes
- * the interface used by the Director classes to configure a Query.
+ * The Builder class serves as the base for specific query builders such as
+ * ItemQueryBuilder and MiscQueryBuilder. It provides the shared structure
+ * and interface used to assemble Query objects.
  *
- * Concrete builders implement the setters and may override build() if they
- * need custom construction behaviour.
+ *
+ * @author 
+ * Okaile Gaesale
  */
 #ifndef BULDER_H
 #define BULDER_H
 #include "Plant.h"
 #include <string>
 
-class Query;  // Forward declaration - don't include Query.h here
+class Query;  // Forward declaration
 
 /**
  * @class Builder
- * @brief Builder class for Query Builders.
+ * @brief Abstract builder for constructing Query objects.
  *
- * Holds common fields used during construction and declares the interface
- * for configuring a Query.
+ * Provides setters for configuring type, question, and target Plant items.
+ * Concrete subclasses customize the construction process.
  */
 class Builder{
     friend class Query;  // Use 'class' keyword

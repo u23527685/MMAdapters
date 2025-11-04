@@ -1,8 +1,15 @@
 /**
  * @file SalesStaff.h
- * @brief Abstract base class for sales department staff members
+ * @brief Abstract base class for staff in the sales department.
+ *
+ * The SalesStaff class provides a base for handling sales-related
+ * queries and supports the Chain of Responsibility pattern.
+ *
+ * @see Staff
+ * @see SalesEmployee
+ * @see SalesManager
+ *
  */
-
 #ifndef SALESSTAFF_H
 #define SALESSTAFF_H
 

@@ -1,13 +1,12 @@
 /**
  * @file FloorStaff.h
- * @brief Abstract base class for staff who work on the store floor.
+ * @brief Abstract base class for floor-level staff members.
  *
- * This header declares FloorStaff, an abstract specialization of Staff used
- * by concrete floor personnel (e.g., FloorEmployee, FloorManager).
- * FloorStaff implements the chain-of-responsibility entry point for handling
- * Query objects and requires derived classes to indicate which Query types
- * they can handle and how they reply.
+ * Serves as the base for FloorEmployee and FloorManager classes,
+ * implementing shared behavior and chain-of-responsibility forwarding.
  *
+ * @author 
+ * Okaile Gaesale
  */
 #ifndef FLOORSTAFF_H
 #define FLOORSTAFF_H
@@ -17,12 +16,7 @@
 
 /**
  * @class FloorStaff
- * @brief Abstract base for operational floor staff members.
- * @see Staff
- *
- * Implements the common handling entry point for floor staff and requires
- * derived classes to declare which query types they can service and how they
- * construct a reply.
+ * @brief Base class for all floor staff types.
  */
 class FloorStaff : public Staff {
     public:

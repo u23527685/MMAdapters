@@ -1,3 +1,16 @@
+/**
+ * @file Oak.h
+ * @brief Concrete Plant class representing an Oak tree.
+ *
+ * The Oak class defines a specific type of Plant characterized as an Oak tree.
+ * It inherits from the Plant base class and provides descriptive attributes
+ * relevant to this plant species.
+ *
+ * @see Plant
+ *
+ * @author
+ * Mthokozisi Duba
+ */
 #ifndef OAK_H
 #define OAK_H
 #include "Plant.h"

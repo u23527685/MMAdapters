@@ -1,3 +1,14 @@
+/**
+ * @file SeedState.h
+ * @brief Represents the seed stage of a plant's life cycle.
+ *
+ * This state models a dormant seed that requires specific conditions
+ * to germinate and grow into a seedling.
+ *
+ * @see PlantState
+ * @see PlantLifeCycle
+ *
+ */
 #ifndef SEEDSTATE_H
 #define SEEDSTATE_H
 

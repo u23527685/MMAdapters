@@ -1,8 +1,15 @@
 /**
  * @file StaffFactory.h
- * @brief Abstract factory for creating staff members
+ * @brief Abstract factory for creating staff members.
+ *
+ * Defines an interface for factories to produce FloorStaff and
+ * SalesStaff. Concrete factories implement creation methods
+ * for employees or managers.
+ *
+ * @see FloorStaff
+ * @see SalesStaff
+ *
  */
-
 #ifndef STAFFFACTORY_H
 #define STAFFFACTORY_H
 

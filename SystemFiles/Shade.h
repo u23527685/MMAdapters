@@ -1,3 +1,16 @@
+/**
+ * @file Shade.h
+ * @brief Plant care routine implementing shade care.
+ *
+ * The Shade routine applies watering, fertilizing, and sunlight
+ * strategies suitable for shade-tolerant plants.
+ *
+ * @see PlantCareRoutine
+ * @see WateringStrategy
+ * @see FertilizerStrategy
+ * @see SunlightStrategy
+ *
+ */
 #ifndef SHADE_H
 #define SHADE_H
 

@@ -10,7 +10,13 @@
 
 #include "Plant.h"
 
-
+/**
+ * @class WaterStrategy
+ * @brief Abstract base class for defining water strategies.
+ *
+ * This class defines the interface for all watering strategies, determining
+ * how much and how often a plant should be watered.
+ */
 class WaterStrategy{
 protected:
     /**

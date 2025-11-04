@@ -1,18 +1,27 @@
+/**
+ * @file Rose.h
+ * @brief Defines a concrete Rose plant class.
+ *
+ * The Rose class represents a type of plant with a specified
+ * price and description. It inherits from the Plant base class.
+ *
+ * @see Plant
+ *
+ * @author
+ * Mthokozisi Duba
+ */
 #ifndef ROSE_H
 #define ROSE_H
 #include "Plant.h"
 
 /**
  * @class Rose
- * @brief Represents a Rose flower plant
- * 
- * This class is a concrete implementation of the Plant class,
- * representing a Rose flower in the plant inventory system.
+ * @brief Concrete implementation of the Plant class for roses.
  */
 class Rose : public Plant {
     protected:
-    double price;
-    std::string description;
+    double price; ///< Price of the rose.
+    std::string description; ///< Description of the rose.
     public:
     /**
      * @brief Constructs a Rose plant

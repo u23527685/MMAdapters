@@ -1,3 +1,17 @@
+/**
+ * @file PlantState.h
+ * @brief Defines the abstract interface for plant life cycle states.
+ *
+ * The PlantState class represents a specific state in a plant's
+ * life cycle (e.g., Growth, Distressed, Blooming). Each state
+ * defines its behavior for applying care and transitioning.
+ *
+ * @see PlantLifeCycle
+ * @see DistressedState
+ *
+ * @author
+ * Isha Kalyan
+ */
 #ifndef PLANTSTATE_H
 #define PLANTSTATE_H
 
@@ -7,10 +21,10 @@
 class Plant;
 class PlantLifeCycle;
 class PlantCareRoutine;
+
 /**
  * @class PlantState
  * @brief Abstract base class representing a state in a plant's life cycle.
- * This class provides a common interface for all plant states, allowing for polymorphic behavior.
  */
 class PlantState {
 

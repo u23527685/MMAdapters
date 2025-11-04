@@ -1,3 +1,18 @@
+/**
+ * @file PlantInventory.h
+ * @brief Manages plant inventory using Singleton and Observer patterns.
+ *
+ * The PlantInventory class maintains a record of all plants in stock.
+ * It supports attaching observers and executing commands that modify
+ * stock quantities. Implements the Singleton pattern for shared access.
+ *
+ * @see InventoryObserver
+ * @see PlantStock
+ * @see StockCommand
+ *
+ * @author
+ * Mthokozisi Duba
+ */
 #ifndef PLANTINVENTORY_H
 #define PLANTINVENTORY_H
 #include <vector>
@@ -7,14 +22,9 @@
 #include "Plant.h"
 #include "StockCommand.h"
 
-
 /**
  * @class PlantInventory
- * @brief Manages plant inventory using Singleton and Observer patterns
- * 
- * PlantStock and PlantInventory can add and remove stock (it's redundant but works).
- * PlantInventory acts as the Receiver in the Command pattern from StockCommand.
- * Plant inventory has a singleton design pattern implementation.
+ * @brief Singleton class managing plant inventory and observers.
  */
 class PlantInventory {
 private:

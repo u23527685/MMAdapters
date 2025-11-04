@@ -1,6 +1,13 @@
 /**
  * @file SalesEmployee.h
- * @brief Regular sales staff member implementation
+ * @brief Defines a regular employee in the sales department.
+ *
+ * The SalesEmployee class handles basic sales queries and
+ * supports chain-of-responsibility query delegation.
+ *
+ * @see SalesStaff
+ * @see SalesManager
+++
  */
 
 #ifndef SALESEMPLOYEE_H
@@ -11,16 +18,11 @@
 
 /**
  * @class SalesEmployee
- * @brief Represents a regular employee in the sales department
- * 
- * Handles basic sales queries including stock information, deals,
- * and sales-related questions.
- * 
- * @see SalesStaff
+ * @brief Concrete class representing a regular sales employee.
  */
 class SalesEmployee : public SalesStaff {
     private:
-        std::vector<std::string> responsibilities; /**< List of query types this employee can handle */
+        std::vector<std::string> responsibilities; ///< List of query types this employee can handle.
     
     public:
         /**
@@ -38,4 +40,4 @@ class SalesEmployee : public SalesStaff {
         void reply(Query* query) override;
 };
 
-#endif // !SALESEMPLOYEE_H
+#endif 

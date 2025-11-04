@@ -1,10 +1,12 @@
 /**
  * @file MiscQueryBuilder.h
- * @brief Builder for miscellaneous (non-item) Query objects.
+ * @brief Builder for creating general (non-item-specific) queries.
  *
- * MiscQueryBuilder constructs Query instances that are not specific to a
- * Plant item (for example, global stock information). It implements the
- * Builder interface but ignores setItem().
+ * Constructs Query instances that are not tied to a specific Plant object,
+ * such as global stock inquiries or system-wide data requests.
+ *
+ * @author 
+ * Okaile Gaesale
  */
 #ifndef MISCQUERYBUILDER_H
 #define MISCQUERYBUILDER_H
@@ -15,12 +17,10 @@
 
 /**
  * @class MiscQueryBuilder
- * @brief Concrete Builder for miscellaneous queries.
+ * @brief Concrete builder for non-item queries.
  * @see Builder
  *
- * Implements the Builder interface for queries that do not target a specific
- * Plant item. The builder stores the configured type/question and produces
- * a Query via Builder::build().
+ * Implements Builder but ignores setItem() since it targets no specific Plant.
  */
 class MiscQueryBuilder:public Builder{
     friend Query;
@@ -43,6 +43,9 @@ class MiscQueryBuilder:public Builder{
          */
         void setItem(Plant* item)override;
 
+        /**
+        * @brief Constructs a new MiscQueryBuilder.
+        */
         MiscQueryBuilder():Builder(){}
 };
-#endif // !MISCQUERYBUILDER_H
+#endif

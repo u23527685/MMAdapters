@@ -1,8 +1,13 @@
 /**
  * @file FloorEmployee.h
- * @brief Regular floor staff member implementation
+ * @brief Concrete class representing a floor employee.
+ *
+ * Handles basic customer interactions such as providing plant care
+ * information and general inquiries.
+ *
+ * @author 
+ * Okaile Gaesale/Cobus Botha/Jay Lopes
  */
-
 #ifndef FLOOREMPLOYEE_H
 #define FLOOREMPLOYEE_H
 
@@ -12,12 +17,7 @@
 
 /**
  * @class FloorEmployee
- * @brief Represents a regular employee on the shop floor
- * 
- * Handles customer-facing queries about plants, including care
- * instructions and general information.
- * 
- * @see FloorStaff
+ * @brief Regular employee handling on-floor customer queries.
  */
 class FloorEmployee : public FloorStaff {
     private:

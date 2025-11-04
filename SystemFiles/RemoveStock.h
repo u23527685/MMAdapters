@@ -1,3 +1,18 @@
+/**
+ * @file RemoveStock.h
+ * @brief Defines the RemoveStock command for decreasing inventory.
+ *
+ * Implements the Command pattern to remove a specified quantity
+ * of a given plant from the PlantInventory.
+ *
+ * @see StockCommand
+ * @see PlantInventory
+ * @see AddStock
+ *
+ * @author
+ * Mthokozisi Duba
+ */
+
 #ifndef REMOVESTOCK_H
 #define REMOVESTOCK_H
 #include "StockCommand.h"
@@ -6,16 +21,13 @@
 
 /**
  * @class RemoveStock
- * @brief Concrete command for removing plant stock from inventory
- * 
- * This class implements the Command pattern to remove a specified
- * quantity of plants from the target inventory.
+ * @brief Concrete command that removes plant stock from the inventory.
  */
 class RemoveStock : public StockCommand {
 private:
-    Plant* plant;
-    int quantityToRemove;
-    PlantInventory* targetInventory;
+    Plant* plant; ///< The plant to remove.
+    int quantityToRemove; ///< Quantity to remove from inventory.
+    PlantInventory* targetInventory; ///< The inventory target for removal.
 public:
     /**
      * @brief Constructs a RemoveStock command

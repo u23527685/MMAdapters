@@ -1,3 +1,17 @@
+/**
+ * @file SalesFloorObserver.h
+ * @brief Defines the SalesFloorObserver class for inventory updates.
+ *
+ * The SalesFloorObserver monitors plant inventory and manages updates
+ * on the sales floor, notifying staff about changes.
+ *
+ * Implements the Observer pattern.
+ *
+ * @see InventoryObserver
+ * @see PlantInventory
+ * @see Staff
+ *
+ */
 #ifndef SALESFLOOROBSERVER_H
 #define SALESFLOOROBSERVER_H
 
@@ -12,10 +26,7 @@ class Staff;
 
 /**
  * @class SalesFloorObserver
- * @brief Concrete observer that manages sales floor inventory display
- * 
- * This observer tracks available plants on the sales floor and
- * notifies staff members of inventory changes.
+ * @brief Observes the PlantInventory and updates the sales floor display.
  */
 class SalesFloorObserver : public InventoryObserver {
 private:

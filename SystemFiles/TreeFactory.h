@@ -1,3 +1,7 @@
+/**
+ * @file TreeFactory.h
+ * @brief Declares the TreeFactory class responsible for creating tree-type plants.
+ */
 #ifndef TREEFACTORY_H
 #define TREEFACTORY_H
 #include "PlantFactory.h"

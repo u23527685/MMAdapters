@@ -1,9 +1,25 @@
+/**
+ * @file ShadeStrategy.h
+ * @brief Sunlight strategy for shade conditions.
+ *
+ * Applies the shade sunlight strategy to a plant, adjusting
+ * its sunlight exposure to simulate shaded conditions.
+ *
+ * @see SunlightStrategy
+ * @see Plant
+ *
+ */
 #ifndef SHADESTRATEGY_H
 #define SHADESTRATEGY_H
 
 #include "Plant.h"
 #include "SunlightStrategy.h"
 
+
+/**
+ * @class ShadeStrategy
+ * @brief SunlightStrategy implementation for shade.
+ */
 class ShadeStrategy : public SunlightStrategy{
 public:
     /**

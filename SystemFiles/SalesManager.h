@@ -1,8 +1,14 @@
 /**
  * @file SalesManager.h
- * @brief Sales department manager implementation
+ * @brief Defines the SalesManager class for the sales department.
+ *
+ * The SalesManager class handles escalated queries and has
+ * authority for special deals and promotional decisions.
+ *
+ * @see SalesStaff
+ * @see SalesEmployee
+ *
  */
-
 #ifndef SALESMANAGER_H
 #define SALESMANAGER_H
 
@@ -38,4 +44,4 @@ class SalesManager : public SalesStaff {
         void reply(Query* query) override;
 };
 
-#endif // !SALESMANAGER_H
+#endif

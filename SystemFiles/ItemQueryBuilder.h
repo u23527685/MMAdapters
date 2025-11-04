@@ -1,10 +1,16 @@
 /**
  * @file ItemQueryBuilder.h
- * @brief Builder for item-specific Query objects.
+ * @brief Concrete builder for creating item-specific Query objects.
  *
- * ItemQueryBuilder constructs Query instances that are targeted at a specific
- * Plant item (e.g. INFO or CARE ROUTINE queries). It implements the Builder
- * interface and stores the item/type/question used to create a Query.
+ * ItemQueryBuilder constructs Query instances that reference a
+ * specific Plant item, such as information or care routine queries.
+ *
+ * @see Builder
+ * @see Query
+ * @see Plant
+ *
+ * @author
+ * Okaile Gaesale
  */
 #ifndef ITEMQUERYBULDER_H
 #define ITEMQUERYBULDER_H
@@ -15,10 +21,7 @@
 
 /**
  * @class ItemQueryBuilder
- * @brief Concrete Builder for item-specific queries.
- * @see Builder
- *
- * Use this builder when constructing queries that reference a Plant item.
+ * @brief Builder class for constructing queries about specific plants.
  */
 class ItemQueryBuilder:public Builder{
     friend Query;
@@ -43,4 +46,4 @@ class ItemQueryBuilder:public Builder{
 
         ItemQueryBuilder():Builder(){}
 };
-#endif // !ITEMQUERYBULDER_H
+#endif

@@ -1,7 +1,20 @@
+/**
+ * @file SeedlingState.h
+ * @brief Represents the seedling stage of a plant's life cycle.
+ *
+ * This state models a young plant that has germinated from a seed.
+ * In this stage, the plant is vulnerable and requires careful care
+ * to transition into a healthy mature plant.
+ *
+ * @see PlantState
+ * @see PlantLifeCycle
+ *
+ */
 #ifndef SEEDLINGSTATE_H
 #define SEEDLINGSTATE_H
 
 #include "PlantState.h"
+
 /**
  * @class SeedlingState
  * @brief Represents the initial growth stage of a plant's life cycle.

@@ -1,3 +1,20 @@
+/**
+ * @file Plant.h
+ * @brief Abstract base class representing a plant in the nursery system.
+ *
+ * The Plant class models a plant’s properties, lifecycle state, and care strategies.
+ * It serves as the core of the system, implementing key design patterns such as
+ * State and Observer for managing growth and life cycle notifications.
+ *
+ * @see PlantState
+ * @see WateringStrategy
+ * @see SunlightStrategy
+ * @see FertilizerStrategy
+ * @see LifeCycleObserver
+ *
+ * @author
+ * Mthokozisi Duba/Isha Kalyan/Jay Lopes
+ */
 #ifndef PLANT_H
 #define PLANT_H
 
@@ -17,11 +34,7 @@ class PlantState;
 
 /**
  * @class Plant
- * @brief Abstract base class representing a plant in the inventory system
- * 
- * This class manages plant properties including watering, sunlight, nutrients,
- * growth state, and lifecycle observers. It supports the Observer pattern for
- * lifecycle events and State pattern for growth stages.
+ * @brief Abstract representation of a plant with care and lifecycle management.
  */
 class Plant {
 private:

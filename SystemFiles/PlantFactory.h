@@ -1,14 +1,24 @@
+/**
+ * @file PlantFactory.h
+ * @brief Abstract factory interface for creating Plant objects.
+ *
+ * The PlantFactory defines a consistent interface for creating different
+ * types of plant objects. Concrete subclasses (e.g., FlowerFactory) must
+ * implement the creation logic.
+ *
+ * @see FlowerFactory
+ * @see Plant
+ *
+ * @author
+ * Mthokozisi Duba
+ */
 #ifndef PLANTFACTORY_H
 #define PLANTFACTORY_H
 #include "Plant.h"
 
 /**
  * @class PlantFactory
- * @brief Abstract base class for plant creation factories
- * 
- * This class defines the interface for factory classes that create
- * different types of plants. Concrete factories should inherit from
- * this class and implement the createPlant method.
+ * @brief Abstract base class for plant creation factories.
  */
 class PlantFactory {
 public:

@@ -1,8 +1,13 @@
 /**
  * @file EmployeeFactory.h
- * @brief Concrete factory for creating regular employees
+ * @brief Concrete factory for creating regular employees.
+ *
+ * Implements the StaffFactory interface to create instances of FloorEmployee
+ * and SalesEmployee.
+ *
+ * @author 
+ * Okaile Gaesale/Cobus Botha/Jay Lopes
  */
-
 #ifndef EMPLOYEEFACTORY_H
 #define EMPLOYEEFACTORY_H
 
@@ -11,12 +16,7 @@
 
 /**
  * @class EmployeeFactory
- * @brief Factory that creates regular floor and sales employees
- *
- * This concrete factory implements the StaffFactory interface to create
- * FloorEmployee and SalesEmployee instances.
- *
- * @see StaffFactory
+ * @brief Factory responsible for creating regular staff members.
  */
 class EmployeeFactory : public StaffFactory {
     public:

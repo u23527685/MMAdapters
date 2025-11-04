@@ -1,3 +1,10 @@
+/**
+ * @file StockCommand.h
+ * @brief Abstract base class for stock management commands.
+ *
+ * Defines the interface for command pattern used in inventory management.
+ *
+ */
 #ifndef STOCKCOMMAND_H
 #define STOCKCOMMAND_H
 
@@ -16,6 +23,11 @@ public:
      */
     virtual bool execute() = 0;
     
+     /**
+     * @brief Virtual destructor.
+     *
+     * Ensures proper cleanup in derived command classes.
+     */
     virtual ~StockCommand() {}
 };
 

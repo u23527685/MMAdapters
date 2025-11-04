@@ -1,3 +1,13 @@
+/**
+ * @file FertilizerStrategy.h
+ * @brief Defines the abstract interface for plant fertilizer strategies.
+ *
+ * This interface allows for different fertilizer strategies to be applied
+ * polymorphically to various plant types.
+ *
+ * @author 
+ * Jay Lopes
+ */
 #ifndef FERTILIZERSTRATEGY_H
 #define FERTILIZERSTRATEGY_H
 
@@ -5,15 +15,11 @@
 
 /**
  * @class FertilizerStrategy
- * @brief Abstract base class for fertilizer strategies.
- * This class provides an interface for different fertilizer strategies to be applied to plants.
+ * @brief Abstract base for fertilizer behavior strategies.
  */
 class FertilizerStrategy{
 protected:
-    /**
-     * @brief The current plant being fertilized.
-     */
-    Plant* currentPlant;
+    Plant* currentPlant; /**< Pointer to the plant being fertilized. */
 public:
     virtual ~FertilizerStrategy() {}
     /**
@@ -22,6 +28,7 @@ public:
      * @param p The plant to apply the fertilizer strategy to.
      */
     virtual void applyFertilizer(Plant* p)=0;
+    
     /**
     * @brief Gets the name of the fertilizer strategy.
     * This is a pure virtual function that must be implemented by concrete subclasses.

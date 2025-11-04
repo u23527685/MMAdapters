@@ -1,3 +1,13 @@
+/**
+ * @file StaffObserver.h
+ * @brief Observer class for tracking inventory relevant to staff.
+ *
+ * Monitors inventory changes and allows staff to respond appropriately.
+ *
+ * @see InventoryObserver
+ * @see PlantInventory
+ *
+ */
 #ifndef STAFFOBSERVER_H
 #define STAFFOBSERVER_H
 
