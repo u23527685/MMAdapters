@@ -36,6 +36,7 @@
 
 // Include GreenhouseUnitTest for custom test framework
 #include "GreenhouseUnitTest/GreenhouseUnitTest.h"
+#include "GreenhouseUnitTest/GreenhouseUnitTest.cpp"
 
 // Include unit test files (without DOCTEST_CONFIG_IMPLEMENT_WITH_MAIN)
 // StateUnitTests - Testing plant state transitions and behaviors

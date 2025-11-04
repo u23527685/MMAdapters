@@ -4,59 +4,75 @@ CXXFLAGS := -Wall -Wextra -std=c++17
 DEBUGFLAGS := -g
 COVERAGEFLAGS := -fprofile-arcs -ftest-coverage
 
-# All .cpp files in the directory
-SOURCES := DemoMain.cpp \ $(filter-out main.cpp, $(wildcard *.cpp))
-OBJECTS := $(SOURCES:.cpp=.o)
+# Sources
+TEST_MAIN := TestingMain.cpp
+DEMO_MAIN := DemoMain.cpp
+COMMON_SOURCES := $(filter-out $(TEST_MAIN) $(DEMO_MAIN), $(wildcard *.cpp))
+TEST_OBJECTS := $(COMMON_SOURCES:.cpp=.o) $(TEST_MAIN:.cpp=.o)
+DEMO_OBJECTS := $(COMMON_SOURCES:.cpp=.o) $(DEMO_MAIN:.cpp=.o)
 
-# Output executable
-TARGET := test
+# Targets
+TEST_TARGET := test
+DEMO_TARGET := Demo
 
 # Default build
-all: $(TARGET)
+all: $(TEST_TARGET)
 
-$(TARGET): $(OBJECTS)
+# Build test main
+$(TEST_TARGET): $(TEST_OBJECTS)
 	$(CXX) $(CXXFLAGS) $(LDFLAGS) -o $@ $^
 
+# Build demo main
+$(DEMO_TARGET): $(DEMO_OBJECTS)
+	$(CXX) $(CXXFLAGS) $(LDFLAGS) -o $@ $^
+
+# Object compilation rule
 %.o: %.cpp
 	$(CXX) $(CXXFLAGS) -c $< -o $@
 
 # Debug build with -g
 debug: CXXFLAGS += $(DEBUGFLAGS)
-debug: clean $(TARGET)
+debug: clean $(TEST_TARGET)
 	@echo "Built with debug symbols."
 
 # Build with coverage flags
 coverage: CXXFLAGS += $(COVERAGEFLAGS)
-coverage: LDFLAGS += $(COVERAGEFLAGS)
-coverage: clean $(TARGET)
-	@echo "Built with coverage flags."
+coverage: LDFLAGS += $(COVERAGEFLAGS) -lgcov
+coverage: clean $(TEST_TARGET)
+	@echo "Built with coverage flags (including gcov)."
 
-# Run the program
-run: $(TARGET)
-	./$(TARGET)
+# Run the test program
+run: $(TEST_TARGET)
+	./$(TEST_TARGET)
+
+# Run the demo program
+run-demo: $(DEMO_TARGET)
+	./$(DEMO_TARGET)
 
 # Run with gdb
 gdb: debug
-	gdb ./$(TARGET)
+	gdb ./$(TEST_TARGET)
 
 # Run with valgrind
 valgrind: debug
-	valgrind --leak-check=full --track-origins=yes --show-leak-kinds=all ./$(TARGET)
+	valgrind --leak-check=full --track-origins=yes --show-leak-kinds=all ./$(TEST_TARGET)
 
 # Generate coverage report (after running the program built with 'make coverage')
 gcov-report:
-	gcov $(SOURCES)
+	gcov $(COMMON_SOURCES) $(TEST_MAIN)
 
 # Generate HTML coverage report using gcovr
 coverage-html:
 	@echo "Generating HTML coverage report..."
 	@if command -v gcovr >/dev/null 2>&1; then \
-		gcovr --html-details -o coverage.html --root .; \
-		echo "HTML report generated: coverage.html"; \
+		mkdir -p coverage_html; \
+		gcovr --html-details coverage_html/index.html --root . --exclude-directories 'tests|external'; \
+		echo "HTML report generated in coverage_html/index.html"; \
 	else \
 		echo "Error: gcovr not found. Install it with: pip install gcovr"; \
 		exit 1; \
 	fi
+
 
 # Alternative: Generate HTML coverage report using lcov
 coverage-html-lcov:
@@ -78,5 +94,5 @@ clean-html:
 
 # Cleanup
 clean:
-	rm -f $(OBJECTS) $(TARGET) *.gcda *.gcno *.gcov coverage*.html coverage*.css coverage.info
+	rm -f $(COMMON_SOURCES:.cpp=.o) $(TEST_TARGET) $(DEMO_TARGET) *.gcda *.gcno *.gcov coverage*.html coverage*.css coverage.info
 	rm -rf coverage_html
