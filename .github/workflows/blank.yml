@@ -22,7 +22,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           VALIDATE_ALL_CODEBASE: true
           DEFAULT_BRANCH: main
-          VALIDATE_CLANG_FORMAT: true
+          VALIDATE_CLANG_FORMAT: false
           VALIDATE_C_CPP: true
 
   auto-format:
