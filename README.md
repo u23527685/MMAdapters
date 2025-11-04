@@ -83,6 +83,20 @@ To build, test, and analyze *Plantopia*, use the provided **Makefile** commands 
 
 ---
 
+## 🌸 Documentation Links
+
+All project documentation is accessible via Google Docs. Click any link below to view or edit collaboratively:
+
+| 📄 Document Type | 🔗 Link |
+|------------------|--------|
+| 🌺 **Final Report** | [View on Google Docs](https://docs.google.com/document/d/19YONda_A987hROAiMbBvo7FvR8hOED2RbZE80LupaNA/edit?usp=sharing) |
+
+💡 *Ensure link-sharing permissions are set to “Anyone with the link can view” so your teammates and evaluators can easily access them.*
+
+---
+
+---
+
 <div align="center">
 
 💚 “Just as spring brings order and beauty to nature, Plantopia brings structure and life to code.” 🌸  
@@ -93,3 +107,4 @@ To build, test, and analyze *Plantopia*, use the provided **Makefile** commands 
 *© COS 214 | University of Pretoria | 2025*
 
 </div>
+
