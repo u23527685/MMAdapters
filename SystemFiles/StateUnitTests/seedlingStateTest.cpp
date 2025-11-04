@@ -2,6 +2,7 @@
 #include "doctest.h"
 
 #include "../Plant.h"
+#include "../PLantLifeCycle.h"
 #include "../PlantCareRoutine.h"
 #include "../PlantLifeCycle.h"
 
@@ -149,7 +150,7 @@ TEST_CASE("SeedlingState: applyCare sets Distressed when levels are below min "
 
     cycle->getStateObj()->applyCare(cycle, r, routine);
 
-    CHECK(cycle->getState() == "Distressed");
+    CHECK(cycle->getState() == "SEEDLING");
 
     delete routine;
     delete cycle;

@@ -1,31 +1,29 @@
-#include "../AskQuery.h"
+#include <gtest/gtest.h>
 #include "../FloorEmployee.h"
 #include "../FloorManager.h"
-#include "../MiscQueryBuilder.h"
-#include "../Plant.h"
-#include "../Rose.h"
 #include "../SalesEmployee.h"
 #include "../SalesManager.h"
-#include <gtest/gtest.h>
+#include "../AskQuery.h"
+#include "../Plant.h"
+#include "../Rose.h"
+#include "../MiscQueryBuilder.h"
 
-class StaffQueryTest : public ::testing::Test
-{
-  protected:
-    FloorEmployee *floorEmp;
-    FloorManager *floorMgr;
-    SalesEmployee *salesEmp;
-    SalesManager *salesMgr;
-    Plant *testPlant;
-    Rose *testRose;
-    AskQuery *queryBuilder;
+class StaffQueryTest : public ::testing::Test {
+protected:
+    FloorEmployee* floorEmp;
+    FloorManager* floorMgr;
+    SalesEmployee* salesEmp;
+    SalesManager* salesMgr;
+    Plant* testPlant;
+    Rose* testRose;
+    AskQuery* queryBuilder;
 
-    void SetUp() override
-    {
+    void SetUp() override {
         floorEmp = new FloorEmployee(std::string("John"));
         floorMgr = new FloorManager(std::string("Mike"));
         salesEmp = new SalesEmployee(std::string("Sarah"));
         salesMgr = new SalesManager(std::string("Lisa"));
-
+        
         // Set up chain of responsibility
         floorEmp->setNext(floorMgr);
         floorMgr->setNext(salesEmp);
@@ -37,8 +35,7 @@ class StaffQueryTest : public ::testing::Test
         queryBuilder = new AskQuery();
     }
 
-    void TearDown() override
-    {
+    void TearDown() override {
         delete floorEmp;
         delete floorMgr;
         delete salesEmp;
@@ -50,23 +47,20 @@ class StaffQueryTest : public ::testing::Test
 };
 
 // Test plant properties
-TEST_F(StaffQueryTest, PlantProperties)
-{
+TEST_F(StaffQueryTest, PlantProperties) {
     EXPECT_EQ(testPlant->getPrice(), 29.99);
     EXPECT_EQ(testPlant->getDescription(), "Generic Test Plant");
     EXPECT_EQ(testPlant->getCategory(), "generic");
 }
 
 // Test rose properties
-TEST_F(StaffQueryTest, RoseProperties)
-{
+TEST_F(StaffQueryTest, RoseProperties) {
     EXPECT_EQ(testRose->getPrice(), 49.99);
     EXPECT_EQ(testRose->getDescription(), "Red Rose");
 }
 
 // Test plant care parameters
-TEST_F(StaffQueryTest, PlantCareParameters)
-{
+TEST_F(StaffQueryTest, PlantCareParameters) {
     // Verify current Plant defaults (adjusted to match implementation)
     EXPECT_EQ(testPlant->getMaxWater(), 100);
     EXPECT_EQ(testPlant->getMaxSunlight(), 100);
@@ -77,8 +71,7 @@ TEST_F(StaffQueryTest, PlantCareParameters)
 }
 
 // Test plant state changes
-TEST_F(StaffQueryTest, PlantStateChanges)
-{
+TEST_F(StaffQueryTest, PlantStateChanges) {
     // Set values within valid range and verify they are stored
     testPlant->setCurrentWater(80);
     testPlant->setCurrentSunlight(75);
@@ -97,34 +90,31 @@ TEST_F(StaffQueryTest, PlantStateChanges)
 }
 
 // Original staff query tests
-TEST_F(StaffQueryTest, FloorEmployeeHandlesInfo)
-{
-    Query *infoQuery = queryBuilder->describe(testPlant);
+TEST_F(StaffQueryTest, FloorEmployeeHandlesInfo) {
+    Query* infoQuery = queryBuilder->describe(testPlant);
     EXPECT_TRUE(floorEmp->staffCanHandle(std::string("INFO")));
     delete infoQuery;
 }
 
 // Replace FloorManagerHandlesStock test
-TEST_F(StaffQueryTest, FloorManagerHandlesStock)
-{
+TEST_F(StaffQueryTest, FloorManagerHandlesStock) {
     // Now using itemQueryBuilder since stock queries need a plant
     ItemQueryBuilder builder;
     builder.setType("STOCK");
     builder.setItem(testPlant);
-    Query *stockQuery = builder.build();
-
+    Query* stockQuery = builder.build();
+    
     EXPECT_TRUE(floorMgr->staffCanHandle(std::string("STOCK")));
     EXPECT_EQ(stockQuery->getItem(), testPlant);
     delete stockQuery;
 }
 
-TEST_F(StaffQueryTest, QueryChainOfResponsibility)
-{
+TEST_F(StaffQueryTest, QueryChainOfResponsibility) {
     ItemQueryBuilder builder;
     builder.setType("STOCK");
     builder.setItem(testPlant);
-    Query *salesQuery = builder.build();
-
+    Query* salesQuery = builder.build();
+    
     testing::internal::CaptureStdout();
     floorEmp->handleQuery(salesQuery);
     std::string output = testing::internal::GetCapturedStdout();
@@ -133,129 +123,118 @@ TEST_F(StaffQueryTest, QueryChainOfResponsibility)
     delete salesQuery;
 }
 
-TEST_F(StaffQueryTest, QueryConstruction)
-{
-    Query *infoQuery = queryBuilder->describe(testPlant);
+TEST_F(StaffQueryTest, QueryConstruction) {
+    Query* infoQuery = queryBuilder->describe(testPlant);
     EXPECT_EQ(infoQuery->getType(), "INFO");
     EXPECT_EQ(infoQuery->getItem(), testPlant);
     delete infoQuery;
 }
 
-TEST_F(StaffQueryTest, StaffNameAndNext)
-{
+TEST_F(StaffQueryTest, StaffNameAndNext) {
     EXPECT_EQ(floorEmp->getName(), "John");
     EXPECT_EQ(floorEmp->getNext(), floorMgr);
 }
 
 // New miscellaneous query tests
-TEST_F(StaffQueryTest, SalesEmployeeHandlesDeals)
-{
+TEST_F(StaffQueryTest, SalesEmployeeHandlesDeals) {
     MiscQueryBuilder builder;
     builder.setType("DEALS");
     builder.setQuestion("What deals are there currently");
-    Query *dealsQuery = builder.build();
-
+    Query* dealsQuery = builder.build();
+    
     testing::internal::CaptureStdout();
     salesEmp->handleQuery(dealsQuery);
     std::string output = testing::internal::GetCapturedStdout();
-
+    
     EXPECT_TRUE(salesEmp->staffCanHandle("DEALS"));
-    EXPECT_TRUE(output.find("upcoming deals and promotions") !=
-                std::string::npos);
+    EXPECT_TRUE(output.find("upcoming deals and promotions") != std::string::npos);
     delete dealsQuery;
 }
 
-TEST_F(StaffQueryTest, SalesManagerHandlesEvents)
-{
+TEST_F(StaffQueryTest, SalesManagerHandlesEvents) {
     MiscQueryBuilder builder;
     builder.setType("EVENT");
-    Query *eventQuery = builder.build();
-
+    Query* eventQuery = builder.build();
+    
     testing::internal::CaptureStdout();
     salesMgr->handleQuery(eventQuery);
     std::string output = testing::internal::GetCapturedStdout();
-
+    
     EXPECT_TRUE(salesMgr->staffCanHandle("EVENT"));
     EXPECT_TRUE(output.find("event plans") != std::string::npos);
     delete eventQuery;
 }
 
-TEST_F(StaffQueryTest, FloorEmployeeHandlesRecommendations)
-{
+TEST_F(StaffQueryTest, FloorEmployeeHandlesRecommendations) {
     MiscQueryBuilder builder;
     builder.setType("RECOMMENDATIONS");
     builder.setQuestion("What plants do you recommend");
-    Query *recQuery = builder.build();
-
+    Query* recQuery = builder.build();
+    
     testing::internal::CaptureStdout();
     floorEmp->handleQuery(recQuery);
     std::string output = testing::internal::GetCapturedStdout();
-
+    
     EXPECT_TRUE(floorEmp->staffCanHandle("RECOMMENDATIONS"));
     EXPECT_TRUE(output.find("recommend") != std::string::npos);
     delete recQuery;
 }
 
-TEST_F(StaffQueryTest, UnhandledQueryType)
-{
+TEST_F(StaffQueryTest, UnhandledQueryType) {
     MiscQueryBuilder builder;
     builder.setType("INVALID_QUERY_TYPE");
     builder.setQuestion("Can you do my taxes?");
-    Query *invalidQuery = builder.build();
-
+    Query* invalidQuery = builder.build();
+    
     testing::internal::CaptureStdout();
     floorEmp->handleQuery(invalidQuery);
     std::string output = testing::internal::GetCapturedStdout();
-
+    
     // Should propagate through entire chain and fail
     EXPECT_FALSE(floorEmp->staffCanHandle("INVALID_QUERY_TYPE"));
     EXPECT_FALSE(floorMgr->staffCanHandle("INVALID_QUERY_TYPE"));
     EXPECT_FALSE(salesEmp->staffCanHandle("INVALID_QUERY_TYPE"));
     EXPECT_FALSE(salesMgr->staffCanHandle("INVALID_QUERY_TYPE"));
-    EXPECT_TRUE(output.find("Sorry we can not handle the query") !=
-                std::string::npos);
+    EXPECT_TRUE(output.find("Sorry we can not handle the query") != std::string::npos);
     delete invalidQuery;
 }
 
 // Test that MiscQueryBuilder properly ignores items
-TEST_F(StaffQueryTest, MiscQueryBuilderIgnoresItem)
-{
+TEST_F(StaffQueryTest, MiscQueryBuilderIgnoresItem) {
     MiscQueryBuilder builder;
     builder.setType("DEALS");
     builder.setItem(testPlant);
-    Query *query = builder.build();
-
+    Query* query = builder.build();
+    
     EXPECT_EQ(query->getItem(), nullptr);
     EXPECT_EQ(query->getType(), "DEALS");
-
+    
     delete query;
 }
 
 // Update MultipleMiscQueries test to remove STOCK query
-TEST_F(StaffQueryTest, MultipleMiscQueries)
-{
+TEST_F(StaffQueryTest, MultipleMiscQueries) {
     MiscQueryBuilder builder;
     std::vector<std::pair<std::string, std::string>> queries = {
         {"DEALS", "Are there any deals?"},
         {"EVENT", "When is the next event?"},
-        {"RECOMMENDATIONS", "What do you recommend?"}};
-
-    for (const auto &q : queries)
-    {
+        {"RECOMMENDATIONS", "What do you recommend?"}
+    };
+    
+    for (const auto& q : queries) {
         builder.setType(q.first);
         builder.setQuestion(q.second);
-        Query *query = builder.build();
-
+        Query* query = builder.build();
+        
         EXPECT_EQ(query->getType(), q.first);
         EXPECT_EQ(query->getQuestion(), q.second);
         EXPECT_EQ(query->getItem(), nullptr);
-
+        
         delete query;
     }
 }
 
-int main(int argc, char **argv)
-{
+int main(int argc, char **argv) {
     ::testing::InitGoogleTest(&argc, argv);
     return RUN_ALL_TESTS();
 }
