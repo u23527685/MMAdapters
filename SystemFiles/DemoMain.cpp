@@ -1,4 +1,4 @@
-/*#include "PlantInventory.h"
+#include "PlantInventory.h"
 #include "AskQuery.h"
 #include "BasePlant.h"
 #include "CreditCardPaymentStrategy.h"
