@@ -61,6 +61,28 @@ By the end of this project, the MM Adapters team will have cultivated:
 
 ---
 
+## 🌾 How to Compile and Run the Program
+
+To build, test, and analyze *Plantopia*, use the provided **Makefile** commands in your terminal:
+
+| Command | Description |
+|----------|--------------|
+| `make` | Compiles all source files and builds the executable (`test`). |
+| `make run` | Runs the compiled program (`./test`). |
+| `make debug` | Builds the program with debugging symbols enabled (`-g`). |
+| `make gdb` | Runs the program using the GNU Debugger. |
+| `make valgrind` | Runs the program with Valgrind to check for memory leaks. |
+| `make coverage` | Builds the program with code coverage flags. |
+| `make gcov-report` | Generates a basic text coverage report using gcov. |
+| `make coverage-html` | Generates an HTML coverage report using gcovr. |
+| `make coverage-html-lcov` | Generates an HTML coverage report using lcov and genhtml. |
+| `make clean` | Cleans up all compiled and generated files. |
+| `make clean-html` | Cleans up HTML coverage reports only. |
+
+💡 *Tip:* Run `make clean` before rebuilding to ensure a fresh compilation.
+
+---
+
 <div align="center">
 
 💚 “Just as spring brings order and beauty to nature, Plantopia brings structure and life to code.” 🌸  
