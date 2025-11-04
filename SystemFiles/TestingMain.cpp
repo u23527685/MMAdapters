@@ -1,3 +1,6 @@
+#define DOCTEST_CONFIG_IMPLEMENT
+#include "StateUnitTests/doctest.h"
+
 #include <iostream>
 #include <memory>
 #include <cstdlib>
@@ -31,7 +34,43 @@
 #include "AskQuery.h"
 #include "MiscQueryBuilder.h"
 
+// Include GreenhouseUnitTest for custom test framework
+#include "GreenhouseUnitTest/GreenhouseUnitTest.h"
+
+// Include unit test files (without DOCTEST_CONFIG_IMPLEMENT_WITH_MAIN)
+// StateUnitTests - Testing plant state transitions and behaviors
+#include "StateUnitTests/seedStateTest_include.h"
+#include "StateUnitTests/matureStateTest.cpp"
+#include "StateUnitTests/seedlingStateTest.cpp"
+#include "StateUnitTests/distressedStateTest.cpp"
+#include "StateUnitTests/witheredStateTest.cpp"
+#include "StateUnitTests/strategyTest.cpp"
+
+#include "ProxyUnitTest/proxyUnitTest_include.h"
+#include "SalesObserverUnitTest/salesObserverUnitTest_include.h"
+#include "PLCO_And_PCRTM_UnitTests/test_core_components_include.h"
+#include "QueryHandlingUnitTest/QueryHandlingUnitTest_include.h"
+#include "DecoratorUnitTest/PlantDecoratorUnitTest_include.h"
+#include "MementoStartergyUnitTest/TransactionUnitTest_include.h"
+#include "UnitTest/UnitTest.h"
+
 int main() {
+    std::cout << "\n=== Running All Unit Tests ===\n\n";
+    
+    // Run doctest unit tests first
+    std::cout << "=== Running Doctest Unit Tests ===\n";
+    doctest::Context context;
+    
+    int res = context.run();
+    
+    if(context.shouldExit()) {
+        return res;
+    }
+    
+    std::cout << "\n=== Running Greenhouse Unit Tests ===\n\n";
+    GreenhouseUnitTest::run();
+    
+    std::cout << "\n=== Running Integration Tests ===\n\n";
     // deterministic randomness for tests
     srand(42);
 
@@ -141,5 +180,12 @@ int main() {
     }
 
     std::cout << "TestingMain finished without defaults/crashes.\n";
+
+    // Print test summary
+    std::cout << "\n=== Test Summary ===\n";
+    std::cout << "Unit Tests: " << (res == 0 ? "PASSED" : "FAILED") << "\n";
+    std::cout << "Integration Tests: COMPLETED\n";
+    std::cout << "====================\n";
+    
     return 0;
 }

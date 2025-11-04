@@ -1,7 +1,5 @@
-
-
-#define DOCTEST_CONFIG_IMPLEMENT_WITH_MAIN
-#include "doctest.h"
+// This file includes seedStateTest without DOCTEST_CONFIG_IMPLEMENT_WITH_MAIN
+// So it can be included in TestingMain.cpp
 
 #include "../Plant.h"
 #include "../PLantLifeCycle.h"
@@ -16,8 +14,6 @@
 #include "../Rose.h"
 #include "../Sunny.h"
 #include "../FloorEmployee.h"
-
-
 
 TEST_CASE("SeedState: applyCare increments growthProgress") {
     Rose* r = new Rose(10.0, "TestRose");
