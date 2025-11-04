@@ -15,5 +15,3 @@ class BasePlant: public Plant {
 };
 
 #endif
-
-
