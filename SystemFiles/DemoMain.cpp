@@ -932,7 +932,8 @@ std::cout << "\n"
                     }
                     
                     std::cout << PASTEL_GREEN << "\n--- Current Sales Floor Status ---\n" << RESET;
-                    proxy.displayAvailablePlants();
+                    //  provides an undefine ref
+                    // proxy.displayAvailablePlants();
                     
                     std::cout << "\nPress Enter to continue...";
                     std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
