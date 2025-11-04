@@ -5,9 +5,9 @@
 
 #ifndef PLANTLIFECYCLE_H
 #define PLANTLIFECYCLE_H
-
 #include "Plant.h"
 #include "PlantState.h"
+#include <memory>
 #include <string>
 #include <vector>
 #include "LifeCycleObserver.h"

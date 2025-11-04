@@ -4,22 +4,24 @@
 #include "../Plant.h"
 #include "../PLantLifeCycle.h"
 #include "../PlantCareRoutine.h"
+#include "../PlantLifeCycle.h"
 
+#include "../DistressedState.h"
+#include "../MatureState.h"
 #include "../SeedState.h"
 #include "../SeedlingState.h"
-#include "../MatureState.h"
-#include "../DistressedState.h"
 #include "../WitheredState.h"
 
+#include "../FloorEmployee.h"
 #include "../Rose.h"
 #include "../Sunny.h"
-#include "../FloorEmployee.h"
 
-
-TEST_CASE("SeedlingState: applyCare increments growthProgress") {
-    Rose* r = new Rose(10.0, "SeedlingTestRose");
+TEST_CASE("SeedlingState: applyCare increments growthProgress")
+{
+    Rose *r = new Rose(10.0, "SeedlingTestRose");
     r->setCategory("Sunny");
-    PlantLifeCycle* cycle = new PlantLifeCycle(r, std::make_unique<SeedlingState>(), "Seedling #1");
+    PlantLifeCycle *cycle =
+        new PlantLifeCycle(r, std::make_unique<SeedlingState>(), "Seedling #1");
 
     r->setMaxWater(100);
     r->setMaxSunlight(100);
@@ -31,7 +33,7 @@ TEST_CASE("SeedlingState: applyCare increments growthProgress") {
 
     r->setGrowthProgress(0);
 
-    PlantCareRoutine* routine = new Sunny();
+    PlantCareRoutine *routine = new Sunny();
     cycle->getStateObj()->applyCare(cycle, r, routine);
 
     CHECK(r->getGrowthProgress() == 1);
@@ -41,8 +43,10 @@ TEST_CASE("SeedlingState: applyCare increments growthProgress") {
     delete r;
 }
 
-TEST_CASE("SeedlingState: applyCare transitions to Mature when growthProgress reaches 5 and within min..max") {
-    Rose* r = new Rose(12.0, "GrowToMatureRose");
+TEST_CASE("SeedlingState: applyCare transitions to Mature when growthProgress "
+          "reaches 5 and within min..max")
+{
+    Rose *r = new Rose(12.0, "GrowToMatureRose");
     r->setCategory("Sunny");
 
     r->setMaxWater(100);
@@ -55,8 +59,9 @@ TEST_CASE("SeedlingState: applyCare transitions to Mature when growthProgress re
 
     r->setGrowthProgress(4);
 
-    PlantLifeCycle* cycle = new PlantLifeCycle(r, std::make_unique<SeedlingState>(), "GrowToMature #1");
-    PlantCareRoutine* routine = new Sunny();
+    PlantLifeCycle *cycle = new PlantLifeCycle(
+        r, std::make_unique<SeedlingState>(), "GrowToMature #1");
+    PlantCareRoutine *routine = new Sunny();
 
     cycle->getStateObj()->applyCare(cycle, r, routine);
 
@@ -68,8 +73,10 @@ TEST_CASE("SeedlingState: applyCare transitions to Mature when growthProgress re
     delete r;
 }
 
-TEST_CASE("SeedlingState: evaluate transitions to Mature when growthProgress >= 5 (evaluate path)") {
-    Rose* r = new Rose(11.0, "EvalSeedlingRose");
+TEST_CASE("SeedlingState: evaluate transitions to Mature when growthProgress "
+          ">= 5 (evaluate path)")
+{
+    Rose *r = new Rose(11.0, "EvalSeedlingRose");
     r->setCategory("Sunny");
 
     r->setMaxWater(100);
@@ -82,9 +89,10 @@ TEST_CASE("SeedlingState: evaluate transitions to Mature when growthProgress >= 
 
     r->setGrowthProgress(5);
 
-    PlantLifeCycle* cycle = new PlantLifeCycle(r, std::make_unique<SeedlingState>(), "EvalSeedling #1");
+    PlantLifeCycle *cycle = new PlantLifeCycle(
+        r, std::make_unique<SeedlingState>(), "EvalSeedling #1");
 
-    bool healthy = cycle->updatePlant(); 
+    bool healthy = cycle->updatePlant();
 
     CHECK(healthy == true);
     CHECK(cycle->getState() == "Mature");
@@ -93,8 +101,9 @@ TEST_CASE("SeedlingState: evaluate transitions to Mature when growthProgress >= 
     delete r;
 }
 
-TEST_CASE("SeedlingState: evaluate does NOT transition when growthProgress < 5") {
-    Rose* r = new Rose(11.0, "NoMatureRose");
+TEST_CASE("SeedlingState: evaluate does NOT transition when growthProgress < 5")
+{
+    Rose *r = new Rose(11.0, "NoMatureRose");
     r->setCategory("Sunny");
 
     r->setMaxWater(100);
@@ -107,7 +116,8 @@ TEST_CASE("SeedlingState: evaluate does NOT transition when growthProgress < 5")
 
     r->setGrowthProgress(3);
 
-    PlantLifeCycle* cycle = new PlantLifeCycle(r, std::make_unique<SeedlingState>(), "NoMature #1");
+    PlantLifeCycle *cycle =
+        new PlantLifeCycle(r, std::make_unique<SeedlingState>(), "NoMature #1");
 
     bool healthy = cycle->updatePlant();
 
@@ -118,8 +128,10 @@ TEST_CASE("SeedlingState: evaluate does NOT transition when growthProgress < 5")
     delete r;
 }
 
-TEST_CASE("SeedlingState: applyCare sets Distressed when levels are below min (edge case)") {
-    Rose* r = new Rose(11.0, "DistressEdgeRose");
+TEST_CASE("SeedlingState: applyCare sets Distressed when levels are below min "
+          "(edge case)")
+{
+    Rose *r = new Rose(11.0, "DistressEdgeRose");
     r->setCategory("Sunny");
 
     r->setMaxWater(100);
@@ -132,8 +144,9 @@ TEST_CASE("SeedlingState: applyCare sets Distressed when levels are below min (e
 
     r->setGrowthProgress(2);
 
-    PlantLifeCycle* cycle = new PlantLifeCycle(r, std::make_unique<SeedlingState>(), "DistressEdge #1");
-    PlantCareRoutine* routine = new Sunny();
+    PlantLifeCycle *cycle = new PlantLifeCycle(
+        r, std::make_unique<SeedlingState>(), "DistressEdge #1");
+    PlantCareRoutine *routine = new Sunny();
 
     cycle->getStateObj()->applyCare(cycle, r, routine);
 
@@ -144,8 +157,10 @@ TEST_CASE("SeedlingState: applyCare sets Distressed when levels are below min (e
     delete r;
 }
 
-TEST_CASE("SeedlingState: growthProgress >=5 but resources below min should NOT transition to Mature via evaluate") {
-    Rose* r = new Rose(11.0, "BadResourceButGrown");
+TEST_CASE("SeedlingState: growthProgress >=5 but resources below min should "
+          "NOT transition to Mature via evaluate")
+{
+    Rose *r = new Rose(11.0, "BadResourceButGrown");
     r->setCategory("Sunny");
 
     r->setMaxWater(100);
@@ -158,9 +173,10 @@ TEST_CASE("SeedlingState: growthProgress >=5 but resources below min should NOT 
 
     r->setGrowthProgress(5);
 
-    PlantLifeCycle* cycle = new PlantLifeCycle(r, std::make_unique<SeedlingState>(), "BadResourceButGrown #1");
+    PlantLifeCycle *cycle = new PlantLifeCycle(
+        r, std::make_unique<SeedlingState>(), "BadResourceButGrown #1");
 
-    bool healthy = cycle->updatePlant(); 
+    bool healthy = cycle->updatePlant();
 
     CHECK(healthy == false);
     CHECK(cycle->getState() == "Seedling");

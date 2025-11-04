@@ -6,9 +6,9 @@
 #ifndef ORDER_H
 #define ORDER_H
 
+#include "Transaction.h"
 #include <string>
 #include <vector>
-#include "Transaction.h"
 
 class Customer;
 

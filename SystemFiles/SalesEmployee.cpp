@@ -1,57 +1,76 @@
-#include"SalesEmployee.h"
+#include "SalesEmployee.h"
+#include <iostream>
 #include <random>
-#include<iostream>
 
-SalesEmployee::SalesEmployee(std::string name):SalesStaff(name){
+SalesEmployee::SalesEmployee(std::string name) : SalesStaff(name)
+{
     responsibilities.push_back("STOCK");
     responsibilities.push_back("DEALS");
     responsibilities.push_back("SALES");
 }
 
-SalesEmployee::~SalesEmployee(){
-    responsibilities.clear();
-}
+SalesEmployee::~SalesEmployee() { responsibilities.clear(); }
 
-bool SalesEmployee::staffCanHandle(std::string type){
-    for(std::string responsibility : responsibilities ){
-        if(type==responsibility)
+bool SalesEmployee::staffCanHandle(std::string type)
+{
+    for (std::string responsibility : responsibilities)
+    {
+        if (type == responsibility)
             return true;
     }
     return false;
 }
 
-void SalesEmployee::reply(Query* query){
-    std::string q= query->getQuestion();
-    std::string t=query->getType();
-    Plant* i=query->getItem();
-    if(t=="STOCK"){
-        std::cout<<"Sales Employee "<<getName()<<" will answer the query "<<std::endl;
-        if(i){
+void SalesEmployee::reply(Query *query)
+{
+    std::string q = query->getQuestion();
+    std::string t = query->getType();
+    Plant *i = query->getItem();
+    if (t == "STOCK")
+    {
+        std::cout << "Sales Employee " << getName() << " will answer the query "
+                  << std::endl;
+        if (i)
+        {
             getStock(query->getItem());
-            std::cout<<"Sales Employee "<<getName()<<" answered the query "<<std::endl;
+            std::cout << "Sales Employee " << getName()
+                      << " answered the query " << std::endl;
             return;
         }
-        std::cout<<"You did not add an item to ask about, please add the item and ask the query again"<<std::endl;
+        std::cout << "You did not add an item to ask about, please add the "
+                     "item and ask the query again"
+                  << std::endl;
         return;
     }
-    if(q=="What deals are there currently"||t=="DEALS"){
-        std::cout<<"Sales Employee "<<getName()<<" will answer the query "<<std::endl;
-        std::cout<<"We have no deals at the moment. If you want information for any upcoming deals and promotions please leave us your email address"<<std::endl;
-        std::cout<<"Sales Employee "<<getName()<<" answered the query "<<std::endl;
+    if (q == "What deals are there currently" || t == "DEALS")
+    {
+        std::cout << "Sales Employee " << getName() << " will answer the query "
+                  << std::endl;
+        std::cout << "We have no deals at the moment. If you want information "
+                     "for any upcoming deals and promotions please leave us "
+                     "your email address"
+                  << std::endl;
+        std::cout << "Sales Employee " << getName() << " answered the query "
+                  << std::endl;
         return;
     }
-    if(q=="What are the curent sales"||t=="SALES"){
-        std::cout<<"Sales Employee "<<getName()<<" will answer the query "<<std::endl;
-        std::cout<<"I can not expose current sales to the customer"<<std::endl;
-        std::cout<<"Sales Employee "<<getName()<<" answered the query "<<std::endl;
+    if (q == "What are the curent sales" || t == "SALES")
+    {
+        std::cout << "Sales Employee " << getName() << " will answer the query "
+                  << std::endl;
+        std::cout << "I can not expose current sales to the customer"
+                  << std::endl;
+        std::cout << "Sales Employee " << getName() << " answered the query "
+                  << std::endl;
         return;
     }
-    std::cout<<"Sales Employee "<<getName()<<" is passing the task to the next staff member"<<std::endl;
-    Staff* next= getNext();
-    if(next==nullptr){
-        std::cout<<"Sorry we can not handle the query"<<std::endl;
+    std::cout << "Sales Employee " << getName()
+              << " is passing the task to the next staff member" << std::endl;
+    Staff *next = getNext();
+    if (next == nullptr)
+    {
+        std::cout << "Sorry we can not handle the query" << std::endl;
         return;
     }
     next->handleQuery(query);
-    
 }

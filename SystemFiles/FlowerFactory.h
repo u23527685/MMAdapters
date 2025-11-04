@@ -8,6 +8,7 @@
 
 #include "PlantFactory.h"
 #include "Plant.h"
+#include "PlantFactory.h"
 #include "Rose.h"
 
 /**

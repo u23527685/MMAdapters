@@ -6,10 +6,10 @@
  */
 
 #pragma once
+#include "PaymentStrategy.h"
+#include "TransactionSnapshot.h"
 #include <string>
 #include <vector>
-#include "TransactionSnapshot.h"
-#include "PaymentStrategy.h"
 
 /**
  * @class Transaction
@@ -21,9 +21,8 @@ class Transaction {
     std::string orderNum;
     double amount;
     int quantity;
-    PaymentStrategy* paymentMethod;
+    PaymentStrategy *paymentMethod;
     std::vector<std::string> decorations;
-     
 
 public:
   /**

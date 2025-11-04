@@ -8,11 +8,9 @@
 #ifndef SUNNY_H
 #define SUNNY_H
 
-#include <string>
+#include "FertilizerStrategy.h"
 #include "Plant.h"
 #include "PlantCareRoutine.h"
-#include "WateringStrategy.h"
-#include "FertilizerStrategy.h"
 #include "SunlightStrategy.h"
 
 class Plant;

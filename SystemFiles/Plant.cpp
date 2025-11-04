@@ -4,163 +4,121 @@
 Plant::Plant() {}
 
 Plant::Plant(double price, std::string description)
-    : name(description),
-      category("generic"),
-      description(description), 
-      price(price),
-      waterStrategy(nullptr),
-      sunlightStrategy(nullptr),
-      fertilizerStrategy(nullptr),
-      state(std::make_unique<SeedState>()),
-      currentSunlight(0),
-      currentWater(0),
-      currentNutrients(0),
-      maxNutrtients(100),
-      maxWater(100),
-      maxSunlight(100),
-      minWater(0),
-      minSunlight(0),
-      minNutrients(0)
+    : name(description), category("generic"), description(description),
+      price(price), waterStrategy(nullptr), sunlightStrategy(nullptr),
+      fertilizerStrategy(nullptr), state(std::make_unique<SeedState>()),
+      currentSunlight(0), currentWater(0), currentNutrients(0),
+      maxNutrtients(100), maxWater(100), maxSunlight(100), minWater(0),
+      minSunlight(0), minNutrients(0)
 {
 }
 
 // Applies care routines
-void Plant::applyCare() {
-    
-}
-
+void Plant::applyCare() {}
 
 // Attaches an observer to the plant
-void Plant::attach(LifeCycleObserver* o) {
-    observerList.push_back(o);
-}
+void Plant::attach(LifeCycleObserver *o) { observerList.push_back(o); }
 
 // Detaches an observer to the Plant
-void Plant::detach(LifeCycleObserver* o) {
-    for (std::vector<LifeCycleObserver*>::iterator it = observerList.begin(); it != observerList.end(); ++it) {
-        if (*it == o) {
+void Plant::detach(LifeCycleObserver *o)
+{
+    for (std::vector<LifeCycleObserver *>::iterator it = observerList.begin();
+         it != observerList.end(); ++it)
+    {
+        if (*it == o)
+        {
             observerList.erase(it);
             break;
         }
     }
 }
 
-
-void Plant::notify() {
-    for(LifeCycleObserver* o : observerList) {
-        o->update(nullptr); 
+void Plant::notify()
+{
+    for (LifeCycleObserver *o : observerList)
+    {
+        o->update(nullptr);
     }
 }
 
-std::string Plant::getDescription() const{
-    return description;
-}
+std::string Plant::getDescription() const { return description; }
 
-double Plant::getPrice() const {
-    return price;
-}
+double Plant::getPrice() const { return price; }
 
-Plant::~Plant(){
-    
-}
+Plant::~Plant() {}
 
-std::string Plant::getName(){
-    return name;
-}
+std::string Plant::getName() { return name; }
 
-int Plant::getMaxWater(){
-    return maxWater;
-}
+int Plant::getMaxWater() { return maxWater; }
 
-void Plant::setMaxWater(int mW){
-    this->maxWater = mW;
-}
+void Plant::setMaxWater(int mW) { this->maxWater = mW; }
 
-int Plant::getCurrentWater(){
-    return currentWater;
-}
+int Plant::getCurrentWater() { return currentWater; }
 
-void Plant::setCurrentWater(int cW){
-    if (cW > maxWater) {
+void Plant::setCurrentWater(int cW)
+{
+    if (cW > maxWater)
+    {
         this->currentWater = maxWater;
-    } else {
+    }
+    else
+    {
         this->currentWater = cW;
     }
 }
 
-int Plant::getCurrentNutrients(){
-    return currentNutrients;
-}
+int Plant::getCurrentNutrients() { return currentNutrients; }
 
-void Plant::setCurrentNutrients(int cN){
-    if (cN > maxNutrtients) {
+void Plant::setCurrentNutrients(int cN)
+{
+    if (cN > maxNutrtients)
+    {
         this->currentNutrients = maxNutrtients;
-    } else {
+    }
+    else
+    {
         this->currentNutrients = cN;
     }
 }
 
-int Plant::getMaxNutrients(){
-    return maxNutrtients;
-}
+int Plant::getMaxNutrients() { return maxNutrtients; }
 
-void Plant::setMaxNutrients(int mN){
-    this->maxNutrtients = mN;
-}
+void Plant::setMaxNutrients(int mN) { this->maxNutrtients = mN; }
 
-int Plant::getCurrentSunlight(){
-    return currentSunlight;
-}
+int Plant::getCurrentSunlight() { return currentSunlight; }
 
-void Plant::setCurrentSunlight(int sL){
-    if (sL > maxSunlight) {
+void Plant::setCurrentSunlight(int sL)
+{
+    if (sL > maxSunlight)
+    {
         this->currentSunlight = maxSunlight;
-    } else {
+    }
+    else
+    {
         this->currentSunlight = sL;
     }
 }
 
-int Plant::getMaxSunlight(){
-    return maxSunlight;
-}
+int Plant::getMaxSunlight() { return maxSunlight; }
 
-void Plant::setMaxSunlight(int mL){
-    this->maxSunlight = mL;
-}
+void Plant::setMaxSunlight(int mL) { this->maxSunlight = mL; }
 
-int Plant::getMinWater() const{
-    return minWater;
-}
+int Plant::getMinWater() const { return minWater; }
 
-int Plant::getMinSunlight() const{
-    return minSunlight;
-}
+int Plant::getMinSunlight() const { return minSunlight; }
 
-int Plant::getMinNutrients() const{
-    return minNutrients;
-}
+int Plant::getMinNutrients() const { return minNutrients; }
 
-std::string Plant::getCategory(){
-    return category;
-}
-void Plant::setCategory(const std::string& c){
-    category = c;
-}
-bool Plant::setColor(const std::string& color) {
+std::string Plant::getCategory() { return category; }
+void Plant::setCategory(const std::string &c) { category = c; }
+bool Plant::setColor(const std::string &color)
+{
     this->color = color;
     return true;
 }
 
-std::string Plant::getColor() const {
-    return color;
-}
+std::string Plant::getColor() const { return color; }
 
-int Plant::getGrowthProgress() const {
-    return growthProgress;
-}
-void Plant::setGrowthProgress(int gp) {
-    growthProgress = gp;
-}
-void Plant::increaseGrowthProgress() {
-    ++growthProgress;
-}
+int Plant::getGrowthProgress() const { return growthProgress; }
+void Plant::setGrowthProgress(int gp) { growthProgress = gp; }
+void Plant::increaseGrowthProgress() { ++growthProgress; }

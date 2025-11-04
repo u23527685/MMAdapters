@@ -1,7 +1,7 @@
 #ifndef ADDSTOCK_H
 #define ADDSTOCK_H
-#include "StockCommand.h"
 #include "PlantInventory.h"
+#include "StockCommand.h"
 #include <string>
 
 /**
@@ -11,20 +11,22 @@
  * This class implements the Command pattern to add a specified
  * quantity of plants to the target inventory.
  */
-class AddStock : public StockCommand {
-private:
-    Plant* plant;
+class AddStock : public StockCommand
+{
+  private:
+    Plant *plant;
     int quantityToAdd;
-    PlantInventory* targetInventory;
-public:
+    PlantInventory *targetInventory;
+
+  public:
     /**
      * @brief Constructs an AddStock command
      * @param plant Plant to add
      * @param quantityToAdd Quantity to add
      * @param targetInventory Inventory to add to
      */
-    AddStock(Plant* plant, int quantityToAdd, PlantInventory* targetInventory);
-    
+    AddStock(Plant *plant, int quantityToAdd, PlantInventory *targetInventory);
+
     /**
      * @brief Executes the add stock command
      * @return true if successful, false otherwise

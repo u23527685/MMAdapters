@@ -1,21 +1,20 @@
-#include "PlantInventory.h"
-#include "InventoryObserver.h"
-#include "SalesFloorObserver.h"
-#include "Plant.h"
-#include "Rose.h"
-#include "Oak.h"
-#include "FloorEmployee.h"
-#include "PlantLifeCycle.h"
-#include "SeedState.h"
 #include "DistressedState.h"
-#include "WitheredState.h"
+#include "FloorEmployee.h"
+#include "InventoryObserver.h"
+#include "Oak.h"
+#include "Plant.h"
 #include "PlantCareRoutine.h"
+#include "PlantInventory.h"
+#include "PlantLifeCycle.h"
+#include "Rose.h"
+#include "SalesFloorObserver.h"
+#include "SeedState.h"
+#include "WitheredState.h"
 
-
-#include <iostream>
-#include <thread>
 #include <chrono>
 #include <iomanip>
+#include <iostream>
+#include <thread>
 
 #include "FullSunStrategy.h"
 #include "HighWaterStrategy.h"
@@ -25,37 +24,36 @@
 #include "ShadeStrategy.h"
 
 #include "AskQuery.h"
+#include "FloorEmployee.h"
+#include "FloorManager.h"
+#include "SalesEmployee.h"
+#include "SalesManager.h"
 #include "Staff.h"
-#include"FloorEmployee.h"
-#include"FloorManager.h"
-#include"SalesEmployee.h"
-#include"SalesManager.h"
 
-#include <vector>
+#include "BasePlant.h"
+#include "CreditCardPaymentStrategy.h"
+#include "Customer.h"
+#include "DecorativePot.h"
+#include "EFTPaymentStrategy.h"
+#include "EWalletPaymentStrategy.h"
+#include "GiftWrap.h"
+#include "Order.h"
+#include "SpecialArrangement.h"
+#include "Staff.h"
 #include "Transaction.h"
 #include "TransactionHistory.h"
-#include "CreditCardPaymentStrategy.h"
-#include "EWalletPaymentStrategy.h"
-#include "EFTPaymentStrategy.h"
-#include "BasePlant.h"
-#include "GiftWrap.h"
-#include "DecorativePot.h"
-#include "SpecialArrangement.h"
-#include "Customer.h"
-#include "Order.h"
-#include "Staff.h"
+#include <vector>
 
 #include "Plant.h"
+#include "PlantCareRoutine.h"
 #include "PlantLifeCycle.h"
 #include "SeedState.h"
-#include "PlantCareRoutine.h"
-
 
 /*
 void testChainofResp(){
-    #pragma region 
-    std::cout << "\n========== Chain Of Responsibility and Builder test ==========\n";
-    std::cout << "Testing Staff and builder and ask query\n";
+    #pragma region
+    std::cout << "\n========== Chain Of Responsibility and Builder test
+==========\n"; std::cout << "Testing Staff and builder and ask query\n";
     std::cout << "======================================================\n\n";
 
     FloorEmployee FE("Jeffery Dahmer");
@@ -86,8 +84,8 @@ void testChainofResp(){
     // ==========================================
     // Step 3: Add Initial Stock to Inventory
     // ==========================================
-    std::cout << "========== Step 3: Add Initial Stock to Inventory ==========\n";
-    inventory1->addStock(redRose1, 50);
+    std::cout << "========== Step 3: Add Initial Stock to Inventory
+==========\n"; inventory1->addStock(redRose1, 50);
     inventory1->addStock(yellowRose1, 30);
     inventory1->addStock(alienPlant1, 20);
     inventory1->addStock(oak1, 15);
@@ -130,8 +128,9 @@ int main() {
     testChainofResp();
     /*
     std::cout << "\n========== INVENTORY + PLANT CARE SYSTEM TEST ==========\n";
-    std::cout << "Testing PlantInventory with SalesFloorObserver + Staff Care\n";
-    std::cout << "======================================================\n\n";
+    std::cout << "Testing PlantInventory with SalesFloorObserver + Staff
+Care\n"; std::cout <<
+"======================================================\n\n";
 
     // ==========================================
     // Step 1: Initialize Inventory System
@@ -146,10 +145,10 @@ int main() {
     // ==========================================
     // Step 1.5: Attach Staff to Sales Floor Observer
     // ==========================================
-    std::cout << "========== Step 1.5: Attach Staff to Sales Floor Observer ==========\n";
-    FloorEmployee* john = new FloorEmployee("John");
-    FloorEmployee* sarah = new FloorEmployee("Sarah");
-    FloorEmployee* mike = new FloorEmployee("Mike");
+    std::cout << "========== Step 1.5: Attach Staff to Sales Floor Observer
+==========\n"; FloorEmployee* john = new FloorEmployee("John"); FloorEmployee*
+sarah = new FloorEmployee("Sarah"); FloorEmployee* mike = new
+FloorEmployee("Mike");
 
     salesFloor->attachStaff(john);
     salesFloor->attachStaff(sarah);
@@ -179,11 +178,9 @@ int main() {
     // ==========================================
     // Step 3: Add Initial Stock to Inventory
     // ==========================================
-    std::cout << "========== Step 3: Add Initial Stock to Inventory ==========\n";
-    inventory->addStock(redRose, 50);
-    inventory->addStock(yellowRose, 30);
-    inventory->addStock(alienPlant, 20);
-    inventory->addStock(oak, 15);
+    std::cout << "========== Step 3: Add Initial Stock to Inventory
+==========\n"; inventory->addStock(redRose, 50); inventory->addStock(yellowRose,
+30); inventory->addStock(alienPlant, 20); inventory->addStock(oak, 15);
     inventory->addStock(maple, 100);
     std::cout << "All stock added successfully\n\n";
 
@@ -200,7 +197,8 @@ int main() {
     std::cout << "========== Step 5: Query Individual Plants ==========\n";
     std::cout << "Checking Red Rose availability...\n";
     if (salesFloor->isPlantAvailable(redRose)) {
-        std::cout << "Red Roses are available! Qty: " << salesFloor->getPlantQuantity(redRose) << "\n";
+        std::cout << "Red Roses are available! Qty: " <<
+salesFloor->getPlantQuantity(redRose) << "\n";
     }
     std::cout << "\n";
 
@@ -223,9 +221,9 @@ int main() {
     // ==========================================
     // Step 7.5: Detach Staff
     // ==========================================
-    std::cout << "========== Step 7.5: Remove Sarah from Notifications ==========\n";
-    salesFloor->detachStaff(sarah);
-    std::cout << "Sarah removed. Only John and Mike will be notified now.\n\n";
+    std::cout << "========== Step 7.5: Remove Sarah from Notifications
+==========\n"; salesFloor->detachStaff(sarah); std::cout << "Sarah removed. Only
+John and Mike will be notified now.\n\n";
 
     // ==========================================
     // Step 8: PLANT CARE & LIFECYCLE TEST
@@ -234,8 +232,9 @@ int main() {
     std::cout << "Creating lifecycle for one Red Rose and one Oak...\n";
 
     // Create lifecycle for one specific plant instance
-    PlantLifeCycle* roseCycle = new PlantLifeCycle(redRose, new SeedState(), "Red Rose #001");
-    PlantLifeCycle* oakCycle  = new PlantLifeCycle(oak,     new WitheredState(), "Oak #001");
+    PlantLifeCycle* roseCycle = new PlantLifeCycle(redRose, new SeedState(),
+"Red Rose #001"); PlantLifeCycle* oakCycle  = new PlantLifeCycle(oak,     new
+WitheredState(), "Oak #001");
 
     // Attach staff to lifecycle
     roseCycle->attach(john);
@@ -296,8 +295,8 @@ int main() {
     // ==========================================
     // Step 9: Sell Out Alien Plants
     // ==========================================
-    std::cout << "========== Step 9: Test Selling Out Alien Plants ==========\n";
-    int alienQty = salesFloor->getPlantQuantity(alienPlant);
+    std::cout << "========== Step 9: Test Selling Out Alien Plants
+==========\n"; int alienQty = salesFloor->getPlantQuantity(alienPlant);
     std::cout << "Selling all " << alienQty << " alien plants...\n";
     inventory->removeStock(alienPlant, alienQty);
     std::cout << "All alien plants sold!\n\n";
@@ -326,9 +325,8 @@ int main() {
     // ==========================================
     // Step 12: Final Inventory After Restock
     // ==========================================
-    std::cout << "========== Step 12: Final Inventory After Restock ==========\n";
-    salesFloor->displayAvailablePlants();
-    std::cout << "\n";
+    std::cout << "========== Step 12: Final Inventory After Restock
+==========\n"; salesFloor->displayAvailablePlants(); std::cout << "\n";
 
     // ==========================================
     // Step 13: Test Direct Access Method
@@ -356,10 +354,11 @@ int main() {
     std::cout << "Test completed successfully!\n";
 
     std::cout << "\n";
-    std::cout << "╔════════════════════════════════════════════════════════════╗\n";
-    std::cout << "║         STRATEGY PATTERN TEST - PLANT CARE SYSTEM          ║\n";
-    std::cout << "║    Testing Dynamic Strategy Selection for Plant Care       ║\n";
-    std::cout << "╚════════════════════════════════════════════════════════════╝\n";
+    std::cout <<
+"╔════════════════════════════════════════════════════════════╗\n"; std::cout <<
+"║         STRATEGY PATTERN TEST - PLANT CARE SYSTEM          ║\n"; std::cout <<
+"║    Testing Dynamic Strategy Selection for Plant Care       ║\n"; std::cout <<
+"╚════════════════════════════════════════════════════════════╝\n";
 
     // Create plants
     Rose* desertRose = new Rose(29.99, "Desert Rose (Drought Tolerant)");
@@ -392,14 +391,18 @@ int main() {
     // Print plant status
     std::cout << "\n--- Desert Rose Status ---\n";
     std::cout << "Plant: " << desertRose->getName() << "\n";
-    std::cout << "Water: " << desertRose->getCurrentWater() << "/" << desertRose->getMaxWater()
+    std::cout << "Water: " << desertRose->getCurrentWater() << "/" <<
+desertRose->getMaxWater()
               << " ml (" << std::fixed << std::setprecision(1)
-              << (desertRose->getCurrentWater() * 100.0 / desertRose->getMaxWater()) << "%)\n";
-    std::cout << "Sunlight: " << desertRose->getCurrentSunlight() << "/" << desertRose->getMaxSunlight()
-              << " hrs (" << (desertRose->getCurrentSunlight() * 100.0 / desertRose->getMaxSunlight()) << "%)\n";
-    std::cout << "Nutrients: " << desertRose->getCurrentNutrients() << "/" << desertRose->getMaxNutrients()
-              << " ppm (" << (desertRose->getCurrentNutrients() * 100.0 / desertRose->getMaxNutrients()) << "%)\n";
-    std::cout << std::string(40, '-') << "\n";
+              << (desertRose->getCurrentWater() * 100.0 /
+desertRose->getMaxWater()) << "%)\n"; std::cout << "Sunlight: " <<
+desertRose->getCurrentSunlight() << "/" << desertRose->getMaxSunlight()
+              << " hrs (" << (desertRose->getCurrentSunlight() * 100.0 /
+desertRose->getMaxSunlight()) << "%)\n"; std::cout << "Nutrients: " <<
+desertRose->getCurrentNutrients() << "/" << desertRose->getMaxNutrients()
+              << " ppm (" << (desertRose->getCurrentNutrients() * 100.0 /
+desertRose->getMaxNutrients()) << "%)\n"; std::cout << std::string(40, '-') <<
+"\n";
 
     std::cout << "\n ================================================ \n";
 
@@ -411,14 +414,19 @@ int main() {
 
     std::cout << "\n--- Rainforest Rose Status ---\n";
     std::cout << "Plant: " << rainforestRose->getName() << "\n";
-    std::cout << "Water: " << rainforestRose->getCurrentWater() << "/" << rainforestRose->getMaxWater()
+    std::cout << "Water: " << rainforestRose->getCurrentWater() << "/" <<
+rainforestRose->getMaxWater()
               << " ml (" << std::fixed << std::setprecision(1)
-              << (rainforestRose->getCurrentWater() * 100.0 / rainforestRose->getMaxWater()) << "%)\n";
-    std::cout << "Sunlight: " << rainforestRose->getCurrentSunlight() << "/" << rainforestRose->getMaxSunlight()
-              << " hrs (" << (rainforestRose->getCurrentSunlight() * 100.0 / rainforestRose->getMaxSunlight()) << "%)\n";
-    std::cout << "Nutrients: " << rainforestRose->getCurrentNutrients() << "/" << rainforestRose->getMaxNutrients()
-              << " ppm (" << (rainforestRose->getCurrentNutrients() * 100.0 / rainforestRose->getMaxNutrients()) << "%)\n";
-    std::cout << std::string(40, '-') << "\n";
+              << (rainforestRose->getCurrentWater() * 100.0 /
+rainforestRose->getMaxWater()) << "%)\n"; std::cout << "Sunlight: " <<
+rainforestRose->getCurrentSunlight() << "/" << rainforestRose->getMaxSunlight()
+              << " hrs (" << (rainforestRose->getCurrentSunlight() * 100.0 /
+rainforestRose->getMaxSunlight()) << "%)\n"; std::cout << "Nutrients: " <<
+rainforestRose->getCurrentNutrients() << "/" <<
+rainforestRose->getMaxNutrients()
+              << " ppm (" << (rainforestRose->getCurrentNutrients() * 100.0 /
+rainforestRose->getMaxNutrients()) << "%)\n"; std::cout << std::string(40, '-')
+<< "\n";
 
     // Cleanup
     delete desertRose;
@@ -433,136 +441,140 @@ int main() {
     std::cout << "All objects deleted successfully!\n";
     std::cout << "\n"
                  "╔════════════════════════════════════════════════════════════╗\n";
-    std::cout << "║ STRATEGY PATTERN TEST COMPLETE                             ║\n";
-    std::cout << "╚════════════════════════════════════════════════════════════╝\n\n";
-    
+    std::cout << "║ STRATEGY PATTERN TEST COMPLETE ║\n"; std::cout <<
+"╚════════════════════════════════════════════════════════════╝\n\n";
+
     */
-    /*
-    std::cout << "=== Transaction System Test ===\n\n";
+/*
+std::cout << "=== Transaction System Test ===\n\n";
 
-    Transaction tx("ORD-1001", 25.50, 2);
-    tx.processPayment();
+Transaction tx("ORD-1001", 25.50, 2);
+tx.processPayment();
 
-    std::cout << "\n--- Testing Credit Card Payment ---\n";
-    CreditCardPaymentStrategy creditCard("1234-5678-9012-3456");
-    tx.setPaymentStrategy(&creditCard);
-    tx.processPayment();
+std::cout << "\n--- Testing Credit Card Payment ---\n";
+CreditCardPaymentStrategy creditCard("1234-5678-9012-3456");
+tx.setPaymentStrategy(&creditCard);
+tx.processPayment();
 
-    std::cout << "\n--- Testing E-Wallet Payment ---\n";
-    EWalletPaymentStrategy ewallet("wallet123");
-    tx.setPaymentStrategy(&ewallet);
-    tx.processPayment();
+std::cout << "\n--- Testing E-Wallet Payment ---\n";
+EWalletPaymentStrategy ewallet("wallet123");
+tx.setPaymentStrategy(&ewallet);
+tx.processPayment();
 
-    std::cout << "\n--- Testing EFT Payment ---\n";
-    EFTPaymentStrategy eft("9876543210");
-    tx.setPaymentStrategy(&eft);
-    tx.processPayment();
+std::cout << "\n--- Testing EFT Payment ---\n";
+EFTPaymentStrategy eft("9876543210");
+tx.setPaymentStrategy(&eft);
+tx.processPayment();
 
-    std::cout << "\n=== Testing Transaction Snapshots (Memento Pattern) ===\n";
-    TransactionHistory history;
-    history.addSnapshot(tx.createSnapshot());
+std::cout << "\n=== Testing Transaction Snapshots (Memento Pattern) ===\n";
+TransactionHistory history;
+history.addSnapshot(tx.createSnapshot());
 
-    std::cout << "\nUpdating Transaction...\n";
-    tx.setTransaction("ORD-1002", 40.75, 3);
-    tx.processPayment();
-    history.addSnapshot(tx.createSnapshot());
+std::cout << "\nUpdating Transaction...\n";
+tx.setTransaction("ORD-1002", 40.75, 3);
+tx.processPayment();
+history.addSnapshot(tx.createSnapshot());
 
-    std::cout << "\nUpdating Transaction again...\n";
-    tx.setTransaction("ORD-1003", 15.99, 5);
-    tx.processPayment();
-    history.addSnapshot(tx.createSnapshot());
+std::cout << "\nUpdating Transaction again...\n";
+tx.setTransaction("ORD-1003", 15.99, 5);
+tx.processPayment();
+history.addSnapshot(tx.createSnapshot());
 
-    std::cout << "\n--- Restoring Previous Snapshot ---\n";
-    tx.restoreSnapshot(history.getSnapshot(1));
-    tx.processPayment();
+std::cout << "\n--- Restoring Previous Snapshot ---\n";
+tx.restoreSnapshot(history.getSnapshot(1));
+tx.processPayment();
 
-    std::cout << "\n--- Restoring Original Snapshot ---\n";
-    tx.restoreSnapshot(history.getSnapshot(0));
-    tx.processPayment();
+std::cout << "\n--- Restoring Original Snapshot ---\n";
+tx.restoreSnapshot(history.getSnapshot(0));
+tx.processPayment();
 
-    std::cout << "\nTransaction history count: " << history.getHistorySize() << std::endl;
+std::cout << "\nTransaction history count: " << history.getHistorySize() <<
+std::endl;
 
-    std::cout << "\n=== Plant Decorator Test ===\n\n";
+std::cout << "\n=== Plant Decorator Test ===\n\n";
 
-    std::vector<Plant*> plants;
-    plants.push_back(new GiftWrap(new BasePlant()));
-    plants.push_back(new DecorativePot(new GiftWrap(new BasePlant())));
-    plants.push_back(new SpecialArrangement(new DecorativePot(new GiftWrap(new BasePlant()))));
+std::vector<Plant*> plants;
+plants.push_back(new GiftWrap(new BasePlant()));
+plants.push_back(new DecorativePot(new GiftWrap(new BasePlant())));
+plants.push_back(new SpecialArrangement(new DecorativePot(new GiftWrap(new
+BasePlant()))));
 
-    for (const auto& plant : plants) {
-        std::cout << plant->getDescription() << " | R" << plant->getPrice() << std::endl;
-    }
-    for (auto& plant : plants) {
-        delete plant;
-    }
-
- 
-    std::cout << "\n=== Customer and Order Test ===\n\n";
-
-    Customer customer("Alice Green");
-
-    Order order1(&customer, "ORD-CUST-2001");
-
-    Transaction* t1 = new Transaction("ORD-CUST-2001", 100.00, 1);
-    Transaction* t2 = new Transaction("ORD-CUST-2001", 250.00, 3);
-
-    t1->setPaymentStrategy(&creditCard);
-    t2->setPaymentStrategy(&ewallet);
-
-    order1.addTransaction(t1);
-    order1.addTransaction(t2);
-
-    order1.processOrder();
-
-    order1.displayOrderDetails();
-
- 
-    customer.placeOrder(order1);
-
-    customer.viewOrders();
-
-    Staff staff;
-    customer.makeQuery(staff, "Can I add a gift wrap to my next order?");
-  
-  
-  
-  
-  
-  
-  
-  
-  // Greenhouse testing code
+for (const auto& plant : plants) {
+    std::cout << plant->getDescription() << " | R" << plant->getPrice() <<
+std::endl;
+}
+for (auto& plant : plants) {
+    delete plant;
+}
 
 
-    Plant* myPlant = new Plant("Lavender");
-    myPlant->setCurrentWater(5);
-    myPlant->setCurrentSunlight(5);
-    myPlant->setCurrentNutrients(5);
+std::cout << "\n=== Customer and Order Test ===\n\n";
+
+Customer customer("Alice Green");
+
+Order order1(&customer, "ORD-CUST-2001");
+
+Transaction* t1 = new Transaction("ORD-CUST-2001", 100.00, 1);
+Transaction* t2 = new Transaction("ORD-CUST-2001", 250.00, 3);
+
+t1->setPaymentStrategy(&creditCard);
+t2->setPaymentStrategy(&ewallet);
+
+order1.addTransaction(t1);
+order1.addTransaction(t2);
+
+order1.processOrder();
+
+order1.displayOrderDetails();
 
 
-    PlantState* initialState = new SeedState();
-    PlantLifeCycle* lifecycle = new PlantLifeCycle(myPlant, initialState, "LavenderLife");
+customer.placeOrder(order1);
+
+customer.viewOrders();
+
+Staff staff;
+customer.makeQuery(staff, "Can I add a gift wrap to my next order?");
 
 
-    //Staff* alice = new Staff("Alice");
-    //lifecycle->attach(alice);
 
 
-    std::cout << "\n--- Initial Evaluation ---\n";
-    lifecycle->isHealthy(); // This will call SeedState::evaluate and possibly change state
 
 
-    for (int day = 1; day <= 3; ++day) {
-        std::cout << "\n--- Day " << day << " ---\n";
-        lifecycle->notify(); // Triggers Staff::update
-        lifecycle->isHealthy(); // Re-evaluate after care
-    }
 
-    delete lifecycle;
-    delete myPlant;
-  
-    return 0;
+
+// Greenhouse testing code
+
+
+Plant* myPlant = new Plant("Lavender");
+myPlant->setCurrentWater(5);
+myPlant->setCurrentSunlight(5);
+myPlant->setCurrentNutrients(5);
+
+
+PlantState* initialState = new SeedState();
+PlantLifeCycle* lifecycle = new PlantLifeCycle(myPlant, initialState,
+"LavenderLife");
+
+
+//Staff* alice = new Staff("Alice");
+//lifecycle->attach(alice);
+
+
+std::cout << "\n--- Initial Evaluation ---\n";
+lifecycle->isHealthy(); // This will call SeedState::evaluate and possibly
+change state
+
+
+for (int day = 1; day <= 3; ++day) {
+    std::cout << "\n--- Day " << day << " ---\n";
+    lifecycle->notify(); // Triggers Staff::update
+    lifecycle->isHealthy(); // Re-evaluate after care
+}
+
+delete lifecycle;
+delete myPlant;
+
+return 0;
 
 }
-    */
-
+*/

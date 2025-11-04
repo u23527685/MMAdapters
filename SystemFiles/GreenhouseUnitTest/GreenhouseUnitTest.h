@@ -15,16 +15,18 @@
 
 /**
  * @class GreenhouseUnitTest
- * @brief Unit tests for greenhouse plant system (singleton, factories and commands design patterns)
+ * @brief Unit tests for greenhouse plant system (singleton, factories and
+ * commands design patterns)
  */
-class GreenhouseUnitTest {
-public:
+class GreenhouseUnitTest
+{
+  public:
     /**
      * @brief Runs all tests
      */
     static void run();
-    
-private:
+
+  private:
     static void testPlant();
     static void testPlantInventory();
     static void testAddStock();

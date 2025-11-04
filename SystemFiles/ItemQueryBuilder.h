@@ -8,10 +8,10 @@
  */
 #ifndef ITEMQUERYBULDER_H
 #define ITEMQUERYBULDER_H
-#include "Plant.h"
 #include "Builder.h"
-#include"Query.h"
-#include<string>
+#include "Plant.h"
+#include "Query.h"
+#include <string>
 
 /**
  * @class ItemQueryBuilder
@@ -20,27 +20,29 @@
  *
  * Use this builder when constructing queries that reference a Plant item.
  */
-class ItemQueryBuilder:public Builder{
+class ItemQueryBuilder : public Builder
+{
     friend Query;
-    public:
-        /**
-         * @brief Set the query type (e.g. "INFO", "CARE ROUTINE").
-         * @param type Type string.
-         */
-        void setType(std::string type);
 
-        /**
-         * @brief Set the explicit question text for the query.
-         * @param question Question string.
-         */
-        void setQuestion(std::string question);
+  public:
+    /**
+     * @brief Set the query type (e.g. "INFO", "CARE ROUTINE").
+     * @param type Type string.
+     */
+    void setType(std::string type);
 
-        /**
-         * @brief Set the Plant item targeted by the query.
-         * @param item Non-owning pointer to the Plant.
-         */
-        void setItem(Plant* item);
+    /**
+     * @brief Set the explicit question text for the query.
+     * @param question Question string.
+     */
+    void setQuestion(std::string question);
 
-        ItemQueryBuilder():Builder(){}
+    /**
+     * @brief Set the Plant item targeted by the query.
+     * @param item Non-owning pointer to the Plant.
+     */
+    void setItem(Plant *item);
+
+    ItemQueryBuilder() : Builder() {}
 };
 #endif // !ITEMQUERYBULDER_H

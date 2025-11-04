@@ -6,7 +6,6 @@
 #ifndef PLANTCAREROUTINE_H
 #define PLANTCAREROUTINE_H
 
-#include <string>
 #include "Plant.h"
 #include <iostream>
 #include <memory>

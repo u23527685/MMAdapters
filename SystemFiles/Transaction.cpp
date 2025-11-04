@@ -62,7 +62,8 @@ void Transaction::processPayment() const {
     if (paymentMethod)
         paymentMethod->pay(amount, orderNum);
     else
-        std::cout << "No payment strategy set for order " << orderNum << std::endl;
+        std::cout << "No payment strategy set for order " << orderNum
+                  << std::endl;
 }
 
 /**
@@ -79,7 +80,7 @@ void Transaction::getDetails() const {
     if (decorations.empty())
         std::cout << "None";
     else
-        for (const auto& d : decorations)
+        for (const auto &d : decorations)
             std::cout << d << " ";
     std::cout << "\n";
 }

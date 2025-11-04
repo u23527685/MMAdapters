@@ -2,6 +2,6 @@
 
 using namespace std;
 
-StaffFactory::StaffFactory(){}
+StaffFactory::StaffFactory() {}
 
-StaffFactory::~StaffFactory(){}
+StaffFactory::~StaffFactory() {}

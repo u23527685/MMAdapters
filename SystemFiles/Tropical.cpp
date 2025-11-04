@@ -8,9 +8,9 @@
 #include "Tropical.h"
 #include <iostream>
 
-#include "PartialSunStrategy.h"
-#include "OrganicFertilizer.h"
 #include "MediumWaterStrategy.h"
+#include "OrganicFertilizer.h"
+#include "PartialSunStrategy.h"
 
  /**
  * @brief Constructor for Tropical care routine

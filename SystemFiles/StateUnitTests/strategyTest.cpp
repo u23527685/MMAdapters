@@ -1,17 +1,18 @@
 
 #include "doctest.h"
 
-#include "../Plant.h"
+#include "../FullSunStrategy.h"
 #include "../HighWaterStrategy.h"
+#include "../InorganicFertilizer.h"
 #include "../LowWaterStrategy.h"
 #include "../MediumWaterStrategy.h"
-#include "../ShadeStrategy.h" 
-#include "../FullSunStrategy.h"
-#include "../PartialSunStrategy.h"
 #include "../OrganicFertilizer.h"
-#include "../InorganicFertilizer.h"
+#include "../PartialSunStrategy.h"
+#include "../Plant.h"
+#include "../ShadeStrategy.h"
 
-TEST_CASE("Plant: set water above max") {
+TEST_CASE("Plant: set water above max")
+{
     Plant p(10.0, "Test Plant");
     p.setMaxWater(100);
     p.setCurrentWater(150);
@@ -19,7 +20,8 @@ TEST_CASE("Plant: set water above max") {
     CHECK(p.getCurrentWater() == 100);
 }
 
-TEST_CASE("Plant: set nutrients above max") {
+TEST_CASE("Plant: set nutrients above max")
+{
     Plant p(10.0, "Test Plant");
     p.setMaxNutrients(100);
     p.setCurrentNutrients(150);
@@ -27,7 +29,8 @@ TEST_CASE("Plant: set nutrients above max") {
     CHECK(p.getCurrentNutrients() == 100);
 }
 
-TEST_CASE("Plant: set sunlight above max") {
+TEST_CASE("Plant: set sunlight above max")
+{
     Plant p(10.0, "Test Plant");
     p.setMaxSunlight(100);
     p.setCurrentSunlight(150);
@@ -36,7 +39,8 @@ TEST_CASE("Plant: set sunlight above max") {
 }
 
 // Water strategy tests
-TEST_CASE("HighWaterStrategy: apply water") {
+TEST_CASE("HighWaterStrategy: apply water")
+{
     Plant p(10.0, "Test Plant");
     p.setMaxWater(100);
     p.setCurrentWater(0);
@@ -47,7 +51,8 @@ TEST_CASE("HighWaterStrategy: apply water") {
     CHECK(p.getCurrentWater() == 100);
 }
 
-TEST_CASE("LowWaterStrategy: apply water") {
+TEST_CASE("LowWaterStrategy: apply water")
+{
     Plant p(10.0, "Test Plant");
     p.setMaxWater(100);
     p.setCurrentWater(0);
@@ -58,7 +63,8 @@ TEST_CASE("LowWaterStrategy: apply water") {
     CHECK(p.getCurrentWater() == 20);
 }
 
-TEST_CASE("MediumWaterStrategy: apply water") {
+TEST_CASE("MediumWaterStrategy: apply water")
+{
     Plant p(10.0, "Test Plant");
     p.setMaxWater(100);
     p.setCurrentWater(0);
@@ -70,7 +76,8 @@ TEST_CASE("MediumWaterStrategy: apply water") {
 }
 
 // Sunlight strategy tests
-TEST_CASE("FullSunStrategy: apply sunlight") {
+TEST_CASE("FullSunStrategy: apply sunlight")
+{
     Plant p(10.0, "Test Plant");
     p.setMaxSunlight(100);
     p.setCurrentSunlight(0);
@@ -81,7 +88,8 @@ TEST_CASE("FullSunStrategy: apply sunlight") {
     CHECK(p.getCurrentSunlight() == 60);
 }
 
-TEST_CASE("PartialSunStrategy: apply sunlight") {
+TEST_CASE("PartialSunStrategy: apply sunlight")
+{
     Plant p(10.0, "Test Plant");
     p.setMaxSunlight(100);
     p.setCurrentSunlight(0);
@@ -93,7 +101,8 @@ TEST_CASE("PartialSunStrategy: apply sunlight") {
 }
 
 // Fertilizer strategy tests
-TEST_CASE("InorganicFertilizer: apply fertilizer") {
+TEST_CASE("InorganicFertilizer: apply fertilizer")
+{
     Plant p(10.0, "Test Plant");
     p.setMaxNutrients(100);
     p.setCurrentNutrients(0);
@@ -104,7 +113,8 @@ TEST_CASE("InorganicFertilizer: apply fertilizer") {
     CHECK(p.getCurrentNutrients() == 40);
 }
 
-TEST_CASE("OrganicFertilizer: apply fertilizer") {
+TEST_CASE("OrganicFertilizer: apply fertilizer")
+{
     Plant p(10.0, "Test Plant");
     p.setMaxNutrients(100);
     p.setCurrentNutrients(0);
@@ -116,23 +126,29 @@ TEST_CASE("OrganicFertilizer: apply fertilizer") {
 }
 
 // Edge cases
-TEST_CASE("Plant: negative price") {
+TEST_CASE("Plant: negative price")
+{
     Plant p(-10.0, "Test Plant");
-    CHECK(p.getPrice() == -10.0); // Note: This might not be the desired behavior
+    CHECK(p.getPrice() ==
+          -10.0); // Note: This might not be the desired behavior
 }
 
-TEST_CASE("Plant: zero price") {
+TEST_CASE("Plant: zero price")
+{
     Plant p(0.0, "Test Plant");
     CHECK(p.getPrice() == 0.0);
 }
 
-TEST_CASE("Plant: negative growth progress") {
+TEST_CASE("Plant: negative growth progress")
+{
     Plant p(10.0, "Test Plant");
     p.setGrowthProgress(-5);
-    CHECK(p.getGrowthProgress() == -5); // Note: This might not be the desired behavior
+    CHECK(p.getGrowthProgress() ==
+          -5); // Note: This might not be the desired behavior
 }
 
-TEST_CASE("Water strategy: water above max") {
+TEST_CASE("Water strategy: water above max")
+{
     Plant p(10.0, "Test Plant");
     p.setMaxWater(100);
     p.setCurrentWater(150);
@@ -143,7 +159,8 @@ TEST_CASE("Water strategy: water above max") {
     CHECK(p.getCurrentWater() == 100);
 }
 
-TEST_CASE("Sunlight strategy: sunlight above max") {
+TEST_CASE("Sunlight strategy: sunlight above max")
+{
     Plant p(10.0, "Test Plant");
     p.setMaxSunlight(100);
     p.setCurrentSunlight(150);
@@ -154,7 +171,8 @@ TEST_CASE("Sunlight strategy: sunlight above max") {
     CHECK(p.getCurrentSunlight() == 100);
 }
 
-TEST_CASE("Fertilizer strategy: fertilizer above max") {
+TEST_CASE("Fertilizer strategy: fertilizer above max")
+{
     Plant p(10.0, "Test Plant");
     p.setMaxNutrients(100);
     p.setCurrentNutrients(150);

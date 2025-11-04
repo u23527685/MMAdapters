@@ -1,12 +1,11 @@
 #ifndef TROPICAL_H
 #define TROPICAL_H
 
-#include <string>
+#include "FertilizerStrategy.h"
 #include "Plant.h"
 #include "PlantCareRoutine.h"
-#include "WateringStrategy.h"
-#include "FertilizerStrategy.h"
 #include "SunlightStrategy.h"
+#include "WateringStrategy.h"
 #include <memory>
 
 class Plant;

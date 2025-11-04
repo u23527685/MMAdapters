@@ -1,8 +1,6 @@
 #include "WitheredState.h"
-#include <iostream>
 #include "DistressedState.h"
 #include "Plant.h"
-#include "PlantLifeCycle.h"
 #include "PlantCareRoutine.h"
 /**
  * @file WitheredState.cpp
@@ -29,8 +27,9 @@ void WitheredState::applyCare(PlantLifeCycle* context, Plant* plant, PlantCareRo
         std::cout << "Error: No care routine provided for " << plant->getName() << "\n";
         return;
     }
-    std::cout << "[Withered State] " << plant->getName()
-              << " is withered. Attempting care, but state may remain Withered.\n";
+    std::cout
+        << "[Withered State] " << plant->getName()
+        << " is withered. Attempting care, but state may remain Withered.\n";
 
     routine->Watering(plant);
     routine->Sunlight(plant);
@@ -56,7 +55,8 @@ bool WitheredState::evaluate(PlantLifeCycle* context, Plant* plant) {
     double curS = plant->getCurrentSunlight();
     double curN = plant->getCurrentNutrients();
 
-    if (curW >= minW * 2 && curS >= minS * 2 && curN >= minN * 2) {
+    if (curW >= minW * 2 && curS >= minS * 2 && curN >= minN * 2)
+    {
         context->setState(std::make_unique<DistressedState>());
         return false;
     }

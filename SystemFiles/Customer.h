@@ -6,11 +6,11 @@
 #ifndef CUSTOMER_H
 #define CUSTOMER_H
 
+#include "Order.h"
+#include "Query.h"
+#include "Staff.h"
 #include <string>
 #include <vector>
-#include "Order.h"
-#include "Staff.h"
-#include "Query.h"
 
 /**
  * @class Customer

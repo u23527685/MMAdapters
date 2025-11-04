@@ -45,4 +45,8 @@ public:
     virtual double getPrice() const override;
 };
 
+<<<<<<< HEAD
 #endif
+=======
+#endif
+>>>>>>> ded7b56 (Apply clang-format fixes)
