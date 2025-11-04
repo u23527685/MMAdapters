@@ -69,6 +69,7 @@ To build, test, and analyze *Plantopia*, use the provided **Makefile** commands 
 |----------|--------------|
 | `make` | Compiles all source files and builds the executable (`test`). |
 | `make run` | Runs the compiled program (`./test`). |
+| `make run-demo` | Runs the demo program. |
 | `make debug` | Builds the program with debugging symbols enabled (`-g`). |
 | `make gdb` | Runs the program using the GNU Debugger. |
 | `make valgrind` | Runs the program with Valgrind to check for memory leaks. |
@@ -103,5 +104,6 @@ To build, test, and analyze *Plantopia*, use the provided **Makefile** commands 
 *© COS 214 | University of Pretoria | 2025*
 
 </div>
+
 
 
