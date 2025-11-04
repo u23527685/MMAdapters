@@ -1,12 +1,12 @@
 #include <gtest/gtest.h>
-#include "../SystemFiles/FloorEmployee.h"
-#include "../SystemFiles/FloorManager.h"
-#include "../SystemFiles/SalesEmployee.h"
-#include "../SystemFiles/SalesManager.h"
-#include "../SystemFiles/AskQuery.h"
-#include "../SystemFiles/Plant.h"
-#include "../SystemFiles/Rose.h"
-#include "../SystemFiles/MiscQueryBuilder.h"
+#include "../FloorEmployee.h"
+#include "../FloorManager.h"
+#include "../SalesEmployee.h"
+#include "../SalesManager.h"
+#include "../AskQuery.h"
+#include "../Plant.h"
+#include "../Rose.h"
+#include "../MiscQueryBuilder.h"
 
 class StaffQueryTest : public ::testing::Test {
 protected:
@@ -202,8 +202,8 @@ TEST_F(StaffQueryTest, UnhandledQueryType) {
 // Test that MiscQueryBuilder properly ignores items
 TEST_F(StaffQueryTest, MiscQueryBuilderIgnoresItem) {
     MiscQueryBuilder builder;
-    builder.setType("DEALS");  // Changed from STOCK to DEALS
-    builder.setItem(testPlant);  // Should be ignored with warning
+    builder.setType("DEALS");
+    builder.setItem(testPlant);
     Query* query = builder.build();
     
     EXPECT_EQ(query->getItem(), nullptr);
@@ -218,7 +218,7 @@ TEST_F(StaffQueryTest, MultipleMiscQueries) {
     std::vector<std::pair<std::string, std::string>> queries = {
         {"DEALS", "Are there any deals?"},
         {"EVENT", "When is the next event?"},
-        {"RECOMMENDATIONS", "What do you recommend?"}  // Replaced STOCK with RECOMMENDATIONS
+        {"RECOMMENDATIONS", "What do you recommend?"}
     };
     
     for (const auto& q : queries) {
@@ -232,4 +232,9 @@ TEST_F(StaffQueryTest, MultipleMiscQueries) {
         
         delete query;
     }
+}
+
+int main(int argc, char **argv) {
+    ::testing::InitGoogleTest(&argc, argv);
+    return RUN_ALL_TESTS();
 }
