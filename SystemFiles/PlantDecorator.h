@@ -11,20 +11,21 @@
 /**
  * @class PlantDecorator
  * @brief Base decorator class for adding features to plants
- * @details Implements the decorator pattern to allow dynamic addition of 
+ * @details Implements the decorator pattern to allow dynamic addition of
  *          features and modifications to plant objects
  */
-class PlantDecorator : public Plant {
-protected:
-    Plant* plant;    ///< Pointer to the decorated plant object
+class PlantDecorator : public Plant
+{
+  protected:
+    Plant *plant; ///< Pointer to the decorated plant object
 
-public:
+  public:
     /**
      * @brief Constructor for PlantDecorator
      * @param plant Pointer to the Plant object to be decorated
      * @return None (constructor)
      */
-    PlantDecorator(Plant* plant);
+    PlantDecorator(Plant *plant);
 
     /**
      * @brief Virtual destructor for PlantDecorator

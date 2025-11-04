@@ -17,9 +17,13 @@
  * @return None (constructor)
  * @author Jerusha
  */
-TransactionSnapshot::TransactionSnapshot(const std::string& orderNum, double amount, int quantity,
-                                       const std::vector<std::string>& decorations)
-    : orderNum(orderNum), amount(amount), quantity(quantity), decorations(decorations) {}
+TransactionSnapshot::TransactionSnapshot(
+    const std::string &orderNum, double amount, int quantity,
+    const std::vector<std::string> &decorations)
+    : orderNum(orderNum), amount(amount), quantity(quantity),
+      decorations(decorations)
+{
+}
 
 /**
  * @brief Gets the order number
@@ -27,9 +31,7 @@ TransactionSnapshot::TransactionSnapshot(const std::string& orderNum, double amo
  * @return std::string The order number of the transaction
  * @author Jerusha
  */
-std::string TransactionSnapshot::getOrderNum() const {
-    return orderNum;
-}
+std::string TransactionSnapshot::getOrderNum() const { return orderNum; }
 
 /**
  * @brief Gets the transaction amount
@@ -37,9 +39,7 @@ std::string TransactionSnapshot::getOrderNum() const {
  * @return double The monetary amount of the transaction
  * @author Jerusha
  */
-double TransactionSnapshot::getAmount() const {
-    return amount;
-}
+double TransactionSnapshot::getAmount() const { return amount; }
 
 /**
  * @brief Gets the quantity of items
@@ -47,16 +47,17 @@ double TransactionSnapshot::getAmount() const {
  * @return int The quantity of items in the transaction
  * @author Jerusha
  */
-int TransactionSnapshot::getQuantity() const {
-    return quantity;
-}
+int TransactionSnapshot::getQuantity() const { return quantity; }
 
 /**
  * @brief Gets the decorations list
- * @details Returns the stored vector of decorations associated with the transaction
- * @return const std::vector<std::string>& Reference to the vector of decorations
+ * @details Returns the stored vector of decorations associated with the
+ * transaction
+ * @return const std::vector<std::string>& Reference to the vector of
+ * decorations
  * @author Jerusha
  */
-const std::vector<std::string>& TransactionSnapshot::getDecorations() const {
+const std::vector<std::string> &TransactionSnapshot::getDecorations() const
+{
     return decorations;
 }

@@ -13,17 +13,18 @@
  * @brief Strategy for processing e-wallet payments
  * @details Implements payment processing for electronic wallet transactions
  */
-class EWalletPaymentStrategy : public PaymentStrategy {
-private:
-    std::string walletID;    ///< Unique identifier for the e-wallet account
+class EWalletPaymentStrategy : public PaymentStrategy
+{
+  private:
+    std::string walletID; ///< Unique identifier for the e-wallet account
 
-public:
+  public:
     /**
      * @brief Constructor for EWalletPaymentStrategy
      * @param walletID The ID of the e-wallet account
      * @return None (constructor)
      */
-    EWalletPaymentStrategy(const std::string& walletID);
+    EWalletPaymentStrategy(const std::string &walletID);
 
     /**
      * @brief Process an e-wallet payment
@@ -31,7 +32,7 @@ public:
      * @param orderNum The order number for the transaction
      * @return void
      */
-    void pay(double amount, const std::string& orderNum) const override;
+    void pay(double amount, const std::string &orderNum) const override;
 
     /**
      * @brief Gets the payment method name

@@ -11,10 +11,12 @@
 /**
  * @class PaymentStrategy
  * @brief Abstract base class defining interface for payment methods
- * @details Provides a framework for implementing different payment processing strategies
+ * @details Provides a framework for implementing different payment processing
+ * strategies
  */
-class PaymentStrategy {
-public:
+class PaymentStrategy
+{
+  public:
     /**
      * @brief Virtual destructor
      */
@@ -26,7 +28,7 @@ public:
      * @param orderNum The order number for the transaction
      * @return void
      */
-    virtual void pay(double amount, const std::string& orderNum) const = 0;
+    virtual void pay(double amount, const std::string &orderNum) const = 0;
 
     /**
      * @brief Gets the name of the payment method

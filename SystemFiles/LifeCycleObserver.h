@@ -16,19 +16,20 @@ class PlantLifeCycle;
  * @details Provides interface for objects that need to be notified of changes
  *          in a plant's lifecycle state
  */
-class LifeCycleObserver {
-    public:
-        /**
-         * @brief Updates the observer with lifecycle changes
-         * @param p Pointer to the PlantLifeCycle that changed
-         * @return void
-         */
-        virtual void update(PlantLifeCycle* p);
+class LifeCycleObserver
+{
+  public:
+    /**
+     * @brief Updates the observer with lifecycle changes
+     * @param p Pointer to the PlantLifeCycle that changed
+     * @return void
+     */
+    virtual void update(PlantLifeCycle *p);
 
-        /**
-         * @brief Virtual destructor
-         */
-        virtual ~LifeCycleObserver() = default;
+    /**
+     * @brief Virtual destructor
+     */
+    virtual ~LifeCycleObserver() = default;
 };
 
 #endif

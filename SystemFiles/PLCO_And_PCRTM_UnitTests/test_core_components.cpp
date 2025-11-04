@@ -1,19 +1,21 @@
 #define DOCTEST_CONFIG_IMPLEMENT_WITH_MAIN
 #include "../StateUnitTests/doctest.h"
-#include "Plant.h"
-#include "PLantLifeCycle.h"
-#include "Staff.h"
-#include "PlantCareRoutine.h"
-#include "Tropical.h"
-#include "Sunny.h"
-#include "Shade.h"
-#include "Temperate.h"
-#include "SeedState.h"
 #include "FloorEmployee.h"
+#include "PLantLifeCycle.h"
+#include "Plant.h"
+#include "PlantCareRoutine.h"
+#include "SeedState.h"
+#include "Shade.h"
+#include "Staff.h"
+#include "Sunny.h"
+#include "Temperate.h"
+#include "Tropical.h"
 
-
-Plant* createTestPlant(double price = 10.0, std::string desc = "Test Plant", int maxWater = 200, int maxSunlight = 200, int maxNutrients = 200) {
-    Plant* p = new Plant(price, desc);
+Plant *createTestPlant(double price = 10.0, std::string desc = "Test Plant",
+                       int maxWater = 200, int maxSunlight = 200,
+                       int maxNutrients = 200)
+{
+    Plant *p = new Plant(price, desc);
     p->setMaxWater(maxWater);
     p->setMaxSunlight(maxSunlight);
     p->setMaxNutrients(maxNutrients);
@@ -24,10 +26,11 @@ Plant* createTestPlant(double price = 10.0, std::string desc = "Test Plant", int
     return p;
 }
 
-TEST_CASE("Plant: Resource Limits and Getters") {
-    Plant* plant = createTestPlant(10.0, "Test Plant", 200, 200, 200);
+TEST_CASE("Plant: Resource Limits and Getters")
+{
+    Plant *plant = createTestPlant(10.0, "Test Plant", 200, 200, 200);
     plant->setCurrentWater(150);
-    CHECK(plant->getCurrentWater() == 150); 
+    CHECK(plant->getCurrentWater() == 150);
 
     plant->setCurrentSunlight(150);
     CHECK(plant->getCurrentSunlight() == 150);
@@ -42,8 +45,9 @@ TEST_CASE("Plant: Resource Limits and Getters") {
     delete plant;
 }
 
-TEST_CASE("PlantLifeCycle: Observer Attachment and Detachment") {
-    Plant* plant = createTestPlant();
+TEST_CASE("PlantLifeCycle: Observer Attachment and Detachment")
+{
+    Plant *plant = createTestPlant();
     std::unique_ptr<PlantState> initialState = std::make_unique<SeedState>();
     PlantLifeCycle cycle(plant, std::move(initialState), "TestCycle");
 
@@ -52,16 +56,19 @@ TEST_CASE("PlantLifeCycle: Observer Attachment and Detachment") {
 
     CHECK(cycle.getState() == "Seed");
     CHECK(cycle.getPlant() == plant);
-   CHECK(std::find(cycle.observersBegin(), cycle.observersEnd(), &observer) != cycle.observersEnd());
+    CHECK(std::find(cycle.observersBegin(), cycle.observersEnd(), &observer) !=
+          cycle.observersEnd());
 
     cycle.detach(&observer);
-    CHECK(std::find(cycle.observersBegin(), cycle.observersEnd(), &observer) == cycle.observersEnd());
+    CHECK(std::find(cycle.observersBegin(), cycle.observersEnd(), &observer) ==
+          cycle.observersEnd());
 
     delete plant;
 }
 
-TEST_CASE("PlantLifeCycle: Simulate Time Passing and Update") {
-    Plant* plant = createTestPlant();
+TEST_CASE("PlantLifeCycle: Simulate Time Passing and Update")
+{
+    Plant *plant = createTestPlant();
     std::unique_ptr<PlantState> initialState = std::make_unique<SeedState>();
     PlantLifeCycle cycle(plant, std::move(initialState), "TestCycle");
     plant->setCurrentNutrients(200);
@@ -69,9 +76,9 @@ TEST_CASE("PlantLifeCycle: Simulate Time Passing and Update") {
     plant->setCurrentSunlight(200);
 
     cycle.simulateTimePassing();
-    CHECK(plant->getCurrentWater() == 190); 
-    CHECK(plant->getCurrentSunlight() == 190); 
-    CHECK(plant->getCurrentNutrients() == 190); 
+    CHECK(plant->getCurrentWater() == 190);
+    CHECK(plant->getCurrentSunlight() == 190);
+    CHECK(plant->getCurrentNutrients() == 190);
 
     plant->increaseGrowthProgress();
     plant->increaseGrowthProgress();
@@ -80,38 +87,40 @@ TEST_CASE("PlantLifeCycle: Simulate Time Passing and Update") {
     plant->increaseGrowthProgress();
 
     bool updated = cycle.updatePlant();
-    
-    CHECK(updated == true); 
+
+    CHECK(updated == true);
 
     plant->setCurrentWater(180);
     updated = cycle.updatePlant();
-    CHECK(updated == true); 
+    CHECK(updated == true);
 
     delete plant;
 }
 
-TEST_CASE("PlantCareRoutine: Factory Method") {
-    Plant* tropicalPlant = createTestPlant();
+TEST_CASE("PlantCareRoutine: Factory Method")
+{
+    Plant *tropicalPlant = createTestPlant();
     tropicalPlant->setCategory("Tropical");
-    std::unique_ptr<PlantCareRoutine> routine = PlantCareRoutine::PlantCare(tropicalPlant);
-    CHECK(dynamic_cast<Tropical*>(routine.get()) != nullptr);
+    std::unique_ptr<PlantCareRoutine> routine =
+        PlantCareRoutine::PlantCare(tropicalPlant);
+    CHECK(dynamic_cast<Tropical *>(routine.get()) != nullptr);
 
-    Plant* sunnyPlant = createTestPlant();
+    Plant *sunnyPlant = createTestPlant();
     sunnyPlant->setCategory("Sunny");
     routine = PlantCareRoutine::PlantCare(sunnyPlant);
-    CHECK(dynamic_cast<Sunny*>(routine.get()) != nullptr);
+    CHECK(dynamic_cast<Sunny *>(routine.get()) != nullptr);
 
-    Plant* shadePlant = createTestPlant();
+    Plant *shadePlant = createTestPlant();
     shadePlant->setCategory("Shade");
     routine = PlantCareRoutine::PlantCare(shadePlant);
-    CHECK(dynamic_cast<Shade*>(routine.get()) != nullptr);
+    CHECK(dynamic_cast<Shade *>(routine.get()) != nullptr);
 
-    Plant* temperatePlant = createTestPlant();
+    Plant *temperatePlant = createTestPlant();
     temperatePlant->setCategory("Temperate");
     routine = PlantCareRoutine::PlantCare(temperatePlant);
-    CHECK(dynamic_cast<Temperate*>(routine.get()) != nullptr);
+    CHECK(dynamic_cast<Temperate *>(routine.get()) != nullptr);
 
-    Plant* invalidPlant = createTestPlant();
+    Plant *invalidPlant = createTestPlant();
     invalidPlant->setCategory("Unknown");
     routine = PlantCareRoutine::PlantCare(invalidPlant);
     CHECK(routine == nullptr);
@@ -123,30 +132,34 @@ TEST_CASE("PlantCareRoutine: Factory Method") {
     delete invalidPlant;
 }
 
-TEST_CASE("PlantCareRoutine: Tropical Care Application") {
-    Plant* plant = createTestPlant();
+TEST_CASE("PlantCareRoutine: Tropical Care Application")
+{
+    Plant *plant = createTestPlant();
     plant->setCategory("Tropical");
-    std::unique_ptr<PlantCareRoutine> routine = PlantCareRoutine::PlantCare(plant);
-    Tropical* tropical = dynamic_cast<Tropical*>(routine.get());
+    std::unique_ptr<PlantCareRoutine> routine =
+        PlantCareRoutine::PlantCare(plant);
+    Tropical *tropical = dynamic_cast<Tropical *>(routine.get());
     CHECK(tropical != nullptr);
 
     tropical->Watering(plant);
-    CHECK(plant->getCurrentWater() == 50); 
+    CHECK(plant->getCurrentWater() == 50);
 
     tropical->Sunlight(plant);
-    CHECK(plant->getCurrentSunlight() == 40); 
+    CHECK(plant->getCurrentSunlight() == 40);
 
     tropical->Fertilizing(plant);
-    CHECK(plant->getCurrentNutrients() == 80); 
+    CHECK(plant->getCurrentNutrients() == 80);
 
     delete plant;
 }
 
-TEST_CASE("PlantCareRoutine: Sunny Care Application") {
-    Plant* plant = createTestPlant();
+TEST_CASE("PlantCareRoutine: Sunny Care Application")
+{
+    Plant *plant = createTestPlant();
     plant->setCategory("Sunny");
-    std::unique_ptr<PlantCareRoutine> routine = PlantCareRoutine::PlantCare(plant);
-    Sunny* sunny = dynamic_cast<Sunny*>(routine.get());
+    std::unique_ptr<PlantCareRoutine> routine =
+        PlantCareRoutine::PlantCare(plant);
+    Sunny *sunny = dynamic_cast<Sunny *>(routine.get());
     CHECK(sunny != nullptr);
 
     sunny->Watering(plant);
@@ -161,11 +174,13 @@ TEST_CASE("PlantCareRoutine: Sunny Care Application") {
     delete plant;
 }
 
-TEST_CASE("PlantCareRoutine: Shade Care Application") {
-    Plant* plant = createTestPlant();
+TEST_CASE("PlantCareRoutine: Shade Care Application")
+{
+    Plant *plant = createTestPlant();
     plant->setCategory("Shade");
-    std::unique_ptr<PlantCareRoutine> routine = PlantCareRoutine::PlantCare(plant);
-    Shade* shade = dynamic_cast<Shade*>(routine.get());
+    std::unique_ptr<PlantCareRoutine> routine =
+        PlantCareRoutine::PlantCare(plant);
+    Shade *shade = dynamic_cast<Shade *>(routine.get());
     CHECK(shade != nullptr);
 
     shade->Watering(plant);
@@ -180,11 +195,13 @@ TEST_CASE("PlantCareRoutine: Shade Care Application") {
     delete plant;
 }
 
-TEST_CASE("PlantCareRoutine: Temperate Care Application") {
-    Plant* plant = createTestPlant();
+TEST_CASE("PlantCareRoutine: Temperate Care Application")
+{
+    Plant *plant = createTestPlant();
     plant->setCategory("Temperate");
-    std::unique_ptr<PlantCareRoutine> routine = PlantCareRoutine::PlantCare(plant);
-    Temperate* temperate = dynamic_cast<Temperate*>(routine.get());
+    std::unique_ptr<PlantCareRoutine> routine =
+        PlantCareRoutine::PlantCare(plant);
+    Temperate *temperate = dynamic_cast<Temperate *>(routine.get());
     CHECK(temperate != nullptr);
 
     temperate->Watering(plant);

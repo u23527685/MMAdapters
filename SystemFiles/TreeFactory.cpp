@@ -10,7 +10,7 @@
  * @brief Creates a new Tree Plant object
  * @details Factory method that creates and returns a new Oak tree by default,
  *          or when an Oak tree type is specifically requested
- * 
+ *
  * @param plantType The type of tree to create (default is "Oak")
  * @param price The price of the tree (default is 100)
  * @return Plant* Pointer to the newly created Plant object

@@ -15,8 +15,8 @@ class ShadeStrategy : public SunlightStrategy
      * @note The current implementation does not modify the plant's sunlight
      * level, as the setCurrentSunlight call adds 0 to the current value.
      */
-    void applySunlight(Plant* p) override;
-     /**
+    void applySunlight(Plant *p) override;
+    /**
      * @brief Gets the name of the sunlight strategy
      * @details Returns the identifier for the shade strategy
      * @return std::string The name of the strategy ("Shade")

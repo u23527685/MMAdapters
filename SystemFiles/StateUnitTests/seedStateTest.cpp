@@ -3,8 +3,8 @@
 #define DOCTEST_CONFIG_IMPLEMENT_WITH_MAIN
 #include "doctest.h"
 
-#include "../Plant.h"
 #include "../PLantLifeCycle.h"
+#include "../Plant.h"
 #include "../PlantCareRoutine.h"
 
 #include "../DistressedState.h"

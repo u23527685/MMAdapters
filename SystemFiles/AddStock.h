@@ -7,7 +7,7 @@
 /**
  * @class AddStock
  * @brief Concrete command for adding plant stock to inventory
- * 
+ *
  * This class implements the Command pattern to add a specified
  * quantity of plants to the target inventory.
  */

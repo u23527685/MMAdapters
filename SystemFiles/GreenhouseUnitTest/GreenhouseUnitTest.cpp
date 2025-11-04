@@ -75,7 +75,7 @@ void GreenhouseUnitTest::testPlantInventory()
     std::cout << "Test: Get quantity after adding\n";
     std::cout << "Expected: 5\n";
     std::cout << "Actual: " << inv->getQuantity(testPlant) << "\n\n";
-    
+
     // Clean up properly - remove from inventory before deleting
     inv->removeStock(testPlant, 5);
     // Don't delete the plant - inventory manages it
@@ -174,7 +174,7 @@ void GreenhouseUnitTest::testPlantStock()
     std::cout << "Test: Quantity after remove via stock\n";
     std::cout << "Expected: 5\n";
     std::cout << "Actual: " << inv->getQuantity(plant) << "\n\n";
-    
+
     // Don't delete plant - inventory manages it
     stock->removeStock(plant, 5);
     delete stock;
