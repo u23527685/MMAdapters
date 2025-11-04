@@ -26,6 +26,7 @@ class PlantDecorator : public Plant
      * @return None (constructor)
      */
     PlantDecorator(Plant *plant);
+    PlantDecorator(Plant *plant);
 
     /**
      * @brief Virtual destructor for PlantDecorator
@@ -50,4 +51,3 @@ class PlantDecorator : public Plant
 #endif
 =======
 #endif
->>>>>>> ded7b56 (Apply clang-format fixes)
