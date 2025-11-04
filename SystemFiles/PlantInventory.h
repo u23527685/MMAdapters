@@ -15,6 +15,7 @@
  * PlantStock and PlantInventory can add and remove stock (it's redundant but works).
  * PlantInventory acts as the Receiver in the Command pattern from StockCommand.
  * Plant inventory has a singleton design pattern implementation.
+ * @author Cobus
  */
 class PlantInventory {
 private:
