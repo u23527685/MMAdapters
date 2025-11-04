@@ -11,6 +11,7 @@
 #include "Plant.h"
 #include "PlantCareRoutine.h"
 #include "SunlightStrategy.h"
+#include "WateringStrategy.h"
 
 class Plant;
 
@@ -20,12 +21,11 @@ class Plant;
  * @details Provides specialized care strategies for watering, sunlight, and
  * fertilization tailored to plants that thrive in shaded conditions
  */
-class Shade : public PlantCareRoutine
-{
-  private:
-    std::unique_ptr<WaterStrategy> wS;
-    std::unique_ptr<SunlightStrategy> sS;
-    std::unique_ptr<FertilizerStrategy> fS;
+class Shade: public PlantCareRoutine {
+    private:
+        std::unique_ptr<WateringStrategy> wS;    
+        std::unique_ptr<SunlightStrategy> sS;  
+        std::unique_ptr<FertilizerStrategy> fS; 
 
   public:
     /**
