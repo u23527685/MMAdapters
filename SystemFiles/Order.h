@@ -17,20 +17,22 @@ class Customer;
  * @brief Manages customer orders and associated transactions
  * @details Handles order processing, transaction management and status tracking
  */
-class Order {
-private:
-    std::string orderId;                    ///< Unique identifier for the order
-    std::string status;                     ///< Current status of the order
-    Customer* customer;                      ///< Customer who placed the order
-    std::vector<Transaction*> transactions;  ///< List of transactions in the order
+class Order
+{
+  private:
+    std::string orderId; ///< Unique identifier for the order
+    std::string status;  ///< Current status of the order
+    Customer *customer;  ///< Customer who placed the order
+    std::vector<Transaction *>
+        transactions; ///< List of transactions in the order
 
-public:
+  public:
     /**
      * @brief Constructor for Order
      * @param customer Pointer to the Customer placing the order
      * @param orderId Unique identifier for the order
      */
-    Order(Customer* customer, const std::string& orderId);
+    Order(Customer *customer, const std::string &orderId);
 
     /**
      * @brief Destructor for Order
@@ -42,7 +44,7 @@ public:
      * @param transaction Pointer to the Transaction to add
      * @return void
      */
-    void addTransaction(Transaction* transaction);
+    void addTransaction(Transaction *transaction);
 
     /**
      * @brief Processes all transactions in the order
@@ -72,7 +74,7 @@ public:
      * @brief Gets the customer who placed the order
      * @return Customer* Pointer to the customer
      */
-    Customer* getCustomer() const;
+    Customer *getCustomer() const;
 };
 
 #endif

@@ -15,21 +15,23 @@
 /**
  * @class InventoryProxy
  * @brief Proxy class controlling access to plant inventory
- * @details Provides controlled access to inventory operations and notifies observers
+ * @details Provides controlled access to inventory operations and notifies
+ * observers
  * @author Cobus
  */
-class InventoryProxy {
-    PlantInventory* inventory;          
-    SalesFloorObserver* salesObserver;   
+class InventoryProxy
+{
+    PlantInventory *inventory;
+    SalesFloorObserver *salesObserver;
 
-public:
+  public:
     /**
      * @brief Constructor for InventoryProxy
      * @param observer Pointer to the SalesFloorObserver
      * @return None (constructor)
      * @author Cobus
      */
-    InventoryProxy(SalesFloorObserver* observer);
+    InventoryProxy(SalesFloorObserver *observer);
 
     /**
      * @brief Processes purchase of plants from inventory
@@ -38,7 +40,7 @@ public:
      * @return bool Success status of the purchase
      * @author Cobus
      */
-    bool buyPlant(Plant* plant, int quantity);
+    bool buyPlant(Plant *plant, int quantity);
 
     /**
      * @brief Adds stock to the inventory
@@ -47,7 +49,7 @@ public:
      * @return void
      * @author Cobus
      */
-    void addStock(Plant* plant, int quantity);
+    void addStock(Plant *plant, int quantity);
 
     /**
      * @brief Removes stock from the inventory
@@ -56,13 +58,13 @@ public:
      * @return void
      * @author Cobus
      */
-    void removeStock(Plant*, int);
+    void removeStock(Plant *, int);
 
     /**
      *  @brief Displays available plants in inventory
      *  @return void
      * @author Cobus
-    */
+     */
     void displayAvailablePlants() const;
 };
 

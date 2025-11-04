@@ -16,12 +16,13 @@
  * @class Customer
  * @brief Represents a customer who can place orders and make queries to staff.
  */
-class Customer {
-private:
-    std::string name; /**< The name of the customer. */
+class Customer
+{
+  private:
+    std::string name;          /**< The name of the customer. */
     std::vector<Order> orders; /**< List of orders placed by the customer. */
 
-public:
+  public:
     /**
      * @brief Default constructor for Customer.
      */
@@ -31,7 +32,7 @@ public:
      * @brief Constructs a Customer with a specified name.
      * @param customerName The name of the customer.
      */
-    explicit Customer(const std::string& customerName);
+    explicit Customer(const std::string &customerName);
 
     /**
      * @brief Gets the name of the customer.
@@ -43,13 +44,13 @@ public:
      * @brief Sets the name of the customer.
      * @param customerName The new name of the customer.
      */
-    void setName(const std::string& customerName);
+    void setName(const std::string &customerName);
 
     /**
      * @brief Adds a new order to the customer's order list.
      * @param order The order to be placed.
      */
-    void placeOrder(const Order& order);
+    void placeOrder(const Order &order);
 
     /**
      * @brief Displays all orders placed by the customer.
@@ -61,7 +62,7 @@ public:
      * @param staff Reference to the staff member who will receive the query.
      * @param queryMessage Pointer to the query message object.
      */
-    void makeQuery(Staff& staff, Query* queryMessage) const;
+    void makeQuery(Staff &staff, Query *queryMessage) const;
 };
 
 #endif

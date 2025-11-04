@@ -1,6 +1,7 @@
 /**
  * @file CreditCardPaymentStrategy.h
- * @brief Defines the CreditCardPaymentStrategy class for handling credit card payments.
+ * @brief Defines the CreditCardPaymentStrategy class for handling credit card
+ * payments.
  */
 
 #ifndef CREDITCARDPAYMENTSTRATEGY_H
@@ -13,22 +14,24 @@
  * @class CreditCardPaymentStrategy
  * @brief Implements the PaymentStrategy interface for credit card payments.
  */
-class CreditCardPaymentStrategy : public PaymentStrategy {
-private:
+class CreditCardPaymentStrategy : public PaymentStrategy
+{
+  private:
     std::string cardNumber; /**< The credit card number used for payment. */
-public:
+  public:
     /**
-     * @brief Constructs a CreditCardPaymentStrategy with a specified card number.
+     * @brief Constructs a CreditCardPaymentStrategy with a specified card
+     * number.
      * @param cardNumber The credit card number.
      */
-    CreditCardPaymentStrategy(const std::string& cardNumber);
+    CreditCardPaymentStrategy(const std::string &cardNumber);
 
     /**
      * @brief Processes payment using a credit card.
      * @param amount The amount to be paid.
      * @param orderNum The order number associated with the payment.
      */
-    void pay(double amount, const std::string& orderNum) const override;
+    void pay(double amount, const std::string &orderNum) const override;
 
     /**
      * @brief Retrieves the name of the payment method.

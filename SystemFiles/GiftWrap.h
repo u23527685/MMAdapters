@@ -11,16 +11,18 @@
 /**
  * @class GiftWrap
  * @brief Decorator class for adding gift wrapping to plants
- * @details Provides functionality to wrap plants as gifts and adjust pricing accordingly
+ * @details Provides functionality to wrap plants as gifts and adjust pricing
+ * accordingly
  */
-class GiftWrap : public PlantDecorator {
-public:
+class GiftWrap : public PlantDecorator
+{
+  public:
     /**
      * @brief Constructor for GiftWrap decorator
      * @param plant Pointer to the Plant object to be gift wrapped
      * @return None (constructor)
      */
-    GiftWrap(Plant* plant);
+    GiftWrap(Plant *plant);
 
     /**
      * @brief Gets the description of the gift wrapped plant

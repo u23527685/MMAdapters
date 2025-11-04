@@ -1,16 +1,16 @@
 #ifndef GREENHOUSE_UNIT_TEST_H
 #define GREENHOUSE_UNIT_TEST_H
 
-#include "../Plant.h"
-#include "../PlantInventory.h"
 #include "../AddStock.h"
-#include "../RemoveStock.h"
-#include "../PlantStock.h"
-#include "../PlantFactory.h"
-#include "../TreeFactory.h"
 #include "../FlowerFactory.h"
 #include "../Oak.h"
+#include "../Plant.h"
+#include "../PlantFactory.h"
+#include "../PlantInventory.h"
+#include "../PlantStock.h"
+#include "../RemoveStock.h"
 #include "../Rose.h"
+#include "../TreeFactory.h"
 #include <iostream>
 
 /**

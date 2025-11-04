@@ -14,10 +14,10 @@
  * @return void
  * @author Jerusha
  */
-void TransactionHistory::addSnapshot(const TransactionSnapshot& snapshot) {
+void TransactionHistory::addSnapshot(const TransactionSnapshot &snapshot)
+{
     history.push_back(snapshot);
 }
-
 
 /**
  * @brief Retrieves a specific transaction snapshot from history
@@ -27,7 +27,8 @@ void TransactionHistory::addSnapshot(const TransactionSnapshot& snapshot) {
  * @throw std::out_of_range if index is invalid
  * @author Jerusha
  */
-TransactionSnapshot TransactionHistory::getSnapshot(int index) const {
+TransactionSnapshot TransactionHistory::getSnapshot(int index) const
+{
     if (index < 0 || index >= static_cast<int>(history.size()))
         throw std::out_of_range("Invalid snapshot index");
     return history[index];
@@ -39,6 +40,7 @@ TransactionSnapshot TransactionHistory::getSnapshot(int index) const {
  * @return int The number of snapshots in the history
  * @author Jerusha
  */
-int TransactionHistory::getHistorySize() const {
+int TransactionHistory::getHistorySize() const
+{
     return static_cast<int>(history.size());
 }
