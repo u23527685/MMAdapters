@@ -11,13 +11,13 @@
 #ifndef ASKQUERY_H
 #define ASKQUERY_H
 
-#include"Builder.h"
+#include "Builder.h"
 #include "FloorStaff.h"
-#include"ItemQueryBuilder.h"
-#include"MiscQueryBuilder.h"
+#include "ItemQueryBuilder.h"
+#include "MiscQueryBuilder.h"
 #include "Plant.h"
-#include"Query.h"
-#include<string>
+#include "Query.h"
+#include <string>
 
 /**
  * @class AskQuery
@@ -27,30 +27,31 @@
  * It abstracts the builder selection and configuration process, providing
  * simple methods for common query types.
  */
-class AskQuery {
-    private:
-        Builder* builder;  /**< Temporary builder used during Query construction */
+class AskQuery
+{
+  private:
+    Builder *builder; /**< Temporary builder used during Query construction */
 
-    public:
-        /**
-         * @brief Creates a Query requesting description of a specific Plant
-         * @param item Pointer to the Plant to describe (non-owning)
-         * @return Newly allocated Query object (caller takes ownership)
-         *
-         * Uses ItemQueryBuilder to create an INFO-type Query targeting the
-         * specified Plant.
-         */
-        Query* describe(Plant* item);
+  public:
+    /**
+     * @brief Creates a Query requesting description of a specific Plant
+     * @param item Pointer to the Plant to describe (non-owning)
+     * @return Newly allocated Query object (caller takes ownership)
+     *
+     * Uses ItemQueryBuilder to create an INFO-type Query targeting the
+     * specified Plant.
+     */
+    Query *describe(Plant *item);
 
-        /**
-         * @brief Creates a Query requesting care routine for a specific Plant
-         * @param item Pointer to the Plant to get care info for (non-owning)
-         * @return Newly allocated Query object (caller takes ownership)
-         *
-         * Uses ItemQueryBuilder to create a CARE ROUTINE-type Query targeting
-         * the specified Plant.
-         */
-        Query* careRoutine(Plant* item);
+    /**
+     * @brief Creates a Query requesting care routine for a specific Plant
+     * @param item Pointer to the Plant to get care info for (non-owning)
+     * @return Newly allocated Query object (caller takes ownership)
+     *
+     * Uses ItemQueryBuilder to create a CARE ROUTINE-type Query targeting
+     * the specified Plant.
+     */
+    Query *careRoutine(Plant *item);
 };
 
 #endif // !ASKQUERY_H

@@ -3,10 +3,11 @@
 
 #include <string>
 
-class PaymentStrategy {
-public:
+class PaymentStrategy
+{
+  public:
     virtual ~PaymentStrategy() {}
-    virtual void pay(double amount, const std::string& orderNum) const = 0;
+    virtual void pay(double amount, const std::string &orderNum) const = 0;
     virtual std::string getName() const = 0;
 };
 

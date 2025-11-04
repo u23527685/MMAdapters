@@ -5,9 +5,10 @@
 
 class PlantLifeCycle;
 
-class LifeCycleObserver{
-    public:
-    virtual void update(PlantLifeCycle* p);
+class LifeCycleObserver
+{
+  public:
+    virtual void update(PlantLifeCycle *p);
     virtual ~LifeCycleObserver() = default;
 };
 

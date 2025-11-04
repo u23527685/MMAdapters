@@ -4,12 +4,14 @@
 #include "PaymentStrategy.h"
 #include <iostream>
 
-class CreditCardPaymentStrategy : public PaymentStrategy {
-private:
+class CreditCardPaymentStrategy : public PaymentStrategy
+{
+  private:
     std::string cardNumber;
-public:
-    CreditCardPaymentStrategy(const std::string& cardNumber);
-    void pay(double amount, const std::string& orderNum) const override;
+
+  public:
+    CreditCardPaymentStrategy(const std::string &cardNumber);
+    void pay(double amount, const std::string &orderNum) const override;
     std::string getName() const override;
 };
 

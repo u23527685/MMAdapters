@@ -3,11 +3,12 @@
 
 #include "PlantDecorator.h"
 
-class SpecialArrangement : public PlantDecorator {
-public:
-    SpecialArrangement(Plant* plant);
+class SpecialArrangement : public PlantDecorator
+{
+  public:
+    SpecialArrangement(Plant *plant);
     std::string getDescription() const override;
     double getPrice() const override;
 };
 
-#endif 
+#endif

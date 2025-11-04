@@ -6,20 +6,23 @@
 #include <stdexcept>
 #include <string>
 
+class InventoryProxy
+{
+    PlantInventory *inventory;
+    SalesFloorObserver *salesObserver;
 
-class InventoryProxy {
-    PlantInventory* inventory;
-    SalesFloorObserver* salesObserver;
-public:
-    InventoryProxy(SalesFloorObserver* observer);
+  public:
+    InventoryProxy(SalesFloorObserver *observer);
 
-    bool buyPlant(Plant* plant, int quantity);
+    bool buyPlant(Plant *plant, int quantity);
 
-    void addStock(Plant* plant, int quantity);
-    void removeStock(Plant*, int);
+    void addStock(Plant *plant, int quantity);
+    void removeStock(Plant *, int);
 
-    void displayAvailablePlants() const {
-        if (salesObserver) salesObserver->displayAvailablePlants();
+    void displayAvailablePlants() const
+    {
+        if (salesObserver)
+            salesObserver->displayAvailablePlants();
     }
 };
 

@@ -26,14 +26,12 @@
 //     std::cout << "Initial inventory:\n";
 //     proxy.displayAvailablePlants();
 
-
 //     Customer customer("Alice");
 //     customer.buyPlant(proxy, lavender, 10);
 
 //     salesFloor->update();
 //     std::cout << "Inventory after purchase:\n";
 //     proxy.displayAvailablePlants();
-
 
 //     proxy.addStock(lavender, 5);
 

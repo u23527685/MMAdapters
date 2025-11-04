@@ -1,25 +1,26 @@
 #ifndef CUSTOMER_H
 #define CUSTOMER_H
 
+#include "Order.h"
+#include "Query.h"
+#include "Staff.h"
 #include <string>
 #include <vector>
-#include "Order.h"
-#include "Staff.h"
-#include "Query.h"
 
-class Customer {
-private:
+class Customer
+{
+  private:
     std::string name;
-    std::vector<Order> orders; 
+    std::vector<Order> orders;
 
-public:
+  public:
     Customer();
-    explicit Customer(const std::string& customerName);
+    explicit Customer(const std::string &customerName);
     std::string getName() const;
-    void setName(const std::string& customerName);
-    void placeOrder(const Order& order);
+    void setName(const std::string &customerName);
+    void placeOrder(const Order &order);
     void viewOrders() const;
-    void makeQuery(Staff& staff, Query* queryMessage) const;
+    void makeQuery(Staff &staff, Query *queryMessage) const;
 };
 
 #endif

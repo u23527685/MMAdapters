@@ -3,9 +3,10 @@
 
 #include "PlantDecorator.h"
 
-class GiftWrap : public PlantDecorator {
-public:
-    GiftWrap(Plant* plant);
+class GiftWrap : public PlantDecorator
+{
+  public:
+    GiftWrap(Plant *plant);
     std::string getDescription() const override;
     double getPrice() const override;
 };
