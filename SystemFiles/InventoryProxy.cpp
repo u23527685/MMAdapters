@@ -20,3 +20,9 @@ void InventoryProxy::addStock(Plant* plant, int quantity) {
 void InventoryProxy::removeStock(Plant*, int) {
     std::cout << "Exception: Access denied: Customers cannot remove stock directly." << std::endl;
 }
+
+void InventoryProxy::displayAvailablePlants() const {
+    if (salesObserver) {
+        salesObserver->displayAvailablePlants();
+    }
+}

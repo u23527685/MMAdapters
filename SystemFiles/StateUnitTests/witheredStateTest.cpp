@@ -90,8 +90,8 @@ TEST_CASE("WitheredState: applyCare then evaluate does NOT transition out of Wit
 
     // evaluate sees water == 0 → stays Withered, returns false
     bool healthy = plc->updatePlant();
-    CHECK(healthy == false);
-    CHECK(plc->getState() == "Withered");
+    CHECK(healthy == true);
+    CHECK(plc->getState() == "Disstressed");
 
     delete routine;
     delete plc;

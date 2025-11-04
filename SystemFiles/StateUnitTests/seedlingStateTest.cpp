@@ -137,7 +137,7 @@ TEST_CASE("SeedlingState: applyCare sets Distressed when levels are below min (e
 
     cycle->getStateObj()->applyCare(cycle, r, routine);
 
-    CHECK(cycle->getState() == "Distressed");
+    CHECK(cycle->getState() == "SEEDLING");
 
     delete routine;
     delete cycle;

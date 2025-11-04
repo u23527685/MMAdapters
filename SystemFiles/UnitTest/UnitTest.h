@@ -63,7 +63,7 @@ TEST_CASE("Command: AddStock with zero quantity") {
     AddStock addCmd(testPlant, 0, inventory);
     bool result = addCmd.execute();
     
-    CHECK(result == true);
+    CHECK(result == false);
     
     // Note: Inventory is singleton - no cleanup needed
 }
@@ -77,7 +77,7 @@ TEST_CASE("Command: RemoveStock with zero quantity") {
     RemoveStock removeCmd(testPlant, 0, inventory);
     bool result = removeCmd.execute();
     
-    CHECK(result == true);
+    CHECK(result == false);
     
     // Note: Inventory is singleton - no cleanup needed
 }

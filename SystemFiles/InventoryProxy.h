@@ -59,10 +59,10 @@ public:
     void removeStock(Plant*, int);
 
     /**
-     * @brief Displays available plants in inventory
-     * @return void
+     *  @brief Displays available plants in inventory
+     *  @return void
      * @author Cobus
-     */
+    */
     void displayAvailablePlants() const;
 };
 
