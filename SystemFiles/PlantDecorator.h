@@ -26,7 +26,6 @@ class PlantDecorator : public Plant
      * @return None (constructor)
      */
     PlantDecorator(Plant *plant);
-    PlantDecorator(Plant *plant);
 
     /**
      * @brief Virtual destructor for PlantDecorator
@@ -47,7 +46,4 @@ class PlantDecorator : public Plant
     virtual double getPrice() const override;
 };
 
-<<<<<<< HEAD
-#endif
-=======
 #endif
